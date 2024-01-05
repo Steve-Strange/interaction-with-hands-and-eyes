@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 3b6145470be412b43a33a703e39347c2
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - PICO Sans SC
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c045bc9e11196314b88ed6115ac26042, type: 3}
+  - {fileID: 12800000, guid: 25a377d7ebab7a64db409a8423791c74, type: 3}
+  - {fileID: 12800000, guid: a5c81f3c1b3cf9241ba6d66c2d99c56e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
