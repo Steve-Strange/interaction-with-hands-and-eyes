@@ -33,16 +33,16 @@ MonoBehaviour:
     index:
       handFinger: 1
       flexion: 2
-      curl: 2
-      abduction: 0
+      curl: 1
+      abduction: 1
       fingerConfigs:
         flexionConfigs:
           min: 90
           max: 126
           width: 10
         curlConfigs:
-          min: 0
-          max: 73
+          min: 107
+          max: 180
           width: 20
         abductionConfigs:
           mid: 10
