@@ -8,6 +8,8 @@ public class EyeTracking : MonoBehaviour
     public TMP_InputField inputField;
     public GameObject head;
 
+    public GameObject head2;
+
 
     void Start()
     {
@@ -19,10 +21,6 @@ public class EyeTracking : MonoBehaviour
         // Initialize eye tracking.
         PXR_MotionTracking.WantEyeTrackingService();
         InitializeEyeTracking();
-
-        lineRenderer.transform.parent = head.transform;
-        lineRenderer.transform.localPosition = Vector3.zero;
-        lineRenderer.transform.localRotation = Quaternion.identity;
     }
 
     void Update()
@@ -61,19 +59,24 @@ public class EyeTracking : MonoBehaviour
 
             inputField.text += eyeTrackingData.eyeDatas[2].pose.Orientation.ToQuat().ToString() + "\n";
 
-            if (eyeTrackingData.eyeDatas[2].openness > 0.1f) // Adjust openness threshold as needed
+
+            if (eyeTrackingData.eyeDatas[0].openness > 0.1f && eyeTrackingData.eyeDatas[0].openness > 0.1f) // Adjust openness threshold as needed
             {
                 inputField.text += "open" + "\n";
                 Vector3 origin = eyeTrackingData.eyeDatas[2].pose.Position.ToVector3();
                 Vector3 direction = eyeTrackingData.eyeDatas[2].pose.Orientation.ToQuat() * Vector3.forward;
 
+                gameObject.transform.position = origin + direction * 5;
+
+                inputField.text += origin + "\n";
+                inputField.text += direction + "\n";
+
                 // Draw the ray from eyes
                 lineRenderer.enabled = true;
-                lineRenderer.transform.parent = head.transform;
-                lineRenderer.startWidth = 0.01f;
-                lineRenderer.endWidth = 0.01f;
+                lineRenderer.startWidth = 0.001f;
+                lineRenderer.endWidth = 0.001f;
                 lineRenderer.SetPosition(0, origin);
-                lineRenderer.SetPosition(1, origin + direction * 10); // Modify the length of the ray as needed
+                lineRenderer.SetPosition(1, origin + direction * 5); // Modify the length of the ray as needed
             }
             else
             {
