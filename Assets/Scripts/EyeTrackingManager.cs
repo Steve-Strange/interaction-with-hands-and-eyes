@@ -73,39 +73,17 @@ public class EyeTrackingManager : MonoBehaviour
             Greenpoint.gameObject.SetActive(true);
             Greenpoint.position = hitinfo.point;
 
-            // buffer.Enqueue(hitinfo.point);
-
-            // if (buffer.Count > maxBufferSize)
-            // {
-            //     buffer.Dequeue();
-            // }
-
-            // if(leftEyeOpenness < 0.1f && rightEyeOpenness < 0.1f)
-            // {
-            //     int i = 0;
-            //     int sum = 0;
-            //     blinkPosition = new Vector3(0,0,0);
-
-            //     foreach (Vector3 point in buffer)
-            //     {
-            //         i++;
-            //         blinkPosition += point * Mathf.Min(i, maxBufferSize + 1 - i);
-            //         sum += Mathf.Min(i, maxBufferSize + 1 - i);
-            //     }
-
-            //     blinkPosition /= sum;
-            //     Greenpoint.position = blinkPosition;
-            // }
-
             Log.text = hitinfo.transform.name;
             Log.text += hitinfo.point;
 
-            HighlightObjectsInCone(origin, vector);
-
+            if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
+                SelectObjectInCone(origin, vector);
+            }
+            
         }
     }
 
-    void HighlightObjectsInCone(Vector3 origin, Vector3 direction)
+    void SelectObjectInCone(Vector3 origin, Vector3 direction)
     {
         // 清除先前的高亮
         foreach (var obj in selectedObjects)
