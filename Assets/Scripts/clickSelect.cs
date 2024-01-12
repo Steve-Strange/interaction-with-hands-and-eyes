@@ -36,6 +36,9 @@ public class clickSelect : MonoBehaviour
     public GameObject temp3;
     public GameObject temp4;
     public TMP_Text T;
+    public TMP_Text T2;
+    public TMP_Text T3;
+    public TMP_Text T4;
     private LineRenderer[] lines;//线的定义
     private float angle;
     private float angle1;
@@ -51,11 +54,15 @@ public class clickSelect : MonoBehaviour
     void Start()
     {
         lines = new LineRenderer[5];//添加组件
-        InvokeRepeating("RepeatedMethod", 1f, 0.3f);
+        InvokeRepeating("RepeatedMethod", 1f, 0.4f);
     }
     private void RepeatedMethod()
     {
-        angleLast1 = culculate(index1, index2, index3);
+        float d = culculate(index1, index2, index3);
+        if(d>0.7 || d <-0.7){
+           
+        } angleLast1 = d;
+            T2.text  = angleLast1.ToString();
     }
     private float culculate(GameObject one,GameObject two,GameObject three)//计算夹角
     {
@@ -87,7 +94,10 @@ public class clickSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //手指沿手指关节发出射线，指尖和第一个指节
-        if (angleLast1 - culculate(index1, index2, index3) > 0.2)
+        T4.text = angleLast1.ToString();
+        T3.text = (angleLast1-culculate(index1, index2, index3)).ToString();
+        float d = culculate(index1, index2, index3);
+        if (angleLast1 - d > 0.2 || angleLast1 - d<-0.2)
         {
             T.text = "Yes";
             Load_Scripts<Outline>(test);
@@ -96,63 +106,63 @@ public class clickSelect : MonoBehaviour
         { T.text = "No";
             Unload_Scripts<Outline>(test);
         }
-        Ray ray0 = new Ray(thumb0.transform.position, thumb0.transform.position - thumb1.transform.position);
-        Ray ray1 = new Ray(index0.transform.position, index0.transform.position - index1.transform.position);
-        Ray ray2 = new Ray(middle0.transform.position, middle0.transform.position - middle1.transform.position);
-        Ray ray3 = new Ray(ring0.transform.position, ring0.transform.position - ring1.transform.position);
-        Ray ray4 = new Ray(little0.transform.position, little0.transform.position - little1.transform.position);
-       
-        LineRenderer line = temp.GetComponent<LineRenderer>();
-        LineRenderer line1 = temp1.GetComponent<LineRenderer>();
-        LineRenderer line2 = temp2.GetComponent<LineRenderer>();
-        LineRenderer line3 = temp3.GetComponent<LineRenderer>();
-        LineRenderer line4 = temp4.GetComponent<LineRenderer>();
+        /* Ray ray0 = new Ray(thumb0.transform.position, thumb0.transform.position - thumb1.transform.position);
+         Ray ray1 = new Ray(index0.transform.position, index0.transform.position - index1.transform.position);
+         Ray ray2 = new Ray(middle0.transform.position, middle0.transform.position - middle1.transform.position);
+         Ray ray3 = new Ray(ring0.transform.position, ring0.transform.position - ring1.transform.position);
+         Ray ray4 = new Ray(little0.transform.position, little0.transform.position - little1.transform.position);
 
-        if (Physics.Raycast(ray0, out thumb)){
-            line.positionCount = 2;
-            line.enabled = true;
-            line.startWidth = (float)0.003;
-            line.endWidth = (float)0.003;
-            line.SetPosition(0, thumb0.transform.position);
-            line.SetPosition(1, thumb.transform.position);
-        }else
-        {
-            line = temp.GetComponent<LineRenderer>();
-            line.enabled = true;
-            line.positionCount = 2;
-            line.startWidth=(float)0.003;
-            line.endWidth = (float)0.003;
-            line.SetPosition(0, thumb0.transform.position);
-            line.SetPosition(1, thumb0.transform.position + (thumb0.transform.position - thumb1.transform.position) * 100000);
-        }
-        if (Physics.Raycast(ray1, out index)){
-            line1.positionCount = 2;
-            line1.enabled = true;
-            line1.startWidth = (float)0.003;
-            line1.endWidth = (float)0.003;
-            line1.SetPosition(0, index0.transform.position);
-            line1.SetPosition(1, index.transform.position);
-        }
-        else{
-            line1 = temp1.GetComponent<LineRenderer>();
-            line1.enabled = true;
-            line1.positionCount = 2;
-            line1.startWidth = (float)0.01;
-            line1.endWidth = (float)0.01;
-            line1.SetPosition(0, index0.transform.position);
-            line1.SetPosition(1, index0.transform.position + (index0.transform.position - index1.transform.position) * 100000);
-        }
-        if (Physics.Raycast(ray2, out middle)){
-            Debug.Log(middle.collider.gameObject.name);
-        }
-        if (Physics.Raycast(ray3, out ring)){
-            Debug.Log(ring.collider.gameObject.name);
-        }
-        if (Physics.Raycast(ray4, out little)){
-            Debug.Log(little.collider.gameObject.name);
-        }
+         LineRenderer line = temp.GetComponent<LineRenderer>();
+         LineRenderer line1 = temp1.GetComponent<LineRenderer>();
+         LineRenderer line2 = temp2.GetComponent<LineRenderer>();
+         LineRenderer line3 = temp3.GetComponent<LineRenderer>();
+         LineRenderer line4 = temp4.GetComponent<LineRenderer>();
 
-    
+         if (Physics.Raycast(ray0, out thumb)){
+             line.positionCount = 2;
+             line.enabled = true;
+             line.startWidth = (float)0.003;
+             line.endWidth = (float)0.003;
+             line.SetPosition(0, thumb0.transform.position);
+             line.SetPosition(1, thumb.transform.position);
+         }else
+         {
+             line = temp.GetComponent<LineRenderer>();
+             line.enabled = true;
+             line.positionCount = 2;
+             line.startWidth=(float)0.003;
+             line.endWidth = (float)0.003;
+             line.SetPosition(0, thumb0.transform.position);
+             line.SetPosition(1, thumb0.transform.position + (thumb0.transform.position - thumb1.transform.position) * 100000);
+         }
+         if (Physics.Raycast(ray1, out index)){
+             line1.positionCount = 2;
+             line1.enabled = true;
+             line1.startWidth = (float)0.003;
+             line1.endWidth = (float)0.003;
+             line1.SetPosition(0, index0.transform.position);
+             line1.SetPosition(1, index.transform.position);
+         }
+         else{
+             line1 = temp1.GetComponent<LineRenderer>();
+             line1.enabled = true;
+             line1.positionCount = 2;
+             line1.startWidth = (float)0.01;
+             line1.endWidth = (float)0.01;
+             line1.SetPosition(0, index0.transform.position);
+             line1.SetPosition(1, index0.transform.position + (index0.transform.position - index1.transform.position) * 100000);
+         }
+         if (Physics.Raycast(ray2, out middle)){
+             Debug.Log(middle.collider.gameObject.name);
+         }
+         if (Physics.Raycast(ray3, out ring)){
+             Debug.Log(ring.collider.gameObject.name);
+         }
+         if (Physics.Raycast(ray4, out little)){
+             Debug.Log(little.collider.gameObject.name);
+         }*/
+
+
 
     }
 }
