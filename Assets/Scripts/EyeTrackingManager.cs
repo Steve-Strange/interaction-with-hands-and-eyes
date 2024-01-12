@@ -143,8 +143,8 @@ public class EyeTrackingManager : MonoBehaviour
         originalMaterials.Clear(); // 清空原始材质字典
 
         // 发射多条射线以模拟圆锥
-        int maxRayCount = 3600; // 射线数量，可以根据需要调整
-        float maxDistance = 100f; // 射线的最大距离，可以根据需要调整
+        int maxRayCount = 7200;
+        float maxDistance = 100f;
         for (int i = 0; i < maxRayCount; i++)
         {
 
@@ -154,7 +154,7 @@ public class EyeTrackingManager : MonoBehaviour
             Vector3 rotatedVector = rotation * perpendicular;
 
             // 在圆锥内随机方向
-            Vector3 randomDirection = direction.normalized + rotatedVector.normalized * Random.Range(0f, Mathf.Tan(coneAngle * Mathf.Deg2Rad));
+            Vector3 randomDirection = direction.normalized + rotatedVector.normalized * Mathf.Tan(coneAngle * Mathf.Deg2Rad) * (i/360)/(maxRayCount/360);
             RaycastHit[] hits = Physics.RaycastAll(origin, randomDirection.normalized, maxDistance);
             foreach (RaycastHit hit in hits)
             {
