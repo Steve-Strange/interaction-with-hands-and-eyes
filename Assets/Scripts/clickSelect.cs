@@ -51,7 +51,7 @@ public class clickSelect : MonoBehaviour
     void Start()
     {
         lines = new LineRenderer[5];//Ìí¼Ó×é¼þ
-        InvokeRepeating("RepeatedMethod", 1f, 0.5f);
+        InvokeRepeating("RepeatedMethod", 1f, 0.3f);
     }
     private void RepeatedMethod()
     {

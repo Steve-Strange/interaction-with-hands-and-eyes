@@ -8,20 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/PicoHandPoseRecognizer/Samples/Scenes/HandPoseExample.unity
     guid: f99b82f993a8fa74d9be12cc7be5c766
-<<<<<<< Updated upstream
-  - enabled: 0
-    path: Assets/Scenes/DemoScene.unity
-=======
   - enabled: 1
-    path: Assets/DemoScene.unity
->>>>>>> Stashed changes
+    path: Assets/Scenes/ClickSelect.unity
     guid: 539a41f65412bda45bf6933d4a9be762
   - enabled: 0
-    path: Assets/Scenes/EyeTrackingDemo.unity
-    guid: c9b24f3494e9fd040be9511325b715cf
-  - enabled: 1
-    path: Assets/Scenes/EyeTracking.unity
-    guid: 4a74c8f6449c9d24e87c16cc3ef7412c
+    path: Assets/Scenes/BasicEyeTrackingScene.unity
+    guid: e9612cc8d8783fd4d8e58b5d7fc0adff
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 911a72a2498320e458cf8cf731a00095, type: 2}
