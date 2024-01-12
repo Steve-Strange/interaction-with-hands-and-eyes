@@ -27,12 +27,12 @@ public class EyeTrackingManager : MonoBehaviour
     private RaycastHit hitinfo;
 
     private float coneAngle = 10f; // 圆锥的角度
-    public Material highlightMaterial; // 高亮物体时使用的材质
-    public Material originalMaterial; // 原始材质
-    private List<Renderer> highlightedObjects = new List<Renderer>(); // 存储当前被高亮的物体
+    public Material highlightMaterial;
+    public List<GameObject> selectedObjects = new List<GameObject>(); // 存储当前被高亮的物体
 
-    private Dictionary<Renderer, Material> originalMaterials = new Dictionary<Renderer, Material>();
+    private Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
 
+    public GameObject HandPoseManager;
 
     // private Queue<Vector3> buffer = new Queue<Vector3>();
     // private int maxBufferSize = 20; // 队列的最大大小
@@ -43,7 +43,7 @@ public class EyeTrackingManager : MonoBehaviour
         combineEyeGazeVector = Vector3.zero;
         combineEyeGazeOrigin = Vector3.zero;
         originPoseMatrix = Origin.localToWorldMatrix;
-
+        HandPoseManager = GameObject.Find("HandPoseManager");
     }
 
     void Update()
@@ -102,44 +102,20 @@ public class EyeTrackingManager : MonoBehaviour
 
             HighlightObjectsInCone(origin, vector);
 
-            if (selectedObj != null && selectedObj != hitinfo.transform)
-            {
-                if(selectedObj.GetComponent<ETObject>()!=null)
-                    selectedObj.GetComponent<ETObject>().UnFocused();
-                selectedObj = null;
-            }
-            else if (selectedObj == null)
-            {
-                selectedObj = hitinfo.transform;
-                if (selectedObj.GetComponent<ETObject>() != null)
-                    selectedObj.GetComponent<ETObject>().IsFocused();
-            }
-
         }
-        else
-        {
-            if (selectedObj != null)
-            {
-               if (selectedObj.GetComponent<ETObject>() != null)
-                    selectedObj.GetComponent<ETObject>().UnFocused();
-                selectedObj = null;
-            }
-            Greenpoint.gameObject.SetActive(false);
-        }
-
     }
 
     void HighlightObjectsInCone(Vector3 origin, Vector3 direction)
     {
         // 清除先前的高亮
-        foreach (var renderer in highlightedObjects)
+        foreach (var obj in selectedObjects)
         {
-            if (renderer != null && originalMaterials.ContainsKey(renderer))
+            if (obj != null && originalMaterials.ContainsKey(obj))
             {
-                renderer.material = originalMaterials[renderer]; // 恢复原始材质
+                obj.GetComponent<Renderer>().material = originalMaterials[obj]; // 恢复原始材质
             }
         }
-        highlightedObjects.Clear();
+        selectedObjects.Clear();
         originalMaterials.Clear(); // 清空原始材质字典
 
         // 发射多条射线以模拟圆锥
@@ -160,17 +136,17 @@ public class EyeTrackingManager : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Target"))
                 {
-                    Renderer renderer = hit.collider.GetComponent<Renderer>();
-                    if (renderer != null && !highlightedObjects.Contains(renderer))
+                    GameObject hitIObj = hit.collider.gameObject;
+                    if (hitIObj != null && !selectedObjects.Contains(hitIObj))
                     {
                         // 在更改材质之前存储原始材质
-                        if (!originalMaterials.ContainsKey(renderer))
+                        if (!originalMaterials.ContainsKey(hitIObj))
                         {
-                            originalMaterials[renderer] = renderer.material;
+                            originalMaterials[hitIObj] = hitIObj.GetComponent<Renderer>().material;
                         }
 
-                        renderer.material = highlightMaterial;
-                        highlightedObjects.Add(renderer);
+                        hitIObj.GetComponent<Renderer>().material = highlightMaterial;
+                        selectedObjects.Add(hitIObj);
                     }
                 }
             }
