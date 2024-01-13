@@ -5,12 +5,13 @@ using UnityEngine.XR;
 using TMPro;
 
 public class EyeTrackingManager : MonoBehaviour
-{
+{   
     public Transform Origin;
     public GameObject Models;
     public Transform Greenpoint;
     public GameObject SpotLight;
-    public TMP_Text Log;
+
+    public TMP_InputField Log;
     
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;
@@ -72,9 +73,6 @@ public class EyeTrackingManager : MonoBehaviour
             Greenpoint.gameObject.SetActive(true);
             Greenpoint.position = hitinfo.point;
 
-            Log.text = hitinfo.transform.name;
-            Log.text += hitinfo.point;
-
             if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
                 SelectObjectInCone(origin, vector);
             }
@@ -96,19 +94,28 @@ public class EyeTrackingManager : MonoBehaviour
         originalMaterials.Clear(); // 清空原始材质字典
 
         // 发射多条射线以模拟圆锥
-        int maxRayCount = 3600;
-        float maxDistance = 100f;
+        int maxRayCount = 1200;
+        float maxDistance = 10f;
         for (int i = 0; i < maxRayCount; i++)
         {
-
             Vector3 perpendicular = Vector3.Cross(direction, Vector3.up);
 
-            Quaternion rotation = Quaternion.AngleAxis(i%180, direction);
+            Quaternion rotation = Quaternion.AngleAxis(i%120, direction);
             Vector3 rotatedVector = rotation * perpendicular;
 
             // 在圆锥内随机方向
-            Vector3 randomDirection = direction.normalized + rotatedVector.normalized * Mathf.Tan(coneAngle * Mathf.Deg2Rad) * (i/180)/(maxRayCount/180);
+            Vector3 randomDirection = direction.normalized + rotatedVector.normalized * Mathf.Tan(coneAngle * Mathf.Deg2Rad) * (i/120f)/(maxRayCount/120f);
             RaycastHit[] hits = Physics.RaycastAll(origin, randomDirection.normalized, maxDistance);
+
+            // float density = selectedObjects.Count / Mathf.Sqrt(Mathf.Tan(coneAngle * Mathf.Deg2Rad) * (i/120f)/(maxRayCount/120f));
+            
+            // Log.text = "";
+            // Log.text += "randomDirection: " + randomDirection.ToString() + '\n';
+            // Log.text += "density: " + density.ToString() + '\n';
+            // Log.text += "Count: " + selectedObjects.Count.ToString() + '\n';
+            // Log.text += "size: " + ((i/120f)/(maxRayCount/120f)).ToString() + '\n';
+
+            
             foreach (RaycastHit hit in hits)
             {
                 if (hit.transform.CompareTag("Target"))
