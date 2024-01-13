@@ -1180,6 +1180,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386241516}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &412327870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4369783658439474833, guid: 6abc76b40b133154a91d14528cc20ba5, type: 3}
+  m_PrefabInstance: {fileID: 1094045187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &434074013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1425,23 +1430,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4263557651433456440, guid: ac468c952287c054baea7700a1f03bc8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263557651433456440, guid: ac468c952287c054baea7700a1f03bc8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263557651433456440, guid: ac468c952287c054baea7700a1f03bc8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 252
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263557651433456440, guid: ac468c952287c054baea7700a1f03bc8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 126
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263557651433456440, guid: ac468c952287c054baea7700a1f03bc8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4384868935523553701, guid: ac468c952287c054baea7700a1f03bc8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5395,6 +5400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302a9f8da144c0448a84bf010d3c538a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 412327870}
   thumb0: {fileID: 1094045199}
   thumb1: {fileID: 1094045198}
   thumb2: {fileID: 1535424803}
@@ -5403,6 +5409,7 @@ MonoBehaviour:
   index1: {fileID: 2136923737}
   index2: {fileID: 733076708}
   index3: {fileID: 1603992194}
+  index4: {fileID: 1603992194}
   middle0: {fileID: 1094045195}
   middle1: {fileID: 1042598960}
   middle2: {fileID: 605688527}
