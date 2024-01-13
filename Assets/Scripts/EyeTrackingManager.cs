@@ -7,7 +7,6 @@ using TMPro;
 public class EyeTrackingManager : MonoBehaviour
 {
     public Transform Origin;
-    public GameObject EyeCoordinates;
     public GameObject Models;
     public Transform Greenpoint;
     public GameObject SpotLight;
@@ -30,7 +29,7 @@ public class EyeTrackingManager : MonoBehaviour
     public Material highlightMaterial;
     public List<GameObject> selectedObjects = new List<GameObject>(); // 存储当前被高亮的物体
 
-    private Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
+    public Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
 
     public GameObject HandPoseManager;
 
@@ -97,18 +96,18 @@ public class EyeTrackingManager : MonoBehaviour
         originalMaterials.Clear(); // 清空原始材质字典
 
         // 发射多条射线以模拟圆锥
-        int maxRayCount = 7200;
+        int maxRayCount = 3600;
         float maxDistance = 100f;
         for (int i = 0; i < maxRayCount; i++)
         {
 
             Vector3 perpendicular = Vector3.Cross(direction, Vector3.up);
 
-            Quaternion rotation = Quaternion.AngleAxis(i%360, direction);
+            Quaternion rotation = Quaternion.AngleAxis(i%180, direction);
             Vector3 rotatedVector = rotation * perpendicular;
 
             // 在圆锥内随机方向
-            Vector3 randomDirection = direction.normalized + rotatedVector.normalized * Mathf.Tan(coneAngle * Mathf.Deg2Rad) * (i/360)/(maxRayCount/360);
+            Vector3 randomDirection = direction.normalized + rotatedVector.normalized * Mathf.Tan(coneAngle * Mathf.Deg2Rad) * (i/180)/(maxRayCount/180);
             RaycastHit[] hits = Physics.RaycastAll(origin, randomDirection.normalized, maxDistance);
             foreach (RaycastHit hit in hits)
             {
