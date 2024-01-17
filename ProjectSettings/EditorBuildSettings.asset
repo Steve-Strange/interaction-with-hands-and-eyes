@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/EyeTracking.unity
     guid: 4a74c8f6449c9d24e87c16cc3ef7412c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestRank.unity
     guid: c05863bec1ae96f4289d4d1f7d9d6582
   m_configObjects:

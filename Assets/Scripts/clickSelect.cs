@@ -34,15 +34,15 @@ public class clickSelect : MonoBehaviour
     public RaycastHit middle;
     public RaycastHit ring;
     public RaycastHit little;
-    public GameObject temp;
-    public GameObject temp1;
-    public GameObject temp2;
-    public GameObject temp3;
-    public GameObject temp4;
-    public TMP_Text T;
-    public TMP_Text T2;
-    public TMP_Text T3;
-    public TMP_Text T4;
+    private GameObject temp;
+    private GameObject temp1;
+    private GameObject temp2;
+    private GameObject temp3;
+    private GameObject temp4;
+    private TMP_Text T;
+    private TMP_Text T2;
+    private TMP_Text T3;
+    private TMP_Text T4;
     private LineRenderer[] lines;//线的定义
     private float angle;
     private float angle1;
@@ -113,7 +113,7 @@ public class clickSelect : MonoBehaviour
             GameObject.Destroy(target.GetComponent<Outline>() as Object);
         }
     }
-    public GameObject test;
+   // public GameObject test;
     int mark = 0;
     // Update is called once per frame
     void Update()
@@ -126,18 +126,18 @@ public class clickSelect : MonoBehaviour
         Vector3 v = thumb1.transform.position - thumb2.transform.position;
         //float d = Vector3.Dot(v, hand.transform.up) / (v.magnitude * hand.transform.up.magnitude);
         float d=culculate(thumb1, thumb2, thumb3);
-         T.text = (d - angleLast).ToString();
+        // T.text = (d - angleLast).ToString();
         //float d = (thumb0.transform.position - little2.transform.position).magnitude;
         //T2.text = d.ToString();
        // T3.text = hand.transform.up.y.ToString();
         //T4.text = hand.transform.up.z.ToString();
         if (d-angleLast>0.07)
         {
-        T4.text = "yes";
+        //T4.text = "yes";
         }
         else
         {
-           T4.text = "no";
+       //    T4.text = "no";
         }
         
         /* float d1 = culculate(index1, index2, index3);
