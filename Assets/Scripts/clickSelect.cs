@@ -7,6 +7,8 @@ using static UnityEngine.ParticleSystem;
 
 public class clickSelect : MonoBehaviour
 {
+    public GameObject handPoseManager;
+    private GameObject[] backup;
     public GameObject hand;
     public GameObject thumb0;
     public GameObject thumb1;
@@ -50,26 +52,35 @@ public class clickSelect : MonoBehaviour
     private float angle3;
     private float angle4;
     private float angleLast;
-    private float angleLast1=1;
+    private float angleLast1 = 1;
     private float angleLast2;
     private float angleLast3;
     private float angleLast4;
     private Vector3 vLast;
+    public GameObject[] final;
     // Start is called before the first frame update
+    bool  find(GameObject o)
+    {
+        int i;
+        for(i=0; i<final.Length;i++){
+        if(final[i].name == o.name)
+         return false;
+        }
+        return true;
+
+    }
     void Start()
     {
         lines = new LineRenderer[5];//添加组件
         InvokeRepeating("RepeatedMethod", 1f, 0.4f);
+        backup = handPoseManager.GetComponent<HandPoseManager>().back;
     }
     private void RepeatedMethod()
     {
-       // float d = culculate(index2, thumb2, thumb1);
-        Vector3 v = thumb2.transform.position - thumb3.transform.position;
-        // float d = Vector3.Dot(v, hand.transform.up) / (v.magnitude * hand.transform.up.magnitude);
-        //float d = (thumb0.transform.position - little2.transform.position).magnitude;
+
         float d = culculate(thumb1, thumb2, thumb3);
         angleLast = d;
-        //T2.text  = angleLast1.ToString();
+     
         Vector3 v1 = thumb2.transform.position - thumb3.transform.position;
         Vector3 v2 = index2.transform.position - thumb3.transform.position;
         vLast = new Vector3(v1.y * v2.z - v2.y * v1.z, v2.x * v1.z - v1.x * v2.z, (v1.x * v2.y - v2.x * v1.y));
@@ -113,18 +124,10 @@ public class clickSelect : MonoBehaviour
             GameObject.Destroy(target.GetComponent<Outline>() as Object);
         }
     }
-   // public GameObject test;
-    int mark = 0;
     // Update is called once per frame
     void Update()
     {   //手指沿手指关节发出射线，指尖和第一个指节
-        //
-        //T3.text = (angleLast1-culculate(index1, index2, index3)).ToString();
-        Vector3 v1 = thumb2.transform.position - thumb3.transform.position;
-        Vector3 v2 = index2.transform.position - thumb3.transform.position;
-        //Vector3 v = new Vector3(v1.y * v2.z - v2.y * v1.z, v2.x * v1.z - v1.x * v2.z, (v1.x * v2.y - v2.x * v1.y));
-        Vector3 v = thumb1.transform.position - thumb2.transform.position;
-        //float d = Vector3.Dot(v, hand.transform.up) / (v.magnitude * hand.transform.up.magnitude);
+ 
         float d=culculate(thumb1, thumb2, thumb3);
         // T.text = (d - angleLast).ToString();
         //float d = (thumb0.transform.position - little2.transform.position).magnitude;
@@ -133,58 +136,57 @@ public class clickSelect : MonoBehaviour
         //T4.text = hand.transform.up.z.ToString();
         if (d-angleLast>0.07)
         {
-        //T4.text = "yes";
+            //不能重复选
+            if(!find(backup[4]))
+            {
+                final[final.Length] = backup[4];
+                backup[4].GetComponent<Renderer>().material.color = Color.blue;
+            }
         }
-        else
-        {
-       //    T4.text = "no";
-        }
+
         
-        /* float d1 = culculate(index1, index2, index3);
+       float d1 = culculate(index1, index2, index3);
         if (angleLast1 - d1 > 0.2 || angleLast1 - d1<-0.2)
         {
-            T.text = "Yes";
-            Load_Scripts<Outline>(test);
+            if (!find(backup[3]))
+            {
+                final[final.Length] = backup[3];
+                backup[3].GetComponent<Renderer>().material.color = Color.blue;
+            }
         }
-        else
-        { T.text = "No";
-            Unload_Scripts<Outline>(test);
-        }
+    
         
-       float d2 = culculate(middle1, middle2, middle3);
+      float d2 = culculate(middle1, middle2, middle3);
         if (angleLast2 - d2 > 0.2 || angleLast2 - d2 < -0.2)
         {
-            T2.text = "Yes";
-            Load_Scripts<Outline>(test);
+            if (!find(backup[2]))
+            {
+                final[final.Length] = backup[2];
+                backup[2].GetComponent<Renderer>().material.color = Color.blue;
+            }
         }
-        else
-        {
-            T2.text = "No";
-            Unload_Scripts<Outline>(test);
-        }
+   
         float d3 = culculate(ring1, ring2, ring3);
         if (angleLast3 - d3 > 0.2 || angleLast3 - d3 < -0.2)
         {
-            T3.text = "Yes";
-            Load_Scripts<Outline>(test);
+            if (!find(backup[1]))
+            {
+                final[final.Length] = backup[1];
+                backup[1].GetComponent<Renderer>().material.color = Color.blue;
+            }
         }
-        else
-        {
-            T3.text = "No";
-            Unload_Scripts<Outline>(test);
-        }
+ 
         float d4 = culculate(little1, little2, little3);
         if (angleLast4 - d4 > 0.2 || angleLast4 - d4 < -0.2)
         {
-            T4.text = "Yes";
-            Load_Scripts<Outline>(test);
+            if (!find(backup[0]))
+            {
+                final[final.Length] = backup[0];
+                backup[0].GetComponent<Renderer>().material.color = Color.blue;
+            }
         }
-        else
-        {
-            T4.text = "No";
-            Unload_Scripts<Outline>(test);
-        }
-         Ray ray0 = new Ray(thumb0.transform.position, thumb0.transform.position - thumb1.transform.position);
+    
+          /*  Ray ray0 = new Ray(thumb0.transform.position, thumb0.transform.position - thumb1.transform.position);
          Ray ray1 = new Ray(index0.transform.position, index0.transform.position - index1.transform.position);
          Ray ray2 = new Ray(middle0.transform.position, middle0.transform.position - middle1.transform.position);
          Ray ray3 = new Ray(ring0.transform.position, ring0.transform.position - ring1.transform.position);

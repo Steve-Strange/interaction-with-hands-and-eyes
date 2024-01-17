@@ -14,7 +14,7 @@ public class HandPoseManager : MonoBehaviour
     private GameObject SightCone;
     public GameObject HandLeft;
     public GameObject SecondSelectionBG;
-
+    public GameObject[] back;
     private List<GameObject> selectedObjectsFixed = new List<GameObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
@@ -32,6 +32,7 @@ public class HandPoseManager : MonoBehaviour
 
     void Start()
     {
+        back = new GameObject[5];
         SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
     }
@@ -89,10 +90,11 @@ public class HandPoseManager : MonoBehaviour
         inputField.text +="currentRow: " + currentRow.ToString() + "\n";
         inputField.text +="rowNum: " + rowNum.ToString() + "\n";
 
-
+        int mark = 0;
         for(int i = 0; i < selectedObjectsFixed.Count; i++){
             if(i/5 == currentRow){
                 selectedObjectsFixed[i].GetComponent<Renderer>().material.color = Color.yellow;
+                back[mark++] = selectedObjectsFixed[i];
             }
             else{
                 selectedObjectsFixed[i].GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[selectedObjectsFixed[i]].color;
