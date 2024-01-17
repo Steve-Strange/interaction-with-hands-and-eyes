@@ -83,7 +83,7 @@ namespace Unity.XR.PXR
             InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.EyeTracking | InputDeviceCharacteristics.HeadMounted, devices);
             if (devices.Count == 0)
             {
-                Debug.LogError("PXRLog Failed at GetEyeTrackingDevice devices.Count");
+//                Debug.LogError("PXRLog Failed at GetEyeTrackingDevice devices.Count");
                 return false;
             }
             device = devices[0];
@@ -91,7 +91,7 @@ namespace Unity.XR.PXR
 
             if (!device.isValid)
             {
-                Debug.LogError("PXRLog Failed at GetEyeTrackingDevice device.isValid");
+//                Debug.LogError("PXRLog Failed at GetEyeTrackingDevice device.isValid");
             }
             return device.isValid;
         }

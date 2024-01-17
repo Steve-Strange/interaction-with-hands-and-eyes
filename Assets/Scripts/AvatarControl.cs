@@ -26,8 +26,8 @@ public class AvatarControl : MonoBehaviour
     void Update()
     {
         PXR_EyeTracking.GetLeftEyeGazeOpenness(out leftEyeOpenness);
-        Skin.SetBlendShapeWeight(leftEyeBlinkIndex, (1f-leftEyeOpenness) * 100);
+//        Skin.SetBlendShapeWeight(leftEyeBlinkIndex, (1f-leftEyeOpenness) * 100);
         PXR_EyeTracking.GetRightEyeGazeOpenness(out rightEyeOpenness);
-        Skin.SetBlendShapeWeight(rightEyeBlinkIndex, (1f-rightEyeOpenness) * 100);
+//        Skin.SetBlendShapeWeight(rightEyeBlinkIndex, (1f-rightEyeOpenness) * 100);
     }
 }

@@ -11,10 +11,10 @@ public class HandPoseManager : MonoBehaviour
 {
     public TMP_InputField inputField;
     public GameObject HandRightWrist;
+    private GameObject SightCone;
     public GameObject HandLeft;
     public GameObject SecondSelectionBG;
 
-    public GameObject EyeTrackingManager;
     private List<GameObject> selectedObjectsFixed = new List<GameObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
@@ -32,8 +32,8 @@ public class HandPoseManager : MonoBehaviour
 
     void Start()
     {
-        EyeTrackingManager = GameObject.Find("EyeTrackingManager");
         SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
+        SightCone = GameObject.Find("SightCone");
     }
 
     // Update is called once per frame
@@ -56,13 +56,13 @@ public class HandPoseManager : MonoBehaviour
 
         if(!SecondSelectionState){
             originalTransform.Clear();
-            selectedObjectsFixed = EyeTrackingManager.GetComponent<EyeTrackingManager>().selectedObjects;
+            selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
             int i = 0;
             SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
             foreach (var obj in selectedObjectsFixed)
             {
                 originalTransform[obj] = new TransformData(obj.transform.position, obj.transform.localScale);
-                obj.GetComponent<Renderer>().material.color = EyeTrackingManager.GetComponent<EyeTrackingManager>().originalMaterials[obj].color;
+                obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[obj].color;
                 obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 obj.transform.position = SecondSelectionBG.transform.position + new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + new Vector3(obj.transform.localScale.x * (2 * (i%5) + 1) , - obj.transform.localScale.y * (2 * (i/5) + 1), - 2 * obj.transform.localScale.z);
                 i++;
@@ -95,7 +95,7 @@ public class HandPoseManager : MonoBehaviour
                 selectedObjectsFixed[i].GetComponent<Renderer>().material.color = Color.yellow;
             }
             else{
-                selectedObjectsFixed[i].GetComponent<Renderer>().material.color = EyeTrackingManager.GetComponent<EyeTrackingManager>().originalMaterials[selectedObjectsFixed[i]].color;
+                selectedObjectsFixed[i].GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[selectedObjectsFixed[i]].color;
             }
         }
     }
@@ -113,11 +113,13 @@ public class HandPoseManager : MonoBehaviour
             {
                 obj.transform.position = transformData.Position;
                 obj.transform.localScale = transformData.Scale;
-                obj.GetComponent<Renderer>().material.color = EyeTrackingManager.GetComponent<EyeTrackingManager>().originalMaterials[obj].color;
+                obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[obj].color;
             }
         }
 
         selectedObjectsFixed.Clear();
+        SightCone.GetComponent<SightCone>().selectedObjects.Clear();
+        SightCone.transform.position = new Vector3(-10, -10, -100);
         SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
         delayTimer = 0.0f;
         SecondSelectionState = false;
