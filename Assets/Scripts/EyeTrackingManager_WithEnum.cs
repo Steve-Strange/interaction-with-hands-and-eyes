@@ -95,7 +95,6 @@ public class EyeTrackingManager_WithEnum : MonoBehaviour
 
                 // 分帧处理射线投射
 
-
                 while(i < maxRayCount)
                 {
                     Vector3 perpendicular = Vector3.Cross(direction, Vector3.up);
