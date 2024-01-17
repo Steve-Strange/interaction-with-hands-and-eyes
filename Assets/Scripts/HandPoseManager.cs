@@ -117,11 +117,11 @@ public class HandPoseManager : MonoBehaviour
             }
         }
 
-        selectedObjectsFixed.Clear();
-        SightCone.GetComponent<SightCone>().selectedObjects.Clear();
-        SightCone.transform.position = new Vector3(-10, -10, -100);
         SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
         delayTimer = 0.0f;
+        selectedObjectsFixed.Clear();
+        SightCone.GetComponent<SightCone>().selectedObjects.Clear();
+        SightCone.transform.localScale = new Vector3(SightCone.transform.localScale.x, SightCone.transform.localScale.y, 0);
         SecondSelectionState = false;
     }
 

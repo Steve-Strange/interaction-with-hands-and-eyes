@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ClickSelect.unity
     guid: 539a41f65412bda45bf6933d4a9be762
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EyeTracking.unity
     guid: 4a74c8f6449c9d24e87c16cc3ef7412c
+  - enabled: 1
+    path: Assets/Scenes/TestRank.unity
+    guid: c05863bec1ae96f4289d4d1f7d9d6582
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 911a72a2498320e458cf8cf731a00095, type: 2}
