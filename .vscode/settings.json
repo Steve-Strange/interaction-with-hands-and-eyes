@@ -52,5 +52,6 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "interaction-with-hands-and-eyes-main.sln"
+    "dotnet.defaultSolution": "interaction-with-hands-and-eyes-main.sln",
+    "commentTranslate.multiLineMerge": true
 }

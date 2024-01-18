@@ -426,7 +426,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90903625}
   m_LocalRotation: {x: -0.10590483, y: -0, z: -0, w: 0.9943763}
-  m_LocalPosition: {x: 0, y: 0, z: 6.43}
+  m_LocalPosition: {x: 0, y: 0, z: 7.727}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0.0009999999}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -439,7 +439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -12.159, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.37, y: 1.082}
+  m_AnchoredPosition: {x: -1.37, y: 1.365}
   m_SizeDelta: {x: 2560, y: 1440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90903627
@@ -6097,7 +6097,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898500079}
   m_LocalRotation: {x: -0.10590483, y: -0, z: -0, w: 0.9943763}
-  m_LocalPosition: {x: 0, y: 0, z: 6.43}
+  m_LocalPosition: {x: 0, y: 0, z: 7.727}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0.0009999999}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6112,7 +6112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -12.159, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.4020001, y: 1.082}
+  m_AnchoredPosition: {x: 1.4020001, y: 1.365}
   m_SizeDelta: {x: 2560, y: 1440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898500081
@@ -8688,6 +8688,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SightCone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4930f16c015848040a4f663ad05dc4a8, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7511558181221131132, guid: 4930f16c015848040a4f663ad05dc4a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4930f16c015848040a4f663ad05dc4a8, type: 3}
@@ -8748,7 +8752,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333802450}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -11797,11 +11801,14 @@ MonoBehaviour:
   Models: {fileID: 41487556}
   Greenpoint: {fileID: 1095397945}
   SpotLight: {fileID: 277583617}
-  Log: {fileID: 671891365}
+  Log: {fileID: 1603407368}
   combineEyeGazeVectorInWorldSpace: {x: 0, y: 0, z: 0}
   combineEyeGazeOriginInWorldSpace: {x: 0, y: 0, z: 0}
-  highlightMaterial: {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
   HandPoseManager: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: 700717ea22f7419488d7ace817adfa25, type: 2}
+  eyeSelectedObject: {fileID: 0}
+  originalMaterial: {fileID: 0}
+  blinkSelectedObject: {fileID: 0}
 --- !u!4 &1633216964
 Transform:
   m_ObjectHideFlags: 0
