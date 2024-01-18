@@ -19,20 +19,20 @@ public class WeightedObject
 
 public class SightCone : MonoBehaviour
 {
-    private float coneAngle = 20f; // 圆锥的角度
+    private float coneAngle = 21f; // 圆锥的角度
     public Material highlightMaterial;
     public List<GameObject> selectedObjects = new List<GameObject>(); // 存储当前被高亮的物体
     public Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
     private GameObject HandPoseManager;
     private GameObject EyeTrackingManager;
-    private float MaxDepth = 20f;
+    private float MaxDepth = 10f;
 
     public TMP_InputField Log;
     private bool reFocus = true;
     private Queue<Vector3> orientationQueue = new Queue<Vector3>();
     private int reFoucsTime = 20;
     private float reFoucsThreshold = 10f;
-    public List<WeightedObject> weightedObjects = new List<WeightedObject>();
+    List<WeightedObject> weightedObjects = new List<WeightedObject>();
 
     void Start(){
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
@@ -44,31 +44,33 @@ public class SightCone : MonoBehaviour
 
     void Update()
     {
-        // orientationQueue.Enqueue(EyeTrackingManager.GetComponent<EyeTrackingManager>().combineEyeGazeVectorInWorldSpace);
-        // if(orientationQueue.Count > reFoucsTime){
-        //     orientationQueue.Dequeue();
-        // }
-
-        // gameObject.GetComponent<Light>().spotAngle = coneAngle;
-        // float density = selectedObjects.Count / coneAngle;
-        // if(coneAngle <= 27f && selectedObjects.Count <= 25 && density <= 0.3){
-        //     coneAngle += 3f;
-        //     transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
-        //                         transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
-        // }
-        // else if(coneAngle >= 18f && density >= 0.5){
-        //     coneAngle -= 3f;
-        //     transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
-        //                         transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
-        // }
-        // Log.text = "coneAngle: " + coneAngle + "\n" + "selectedObjects.Count: " + selectedObjects.Count + "\n" + "density: " + density;
-        
-        // ReFocus();
-
-        foreach (var obj in selectedObjects)
-        {
-            
+        orientationQueue.Enqueue(EyeTrackingManager.GetComponent<EyeTrackingManager>().combineEyeGazeVectorInWorldSpace);
+        if(orientationQueue.Count > reFoucsTime){
+            orientationQueue.Dequeue();
         }
+
+        if(transform.localScale.z < MaxDepth)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, MaxDepth);
+        }
+        else
+        {
+            gameObject.GetComponent<Light>().spotAngle = coneAngle;
+            float density = selectedObjects.Count / coneAngle;
+            if(coneAngle <= 27f && selectedObjects.Count <= 25 && density <= 0.3){
+                coneAngle += 3f;
+                transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
+                                    transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
+            }
+            else if(coneAngle >= 18f && density >= 0.5){
+                coneAngle -= 3f;
+                transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
+                                    transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
+            }
+            // Log.text = "coneAngle: " + coneAngle + "\n" + "selectedObjects.Count: " + selectedObjects.Count + "\n" + "density: " + density;
+        }
+        
+        ReFocus();
     }
 
     float DistanceToLineOfSight(Vector3 point, Vector3 linePoint, Vector3 lineDirection)
@@ -148,10 +150,8 @@ public class SightCone : MonoBehaviour
             }
 
             hitObj.GetComponent<Renderer>().material = highlightMaterial;
-            // if(!reFocus) selectedObjects.Insert(0, hitObj);
-            // else selectedObjects.Add(hitObj);
-
-            selectedObjects.Add(hitObj);
+            if(!reFocus) selectedObjects.Insert(0, hitObj);
+            else selectedObjects.Add(hitObj);
             
         }
     }

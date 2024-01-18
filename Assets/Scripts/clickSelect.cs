@@ -7,61 +7,24 @@ using static UnityEngine.ParticleSystem;
 
 public class clickSelect : MonoBehaviour
 {
-    public GameObject handPoseManager;
     private GameObject[] backup;
-    public GameObject hand;
-    public GameObject thumb0;
-    public GameObject thumb1;
-    public GameObject thumb2;
-    public GameObject thumb3;
-    public GameObject index0;
-    public GameObject index1;
-    public GameObject index2;
-    public GameObject index3;
-    public GameObject index4;
-    public GameObject middle0;
-    public GameObject middle1;
-    public GameObject middle2;
-    public GameObject middle3;
-    public GameObject ring0;
-    public GameObject ring1;
-    public GameObject ring2;
-    public GameObject ring3;
-    public GameObject little0;
-    public GameObject little1;
-    public GameObject little2;
-    public GameObject little3;
-    public RaycastHit thumb;
-    public RaycastHit index;
-    public RaycastHit middle;
-    public RaycastHit ring;
-    public RaycastHit little;
-    private GameObject temp;
-    private GameObject temp1;
-    private GameObject temp2;
-    private GameObject temp3;
-    private GameObject temp4;
-    public TMP_Text T;
-    public TMP_Text T2;
-    public TMP_Text T3;
-    public TMP_Text T4;
-    public TMP_Text T5;
-    public TMP_Text T6;
-    private LineRenderer[] lines;//线的定义
-    private float angle;
-    private float angle1;
-    private float angle2;
-    private float angle3;
-    private float angle4;
-    private float angleLast;
-    private float angleLast1 = 1;
-    private float angleLast2;
-    private float angleLast3;
-    private float angleLast4;
+    public GameObject handPoseManager, hand, thumb0, thumb1, thumb2, thumb3,
+        index0, index1, index2, index3, index4,
+        middle0, middle1, middle2, middle3,
+        ring0, ring1, ring2, ring3,
+        little0, little1, little2, little3;
+
+    public RaycastHit thumb, index, middle, ring, little;
+    public TMP_Text T, T2, T3, T4, T5, T6;
+    private GameObject temp, temp1, temp2, temp3, temp4;
+
+    private LineRenderer[] lines;
+    private float angle, angle1, angle2, angle3, angle4, angleLast;
+    private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
     private Vector3 vLast;
     public GameObject[] final;
     // Start is called before the first frame update
-    bool  find(GameObject o)
+    bool find(GameObject o)
     {
         int i;
         for(i=0; i<final.Length;i++){
@@ -140,13 +103,13 @@ public class clickSelect : MonoBehaviour
         if (backup[4])
             T6.text = backup[4].name;
 
-        float d=culculate(thumb1, thumb2, thumb3);
+        float d = culculate(thumb1, thumb2, thumb3);
         // T.text = (d - angleLast).ToString();
         //float d = (thumb0.transform.position - little2.transform.position).magnitude;
         //T2.text = d.ToString();
        // T3.text = hand.transform.up.y.ToString();
         //T4.text = hand.transform.up.z.ToString();
-        if (d-angleLast>0.07)
+        if (angleLast - d > 0.07 || angleLast - d < -0.07)
         {   
             T.text = backup[0].name;
             //不能重复选
@@ -260,7 +223,7 @@ public class clickSelect : MonoBehaviour
              Debug.Log(little.collider.gameObject.name);
          }
 
-*/
+        */
 
     }
 }

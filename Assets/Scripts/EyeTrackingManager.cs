@@ -96,7 +96,7 @@ public class EyeTrackingManager : MonoBehaviour
     {
         int layerMask = 1;
         if(Physics.SphereCast(origin, 0.1f, vector, out hitInfo, 20f, layerMask)){
-            Log.text = "eyeSelectedObject: " + eyeSelectedObject + "\n" + "hitInfo: " + hitInfo.collider.gameObject + "\n";
+            Log.text += "eyeSelectedObject: " + eyeSelectedObject + "\n" + "hitInfo: " + hitInfo.collider.gameObject + "\n";
 
             if(hitInfo.collider.gameObject.tag == "Target")
             {
