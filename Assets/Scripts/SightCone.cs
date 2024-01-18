@@ -5,6 +5,18 @@ using TMPro;
 using Unity.VisualScripting;
 using System.Linq;
 
+public class WeightedObject
+{
+    public GameObject obj;
+    public float weight;
+
+    public WeightedObject(GameObject obj, float weight)
+    {
+        this.obj = obj;
+        this.weight = weight;
+    }
+}
+
 public class SightCone : MonoBehaviour
 {
     private float coneAngle = 21f; // 圆锥的角度
@@ -21,6 +33,7 @@ public class SightCone : MonoBehaviour
     private Queue<Vector3> orientationQueue = new Queue<Vector3>();
     private int reFoucsTime = 20;
     private float reFoucsThreshold = 10f;
+    List<WeightedObject> weightedObjects = new List<WeightedObject>();
 
     void Start(){
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
@@ -58,10 +71,18 @@ public class SightCone : MonoBehaviour
             // Log.text = "coneAngle: " + coneAngle + "\n" + "selectedObjects.Count: " + selectedObjects.Count + "\n" + "density: " + density;
         }
         
-        ReFoucs();
+        ReFocus();
     }
 
-    void ReFoucs(){
+    float DistanceToLineOfSight(Vector3 point, Vector3 linePoint, Vector3 lineDirection)
+    {
+        Vector3 pointToLinePoint = point - linePoint;
+        float distance = (pointToLinePoint - Vector3.Project(pointToLinePoint, lineDirection)).magnitude;
+        return distance;
+    }
+
+    void ReFocus()
+    {
         Vector3 previousOrientation = new Vector3(0,0,0);
         Vector3 currentOrientation = new Vector3(0,0,0);
         int i = 0;
@@ -71,17 +92,45 @@ public class SightCone : MonoBehaviour
             else currentOrientation += orientation * (2f/reFoucsTime);
             i++;
         }
-        if(Vector3.Angle(previousOrientation, currentOrientation) > reFoucsThreshold && !reFocus && !HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
+
+        if (Vector3.Angle(previousOrientation, currentOrientation) > reFoucsThreshold && !reFocus && !HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState)
+        {
+            weightedObjects.Clear();
             reFocus = true;
             orientationQueue.Clear();
             if(Log.text.Length > 200) Log.text = "";
             Log.text += "\n" + "reFocus: " + reFocus + "  " + Time.time;
+
+            // Calculate weights for each selected object based on distance from the center
+            foreach (var obj in selectedObjects)
+            {
+                float distanceToLineOfSight = DistanceToLineOfSight(obj.transform.position, transform.position, EyeTrackingManager.GetComponent<EyeTrackingManager>().combineEyeGazeVectorInWorldSpace);
+                weightedObjects.Add(new WeightedObject(obj, distanceToLineOfSight));
+
+                obj.GetComponentInChildren<TextMeshPro>().fontSize = 5;
+                obj.GetComponentInChildren<TextMeshPro>().text = distanceToLineOfSight.ToString();
+
+            }
+
+            // Sort the objects based on weights (ascending order)
+            weightedObjects.Sort((a, b) => a.weight.CompareTo(b.weight));
+            selectedObjects.Clear();
+
+            // Perform actions for each object in the sorted order
+            foreach (var weightedObj in weightedObjects)
+            {
+                selectedObjects.Add(weightedObj.obj);
+            }
+
+            orientationQueue.Clear();
+
+            if (Log.text.Length > 150) Log.text = "";
+            Log.text += "\n" + "reFocus: " + reFocus + "  " + Time.time;
         }
-        else{
+        else
+        {
             reFocus = false;
         }
-        
-        
     }
 
     void OnTriggerEnter(Collider other)
@@ -99,9 +148,9 @@ public class SightCone : MonoBehaviour
             }
 
             hitIObj.GetComponent<Renderer>().material = highlightMaterial;
-            selectedObjects.Add(hitIObj);
+            if(!reFocus) selectedObjects.Insert(0, hitIObj);
+            else selectedObjects.Add(hitIObj);
             
-            Debug.Log("Entered Trigger: " + other.gameObject.name);
         }
     }
 
@@ -112,7 +161,7 @@ public class SightCone : MonoBehaviour
         {
             other.gameObject.GetComponent<Renderer>().material = originalMaterials[other.gameObject]; // 恢复原始材质
             selectedObjects.Remove(other.gameObject);
-            Debug.Log("Exited Trigger: " + other.gameObject.name);
+
         }
     }
 
