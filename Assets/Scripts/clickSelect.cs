@@ -22,12 +22,12 @@ public class clickSelect : MonoBehaviour
     private float angle, angle1, angle2, angle3, angle4, angleLast;
     private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
     private Vector3 vLast;
-    public GameObject[] final;
+    public List<GameObject> final = new List<GameObject>();
     // Start is called before the first frame update
     bool find(GameObject o)
     {
         int i;
-        for(i=0; i<final.Length;i++){
+        for(i=0; i<final.Count;i++){
         if(final[i].name == o.name)
          return false;
         }
@@ -116,7 +116,7 @@ public class clickSelect : MonoBehaviour
             if(!find(backup[0]))
             {
                 
-                final[final.Length] = backup[0];
+                final.Add(backup[0]);
              
             }
         }
@@ -129,7 +129,7 @@ public class clickSelect : MonoBehaviour
             T.text = backup[1].name;
             if (!find(backup[1]))
             {
-                final[final.Length] = backup[1];
+                final.Add(backup[1]);
                 
            
             }
@@ -142,7 +142,7 @@ public class clickSelect : MonoBehaviour
             T.text = backup[2].name;
             if (!find(backup[2]))
             {
-                final[final.Length] = backup[2];
+                final.Add(backup[2]);
 
             }
         }
@@ -153,7 +153,7 @@ public class clickSelect : MonoBehaviour
             T.text = backup[3].name;
             if (!find(backup[3]))
             {
-                final[final.Length] = backup[3];
+                final.Add(backup[3]);
             }
         }
  
@@ -163,7 +163,7 @@ public class clickSelect : MonoBehaviour
             T.text = backup[4].name;
             if (!find(backup[4]))
             {
-                final[final.Length] = backup[4];
+                final.Add(backup[4]);
             }
         }
     
