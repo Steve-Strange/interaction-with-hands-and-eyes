@@ -66,7 +66,10 @@ public class HandPoseManager : MonoBehaviour
                 originalTransform[weightObj.obj] = new TransformData(weightObj.obj.transform.position, weightObj.obj.transform.localScale);
                 weightObj.obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[weightObj.obj].color;
                 weightObj.obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                weightObj.obj.transform.position = SecondSelectionBG.transform.position + new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + new Vector3(obj.transform.localScale.x * (2 * (i%5) + 1) , - obj.transform.localScale.y * (2 * (i/5) + 1), - 2 * obj.transform.localScale.z);
+                weightObj.obj.transform.position = SecondSelectionBG.transform.position + 
+                    new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + 
+                    new Vector3(weightObj.obj.transform.localScale.x * (2 * (i%5) + 1) , 
+                        - weightObj.obj.transform.localScale.y * (2 * (i/5) + 1), - 2 * weightObj.obj.transform.localScale.z);
                 i++;
             }
             rowNum = Mathf.CeilToInt(i/5);
@@ -92,13 +95,14 @@ public class HandPoseManager : MonoBehaviour
         inputField.text +="rowNum: " + rowNum.ToString() + "\n";
 
         int mark = 0;
-        for(int i = 0; i < selectedObjectsFixed.Count; i++){
+        for(int i = 0; i < weightObjectsFixed.Count; i++){
             if(i/5 == currentRow){
-                selectedObjectsFixed[i].GetComponent<Renderer>().material.color = Color.yellow;
-                back[mark++] = selectedObjectsFixed[i];
+                weightObjectsFixed[i].obj.GetComponent<Renderer>().material.color = Color.yellow;
+                back[mark++] = weightObjectsFixed[i].obj;
             }
             else{
-                selectedObjectsFixed[i].GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[selectedObjectsFixed[i]].color;
+                weightObjectsFixed[i].obj.GetComponent<Renderer>().material.color = 
+                    SightCone.GetComponent<SightCone>().originalMaterials[weightObjectsFixed[i].obj].color;
             }
         }
     }
@@ -110,19 +114,20 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseExitDelay()
     {
-        foreach (var obj in selectedObjectsFixed)
+        foreach (var weightObj in weightObjectsFixed)
         {
-            if (originalTransform.TryGetValue(obj, out TransformData transformData))
+            if (originalTransform.TryGetValue(weightObj.obj, out TransformData transformData))
             {
-                obj.transform.position = transformData.Position;
-                obj.transform.localScale = transformData.Scale;
-                obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[obj].color;
+                weightObj.obj.transform.position = transformData.Position;
+                weightObj.obj.transform.localScale = transformData.Scale;
+                weightObj.obj.GetComponent<Renderer>().material.color = 
+                    SightCone.GetComponent<SightCone>().originalMaterials[weightObj.obj].color;
             }
         }
 
         SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
         delayTimer = 0.0f;
-        selectedObjectsFixed.Clear();
+        weightObjectsFixed.Clear();
         SightCone.GetComponent<SightCone>().selectedObjects.Clear();
         SightCone.transform.localScale = new Vector3(SightCone.transform.localScale.x, SightCone.transform.localScale.y, 0);
         SecondSelectionState = false;
