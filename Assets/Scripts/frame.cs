@@ -10,13 +10,20 @@ public class frame : MonoBehaviour
     private Vector3 right;
     private Vector3 up;
     public GameObject head;
-    public float dis = 1;
+    public float dis = 0.1f;
     private Mesh mesh;
     public float lenth;
     public float width;
     public float height;
     public Camera camera;
     public TMP_Text t;
+    private void OnCollisionEnter(Collision collision)
+    {
+      
+        Debug.Log(collision.gameObject.name);
+        string name = collision.gameObject.name;
+      
+    }
     public void creatRect()//2d-������
     {
         t.text = "hahahah";
