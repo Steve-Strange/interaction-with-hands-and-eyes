@@ -16,46 +16,30 @@ public class frame : MonoBehaviour
     public float width;
     public float height;
     public Camera camera;
-    //public TMP_Text t;
-   /* private void OnCollisionEnter(Collision collision)
-    {
-      
-        
-        t.text  = collision.gameObject.name;
 
-      
-    }*/
     public void creatRect()//2d-������
-    {
-        //t.text = "hahahah";
-        forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
-        Vector3 center = head.transform.position + forward * dis;
-        line.SetPosition(0, center + up * 1);
-        line.SetPosition(1, center - up * 1);
-        line.startWidth = (float)0.003;
-        line.endWidth = (float)0.003;
-        mesh = new Mesh();
-        line.BakeMesh(mesh, camera, true);
-        gameObject.AddComponent<MeshCollider>();
-        this.GetComponent<MeshCollider>().sharedMesh = mesh;
-    }
-    void Start()
     {
         line = GetComponent<LineRenderer>();
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
         up = head.transform.up.normalized;
         Vector3 center = head.transform.position;// + forward * dis;
-        line.SetPosition(0, new Vector3(0,0,0));
-        line.SetPosition(1, new Vector3(0,100, 0));
+        line.positionCount=4;
+        line.SetPosition(0, new Vector3(0, 0, 0));
+        line.SetPosition(1, new Vector3(0, 1, 0));
+        line.SetPosition(2, new Vector3(1, 1, 0));
+        line.SetPosition(3, new Vector3(1, 0, 0));
         line.startWidth = (float)0.003;
         line.endWidth = (float)0.003;
         mesh = new Mesh();
         line.BakeMesh(mesh, camera, true);
         gameObject.AddComponent<MeshCollider>();
         this.GetComponent<MeshCollider>().sharedMesh = mesh;
+        gameObject.transform.position = new Vector3(0, 0, 0);
+    }
+    void Start()
+    {
+       
     }
     // Update is called once per frame
     void Update()
