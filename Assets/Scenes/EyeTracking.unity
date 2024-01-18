@@ -5849,6 +5849,101 @@ Transform:
   m_Father: {fileID: 778758819}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &822284989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 822284992}
+  - component: {fileID: 822284991}
+  - component: {fileID: 822284990}
+  m_Layer: 0
+  m_Name: pinch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &822284990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822284989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67874b8fcf948a4cac565a9370ed76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  T: {fileID: 976810819}
+  thumb: {fileID: 11376081}
+  index: {fileID: 609441111}
+--- !u!114 &822284991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822284989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bed5e2884b6cb4a8f47d89e0bc7401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackType: 0
+  config: {fileID: 11400000, guid: fb95f6884d498a64881c7fd916e26b6b, type: 2}
+  handPoseStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 822284990}
+        m_TargetAssemblyTypeName: pinch, Assembly-CSharp
+        m_MethodName: test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  handPoseUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 822284990}
+        m_TargetAssemblyTypeName: pinch, Assembly-CSharp
+        m_MethodName: test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  handPoseEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &822284992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822284989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7439586, y: -0.56918156, z: -2.140498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &823091004
 GameObject:
   m_ObjectHideFlags: 0
@@ -6396,6 +6491,7 @@ RectTransform:
   - {fileID: 899995654}
   - {fileID: 1903422950}
   - {fileID: 412681887}
+  - {fileID: 976810821}
   m_Father: {fileID: 1963383175}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -12.159, y: 0, z: 0}
@@ -6980,6 +7076,141 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963237514}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &976810818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 976810821}
+  - component: {fileID: 976810820}
+  - component: {fileID: 976810819}
+  m_Layer: 5
+  m_Name: Title (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &976810819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976810818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: no
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 5a3fe1cada04246428116f1f636625d7, type: 2}
+  m_sharedMaterial: {fileID: 48627155104374641, guid: 5a3fe1cada04246428116f1f636625d7, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 3439329279
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.8}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 150
+  m_fontSizeBase: 150
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &976810820
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976810818}
+  m_CullTransparentMesh: 1
+--- !u!224 &976810821
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976810818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 898500080}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -545, y: -95}
+  m_SizeDelta: {x: 878.6, y: 90.9}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &995989158
 GameObject:
   m_ObjectHideFlags: 0
@@ -9692,7 +9923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbe7cced81af1f46a0aef054af159be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: d7d89e5ba352abe45827714531b44b38, type: 2}
+  config: {fileID: 11400000, guid: fb95f6884d498a64881c7fd916e26b6b, type: 2}
   preview: {fileID: 1361557037}
   thumb:
     handFinger: 0
@@ -9702,19 +9933,36 @@ MonoBehaviour:
     fingerConfigs:
       flexionConfigs:
         min: 90
-        max: 180
-        width: 10
+        max: 120
+        width: 20.4
       curlConfigs:
         min: 45
-        max: 180
-        width: 20
+        max: 90
+        width: 20.1
       abductionConfigs:
         mid: 13
         width: 6
   index:
     handFinger: 1
     flexion: 0
-    curl: 3
+    curl: 0
+    abduction: 0
+    fingerConfigs:
+      flexionConfigs:
+        min: 90
+        max: 126
+        width: 20
+      curlConfigs:
+        min: 0
+        max: 73
+        width: 20
+      abductionConfigs:
+        mid: 10
+        width: 6
+  middle:
+    handFinger: 2
+    flexion: 0
+    curl: 0
     abduction: 0
     fingerConfigs:
       flexionConfigs:
@@ -9722,24 +9970,7 @@ MonoBehaviour:
         max: 180
         width: 10
       curlConfigs:
-        min: 30.897142
-        max: 146.20625
-        width: 20
-      abductionConfigs:
-        mid: 10
-        width: 6
-  middle:
-    handFinger: 2
-    flexion: 1
-    curl: 3
-    abduction: 0
-    fingerConfigs:
-      flexionConfigs:
-        min: 144
-        max: 180
-        width: 10
-      curlConfigs:
-        min: 57.62305
+        min: 0
         max: 180
         width: 20
       abductionConfigs:
@@ -9747,16 +9978,16 @@ MonoBehaviour:
         width: 6
   ring:
     handFinger: 3
-    flexion: 1
-    curl: 3
+    flexion: 0
+    curl: 0
     abduction: 0
     fingerConfigs:
       flexionConfigs:
-        min: 144
+        min: 90
         max: 180
         width: 10
       curlConfigs:
-        min: 56.662666
+        min: 0
         max: 180
         width: 20
       abductionConfigs:
@@ -9764,16 +9995,16 @@ MonoBehaviour:
         width: 6
   pinky:
     handFinger: 4
-    flexion: 1
-    curl: 3
+    flexion: 0
+    curl: 0
     abduction: 0
     fingerConfigs:
       flexionConfigs:
-        min: 144
-        max: 180
+        min: 90
+        max: 126
         width: 10
       curlConfigs:
-        min: 65.30612
+        min: 0
         max: 180
         width: 20
       abductionConfigs:
@@ -9782,14 +10013,14 @@ MonoBehaviour:
   shapesholdDuration: 0.09
   Bones:
   - bone1: 5
-    bone2: 10
-    distance: 0.03
-    thresholdWidth: 0.01
+    bone2: 15
+    distance: 0
+    thresholdWidth: 10
     activeState: 0
   bonesHoldDuration: 0.022
-  trackAxis: 0
-  spaceType: 3
-  trackTarget: 2
+  trackAxis: 1
+  spaceType: 0
+  trackTarget: 1
   angleThreshold: 35
   thresholdWidth: 10
   transHoldDuration: 0.022
