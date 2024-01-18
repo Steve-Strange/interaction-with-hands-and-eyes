@@ -15,7 +15,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject HandLeft;
     public GameObject SecondSelectionBG;
     public GameObject[] back;
-    private List<WeightedObject> selectedObjectsFixed = new List<WeightedObject>();
+    private List<WeightedObject> weightObjectsFixed = new List<WeightedObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
 
@@ -58,15 +58,15 @@ public class HandPoseManager : MonoBehaviour
 
         if(!SecondSelectionState){
             originalTransform.Clear();
-            selectedObjectsFixed = SightCone.GetComponent<SightCone>().weightedObjects;
+            weightObjectsFixed = SightCone.GetComponent<SightCone>().weightedObjects;
             int i = 0;
             SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
-            foreach (var obj in selectedObjectsFixed)
+            foreach (var weightObj in weightObjectsFixed)
             {
-                originalTransform[obj] = new TransformData(obj.transform.position, obj.transform.localScale);
-                obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[obj].color;
-                obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                obj.transform.position = SecondSelectionBG.transform.position + new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + new Vector3(obj.transform.localScale.x * (2 * (i%5) + 1) , - obj.transform.localScale.y * (2 * (i/5) + 1), - 2 * obj.transform.localScale.z);
+                originalTransform[weightObj.obj] = new TransformData(weightObj.obj.transform.position, weightObj.obj.transform.localScale);
+                weightObj.obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[weightObj.obj].color;
+                weightObj.obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                weightObj.obj.transform.position = SecondSelectionBG.transform.position + new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + new Vector3(obj.transform.localScale.x * (2 * (i%5) + 1) , - obj.transform.localScale.y * (2 * (i/5) + 1), - 2 * obj.transform.localScale.z);
                 i++;
             }
             rowNum = Mathf.CeilToInt(i/5);
