@@ -22,7 +22,6 @@ public class SightCone : MonoBehaviour
     private float coneAngle = 21f; // 圆锥的角度
     public Material highlightMaterial;
     public List<GameObject> selectedObjects = new List<GameObject>(); // 存储当前被高亮的物体
-
     public Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
     private GameObject HandPoseManager;
     private GameObject EyeTrackingManager;
@@ -140,16 +139,19 @@ public class SightCone : MonoBehaviour
         
         {
             // 新物体进入触发器
-            GameObject hitIObj = other.gameObject;
+            GameObject hitObj = other.gameObject;
+
+            if(hitObj == EyeTrackingManager.GetComponent<EyeTrackingManager>().eyeSelectedObject) return;
+
             // 在更改材质之前存储原始材质
-            if (!originalMaterials.ContainsKey(hitIObj))
+            if (!originalMaterials.ContainsKey(hitObj))
             {
-                originalMaterials[hitIObj] = hitIObj.GetComponent<Renderer>().material;
+                originalMaterials[hitObj] = hitObj.GetComponent<Renderer>().material;
             }
 
-            hitIObj.GetComponent<Renderer>().material = highlightMaterial;
-            if(!reFocus) selectedObjects.Insert(0, hitIObj);
-            else selectedObjects.Add(hitIObj);
+            hitObj.GetComponent<Renderer>().material = highlightMaterial;
+            if(!reFocus) selectedObjects.Insert(0, hitObj);
+            else selectedObjects.Add(hitObj);
             
         }
     }

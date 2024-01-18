@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.XR.PXR;
 using UnityEngine.XR;
 using TMPro;
+using System.Linq;
 
 public class EyeTrackingManager : MonoBehaviour
 {   
@@ -24,20 +25,22 @@ public class EyeTrackingManager : MonoBehaviour
     private float rightEyeOpenness;
 
     private Transform selectedObj;
-    private RaycastHit hitinfo;
+    private RaycastHit hitInfo;
 
     private GameObject SightCone;
     private float coneAngle = 10f; // 圆锥的角度
-    public Material highlightMaterial;
-
-    public Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
 
     public GameObject HandPoseManager;
+    public Material highlightMaterial;
+    public GameObject eyeSelectedObject;
+    public Material originalMaterial;
 
 
-    // private Queue<Vector3> buffer = new Queue<Vector3>();
-    // private int maxBufferSize = 20; // 队列的最大大小
-    // private Vector3 blinkPosition = new Vector3(0,0,0);
+    private Queue<GameObject> eyeSelectedObjectBuffer = new Queue<GameObject>();
+    private int maxBufferSize = 20; // 队列的最大大小
+    
+    public GameObject blinkSelectedObject;
+    private float closeEyesTime = 0f;
     
     void Start()
     {
@@ -61,22 +64,93 @@ public class EyeTrackingManager : MonoBehaviour
         combineEyeGazeVectorInWorldSpace = originPoseMatrix.MultiplyVector(headPoseMatrix.MultiplyVector(combineEyeGazeVector));
 
         SpotLight.transform.position = combineEyeGazeOriginInWorldSpace;
-        SpotLight.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
+        SpotLight.transform.rotation = 
+        Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
 
-    //    GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
+        if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
+            GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
+            eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
+            if(eyeSelectedObjectBuffer.Count > maxBufferSize){
+                eyeSelectedObjectBuffer.Dequeue();
+            }
+        }
+        
+        if(leftEyeOpenness < 0.01f && rightEyeOpenness < 0.01f){
+            closeEyesTime += Time.deltaTime;
+        }
+        else {
+            closeEyesTime = 0;
+        }
+
+        if(closeEyesTime > 0.4f){
+            BlinkSelect();
+        }
     }
 
     void GazeTargetControl(Vector3 origin,Vector3 vector)
     {
-        if (Physics.SphereCast(origin,0.0005f,vector,out hitinfo))
-        {
-            Greenpoint.gameObject.SetActive(true);
-            Greenpoint.position = hitinfo.point;
-            
+        int layerMask = 1;
+        if(Physics.SphereCast(origin, 0.05f, vector, out hitInfo, 20f, layerMask)){
+            Log.text += "eyeSelectedObject: " + eyeSelectedObject + "\n" + "hitInfo: " + hitInfo.collider.gameObject + "\n";
+
+            if(hitInfo.collider.gameObject.tag == "Target")
+            {
+                if(eyeSelectedObject != hitInfo.collider.gameObject){
+                    if(eyeSelectedObject)
+                    {
+                        if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(eyeSelectedObject))
+                        {
+                            eyeSelectedObject.GetComponent<Renderer>().material = SightCone.GetComponent<SightCone>().highlightMaterial;
+                        }
+                        else
+                        {
+                            eyeSelectedObject.GetComponent<Renderer>().material = originalMaterial;
+                        }
+                    }
+                    originalMaterial = hitInfo.collider.gameObject.GetComponent<Renderer>().material;
+                    eyeSelectedObject = hitInfo.collider.gameObject;
+                    eyeSelectedObject.GetComponent<Renderer>().material = highlightMaterial;
+                }
+            }
+
         }
+            
     }
 
 
+    void BlinkSelect(){
+        
+        blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
+        blinkSelectedObject.SetActive(false);
+    }
+
+    GameObject FindMostFrequentElement(Queue<GameObject> list)
+    {
+        Dictionary<GameObject, int> frequencyMap = new Dictionary<GameObject, int>();
+
+        // 统计每个元素的出现次数
+        int i = 0;
+        foreach (var element in list)
+        {
+            if(i < maxBufferSize/2){
+                if (frequencyMap.ContainsKey(element))
+                {
+                    frequencyMap[element]++;
+                }
+                else
+                {
+                    frequencyMap[element] = 1;
+                }
+            }
+            else break;
+            i++;
+        }
+
+        // 找出出现次数最多的元素
+        GameObject mostFrequentElement = frequencyMap.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+
+        return mostFrequentElement;
+    }
 }

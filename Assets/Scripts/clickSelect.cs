@@ -156,7 +156,7 @@ public class clickSelect : MonoBehaviour
         }
     
         
-      float d2 = culculate(middle1, middle2, middle3);
+        float d2 = culculate(middle1, middle2, middle3);
         if (angleLast2 - d2 > 0.2 || angleLast2 - d2 < -0.2)
         {
             if (!find(backup[2]))
