@@ -10,21 +10,21 @@ public class frame : MonoBehaviour
     private Vector3 right;
     private Vector3 up;
     public GameObject head;
-    public float dis = 0.1f;
+    public float dis = 0.01f;
     private Mesh mesh;
     public float lenth;
     public float width;
     public float height;
     public Camera camera;
-    public TMP_Text t;
-    private void OnCollisionEnter(Collision collision)
+    //public TMP_Text t;
+   /* private void OnCollisionEnter(Collision collision)
     {
       
         
         t.text  = collision.gameObject.name;
 
       
-    }
+    }*/
     public void creatRect()//2d-������
     {
         //t.text = "hahahah";
@@ -44,6 +44,18 @@ public class frame : MonoBehaviour
     void Start()
     {
         line = GetComponent<LineRenderer>();
+        forward = head.transform.forward.normalized;
+        right = head.transform.right.normalized;
+        up = head.transform.up.normalized;
+        Vector3 center = head.transform.position;// + forward * dis;
+        line.SetPosition(0, new Vector3(0,0,0));
+        line.SetPosition(1, new Vector3(0,100, 0));
+        line.startWidth = (float)0.003;
+        line.endWidth = (float)0.003;
+        mesh = new Mesh();
+        line.BakeMesh(mesh, camera, true);
+        gameObject.AddComponent<MeshCollider>();
+        this.GetComponent<MeshCollider>().sharedMesh = mesh;
     }
     // Update is called once per frame
     void Update()

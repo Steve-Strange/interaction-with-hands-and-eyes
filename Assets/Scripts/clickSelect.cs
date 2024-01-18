@@ -43,8 +43,10 @@ public class clickSelect : MonoBehaviour
     private GameObject temp4;
     public TMP_Text T;
     public TMP_Text T2;
-    private TMP_Text T3;
-    private TMP_Text T4;
+    public TMP_Text T3;
+    public TMP_Text T4;
+    public TMP_Text T5;
+    public TMP_Text T6;
     private LineRenderer[] lines;//线的定义
     private float angle;
     private float angle1;
@@ -127,8 +129,17 @@ public class clickSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //手指沿手指关节发出射线，指尖和第一个指节
-        if(backup[3])
-            T2.text = backup[3].name;
+        if(backup[0])
+            T2.text = backup[0].name;
+        if (backup[1])
+            T3.text = backup[1].name;
+        if (backup[2])
+            T4.text = backup[2].name;
+        if (backup[3])
+            T5.text = backup[3].name;
+        if (backup[4])
+            T6.text = backup[4].name;
+
         float d=culculate(thumb1, thumb2, thumb3);
         // T.text = (d - angleLast).ToString();
         //float d = (thumb0.transform.position - little2.transform.position).magnitude;
@@ -136,10 +147,12 @@ public class clickSelect : MonoBehaviour
        // T3.text = hand.transform.up.y.ToString();
         //T4.text = hand.transform.up.z.ToString();
         if (d-angleLast>0.07)
-        {
+        {   
+            T.text = backup[0].name;
             //不能重复选
             if(!find(backup[0]))
             {
+                
                 final[final.Length] = backup[0];
              
             }
@@ -158,15 +171,12 @@ public class clickSelect : MonoBehaviour
            
             }
         }
-        else
-        {
-            T.text = "no"; 
-        }
-    
+       
         
         float d2 = culculate(middle1, middle2, middle3);
         if (angleLast2 - d2 > 0.2 || angleLast2 - d2 < -0.2)
         {
+            T.text = backup[2].name;
             if (!find(backup[2]))
             {
                 final[final.Length] = backup[2];
@@ -177,6 +187,7 @@ public class clickSelect : MonoBehaviour
         float d3 = culculate(ring1, ring2, ring3);
         if (angleLast3 - d3 > 0.2 || angleLast3 - d3 < -0.2)
         {
+            T.text = backup[3].name;
             if (!find(backup[3]))
             {
                 final[final.Length] = backup[3];
@@ -186,6 +197,7 @@ public class clickSelect : MonoBehaviour
         float d4 = culculate(little1, little2, little3);
         if (angleLast4 - d4 > 0.2 || angleLast4 - d4 < -0.2)
         {
+            T.text = backup[4].name;
             if (!find(backup[4]))
             {
                 final[final.Length] = backup[4];
