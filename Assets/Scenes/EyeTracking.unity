@@ -8634,15 +8634,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4930f16c015848040a4f663ad05dc4a8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4930f16c015848040a4f663ad05dc4a8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4930f16c015848040a4f663ad05dc4a8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4930f16c015848040a4f663ad05dc4a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11809,6 +11809,7 @@ MonoBehaviour:
   eyeSelectedObject: {fileID: 0}
   originalMaterial: {fileID: 0}
   blinkSelectedObject: {fileID: 0}
+  isEyesOpen: 1
 --- !u!4 &1633216964
 Transform:
   m_ObjectHideFlags: 0

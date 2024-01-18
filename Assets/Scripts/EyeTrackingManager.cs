@@ -37,10 +37,11 @@ public class EyeTrackingManager : MonoBehaviour
 
 
     private Queue<GameObject> eyeSelectedObjectBuffer = new Queue<GameObject>();
-    private int maxBufferSize = 20; // 队列的最大大小
+    private int maxBufferSize = 10; // 队列的最大大小
     
     public GameObject blinkSelectedObject;
     private float closeEyesTime = 0f;
+    public bool isEyesOpen = true;
     
     void Start()
     {
@@ -69,31 +70,33 @@ public class EyeTrackingManager : MonoBehaviour
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
 
-        if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
-            GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
-            eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
-            if(eyeSelectedObjectBuffer.Count > maxBufferSize){
-                eyeSelectedObjectBuffer.Dequeue();
-            }
-        }
-        
-        if(leftEyeOpenness < 0.01f && rightEyeOpenness < 0.01f){
-            closeEyesTime += Time.deltaTime;
-        }
-        else {
-            closeEyesTime = 0;
-        }
+        isEyesOpen = leftEyeOpenness > 0.01f && rightEyeOpenness > 0.01f;
 
-        if(closeEyesTime > 0.4f){
-            BlinkSelect();
+        if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
+            if(isEyesOpen){
+                GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
+                eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
+                if(eyeSelectedObjectBuffer.Count > maxBufferSize){
+                    eyeSelectedObjectBuffer.Dequeue();  
+                }
+
+                closeEyesTime = 0;
+            }
+            else {
+                closeEyesTime += Time.deltaTime;
+            }
+
+            if(closeEyesTime > 0.25f){
+                BlinkSelect();
+            }
         }
     }
 
     void GazeTargetControl(Vector3 origin,Vector3 vector)
     {
         int layerMask = 1;
-        if(Physics.SphereCast(origin, 0.05f, vector, out hitInfo, 20f, layerMask)){
-            Log.text += "eyeSelectedObject: " + eyeSelectedObject + "\n" + "hitInfo: " + hitInfo.collider.gameObject + "\n";
+        if(Physics.SphereCast(origin, 0.1f, vector, out hitInfo, 20f, layerMask)){
+            Log.text = "eyeSelectedObject: " + eyeSelectedObject + "\n" + "hitInfo: " + hitInfo.collider.gameObject + "\n";
 
             if(hitInfo.collider.gameObject.tag == "Target")
             {

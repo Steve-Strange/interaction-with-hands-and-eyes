@@ -15,7 +15,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject HandLeft;
     public GameObject SecondSelectionBG;
     public GameObject[] back;
-    private List<GameObject> selectedObjectsFixed = new List<GameObject>();
+    private List<WeightedObject> selectedObjectsFixed = new List<WeightedObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
 
@@ -53,11 +53,12 @@ public class HandPoseManager : MonoBehaviour
     public void onPalmPoseStart()
     {
         PalmPoseState = true;
+        SightCone.GetComponent<SightCone>().weightedObjects.Sort((a, b) => a.weight.CompareTo(b.weight));
         delayTimer = 0.0f;
 
         if(!SecondSelectionState){
             originalTransform.Clear();
-            selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
+            selectedObjectsFixed = SightCone.GetComponent<SightCone>().weightedObjects;
             int i = 0;
             SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
             foreach (var obj in selectedObjectsFixed)
