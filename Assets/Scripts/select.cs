@@ -5,25 +5,25 @@ using UnityEngine;
 public class select : MonoBehaviour
 {
     [SerializeField]
-    public LayerMask LayerMask;//ÏŞ¶¨¼ì²âµÄÎïÆ·²ã¼¶
+    public LayerMask LayerMask;//é™å®šæ£€æµ‹çš„ç‰©å“å±‚çº§
 
-    public List<GameObject> detectsAll;//¿òÄÚµÄÎïÌå¼¯ºÏ,ÊÇ×îÖÕ·µ»ØµÄÎïÆ·¼¯ºÏ
-    public List<GameObject> detects;//¿òÄÚµÄÎïÌå¼¯ºÏ,ÊÇÃ¿´ÎÑ¡Ôñ·µ»ØµÄÎïÆ·¼¯ºÏ
-    public GameObject distance;//»ñµÃ¸ºÔğ¼ì²â¾àÀëµÄÎïÌå,¿ò´óĞ¡
-    public GameObject EyeDetect;//¸ºÔğÑÛ¶¯¼ì²âµÄ×é¼ş
-    public GameObject head;//ÉãÏñ»ú
+    public List<GameObject> detectsAll;//æ¡†å†…çš„ç‰©ä½“é›†åˆ,æ˜¯æœ€ç»ˆè¿”å›çš„ç‰©å“é›†åˆ
+    public List<GameObject> detects;//æ¡†å†…çš„ç‰©ä½“é›†åˆ,æ˜¯æ¯æ¬¡é€‰æ‹©è¿”å›çš„ç‰©å“é›†åˆ
+    public GameObject distance;//è·å¾—è´Ÿè´£æ£€æµ‹è·ç¦»çš„ç‰©ä½“,æ¡†å¤§å°
+    public GameObject EyeDetect;//è´Ÿè´£çœ¼åŠ¨æ£€æµ‹çš„ç»„ä»¶
+    public GameObject head;//æ‘„åƒæœº
 
-    bool m_Started = false;//ÊÇ·ñ°Ñ¿òÏß»æÖÆ³öÀ´
+    bool m_Started = false;//æ˜¯å¦æŠŠæ¡†çº¿ç»˜åˆ¶å‡ºæ¥
 
-    private palm_distance palmDistance;//distanceÉÏ¹ÒÔØµÄ½Å±¾
+    private palm_distance palmDistance;//distanceä¸ŠæŒ‚è½½çš„è„šæœ¬
 
-    private bool multi = false;//ÊÇ·ñ´¦ÓÚ¶à´ÎÑ¡ÔñÖĞ
-    private bool selected = false;//ÊÇ·ñ´¦ÓÚÑ¡ÔñÖĞ
-    private List<GameObject> withinCameras;//µ±Ç°ÉãÏñ»ú¿É¼ûµÄËùÓĞÎïÆ·¼¯ºÏ
+    private bool multi = false;//æ˜¯å¦å¤„äºå¤šæ¬¡é€‰æ‹©ä¸­
+    private bool selected = false;//æ˜¯å¦å¤„äºé€‰æ‹©ä¸­
+    private List<GameObject> withinCameras;//å½“å‰æ‘„åƒæœºå¯è§çš„æ‰€æœ‰ç‰©å“é›†åˆ
     // Start is called before the first frame update
     void Start()
     {
-        palmDistance = distance.GetComponent<palm_distance>();//»ñÈ¡½Å±¾
+        palmDistance = distance.GetComponent<palm_distance>();//è·å–è„šæœ¬
     }
 
     // Update is called once per frame
@@ -31,14 +31,14 @@ public class select : MonoBehaviour
     {
         if (selected)
         {
-            detects = new List<GameObject>();//Ã¿´Î¸üĞÂËùÑ¡µÄÎïÌå£¬Çå¿ÕÊı×é
+            detects = new List<GameObject>();//æ¯æ¬¡æ›´æ–°æ‰€é€‰çš„ç‰©ä½“ï¼Œæ¸…ç©ºæ•°ç»„
             Vector3 scale = new Vector3(palmDistance.length, palmDistance.width, palmDistance.height);
             var center = (palmDistance.width / 2 - palmDistance.dcenter) * palmDistance.forward + palmDistance.boxCol.transform.position;
             Collider[] objs = Physics.OverlapBox(center, scale / 2, head.transform.rotation, LayerMask);
-            //ÊÔÒ»ÏÂÕâ¸öÈı±ß´óĞ¡É¶ÒâË¼
+            //è¯•ä¸€ä¸‹è¿™ä¸ªä¸‰è¾¹å¤§å°å•¥æ„æ€
             foreach (var obj in objs)
             {
-                detects.Add(obj.gameObject);//¿ÉÒÔÍ¨¹ıÅö×²Ìå»ñµÃµ±Ç°ÎïÌåµÄgameObject
+                detects.Add(obj.gameObject);//å¯ä»¥é€šè¿‡ç¢°æ’ä½“è·å¾—å½“å‰ç‰©ä½“çš„gameObject
         }
 
         }

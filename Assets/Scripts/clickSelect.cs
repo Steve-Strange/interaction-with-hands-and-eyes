@@ -5,10 +5,10 @@ using UnityEngine;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 using static UnityEngine.ParticleSystem;
 
-public class clickSelect : MonoBehaviour
+public class ClickSelect : MonoBehaviour
 {
-    private GameObject[] backup;
-    public GameObject handPoseManager, hand, thumb0, thumb1, thumb2, thumb3,
+    private List<GameObject> selectedRow = new List<GameObject>();
+    public GameObject HandPoseManager, hand, thumb0, thumb1, thumb2, thumb3,
         index0, index1, index2, index3, index4,
         middle0, middle1, middle2, middle3,
         ring0, ring1, ring2, ring3,
@@ -16,33 +16,25 @@ public class clickSelect : MonoBehaviour
 
     public RaycastHit thumb, index, middle, ring, little;
     public TMP_Text T, T2, T3, T4, T5, T6;
+    public TMP_InputField log;
     private GameObject temp, temp1, temp2, temp3, temp4;
 
     private LineRenderer[] lines;
     private float angle, angle1, angle2, angle3, angle4, angleLast;
     private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
     private Vector3 vLast;
-    public List<GameObject> final = new List<GameObject>();
+    public List<GameObject> finalObj = new List<GameObject>();
+    private float clickThreashold = 0.1f;
     // Start is called before the first frame update
-    bool find(GameObject o)
-    {
-        int i;
-        for(i=0; i<final.Count;i++){
-        if(final[i].name == o.name)
-         return false;
-        }
-        return true;
 
-    }
     void Start()
     {
         lines = new LineRenderer[5];//添加组件
         InvokeRepeating("RepeatedMethod", 1f, 0.4f);
-        backup = handPoseManager.GetComponent<HandPoseManager>().back;
     }
     private void RepeatedMethod()
     {
-
+        selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
         float d = culculate(thumb1, thumb2, thumb3);
         angleLast = d;
      
@@ -78,93 +70,78 @@ public class clickSelect : MonoBehaviour
         }
         return target.GetComponent<Outline>();
     }
-    /// <summary>
-    /// 卸载目标脚本
-    /// </summary>
-    /// <param name="go"></param>
-    public static void Unload_Scripts<Outline>(GameObject target) where Outline : Component
-    {
-        if (target.GetComponent<Outline>() != null)
-        {
-            GameObject.Destroy(target.GetComponent<Outline>() as Object);
-        }
-    }
+
+    // public static void Unload_Scripts<Outline>(GameObject target) where Outline : Component
+    // {
+    //     if (target.GetComponent<Outline>() != null)
+    //     {
+    //         GameObject.Destroy(target.GetComponent<Outline>() as Object);
+    //     }
+    // }
     // Update is called once per frame
     void Update()
     {   //手指沿手指关节发出射线，指尖和第一个指节
-        if(backup[0])
-            T2.text = backup[0].name;
-        if (backup[1])
-            T3.text = backup[1].name;
-        if (backup[2])
-            T4.text = backup[2].name;
-        if (backup[3])
-            T5.text = backup[3].name;
-        if (backup[4])
-            T6.text = backup[4].name;
 
-        float d = culculate(thumb1, thumb2, thumb3);
-        // T.text = (d - angleLast).ToString();
-        //float d = (thumb0.transform.position - little2.transform.position).magnitude;
-        //T2.text = d.ToString();
-       // T3.text = hand.transform.up.y.ToString();
-        //T4.text = hand.transform.up.z.ToString();
-        if (angleLast - d > 0.07 || angleLast - d < -0.07)
-        {   
-            T.text = backup[0].name;
-            //不能重复选
-            if(!find(backup[0]))
+        log.text = string.Join(",", finalObj);
+
+        if(selectedRow[0])
+            T2.text = selectedRow[0].name;
+        if (selectedRow[1])
+            T3.text = selectedRow[1].name;
+        if (selectedRow[2])
+            T4.text = selectedRow[2].name;
+        if (selectedRow[3])
+            T5.text = selectedRow[3].name;
+        if (selectedRow[4])
+            T6.text = selectedRow[4].name;
+
+        if(HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState)
+        {
+
+            float d = culculate(thumb1, thumb2, thumb3);
+            if (d - angleLast > clickThreashold / 3 || d - angleLast < -clickThreashold / 3)
             {
-                
-                final.Add(backup[0]);
-             
-            }
-        }
+                T.text = selectedRow[0].name;
 
+                if(!finalObj.Contains(selectedRow[0])) finalObj.Add(selectedRow[0]);
+                selectedRow[0].SetActive(false);
+            }
+
+            
+            float d1 = culculate(index1, index2, index3);
+            if (angleLast1 - d1 > clickThreashold || angleLast1 - d1 < -clickThreashold)
+            {
+                //T.text = "yes";
+                T.text = selectedRow[1].name;
+                if(!finalObj.Contains(selectedRow[1])) finalObj.Add(selectedRow[1]);
+                selectedRow[1].SetActive(false);
+            }
         
-       float d1 = culculate(index1, index2, index3);
-        if (angleLast1 - d1 > 0.2 || angleLast1 - d1 < -0.2)
-        {
-            //T.text = "yes";
-            T.text = backup[1].name;
-            if (!find(backup[1]))
+            
+            float d2 = culculate(middle1, middle2, middle3);
+            float d3 = culculate(ring1, ring2, ring3);
+            float d4 = culculate(little1, little2, little3);
+            if (angleLast2 - d2 > clickThreashold / 1.5 || angleLast2 - d2 < -clickThreashold / 1.5)
             {
-                final.Add(backup[1]);
-                
-           
+                T.text = selectedRow[2].name;
+                if(!finalObj.Contains(selectedRow[2])) finalObj.Add(selectedRow[2]);
+                selectedRow[2].SetActive(false);
             }
-        }
-       
-        
-        float d2 = culculate(middle1, middle2, middle3);
-        if (angleLast2 - d2 > 0.2 || angleLast2 - d2 < -0.2)
-        {
-            T.text = backup[2].name;
-            if (!find(backup[2]))
+            else if (angleLast4 - d4 > clickThreashold / 2.5 || angleLast4 - d4 < -clickThreashold / 2.5)
             {
-                final.Add(backup[2]);
-
+                T.text = selectedRow[4].name;
+                if(!finalObj.Contains(selectedRow[4])) finalObj.Add(selectedRow[4]);
+                selectedRow[4].SetActive(false);
             }
-        }
-   
-        float d3 = culculate(ring1, ring2, ring3);
-        if (angleLast3 - d3 > 0.2 || angleLast3 - d3 < -0.2)
-        {
-            T.text = backup[3].name;
-            if (!find(backup[3]))
+            else if (angleLast3 - d3 > clickThreashold || angleLast3 - d3 < -clickThreashold)
             {
-                final.Add(backup[3]);
+                T.text = selectedRow[3].name;
+                if(!finalObj.Contains(selectedRow[3])) finalObj.Add(selectedRow[3]);
+                selectedRow[3].SetActive(false);
             }
-        }
- 
-        float d4 = culculate(little1, little2, little3);
-        if (angleLast4 - d4 > 0.2 || angleLast4 - d4 < -0.2)
-        {
-            T.text = backup[4].name;
-            if (!find(backup[4]))
-            {
-                final.Add(backup[4]);
-            }
+    
+            
+            
         }
     
           /*  Ray ray0 = new Ray(thumb0.transform.position, thumb0.transform.position - thumb1.transform.position);

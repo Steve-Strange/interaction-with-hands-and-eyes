@@ -92,7 +92,8 @@ public class SightCone : MonoBehaviour
             i++;
         }
 
-        if (Vector3.Angle(previousOrientation, currentOrientation) > reFoucsThreshold && !reFocus && !HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState)
+        if (Vector3.Angle(previousOrientation, currentOrientation) > reFoucsThreshold && 
+            !reFocus && !HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState)
         {
             weightedObjects.Clear();
             reFocus = true;

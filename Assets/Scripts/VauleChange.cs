@@ -20,11 +20,11 @@ public class VauleChange : MonoBehaviour
 
 
     }
-    //¶¨ÒåµÄÎ¯ÍĞ
+    //å®šä¹‰çš„å§”æ‰˜
     public delegate void MyValueChanged(object sender, EventArgs e);
-    //ÓëÎ¯ÍĞÏà¹ØÁªµÄÊÂ¼ş
+    //ä¸å§”æ‰˜ç›¸å…³è”çš„äº‹ä»¶
     public event MyValueChanged OnMyValueChanged;
-    //ÊÂ¼ş´¥·¢º¯Êı
+    //äº‹ä»¶è§¦å‘å‡½æ•°
 
     private void angleChange()
     {

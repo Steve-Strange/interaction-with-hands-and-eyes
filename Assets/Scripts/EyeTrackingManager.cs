@@ -42,6 +42,7 @@ public class EyeTrackingManager : MonoBehaviour
     public GameObject blinkSelectedObject;
     private float closeEyesTime = 0f;
     public bool isEyesOpen = true;
+    private GameObject ClickSelect;
     
     void Start()
     {
@@ -50,6 +51,7 @@ public class EyeTrackingManager : MonoBehaviour
         originPoseMatrix = Origin.localToWorldMatrix;
         HandPoseManager = GameObject.Find("HandPoseManager");
         SightCone = GameObject.Find("SightCone");
+        ClickSelect = GameObject.Find("ClickSelect");
     }
 
     void Update()
@@ -123,9 +125,10 @@ public class EyeTrackingManager : MonoBehaviour
     }
 
 
-    void BlinkSelect(){
-        
+    void BlinkSelect(){    
         blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
+        if(!ClickSelect.GetComponent<ClickSelect>().finalObj.Contains(blinkSelectedObject))
+            ClickSelect.GetComponent<ClickSelect>().finalObj.Add(blinkSelectedObject);
         blinkSelectedObject.SetActive(false);
     }
 
