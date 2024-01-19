@@ -9,15 +9,14 @@ using System;
 
 public class HandPoseManager : MonoBehaviour
 {
-    public TMP_InputField inputField;
     public GameObject HandRightWrist;
     private GameObject SightCone;
-    public GameObject HandLeft;
-    public GameObject SecondSelectionBG;
+    private GameObject SecondSelectionBG;
     public List<GameObject> selectedRow = new List<GameObject>();
     private List<GameObject> selectedObjectsFixed = new List<GameObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
+    public GameObject FinalObjects;
 
     public TMP_InputField Log;
 
@@ -41,6 +40,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Log.text = "SecondSelectionState: " + SecondSelectionState.ToString() + "\n" + "PalmPoseState: " + PalmPoseState.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
             if (delayTimer > delayTime && SecondSelectionState)
@@ -81,7 +81,6 @@ public class HandPoseManager : MonoBehaviour
     public void onPalmPoseUpdate()
     {
         if(!SecondSelectionState) return;
-        inputField.text += HandRightWrist.transform.rotation.eulerAngles.ToString();
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if(wristRotation > 180f){
             wristRotation -= 360f;
@@ -90,12 +89,13 @@ public class HandPoseManager : MonoBehaviour
         
         int currentRow = Mathf.RoundToInt(rowNum - (wristRotation - minAngel)/(maxAngel - minAngel) * rowNum);
 
-        inputField.text = "";
-        inputField.text +="wristRotation: " + wristRotation.ToString() + "\n";
-        inputField.text +="currentRow: " + currentRow.ToString() + "\n";
-        inputField.text +="rowNum: " + rowNum.ToString() + "\n";
+        Log.text = "";
+        Log.text +="wristRotation: " + wristRotation.ToString() + "\n";
+        Log.text +="currentRow: " + currentRow.ToString() + "\n";
+        Log.text +="rowNum: " + rowNum.ToString() + "\n";
         selectedRow.Clear();
         for(int i = 0; i < selectedObjectsFixed.Count; i++){
+                
             if(i/5 == currentRow){
                 selectedObjectsFixed[i].GetComponent<Renderer>().material.color = Color.yellow;
                 selectedRow.Add(selectedObjectsFixed[i]);
@@ -115,7 +115,7 @@ public class HandPoseManager : MonoBehaviour
     {
         foreach (var obj in selectedObjectsFixed)
         {
-            if (originalTransform.TryGetValue(obj, out TransformData transformData))
+            if (originalTransform.TryGetValue(obj, out TransformData transformData) && !FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj))
             {
                 obj.transform.position = transformData.Position;
                 obj.transform.localScale = transformData.Scale;
@@ -127,7 +127,6 @@ public class HandPoseManager : MonoBehaviour
         delayTimer = 0.0f;
         selectedObjectsFixed.Clear();
         SightCone.GetComponent<SightCone>().selectedObjects.Clear();
-        SightCone.transform.localScale = new Vector3(SightCone.transform.localScale.x, SightCone.transform.localScale.y, 0);
         SecondSelectionState = false;
     }
 

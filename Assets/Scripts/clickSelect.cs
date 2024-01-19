@@ -23,8 +23,9 @@ public class ClickSelect : MonoBehaviour
     private float angle, angle1, angle2, angle3, angle4, angleLast;
     private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
     private Vector3 vLast;
-    public List<GameObject> finalObj = new List<GameObject>();
     private float clickThreashold = 0.1f;
+
+    public GameObject FinalObjects;
     // Start is called before the first frame update
 
     void Start()
@@ -82,7 +83,7 @@ public class ClickSelect : MonoBehaviour
     void Update()
     {   //手指沿手指关节发出射线，指尖和第一个指节
 
-        log.text = string.Join(",", finalObj);
+        log.text = string.Join(",", FinalObjects.GetComponent<FinalObjects>().finalObj);
 
         if(selectedRow[0])
             T2.text = selectedRow[0].name;
@@ -99,45 +100,49 @@ public class ClickSelect : MonoBehaviour
         {
 
             float d = culculate(thumb1, thumb2, thumb3);
-            if (d - angleLast > clickThreashold / 3 || d - angleLast < -clickThreashold / 3)
+            if (d - angleLast > clickThreashold / 3.5)
             {
                 T.text = selectedRow[0].name;
 
-                if(!finalObj.Contains(selectedRow[0])) finalObj.Add(selectedRow[0]);
-                selectedRow[0].SetActive(false);
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[0])) 
+                    FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[0]);
+
             }
 
             
             float d1 = culculate(index1, index2, index3);
-            if (angleLast1 - d1 > clickThreashold || angleLast1 - d1 < -clickThreashold)
+            if (angleLast1 - d1 > clickThreashold / 1.4)
             {
                 //T.text = "yes";
                 T.text = selectedRow[1].name;
-                if(!finalObj.Contains(selectedRow[1])) finalObj.Add(selectedRow[1]);
-                selectedRow[1].SetActive(false);
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[1])) 
+                    FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[1]);
+                
             }
         
             
             float d2 = culculate(middle1, middle2, middle3);
             float d3 = culculate(ring1, ring2, ring3);
             float d4 = culculate(little1, little2, little3);
-            if (angleLast2 - d2 > clickThreashold / 1.5 || angleLast2 - d2 < -clickThreashold / 1.5)
+            if (angleLast2 - d2 > clickThreashold / 1.5)
             {
                 T.text = selectedRow[2].name;
-                if(!finalObj.Contains(selectedRow[2])) finalObj.Add(selectedRow[2]);
-                selectedRow[2].SetActive(false);
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[2])) 
+                    FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[2]);
             }
-            else if (angleLast4 - d4 > clickThreashold / 2.5 || angleLast4 - d4 < -clickThreashold / 2.5)
+            else if (angleLast4 - d4 > clickThreashold / 2)
             {
                 T.text = selectedRow[4].name;
-                if(!finalObj.Contains(selectedRow[4])) finalObj.Add(selectedRow[4]);
-                selectedRow[4].SetActive(false);
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[4])) 
+                    FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[4]);
+
             }
-            else if (angleLast3 - d3 > clickThreashold || angleLast3 - d3 < -clickThreashold)
+            else if (angleLast3 - d3 > clickThreashold / 1.2)
             {
                 T.text = selectedRow[3].name;
-                if(!finalObj.Contains(selectedRow[3])) finalObj.Add(selectedRow[3]);
-                selectedRow[3].SetActive(false);
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[3]))
+                    FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[3]);
+                
             }
     
             

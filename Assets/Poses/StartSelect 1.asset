@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fea894361bde054fbfc4de741aa3483, type: 3}
-  m_Name: select
+  m_Name: StartSelect 1
   m_EditorClassIdentifier: 
   shapesRecognizer:
     thumb:
@@ -20,79 +20,79 @@ MonoBehaviour:
       abduction: 0
       fingerConfigs:
         flexionConfigs:
-          min: 90
+          min: 155
           max: 180
-          width: 10
+          width: 20
         curlConfigs:
-          min: 45
+          min: 90
           max: 180
           width: 20
         abductionConfigs:
           mid: 13
-          width: 6
+          width: 20
     index:
       handFinger: 1
       flexion: 0
-      curl: 3
+      curl: 0
       abduction: 0
       fingerConfigs:
         flexionConfigs:
-          min: 90
+          min: 144
           max: 180
-          width: 10
+          width: 20
         curlConfigs:
-          min: 30.897142
-          max: 146.20625
+          min: 107
+          max: 180
           width: 20
         abductionConfigs:
           mid: 10
-          width: 6
+          width: 14
     middle:
       handFinger: 2
-      flexion: 1
-      curl: 3
+      flexion: 0
+      curl: 0
       abduction: 0
       fingerConfigs:
         flexionConfigs:
           min: 144
           max: 180
-          width: 15
+          width: 20
         curlConfigs:
-          min: 57.62305
+          min: 107
           max: 180
           width: 20
         abductionConfigs:
           mid: 10
-          width: 6
+          width: 14
     ring:
       handFinger: 3
-      flexion: 1
-      curl: 3
+      flexion: 0
+      curl: 0
       abduction: 0
       fingerConfigs:
         flexionConfigs:
           min: 144
-          max: 180
-          width: 15
-        curlConfigs:
-          min: 56.662666
           max: 180
           width: 20
+        curlConfigs:
+          min: 107
+          max: 180
+          width: 59.6
         abductionConfigs:
           mid: 10
-          width: 6
+          width: 14
     pinky:
       handFinger: 4
-      flexion: 1
-      curl: 3
+      flexion: 0
+      curl: 0
       abduction: 0
       fingerConfigs:
         flexionConfigs:
           min: 144
           max: 180
-          width: 15
+          width: 20
         curlConfigs:
-          min: 65.30612
+          min: 107
           max: 180
           width: 20
         abductionConfigs:
@@ -100,17 +100,12 @@ MonoBehaviour:
           width: 6
     holdDuration: 0.09
   bonesRecognizer:
-    Bones:
-    - bone1: 5
-      bone2: 10
-      distance: 0.03
-      thresholdWidth: 0.01
-      activeState: 0
+    Bones: []
     holdDuration: 0.022
   transRecognizer:
     trackAxis: 1
-    spaceType: 3
-    trackTarget: 1
-    angleThreshold: 35
-    thresholdWidth: 30
+    spaceType: 0
+    trackTarget: 2
+    angleThreshold: 0
+    thresholdWidth: 180
     holdDuration: 0.022
