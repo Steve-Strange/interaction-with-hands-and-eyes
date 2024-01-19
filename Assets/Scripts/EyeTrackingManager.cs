@@ -35,6 +35,7 @@ public class EyeTrackingManager : MonoBehaviour
     public GameObject eyeSelectedObject;
     public Material originalMaterial;
 
+    public GameObject FinalObjects;
 
     private Queue<GameObject> eyeSelectedObjectBuffer = new Queue<GameObject>();
     private int maxBufferSize = 10; // 队列的最大大小
@@ -43,6 +44,16 @@ public class EyeTrackingManager : MonoBehaviour
     private float closeEyesTime = 0f;
     public bool isEyesOpen = true;
     private GameObject ClickSelect;
+    
+
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+            target.GetComponent<Outline>().OutlineColor = color;
+        }
+    }
     
     void Start()
     {
@@ -67,29 +78,24 @@ public class EyeTrackingManager : MonoBehaviour
         combineEyeGazeVectorInWorldSpace = originPoseMatrix.MultiplyVector(headPoseMatrix.MultiplyVector(combineEyeGazeVector));
 
         SpotLight.transform.position = combineEyeGazeOriginInWorldSpace;
-        SpotLight.transform.rotation = 
-        Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
+        SpotLight.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
 
-        isEyesOpen = leftEyeOpenness > 0.01f && rightEyeOpenness > 0.01f;
+        isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
 
         if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
             if(isEyesOpen){
+                if(closeEyesTime > 0.35f) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
                 eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
                 if(eyeSelectedObjectBuffer.Count > maxBufferSize){
                     eyeSelectedObjectBuffer.Dequeue();  
                 }
-
                 closeEyesTime = 0;
             }
             else {
                 closeEyesTime += Time.deltaTime;
-            }
-
-            if(closeEyesTime > 0.25f){
-                BlinkSelect();
             }
         }
     }
@@ -107,16 +113,16 @@ public class EyeTrackingManager : MonoBehaviour
                     {
                         if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(eyeSelectedObject))
                         {
-                            eyeSelectedObject.GetComponent<Renderer>().material = SightCone.GetComponent<SightCone>().highlightMaterial;
+                            eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.red;
                         }
                         else
                         {
-                            eyeSelectedObject.GetComponent<Renderer>().material = originalMaterial;
+                            eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.clear;
                         }
+
                     }
-                    originalMaterial = hitInfo.collider.gameObject.GetComponent<Renderer>().material;
                     eyeSelectedObject = hitInfo.collider.gameObject;
-                    eyeSelectedObject.GetComponent<Renderer>().material = highlightMaterial;
+                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
                 }
             }
 
@@ -125,11 +131,14 @@ public class EyeTrackingManager : MonoBehaviour
     }
 
 
-    void BlinkSelect(){    
+    void BlinkSelect(){
         blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
-        if(!ClickSelect.GetComponent<ClickSelect>().finalObj.Contains(blinkSelectedObject))
-            ClickSelect.GetComponent<ClickSelect>().finalObj.Add(blinkSelectedObject);
-        blinkSelectedObject.SetActive(false);
+        if(!ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
+            ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
+        if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){
+            SightCone.GetComponent<SightCone>().selectedObjects.Remove(blinkSelectedObject);
+        }
+
     }
 
     GameObject FindMostFrequentElement(Queue<GameObject> list)

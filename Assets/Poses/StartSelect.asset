@@ -22,7 +22,7 @@ MonoBehaviour:
         flexionConfigs:
           min: 155
           max: 180
-          width: 15.6
+          width: 20
         curlConfigs:
           min: 90
           max: 180
@@ -39,7 +39,7 @@ MonoBehaviour:
         flexionConfigs:
           min: 144
           max: 180
-          width: 10
+          width: 20
         curlConfigs:
           min: 107
           max: 180
@@ -56,7 +56,7 @@ MonoBehaviour:
         flexionConfigs:
           min: 144
           max: 180
-          width: 59
+          width: 20
         curlConfigs:
           min: 107
           max: 180
@@ -73,7 +73,7 @@ MonoBehaviour:
         flexionConfigs:
           min: 144
           max: 180
-          width: 10
+          width: 20
         curlConfigs:
           min: 107
           max: 180
@@ -90,7 +90,7 @@ MonoBehaviour:
         flexionConfigs:
           min: 144
           max: 180
-          width: 64.7
+          width: 20
         curlConfigs:
           min: 107
           max: 180

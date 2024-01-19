@@ -22,10 +22,9 @@ public class SightCone : MonoBehaviour
     private float coneAngle = 21f; // 圆锥的角度
     public Material highlightMaterial;
     public List<GameObject> selectedObjects = new List<GameObject>(); // 存储当前被高亮的物体
-    public Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
     private GameObject HandPoseManager;
     private GameObject EyeTrackingManager;
-    private float MaxDepth = 10f;
+    private float MaxDepth = 20f;
 
     public TMP_InputField Log;
     private bool reFocus = true;
@@ -37,40 +36,41 @@ public class SightCone : MonoBehaviour
     void Start(){
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
         HandPoseManager = GameObject.Find("HandPoseManager");
-        transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
-                                transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
+        transform.localScale = new Vector3(MaxDepth * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
+                                MaxDepth * Mathf.Tan(coneAngle * Mathf.Deg2Rad), MaxDepth);
 
     }
 
     void Update()
     {
-        orientationQueue.Enqueue(EyeTrackingManager.GetComponent<EyeTrackingManager>().combineEyeGazeVectorInWorldSpace);
-        if(orientationQueue.Count > reFoucsTime){
-            orientationQueue.Dequeue();
-        }
+        // orientationQueue.Enqueue(EyeTrackingManager.GetComponent<EyeTrackingManager>().combineEyeGazeVectorInWorldSpace);
+        // if(orientationQueue.Count > reFoucsTime){
+        //     orientationQueue.Dequeue();
+        // }
 
-        if(transform.localScale.z < MaxDepth)
-        {
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, MaxDepth);
-        }
-        else
-        {
-            gameObject.GetComponent<Light>().spotAngle = coneAngle;
-            float density = selectedObjects.Count / coneAngle;
-            if(coneAngle <= 27f && selectedObjects.Count <= 25 && density <= 0.3){
-                coneAngle += 3f;
-                transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
-                                    transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
-            }
-            else if(coneAngle >= 18f && density >= 0.5){
-                coneAngle -= 3f;
-                transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
-                                    transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
-            }
-            // Log.text = "coneAngle: " + coneAngle + "\n" + "selectedObjects.Count: " + selectedObjects.Count + "\n" + "density: " + density;
-        }
+        Log.text = "coneAngle: " + coneAngle + "\n" + "selectedObjects.Count: " + selectedObjects.Count + "\n";
+        // if(transform.localScale.z < MaxDepth)
+        // {
+        //     transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, MaxDepth);
+        // }
+        // else
+        // {
+            // gameObject.GetComponent<Light>().spotAngle = coneAngle;
+            // float density = selectedObjects.Count / coneAngle;
+            // if(coneAngle <= 27f && selectedObjects.Count <= 25 && density <= 0.3){
+            //     coneAngle += 3f;
+            //     transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
+            //                         transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
+            // }
+            // else if(coneAngle >= 18f && density >= 0.5){
+            //     coneAngle -= 3f;
+            //     transform.localScale = new Vector3(transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad),
+            //                         transform.localScale.z * Mathf.Tan(coneAngle * Mathf.Deg2Rad), transform.localScale.z);
+            // }
+            // 
+        // }
         
-        ReFocus();
+        // ReFocus();
     }
 
     float DistanceToLineOfSight(Vector3 point, Vector3 linePoint, Vector3 lineDirection)
@@ -144,13 +144,10 @@ public class SightCone : MonoBehaviour
 
             if(hitObj == EyeTrackingManager.GetComponent<EyeTrackingManager>().eyeSelectedObject) return;
 
-            // 在更改材质之前存储原始材质
-            if (!originalMaterials.ContainsKey(hitObj))
-            {
-                originalMaterials[hitObj] = hitObj.GetComponent<Renderer>().material;
-            }
 
-            hitObj.GetComponent<Renderer>().material = highlightMaterial;
+            // hitObj.GetComponent<Renderer>().material = highlightMaterial;
+            hitObj.AddComponent<Outline>();
+            hitObj.GetComponent<Outline>().OutlineColor = Color.red;
             if(!reFocus) selectedObjects.Insert(0, hitObj);
             else selectedObjects.Add(hitObj);
             
@@ -160,9 +157,9 @@ public class SightCone : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && 
-            selectedObjects.Contains(other.gameObject) && other.gameObject.CompareTag("Target"))
+            selectedObjects.Contains(other.gameObject) && (other.gameObject.CompareTag("Target") || other.gameObject.CompareTag("FinalObject")))
         {
-            other.gameObject.GetComponent<Renderer>().material = originalMaterials[other.gameObject]; // 恢复原始材质
+            other.GetComponent<Outline>().OutlineColor = Color.clear;
             selectedObjects.Remove(other.gameObject);
 
         }
