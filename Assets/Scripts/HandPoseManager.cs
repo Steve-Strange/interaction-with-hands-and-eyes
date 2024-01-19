@@ -17,6 +17,7 @@ public class HandPoseManager : MonoBehaviour
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
     public GameObject FinalObjects;
+    private GameObject EyeTrackingManager;
 
     public TMP_InputField Log;
 
@@ -24,7 +25,7 @@ public class HandPoseManager : MonoBehaviour
     private float delayTimer = 0.0f; // 计时器
 
     public bool SecondSelectionState = false;
-    private bool PalmPoseState = false;
+    public bool PalmPoseState = false;
 
     private int rowNum = 0;
 
@@ -35,6 +36,7 @@ public class HandPoseManager : MonoBehaviour
     {
         SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
+        EyeTrackingManager = GameObject.Find("EyeTrackingManager");
     }
 
     // Update is called once per frame
@@ -63,8 +65,9 @@ public class HandPoseManager : MonoBehaviour
             SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
             foreach (var obj in selectedObjectsFixed)
             {
+                if(obj == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject) continue;
                 originalTransform[obj] = new TransformData(obj.transform.position, obj.transform.localScale);
-                obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[obj].color;
+                obj.GetComponent<Outline>().OutlineColor = Color.clear; 
                 obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 obj.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + 
@@ -95,13 +98,12 @@ public class HandPoseManager : MonoBehaviour
         Log.text +="rowNum: " + rowNum.ToString() + "\n";
         selectedRow.Clear();
         for(int i = 0; i < selectedObjectsFixed.Count; i++){
-                
             if(i/5 == currentRow){
-                selectedObjectsFixed[i].GetComponent<Renderer>().material.color = Color.yellow;
+                selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.yellow; 
                 selectedRow.Add(selectedObjectsFixed[i]);
             }
             else{
-                selectedObjectsFixed[i].GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[selectedObjectsFixed[i]].color;
+                selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.clear; 
             }
         }
     }
@@ -119,23 +121,18 @@ public class HandPoseManager : MonoBehaviour
             {
                 obj.transform.position = transformData.Position;
                 obj.transform.localScale = transformData.Scale;
-                obj.GetComponent<Renderer>().material.color = SightCone.GetComponent<SightCone>().originalMaterials[obj].color;
             }
         }
 
         SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
         delayTimer = 0.0f;
         selectedObjectsFixed.Clear();
+        foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
+        {
+            obj.GetComponent<Outline>().OutlineColor = Color.clear;
+        }
         SightCone.GetComponent<SightCone>().selectedObjects.Clear();
+
         SecondSelectionState = false;
     }
-
-    public void onGripPoseEnter(){
-        Log.text = "true";
-    }
-
-    public void onGripPoseExit(){
-        Log.text = "false";
-    }
-
 }

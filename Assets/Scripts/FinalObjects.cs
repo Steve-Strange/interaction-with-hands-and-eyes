@@ -25,11 +25,11 @@ public class FinalObjects : MonoBehaviour
     public void AddFinalObj(GameObject obj)
     {
         obj.tag = "FinalObject";
-        finalObj.Add(obj);
+        obj.GetComponent<Outline>().OutlineColor = Color.clear;
         obj.transform.parent = transform;
-        obj.GetComponent<Renderer>().material = SightCone.GetComponent<SightCone>().originalMaterials[obj];
         obj.transform.localEulerAngles = new Vector3(0, 0, 0);
         obj.transform.localScale = new Vector3(finalScale / transform.localScale.x, finalScale / transform.localScale.y, finalScale / transform.localScale.z);
-        obj.transform.localPosition = new Vector3(transform.localScale.x/2 - obj.transform.localScale.x * (2 * finalObj.Count - 1), 0, 0);
+        obj.transform.localPosition = new Vector3(transform.localScale.x/2 - obj.transform.localScale.x * 2 * finalObj.Count, 0, 0);
+        finalObj.Add(obj);
     }
 }

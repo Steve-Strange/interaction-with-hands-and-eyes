@@ -22,7 +22,6 @@ public class SightCone : MonoBehaviour
     private float coneAngle = 21f; // 圆锥的角度
     public Material highlightMaterial;
     public List<GameObject> selectedObjects = new List<GameObject>(); // 存储当前被高亮的物体
-    public Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
     private GameObject HandPoseManager;
     private GameObject EyeTrackingManager;
     private float MaxDepth = 20f;
@@ -145,13 +144,10 @@ public class SightCone : MonoBehaviour
 
             if(hitObj == EyeTrackingManager.GetComponent<EyeTrackingManager>().eyeSelectedObject) return;
 
-            // 在更改材质之前存储原始材质
-            if (!originalMaterials.ContainsKey(hitObj))
-            {
-                originalMaterials[hitObj] = hitObj.GetComponent<Renderer>().material;
-            }
 
-            hitObj.GetComponent<Renderer>().material = highlightMaterial;
+            // hitObj.GetComponent<Renderer>().material = highlightMaterial;
+            hitObj.AddComponent<Outline>();
+            hitObj.GetComponent<Outline>().OutlineColor = Color.red;
             if(!reFocus) selectedObjects.Insert(0, hitObj);
             else selectedObjects.Add(hitObj);
             
@@ -161,9 +157,9 @@ public class SightCone : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && 
-            selectedObjects.Contains(other.gameObject) && other.gameObject.CompareTag("Target"))
+            selectedObjects.Contains(other.gameObject) && (other.gameObject.CompareTag("Target") || other.gameObject.CompareTag("FinalObject")))
         {
-            other.gameObject.GetComponent<Renderer>().material = originalMaterials[other.gameObject]; // 恢复原始材质
+            other.GetComponent<Outline>().OutlineColor = Color.clear;
             selectedObjects.Remove(other.gameObject);
 
         }

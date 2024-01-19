@@ -45,6 +45,16 @@ public class EyeTrackingManager : MonoBehaviour
     public bool isEyesOpen = true;
     private GameObject ClickSelect;
     
+
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+            target.GetComponent<Outline>().OutlineColor = color;
+        }
+    }
+    
     void Start()
     {
         combineEyeGazeVector = Vector3.zero;
@@ -72,11 +82,11 @@ public class EyeTrackingManager : MonoBehaviour
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
 
-        isEyesOpen = leftEyeOpenness > 0.01f && rightEyeOpenness > 0.01f;
+        isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
 
         if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
             if(isEyesOpen){
-                if(closeEyesTime > 0.25f) BlinkSelect();
+                if(closeEyesTime > 0.35f) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
                 eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
                 if(eyeSelectedObjectBuffer.Count > maxBufferSize){
@@ -103,16 +113,16 @@ public class EyeTrackingManager : MonoBehaviour
                     {
                         if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(eyeSelectedObject))
                         {
-                            eyeSelectedObject.GetComponent<Renderer>().material = SightCone.GetComponent<SightCone>().highlightMaterial;
+                            eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.red;
                         }
                         else
                         {
-                            eyeSelectedObject.GetComponent<Renderer>().material = originalMaterial;
+                            eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.clear;
                         }
+
                     }
-                    originalMaterial = hitInfo.collider.gameObject.GetComponent<Renderer>().material;
                     eyeSelectedObject = hitInfo.collider.gameObject;
-                    eyeSelectedObject.GetComponent<Renderer>().material = highlightMaterial;
+                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
                 }
             }
 
@@ -123,9 +133,12 @@ public class EyeTrackingManager : MonoBehaviour
 
     void BlinkSelect(){
         blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
-        // if(!ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
-        ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
-        blinkSelectedObject = null;
+        if(!ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
+            ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
+        if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){
+            SightCone.GetComponent<SightCone>().selectedObjects.Remove(blinkSelectedObject);
+        }
+
     }
 
     GameObject FindMostFrequentElement(Queue<GameObject> list)

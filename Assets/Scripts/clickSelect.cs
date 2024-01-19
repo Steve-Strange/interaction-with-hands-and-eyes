@@ -35,7 +35,6 @@ public class ClickSelect : MonoBehaviour
     }
     private void RepeatedMethod()
     {
-        selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
         float d = culculate(thumb1, thumb2, thumb3);
         angleLast = d;
      
@@ -63,26 +62,10 @@ public class ClickSelect : MonoBehaviour
         angle = Vector3.Dot(first,second)/(first.magnitude*second.magnitude);
         return angle;
     }
-    public static Outline Load_Scripts<Outline>(GameObject target) where Outline : Component
-    {
-        if (target.GetComponent<Outline>() == null)
-        {
-            target.AddComponent<Outline>();
-        }
-        return target.GetComponent<Outline>();
-    }
-
-    // public static void Unload_Scripts<Outline>(GameObject target) where Outline : Component
-    // {
-    //     if (target.GetComponent<Outline>() != null)
-    //     {
-    //         GameObject.Destroy(target.GetComponent<Outline>() as Object);
-    //     }
-    // }
     // Update is called once per frame
     void Update()
     {   //手指沿手指关节发出射线，指尖和第一个指节
-
+        selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
         log.text = string.Join(",", FinalObjects.GetComponent<FinalObjects>().finalObj);
 
         if(selectedRow[0])
@@ -96,16 +79,17 @@ public class ClickSelect : MonoBehaviour
         if (selectedRow[4])
             T6.text = selectedRow[4].name;
 
-        if(HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState)
+        if(HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
         {
-
             float d = culculate(thumb1, thumb2, thumb3);
             if (d - angleLast > clickThreashold / 3.5)
             {
                 T.text = selectedRow[0].name;
 
-                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[0])) 
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[0])){
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[0]);
+                    selectedRow[0] = null;
+                }
 
             }
 
@@ -115,8 +99,10 @@ public class ClickSelect : MonoBehaviour
             {
                 //T.text = "yes";
                 T.text = selectedRow[1].name;
-                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[1])) 
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[1])){
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[1]);
+                    selectedRow[1] = null;
+                }
                 
             }
         
@@ -127,21 +113,29 @@ public class ClickSelect : MonoBehaviour
             if (angleLast2 - d2 > clickThreashold / 1.5)
             {
                 T.text = selectedRow[2].name;
-                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[2])) 
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[2])){
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[2]);
+                    selectedRow[2] = null;
+                }
+
             }
             else if (angleLast4 - d4 > clickThreashold / 2)
             {
                 T.text = selectedRow[4].name;
-                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[4])) 
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[4])) {
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[4]);
+                    selectedRow[4] = null;
+                }
+
 
             }
-            else if (angleLast3 - d3 > clickThreashold / 1.2)
+            else if (angleLast3 - d3 > clickThreashold / 1.5)
             {
                 T.text = selectedRow[3].name;
-                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[3]))
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[3])) {
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[3]);
+                    selectedRow[3] = null;
+                }
                 
             }
     
