@@ -43,7 +43,7 @@ public class EyeTrackingManager : MonoBehaviour
     public GameObject blinkSelectedObject;
     private float closeEyesTime = 0f;
     public bool isEyesOpen = true;
-    private GameObject ClickSelect;
+    private GameObject clickSelect;
     
 
     public void AddOutline(GameObject target, Color color)
@@ -62,13 +62,12 @@ public class EyeTrackingManager : MonoBehaviour
         originPoseMatrix = Origin.localToWorldMatrix;
         HandPoseManager = GameObject.Find("HandPoseManager");
         SightCone = GameObject.Find("SightCone");
-        ClickSelect = GameObject.Find("ClickSelect");
+        clickSelect = GameObject.Find("clickSelect");
     }
 
     void Update()
     {
-        PXR_EyeTracking.GetLeftEyeGazeOpenness(out leftEyeOpenness);
-        PXR_EyeTracking.GetRightEyeGazeOpenness(out rightEyeOpenness);
+
 
         PXR_EyeTracking.GetHeadPosMatrix(out headPoseMatrix);
         PXR_EyeTracking.GetCombineEyeGazeVector(out combineEyeGazeVector);
@@ -82,9 +81,10 @@ public class EyeTrackingManager : MonoBehaviour
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
 
-        isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
-
-        if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState){
+        if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState &&
+            PXR_EyeTracking.GetLeftEyeGazeOpenness(out leftEyeOpenness) &&
+            PXR_EyeTracking.GetRightEyeGazeOpenness(out rightEyeOpenness)) {
+            isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
             if(isEyesOpen){
                 if(closeEyesTime > 0.35f) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
@@ -133,10 +133,20 @@ public class EyeTrackingManager : MonoBehaviour
 
     void BlinkSelect(){
         blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
-        if(!ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
-            ClickSelect.GetComponent<ClickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
+        if(!clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
+            clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
         if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){
             SightCone.GetComponent<SightCone>().selectedObjects.Remove(blinkSelectedObject);
+        }
+
+        var sightCone = SightCone.GetComponent<SightCone>();
+
+        // 复制字典的键列表
+        List<GameObject> keys = sightCone.objectWeights.Keys.ToList();
+
+        foreach (var key in keys)
+        {
+            sightCone.objectWeights[key] = 0;
         }
 
     }

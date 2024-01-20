@@ -5,7 +5,7 @@ using UnityEngine;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 using static UnityEngine.ParticleSystem;
 
-public class ClickSelect : MonoBehaviour
+public class clickSelect : MonoBehaviour
 {
     private List<GameObject> selectedRow = new List<GameObject>();
     public GameObject HandPoseManager, hand, thumb0, thumb1, thumb2, thumb3,

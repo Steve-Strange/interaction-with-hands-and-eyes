@@ -5,6 +5,7 @@ using UnityEngine.XR;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using System.Linq;
 
 
 public class HandPoseManager : MonoBehaviour
@@ -13,7 +14,7 @@ public class HandPoseManager : MonoBehaviour
     private GameObject SightCone;
     private GameObject SecondSelectionBG;
     public List<GameObject> selectedRow = new List<GameObject>();
-    private List<GameObject> selectedObjectsFixed = new List<GameObject>();
+    // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
     public GameObject FinalObjects;
@@ -31,6 +32,8 @@ public class HandPoseManager : MonoBehaviour
 
     private float maxAngel = 45f;
     private float minAngel = 20f;
+
+    private Dictionary<GameObject, float> sortedObjectWeights = new Dictionary<GameObject, float>();
 
     void Start()
     {
@@ -60,21 +63,25 @@ public class HandPoseManager : MonoBehaviour
 
         if(!SecondSelectionState){
             originalTransform.Clear();
-            selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
+            // selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
             int i = 0;
             SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
-            foreach (var obj in selectedObjectsFixed)
+            
+            sortedObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderByDescending(kv => kv.Value).Take(15).ToDictionary(kv => kv.Key, kv => kv.Value);
+
+            foreach (var obj in sortedObjectWeights)
             {
-                if(obj == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject) continue;
-                originalTransform[obj] = new TransformData(obj.transform.position, obj.transform.localScale);
-                obj.GetComponent<Outline>().OutlineColor = Color.clear; 
-                obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                obj.transform.position = SecondSelectionBG.transform.position + 
+                if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject) continue;
+                originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.localScale);
+                obj.Key.GetComponent<Outline>().OutlineColor = Color.clear; 
+                obj.Key.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                obj.Key.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + 
-                    new Vector3(obj.transform.localScale.x * (2 * (i%5) + 1) , - obj.transform.localScale.y * (2 * (i/5) + 1), - 2 * obj.transform.localScale.z);
+                    new Vector3(obj.Key.transform.localScale.x * (2 * (i%5) + 1) , - obj.Key.transform.localScale.y * (2 * (i/5) + 1), - 2 * obj.Key.transform.localScale.z);
                 i++;
             }
             rowNum = Mathf.CeilToInt(i/5);
+
         }
         
         SecondSelectionState = true;
@@ -97,15 +104,30 @@ public class HandPoseManager : MonoBehaviour
         Log.text +="currentRow: " + currentRow.ToString() + "\n";
         Log.text +="rowNum: " + rowNum.ToString() + "\n";
         selectedRow.Clear();
-        for(int i = 0; i < selectedObjectsFixed.Count; i++){
+
+        int i = 0;
+        foreach (var obj in sortedObjectWeights)
+        {
             if(i/5 == currentRow){
-                selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.yellow; 
-                selectedRow.Add(selectedObjectsFixed[i]);
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key))
+                    obj.Key.GetComponent<Outline>().OutlineColor = Color.yellow; 
+                selectedRow.Add(obj.Key);
             }
             else{
-                selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.clear; 
+                obj.Key.GetComponent<Outline>().OutlineColor = Color.clear; 
             }
+            i++;
         }
+        // for(int i = 0; i < selectedObjectsFixed.Count; i++){
+        //     if(i/5 == currentRow){
+        //         if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedObjectsFixed[i]))
+        //             selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.yellow; 
+        //         selectedRow.Add(selectedObjectsFixed[i]);
+        //     }
+        //     else{
+        //         selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.clear; 
+        //     }
+        // }
     }
 
     public void onPalmPoseExit()
@@ -115,23 +137,34 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseExitDelay()
     {
-        foreach (var obj in selectedObjectsFixed)
+        foreach (var obj in sortedObjectWeights)
         {
-            if (originalTransform.TryGetValue(obj, out TransformData transformData) && !FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj))
+            if (originalTransform.TryGetValue(obj.Key, out TransformData transformData) && 
+                !FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key))
             {
-                obj.transform.position = transformData.Position;
-                obj.transform.localScale = transformData.Scale;
+                obj.Key.transform.position = transformData.Position;
+                obj.Key.transform.localScale = transformData.Scale;
             }
         }
 
         SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
         delayTimer = 0.0f;
-        selectedObjectsFixed.Clear();
+        // selectedObjectsFixed.Clear();
         foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
         {
             obj.GetComponent<Outline>().OutlineColor = Color.clear;
         }
         SightCone.GetComponent<SightCone>().selectedObjects.Clear();
+        
+        var sightCone = SightCone.GetComponent<SightCone>();
+
+        // 复制字典的键列表
+        List<GameObject> keys = sightCone.objectWeights.Keys.ToList();
+
+        foreach (var key in keys)
+        {
+            sightCone.objectWeights[key] = 0;
+        }
 
         SecondSelectionState = false;
     }

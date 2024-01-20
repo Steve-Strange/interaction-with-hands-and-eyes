@@ -52,6 +52,6 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "interaction-with-hands-and-eyes-main.sln",
+    "dotnet.defaultSolution": "pico hand.sln",
     "commentTranslate.multiLineMerge": true
 }

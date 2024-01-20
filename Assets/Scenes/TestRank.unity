@@ -3759,7 +3759,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5629084884208175553, guid: 0f4d71e35f7ecf1449bad90371aa88e3, type: 3}
+  - {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10902,7 +10902,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5629084884208175553, guid: 0f4d71e35f7ecf1449bad90371aa88e3, type: 3}
+  - {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14153,11 +14153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ed3fca62aeeb34e9e52120837f0495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 1603407368}
   HandRightWrist: {fileID: 346177839}
-  HandLeft: {fileID: 0}
-  SecondSelectionBG: {fileID: 0}
+  selectedRow: []
+  FinalObjects: {fileID: 0}
+  Log: {fileID: 0}
   SecondSelectionState: 0
+  PalmPoseState: 0
 --- !u!1 &1491637751
 GameObject:
   m_ObjectHideFlags: 0
@@ -14226,7 +14227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5629084884208175553, guid: 0f4d71e35f7ecf1449bad90371aa88e3, type: 3}
+  - {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15864,8 +15865,13 @@ MonoBehaviour:
   Log: {fileID: 671891365}
   combineEyeGazeVectorInWorldSpace: {x: 0, y: 0, z: 0}
   combineEyeGazeOriginInWorldSpace: {x: 0, y: 0, z: 0}
-  highlightMaterial: {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
   HandPoseManager: {fileID: 0}
+  highlightMaterial: {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
+  eyeSelectedObject: {fileID: 0}
+  originalMaterial: {fileID: 0}
+  FinalObjects: {fileID: 0}
+  blinkSelectedObject: {fileID: 0}
+  isEyesOpen: 1
 --- !u!4 &1633216964
 Transform:
   m_ObjectHideFlags: 0
@@ -17384,7 +17390,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5629084884208175553, guid: 0f4d71e35f7ecf1449bad90371aa88e3, type: 3}
+  - {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
