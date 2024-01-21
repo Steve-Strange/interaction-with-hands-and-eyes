@@ -33,7 +33,7 @@ public class clickSelect : MonoBehaviour
 Vector3 Last;
     void Start()
     {
-        lines = new LineRenderer[5];//Ìí¼Ó×é¼þ
+        lines = new LineRenderer[5];//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
         Last = thumb1.transform.position;
         StartCoroutine("UpdateVelocity");
@@ -69,7 +69,7 @@ Vector3 Last;
             ad[4] = d;
 
     }
-    private float culculate(GameObject one,GameObject two,GameObject three)//¼ÆËã¼Ð½Ç
+    private float culculate(GameObject one,GameObject two,GameObject three)//ï¿½ï¿½ï¿½ï¿½Ð½ï¿½
     {
         var first = one.transform.position - two.transform.position;
         var second = three.transform.position - two.transform.position;
@@ -88,9 +88,9 @@ Vector3 Last;
         while (true)
         {
             yield return 0;
-            //»ñµÃËÙ¶È
+            //ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
             newPositon = thumb1.transform.position;
-            v = (newPositon - lastPosition) / 0.02f;//Ò»Ö¡ÊÇ0.02s£¬ËùÒÔÕâÀï³ýÒÔ0.02f
+            v = (newPositon - lastPosition) / 0.02f;//Ò»Ö¡ï¿½ï¿½0.02sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0.02f
             lastPosition = newPositon;
           
         }
@@ -142,10 +142,9 @@ Vector3 Last;
             mark[3] = false;
             mark[4] = false;
 
-            if (d[0]-angleLast[0]> 0.12 && v.magnitude > 0.25)
+            if (d[0]-angleLast[0] > 0.12 && v.magnitude > 0.25)
             {
                 mark[0] = true;
-
 
             }
             T.text = mark[0].ToString();
@@ -153,7 +152,7 @@ Vector3 Last;
             Last = thumb1.transform.position;
 
             T2.text = (d[0] - ad[0]).ToString();
-            if (  d[1]- angleLast[1]> 0.3)//0.99-0.7(Ð¡ÓÚ0.7)
+            if (  d[1]- angleLast[1]> 0.3)//0.99-0.7(Ð¡ï¿½ï¿½0.7)
             {
 
                 mark[1] = true;
@@ -161,19 +160,19 @@ Vector3 Last;
                 
             }
         
-            if ( d[2]- angleLast[2] > 0.3)//Ð¡ÓÚ0.7
+            if ( d[2]- angleLast[2] > 0.3)//Ð¡ï¿½ï¿½0.7
             {
 
                 mark[2] = true;
 
 
             }            
-            if (d[3]-angleLast[3]  > 0.2)//Ð¡ÓÚ0.7
+            if (d[3]-angleLast[3]  > 0.2)//Ð¡ï¿½ï¿½0.7
             {
                 mark[3] = true;
                 
             }
-           if (d[4]-angleLast[4] > 0.3)//Ð¡ÓÚ0.7
+           if (d[4]-angleLast[4] > 0.3)//Ð¡ï¿½ï¿½0.7
             {
                 mark[4] = true;
 
@@ -182,7 +181,7 @@ Vector3 Last;
             if (! (mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true || 
                 mark[0]== true && mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true ||
                 mark[1] == true && mark[2] == true && mark[3]|| d[2] - angleLast[2]>0.45 && d[1] - angleLast[1] > 0.45 ||
-                d[0] - angleLast[0] > 0.45 && d[1] - angleLast[1] > 0.45 || d[2] - angleLast[2] > 0.45 && d[0] - angleLast[0] > 0.45))//·ÀÖ¹ÎÕÈ­Í·
+                d[0] - angleLast[0] > 0.45 && d[1] - angleLast[1] > 0.45 || d[2] - angleLast[2] > 0.45 && d[0] - angleLast[0] > 0.45))//ï¿½ï¿½Ö¹ï¿½ï¿½È­Í·
             {
                 
                 float max = -1;
@@ -198,11 +197,11 @@ Vector3 Last;
 
                 } //T2.text = select.ToString();
                 if(!(select==2&&mark[1]==true&&mark[3]==true))
-                if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select] ==true)
+                if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select])
                 {
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[select]);
                     selectedRow[select] = null; 
-                        time = 0;
+                    time = 0;
                 }
 
 

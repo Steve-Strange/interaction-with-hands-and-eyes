@@ -45,7 +45,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Log.text = "SecondSelectionState: " + SecondSelectionState.ToString() + "\n" + "PalmPoseState: " + PalmPoseState.ToString() + "\n";
+//        Log.text = "SecondSelectionState: " + SecondSelectionState.ToString() + "\n" + "PalmPoseState: " + PalmPoseState.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
             if (delayTimer > delayTime && SecondSelectionState)
@@ -71,7 +71,7 @@ public class HandPoseManager : MonoBehaviour
 
             foreach (var obj in sortedObjectWeights)
             {
-                if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject) continue;
+                if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject || FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)) continue;
                 originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.localScale);
                 obj.Key.GetComponent<Outline>().OutlineColor = Color.clear; 
                 obj.Key.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -99,19 +99,20 @@ public class HandPoseManager : MonoBehaviour
         
         int currentRow = Mathf.RoundToInt(rowNum - (wristRotation - minAngel)/(maxAngel - minAngel) * rowNum);
 
-        Log.text = "";
-        Log.text +="wristRotation: " + wristRotation.ToString() + "\n";
-        Log.text +="currentRow: " + currentRow.ToString() + "\n";
-        Log.text +="rowNum: " + rowNum.ToString() + "\n";
+        // Log.text = "";
+        // Log.text +="wristRotation: " + wristRotation.ToString() + "\n";
+        // Log.text +="currentRow: " + currentRow.ToString() + "\n";
+        // Log.text +="rowNum: " + rowNum.ToString() + "\n";
         selectedRow.Clear();
 
         int i = 0;
         foreach (var obj in sortedObjectWeights)
         {
             if(i/5 == currentRow){
-                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key))
+                if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)){
                     obj.Key.GetComponent<Outline>().OutlineColor = Color.yellow; 
-                selectedRow.Add(obj.Key);
+                    selectedRow.Add(obj.Key);
+                }
             }
             else{
                 obj.Key.GetComponent<Outline>().OutlineColor = Color.clear; 
@@ -167,5 +168,15 @@ public class HandPoseManager : MonoBehaviour
         }
 
         SecondSelectionState = false;
+    }
+
+    public void onThumbClickEnter(){
+        Log.text = "onThumbClickEnter";
+        SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
+    }
+
+    public void onThumbClickExit(){
+        Log.text = "onThumbClickExit";
+        SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
     }
 }

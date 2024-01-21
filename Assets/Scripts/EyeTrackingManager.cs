@@ -11,8 +11,6 @@ public class EyeTrackingManager : MonoBehaviour
     public GameObject Models;
     public Transform Greenpoint;
     public GameObject SpotLight;
-
-    public TMP_InputField Log;
     
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;
@@ -104,8 +102,6 @@ public class EyeTrackingManager : MonoBehaviour
     {
         int layerMask = 1;
         if(Physics.SphereCast(origin, 0.1f, vector, out hitInfo, 20f, layerMask)){
-            Log.text += "eyeSelectedObject: " + eyeSelectedObject + "\n" + "hitInfo: " + hitInfo.collider.gameObject + "\n";
-
             if(hitInfo.collider.gameObject.tag == "Target")
             {
                 if(eyeSelectedObject != hitInfo.collider.gameObject){
