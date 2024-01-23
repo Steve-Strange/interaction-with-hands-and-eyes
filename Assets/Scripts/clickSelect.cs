@@ -20,22 +20,18 @@ public class clickSelect : MonoBehaviour
     public RaycastHit thumb, index, middle, ring, little;
     public TMP_Text T, T2, T3, T4, T5, T6;
     public TMP_InputField log;
-    private GameObject temp, temp1, temp2, temp3, temp4;
 
-    private LineRenderer[] lines;
     //private float angle, angle1, angle2, angle3, angle4, angleLast;
     //private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
-    private Vector3 vLast;
-    private float clickThreashold = 0.1f;
+
 
     public GameObject FinalObjects;
     // Start is called before the first frame update
-Vector3 Last;
     void Start()
     {
-        lines = new LineRenderer[5];//�������
+     
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
-        Last = thumb1.transform.position;
+      
         StartCoroutine("UpdateVelocity");
     }
     private void RepeatedMethod()
@@ -147,7 +143,7 @@ Vector3 Last;
             }
             T.text = mark[0].ToString();
             T2.text = (d[0] - angleLast[0]).ToString();
-            Last = thumb1.transform.position;
+            
 
             T2.text = v.magnitude.ToString();
             if (  d[1]- angleLast[1]> 0.3)//0.99-0.7(С��0.7)

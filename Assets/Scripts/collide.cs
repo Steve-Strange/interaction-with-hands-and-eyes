@@ -7,17 +7,19 @@ public class collide : MonoBehaviour
     public TMPro.TMP_Text t;
     public GameObject pinch;
     private pinch p;
-    public GameObject now;
-    
+    public GameObject FinalObjects;
+    public List<GameObject> finalObj;
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision collision)
     {
 
-
+        ContactPoint contact = collision.contacts[0];                                                                                                                                                      
         t.text = collision.gameObject.name;
+        
         if(p.ispinch)//修改，如何更好在线上
         { 
-          now.transform.position = collision.collider.ClosestPoint(transform.position);
+          finalObj[0].transform.position = contact.point;
+          finalObj.RemoveAt(0);
         }
 
            
@@ -28,6 +30,7 @@ public class collide : MonoBehaviour
     void Start()
     {
         p = pinch.GetComponent<pinch>();
+        finalObj =  FinalObjects.GetComponent<FinalObjects >().finalObj;
     }
 
     // Update is called once per frame
@@ -35,4 +38,6 @@ public class collide : MonoBehaviour
     {
         
     }
+   
+
 }
