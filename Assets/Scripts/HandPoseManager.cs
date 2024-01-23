@@ -28,10 +28,11 @@ public class HandPoseManager : MonoBehaviour
     public bool SecondSelectionState = false;
     public bool PalmPoseState = false;
 
-    private int rowNum = 0;
+    private int rowNum = 5;
+    private int columnNum = 3;
 
-    private float maxAngel = 45f;
-    private float minAngel = 20f;
+    private float maxAngel = 55f;
+    private float minAngel = 0f;
 
     private Dictionary<GameObject, float> sortedObjectWeights = new Dictionary<GameObject, float>();
 
@@ -77,10 +78,9 @@ public class HandPoseManager : MonoBehaviour
                 obj.Key.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 obj.Key.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + 
-                    new Vector3(obj.Key.transform.localScale.x * (2 * (i%5) + 1) , - obj.Key.transform.localScale.y * (2 * (i/5) + 1), - 2 * obj.Key.transform.localScale.z);
+                    new Vector3(obj.Key.transform.localScale.x * (2 * (i%columnNum) + 1) , - obj.Key.transform.localScale.y * (2 * (i/columnNum) + 1), - 2 * obj.Key.transform.localScale.z);
                 i++;
             }
-            rowNum = Mathf.CeilToInt(i/5);
 
         }
         
@@ -108,7 +108,7 @@ public class HandPoseManager : MonoBehaviour
         int i = 0;
         foreach (var obj in sortedObjectWeights)
         {
-            if(i/5 == currentRow){
+            if(i/columnNum == currentRow){
                 if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)){
                     obj.Key.GetComponent<Outline>().OutlineColor = Color.yellow; 
                     selectedRow.Add(obj.Key);
@@ -170,13 +170,52 @@ public class HandPoseManager : MonoBehaviour
         SecondSelectionState = false;
     }
 
-    public void onThumbClickEnter(){
-        Log.text = "onThumbClickEnter";
-        SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
-    }
+    // public void onThumbClickEnter(){
+    //     Log.text += "onThumbClickEnter";
+    //     if(Log.text.Length > 300) Log.text = "";
 
-    public void onThumbClickExit(){
-        Log.text = "onThumbClickExit";
-        SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
-    }
+    // }
+
+    // public void onThumbClickExit(){
+    //     Log.text += "onThumbClickExit";
+    //     if(Log.text.Length > 300) Log.text = "";
+    // }
+
+    // public void onIndexClickEnter(){
+    //     Log.text += "onIndexClickEnter";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+
+    // public void onIndexClickExit(){
+    //     Log.text += "onIndexClickExit";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+    // public void onMiddleClickEnter(){
+    //     Log.text += "onMiddleClickEnter";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+
+    // public void onMiddleClickExit(){
+    //     Log.text += "onMiddleClickExit";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+    // public void onRingClickEnter(){
+    //     Log.text += "onRingClickEnter";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+
+    // public void onRingClickExit(){
+    //     Log.text += "onRingClickExit";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+    // public void onPinkyClickEnter(){
+    //     Log.text += "onPinkyClickEnter";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+
+    // public void onPinkyClickExit(){
+    //     Log.text += "onPinkyClickExit";if(Log.text.Length > 300) Log.text = "";
+
+    // }
+
 }

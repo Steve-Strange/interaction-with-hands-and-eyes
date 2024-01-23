@@ -16,5 +16,5 @@ public class follow : MonoBehaviour
     {
         transform.position = o.transform.position;
         transform.rotation = o.transform.rotation;
-            }
+    }
 }
