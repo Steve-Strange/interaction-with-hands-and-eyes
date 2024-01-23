@@ -123,21 +123,19 @@ Vector3 Last;
             T4.text = (d[3] - angleLast[3]).ToString();
             T5.text = (d[4] - angleLast[4]).ToString();*/
         time += 1;
-        if (time > 20)
-            time = 12;
+        if (time > 30)
+            time = 22;
         bool[] mark = new bool[5];
-        if (time>10&&HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
-        {        d[0] = culculate(thumb1, thumb2, thumb3);//0.96-0.6
-            
-        d[1] = culculate(index1, index2, index3);
-        d[2] = culculate(middle1, middle2, middle3);
-        d[3] = culculate(ring1, ring2, ring3);
-        d[4] = culculate(little1, little2, little3);
-            
-
+        if (time>20&&HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
+        {        
+            d[0] = culculate(thumb1, thumb2, thumb3);//0.96-0.6   
+            d[1] = culculate(index1, index2, index3);
+            d[2] = culculate(middle1, middle2, middle3);
+            d[3] = culculate(ring1, ring2, ring3);
+            d[4] = culculate(little1, little2, little3);
             
             mark[0] = false;
-            mark[1]= false;
+            mark[1] = false;
             mark[2] = false;
             mark[3] = false;
             mark[4] = false;
@@ -151,7 +149,7 @@ Vector3 Last;
             T2.text = (d[0] - angleLast[0]).ToString();
             Last = thumb1.transform.position;
 
-            T2.text = (d[0] - ad[0]).ToString();
+            T2.text = v.magnitude.ToString();
             if (  d[1]- angleLast[1]> 0.3)//0.99-0.7(С��0.7)
             {
 
