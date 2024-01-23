@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/PicoHandPoseRecognizer/Samples/Scenes/HandPoseExample.unity
+    path: Assets/OutlineEffect/Samples/Demo/Content/Scenes/HandPoseExample.unity
     guid: f99b82f993a8fa74d9be12cc7be5c766
   - enabled: 0
     path: Assets/Scenes/ClickSelect.unity

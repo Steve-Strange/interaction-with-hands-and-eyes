@@ -200,14 +200,9 @@ Vector3 Last;
                 if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select])
                 {
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[select]);
-                    selectedRow[select] = null; 
+                    // selectedRow[select] = null; 
                     time = 0;
                 }
-
-
-               
-
-
             }
 
 
