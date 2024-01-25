@@ -34,6 +34,8 @@ public class HandPoseManager : MonoBehaviour
     private float maxAngel = 55f;
     private float minAngel = 0f;
 
+    public bool SelectionStatus = true;
+
     private Dictionary<GameObject, float> sortedObjectWeights = new Dictionary<GameObject, float>();
 
     void Start()
@@ -49,7 +51,7 @@ public class HandPoseManager : MonoBehaviour
 //        Log.text = "SecondSelectionState: " + SecondSelectionState.ToString() + "\n" + "PalmPoseState: " + PalmPoseState.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
-            if (delayTimer > delayTime && SecondSelectionState)
+            if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)
             {
                 onPalmPoseExitDelay();
             }
@@ -62,7 +64,7 @@ public class HandPoseManager : MonoBehaviour
         PalmPoseState = true;
         delayTimer = 0.0f;
 
-        if(!SecondSelectionState){
+        if(!SecondSelectionState && SelectionStatus){
             originalTransform.Clear();
             // selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
             int i = 0;
@@ -90,7 +92,7 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseUpdate()
     {
-        if(!SecondSelectionState) return;
+        if(!SecondSelectionState && SelectionStatus) return;
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if(wristRotation > 180f){
             wristRotation -= 360f;
@@ -169,53 +171,5 @@ public class HandPoseManager : MonoBehaviour
 
         SecondSelectionState = false;
     }
-
-    // public void onThumbClickEnter(){
-    //     Log.text += "onThumbClickEnter";
-    //     if(Log.text.Length > 300) Log.text = "";
-
-    // }
-
-    // public void onThumbClickExit(){
-    //     Log.text += "onThumbClickExit";
-    //     if(Log.text.Length > 300) Log.text = "";
-    // }
-
-    // public void onIndexClickEnter(){
-    //     Log.text += "onIndexClickEnter";if(Log.text.Length > 300) Log.text = "";
-
-    // }
-
-    // public void onIndexClickExit(){
-    //     Log.text += "onIndexClickExit";if(Log.text.Length > 300) Log.text = "";
-
-    // }
-    // public void onMiddleClickEnter(){
-    //     Log.text += "onMiddleClickEnter";if(Log.text.Length > 300) Log.text = "";
-
-    // }
-
-    // public void onMiddleClickExit(){
-    //     Log.text += "onMiddleClickExit";if(Log.text.Length > 300) Log.text = "";
-
-    // }
-    // public void onRingClickEnter(){
-    //     Log.text += "onRingClickEnter";if(Log.text.Length > 300) Log.text = "";
-
-    // }
-
-    // public void onRingClickExit(){
-    //     Log.text += "onRingClickExit";if(Log.text.Length > 300) Log.text = "";
-
-    // }
-    // public void onPinkyClickEnter(){
-    //     Log.text += "onPinkyClickEnter";if(Log.text.Length > 300) Log.text = "";
-
-    // }
-
-    // public void onPinkyClickExit(){
-    //     Log.text += "onPinkyClickExit";if(Log.text.Length > 300) Log.text = "";
-
-    // }
 
 }

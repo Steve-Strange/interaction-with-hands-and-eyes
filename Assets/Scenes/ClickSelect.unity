@@ -6933,7 +6933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t: {fileID: 2146040836}
   pinch: {fileID: 1692991995}
-  now: {fileID: 879767488}
+  FinalObjects: {fileID: 0}
+  finalObj: []
 --- !u!114 &1692992003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7143,6 +7144,7 @@ MonoBehaviour:
   camera: {fileID: 9014170785502690976}
   R: 1
   N: 4
+  FinalObjects: {fileID: 0}
 --- !u!120 &1740403388
 LineRenderer:
   m_ObjectHideFlags: 0
