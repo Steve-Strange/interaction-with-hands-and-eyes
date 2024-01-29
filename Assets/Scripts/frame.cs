@@ -1,4 +1,3 @@
-using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,34 +5,43 @@ using TMPro;
 public class frame : MonoBehaviour
 {
     private LineRenderer line;
+    public GameObject collideObject;
 
     private Vector3 forward;//ʵ�ֳ���
     private Vector3 right;
     private Vector3 up;
-    public float dis = 0.01f;
+    public float dis = 0.2f;
     public GameObject head;
+    public string Frame;
     
     //rect
-    public float rectlenth = 1f;
-    public float rectheight= 1f;
-    public Vector3[] rectCorner;// save the for corner
+    public float rectlenth = 0.3f;
+    public float rectheight= 0.3f;
+
+    public Vector3[] rectCorner = new Vector3[4];// save the for corner
     //circle
     public float height;
     public Camera camera;
     public float R = 0.1f;
     public int N = 40;
 
-    
-    public GameObject[] collider;//存添加的所有collider物体；
 
-    Vector3[] points = new Vector3[20];
+    public List<BoxCollider> collider;//存添加的所有collider物体；
+
     Vector3 center;
     
     public void creatRect()//2d, just make the origin frame
     {
-   
-        frame = 'rect';
-        points = new Vector3[4];
+        dis = 0.4f;
+
+
+        //rect
+        rectlenth = 0.1f;
+        rectheight = 0.1f;
+
+        Frame = "rect";
+
+        Vector3[] rectCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
@@ -41,33 +49,37 @@ public class frame : MonoBehaviour
 
         center = head.transform.position + forward * dis;
 
-        line.positionCount = 4;
+        line.positionCount = 5;
         rectCorner[0] = center + up/2*rectheight-right/2*rectlenth;
         rectCorner[1] = center + up/2*rectheight+right/2*rectlenth;
-        rectCorner[2] = center - up/2*rectheight-right/2*rectlenth;
-        rectCorner[3] = center - up/2*rectheight+right/2*rectlenth;
+        rectCorner[2] = center - up/2*rectheight+right/2*rectlenth;
+        rectCorner[3] = center - up/2*rectheight-right/2*rectlenth;
         for(int i = 0;i<=3;i++){
             line.SetPosition(i,rectCorner[i]);
             if(i!=3){
                 addColliderToLine(rectCorner[i],rectCorner[i+1]);
             }
             else{
+                Debug.Log(1);
                 addColliderToLine(rectCorner[3],rectCorner[0]);
+                line.SetPosition(4, rectCorner[0]);
             }
         }
     }
     //距离等比例变化
-    public void redoRect(string type,)//visualize the frame by object position
+    public void redoRect(string type)//visualize the frame by object position
     {
         // get the original plane by previous points
         Vector3 f = ((rectCorner[0]-rectCorner[1])).normalized;
         Vector3 m = ((rectCorner[0]-rectCorner[3])).normalized;
-        if(type = "1")// 左上，右下
-        {   rectCorner[0] = anchor[0];
-            rectCorner[2] = anchor[1];
+        if(type == "1")// 左上，右下
+        {
+            List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
+            rectCorner[0] = anchor[0].transform.position;
+            rectCorner[2] = anchor[1].transform.position;
             Vector3 temp = rectCorner[0]-rectCorner[2];
-            rectheight = temp * m;
-            rectlenth = temp * f;
+            rectheight = Vector3.Dot(temp , m);
+            rectlenth = Vector3.Dot(temp, f);
             rectCorner[1] = rectCorner[0] - f * rectlenth;
             rectCorner[2] = rectCorner[0] - m * rectheight;
             
@@ -85,7 +97,7 @@ public class frame : MonoBehaviour
         }
 
     }
-    private void resizeColliderToline(GameObject col, Vector3 startPos,Vector3 endPos)
+    private void resizeColliderToline(BoxCollider col, Vector3 startPos,Vector3 endPos)
     {
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
         col.size = new Vector3(lineLength, 0.0001f, 0.0001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
@@ -103,7 +115,9 @@ public class frame : MonoBehaviour
     }
     private void addColliderToLine(Vector3 startPos,Vector3 endPos)
     {
-        BoxCollider col = new GameObject("Collider").AddComponent<BoxCollider>();
+        
+        BoxCollider col = new GameObject("Edge").AddComponent<BoxCollider>();
+        collider.Add(col);
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
         col.size = new Vector3(lineLength, 0.0001f, 0.0001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
@@ -158,9 +172,10 @@ public class frame : MonoBehaviour
         line = GetComponent<LineRenderer>();
         line.startWidth = 0.01f;
         line.endWidth = 0.01f;
-    
-       
-    }
+        
+
+
+}
     // Update is called once per frame
     void Update()
     {

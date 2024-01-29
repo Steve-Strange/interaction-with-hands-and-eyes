@@ -14,7 +14,7 @@ public class collide : MonoBehaviour
     
     public List<GameObject> anchor;//all anchor object,hilight them,we can only contact with them
 
-    public GameObject[] onFrame;//object already on now frame
+    public List<GameObject> onFrame;//object already on now frame
     // Start is called before the first frame update
 
     private List<GameObject> rectCorner;// leftup rightup rightdown leftdown
@@ -29,7 +29,7 @@ public class collide : MonoBehaviour
           finalObj[0].transform.position = contact.point;
           finalObj[0].transform.parent = collision.gameObject.transform;
           
-          if(frame.GetComponent<frame>().frame == 'rect'){
+          if(frame.GetComponent<frame>().Frame == "rect"){
             rect = frame.GetComponent<frame>().rectCorner;
             for(int i = 0 ;i <= 3 ;i++)
             if((finalObj[0].transform.position-rect[i]).magnitude < 0.01)
@@ -40,7 +40,7 @@ public class collide : MonoBehaviour
           }
           
           
-          onFrame.add(finalObj[0]);
+          onFrame.Add(finalObj[0]);
           finalObj.RemoveAt(0);
         }
     }
@@ -51,23 +51,23 @@ public class collide : MonoBehaviour
     }
     void anchorChoose()
     {
-        anchor.clear();
-        if(Frame == 'rect'){
+        anchor.Clear();
+        if(Frame == "rect"){
         // select three object by distance ，add position correct in the corner（make object right at the corner）
         if(rectCorner[0] && rectCorner[2])
         {
-          anchor.add(rectCorner[0]);
-          anchor.add(rectCorner[2]);
+          anchor.Add(rectCorner[0]);
+          anchor.Add(rectCorner[2]);
         }
         else if(rectCorner[1] && rectCorner[3]){
-          anchor.add(rectCorner[1]);
-          anchor.add(rectCorner[3]);
+          anchor.Add(rectCorner[1]);
+          anchor.Add(rectCorner[3]);
         }
         }
 
-        foreach i in anchor{
+        //foreach i in anchor{
             //高亮
-        }
+        //}
     }
     // Update is called once per frame
     void Update()

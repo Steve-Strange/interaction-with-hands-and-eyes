@@ -11,13 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ClickSelect.unity
     guid: 539a41f65412bda45bf6933d4a9be762
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EyeTracking.unity
     guid: 4a74c8f6449c9d24e87c16cc3ef7412c
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
     path: Assets/Scenes/ObjectMoving.unity
     guid: 75ff607e47be7384e9e6ddffcdd92c65
   m_configObjects:

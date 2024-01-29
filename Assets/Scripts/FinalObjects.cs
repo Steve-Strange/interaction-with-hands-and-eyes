@@ -34,4 +34,8 @@ public class FinalObjects : MonoBehaviour
         SightCone.GetComponent<SightCone>().objectWeights[obj] = -1;
         finalObj.Add(obj);
     }
+    public void RemoveFirst()
+    {
+
+    }
 }

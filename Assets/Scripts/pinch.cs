@@ -25,7 +25,8 @@ public class pinch : MonoBehaviour
             ispinch = true;
         else
             ispinch = false;
-            T.text =ispinch.ToString();
+
+        T.text =ispinch.ToString();
         
        
     }
