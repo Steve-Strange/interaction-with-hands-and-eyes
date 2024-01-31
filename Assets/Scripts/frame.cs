@@ -68,6 +68,44 @@ public class frame : MonoBehaviour
             }
         }
     }
+    public createPingxing()
+    {
+        dis = 0.4f;
+
+        //pingxing
+        angle = 45
+        rectlenth = 0.1f;
+        rectheight = 0.1f;
+
+        Frame = "para";
+
+        paraCorner = new Vector3[4];
+
+        forward = head.transform.forward.normalized;
+        right = head.transform.right.normalized;
+        up = head.transform.up.normalized;
+
+        center = head.transform.position + forward * dis;
+        sinx = 
+        cosx = 
+        line.positionCount = 5;
+        rectCorner[0] = center + up/2*rectheight*sinx-right/2*(rectlenth-cosx);
+        rectCorner[1] = center + up/2*rectheight*sinx-right/2*(rectlenth+cosx);
+        rectCorner[2] = center - up/2*rectheight*sinx+right/2*(rectlenth-cosx);
+        rectCorner[3] = center - up/2*rectheight-right/2*(rectlenth+cosx);
+        for(int i = 0;i<=3;i++){
+            line.SetPosition(i,rectCorner[i]);
+            if(i!=3){
+                addColliderToLine(rectCorner[i],rectCorner[i+1]);
+            }
+            else{
+                Debug.Log(1);
+                addColliderToLine(rectCorner[3],rectCorner[0]);
+                line.SetPosition(4, rectCorner[0]);
+            }
+        }
+
+    }
     public void createTri()
     {
         dis = 0.4f;
@@ -199,11 +237,11 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         line3.SetPosition(0,cubeCorner[0])
         line3.SetPosition(1,cubeCorner[4])
 
-                line4.SetPosition(0,cubeCorner[1])
+        line4.SetPosition(0,cubeCorner[1])
         line4.SetPosition(1,cubeCorner[5])
-                line5.SetPosition(0,cubeCorner[2])
+        line5.SetPosition(0,cubeCorner[2])
         line5.SetPosition(1,cubeCorner[6])
-                line6.SetPosition(0,cubeCorner[3])
+        line6.SetPosition(0,cubeCorner[3])
         line6.SetPosition(1,cubeCorner[7])
 
 
