@@ -140,7 +140,7 @@ public class frame : MonoBehaviour
 
         Frame = "tri";
 
-        Vector3[] rectCorner = new Vector3[3];
+        rectCorner = new Vector3[3];
 
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
@@ -338,6 +338,56 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         float zz = R * Mathf.Sin((0) * Mathf.Deg2Rad); //确定z坐标
         now = center + right * xx + up * zz;
         addColliderToLine(last, now);
+    }
+    public void redoTri()
+    {
+      
+            List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
+            triCorner[0] = anchor[0].transform.position;
+            triCorner[1] = anchor[1].transform.position;
+            triCorner[2] = anchor[2].transform.position;
+
+            
+            for(int i = 0;i<=2;i++){
+            line.SetPosition(i,triCorner[i]);
+            if(i!=2){
+                resizeColliderToline(collider[i],rectCorner[i],rectCorner[i+1]);
+            }
+            else{
+                line.SetPosition(3,triCorner[0]);
+                resizeColliderToline(collider[i],rectCorner[2],rectCorner[0]);
+            }
+        }
+    }
+    public void redoPara()//两个锚点，动其中一个的时候另一个不动
+    {
+        List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
+
+                // get the original plane by previous points
+        Vector3 f = ((paraCorner[0]-paraCorner[1])).normalized;
+        Vector3 m = ((paraCorner[0]-paraCorner[3])).normalized;
+        if(type == "1")// 左上，右下
+        {
+            paraCorner[0] = anchor[0].transform.position;
+            paraCorner[2] = anchor[1].transform.position;
+            Vector3 temp = rectCorner[0]-rectCorner[2];
+            rectheight = Vector3.Dot(temp , m);
+            rectlenth = Vector3.Dot(temp, f);
+            rectCorner[1] = rectCorner[0] - f * rectlenth;
+            rectCorner[2] = rectCorner[0] - m * rectheight;
+            
+            for(int i = 0;i<=3;i++){
+            line.SetPosition(i,rectCorner[i]);
+            if(i!=3){
+                resizeColliderToline(collider[i],rectCorner[i],rectCorner[i+1]);
+            }
+            else{
+                resizeColliderToline(collider[i],rectCorner[3],rectCorner[0]);
+            }
+        }
+            
+
+        }
 
 
     }
@@ -452,6 +502,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         R = 0.1f;
 
         Frame = "circle";
+        collideObject.GetComponent<collide>.mark = 0;
 
 
         forward = head.transform.forward.normalized;
