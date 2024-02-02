@@ -17,7 +17,7 @@ public class GrabAgentObject : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    public GameObject TargetObject;
+    public GameObject[] TargetObject = new GameObject[2];
     private GameObject originalParent;
     private float movingScale;
 
@@ -25,6 +25,8 @@ public class GrabAgentObject : MonoBehaviour
     {
         originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
+        TargetObject[0] = GameObject.Find("Objects/Cube");
+        TargetObject[1] = GameObject.Find("Objects/Cube[2]");
     }
 
     void Update()
@@ -53,8 +55,8 @@ public class GrabAgentObject : MonoBehaviour
             Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
 
             // 使用相对坐标同步位置
-            TargetObject.transform.position += deltaPosition * movingScale;
-            TargetObject.transform.rotation = transform.rotation;
+            TargetObject[0].transform.position += deltaPosition * movingScale;
+            TargetObject[0].transform.rotation = transform.rotation;
 
             // 更新原始位置
             lastPosition = rightIndex.transform.position;
