@@ -35,8 +35,9 @@ public class frame : MonoBehaviour
     public float penedge;
     public List<BoxCollider> collider;//存添加的所有collider物体；
     //cube
+    public Vector3[] cubeCorner = new Vector3[8];
     float cubelenth = 0.1f;
-    float    cubeheight = 0.1f;
+    float cubeheight = 0.1f;
     float cubewidth = 0.1f;
     public GameObject line_2;
     public GameObject line_3;
@@ -222,8 +223,6 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         line5 = line_5.GetComponent<LineRenderer>();
         line6 = line_6.GetComponent<LineRenderer>();
 
-        Vector3[] cubeCorner = new Vector3[8];
-
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
         up = head.transform.up.normalized;
@@ -359,7 +358,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
             }
         }
     }
-    public void redoPara()//两个锚点，动其中一个的时候另一个不动
+    public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动
     {
         List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
 
@@ -502,7 +501,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         R = 0.1f;
 
         Frame = "circle";
-        collideObject.GetComponent<collide>.mark = 0;
+        collideObject.GetComponent<collide>().mark = 0;
 
 
         forward = head.transform.forward.normalized;

@@ -1,5 +1,4 @@
-using System.Security.Cryptography.X509Certificates;
-using System.Numerics;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,7 +71,7 @@ public class collide : MonoBehaviour
           if(frame.GetComponent<frame>().Frame == "circle"){
             //任意三个就可以
             if(mark<3){
-                circle[mark] = finalObj[0];
+                circle[mark] = finalObj[0].transform.position;
                 finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
             } 
             mark++;
@@ -163,9 +162,9 @@ public class collide : MonoBehaviour
                 anchor.Add(triCorner[2]); 
         }
         if (frame.GetComponent<frame>().Frame == "circle"){
-                anchor.Add(circle[0]);
-                anchor.Add(circle[1]);
-                anchor.Add(circle[2]);        
+                anchor.Add(circleCorner[0]);
+                anchor.Add(circleCorner[1]);
+                anchor.Add(circleCorner[2]);        
         }
         if (frame.GetComponent<frame>().Frame == "para"){
             if (paraCorner[0] && paraCorner[2])
