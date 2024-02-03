@@ -10,6 +10,9 @@ public class ConnectorManager : MonoBehaviour
 
     public Vector3 frameCenter;
     public Vector3 frameScale;
+
+    private Vector3 originalOffset;
+    private Vector3 newOffset;
     public List<GameObject> Objects = new List<GameObject>();
     public Dictionary<GameObject, Vector3> vectorToCenter = new Dictionary<GameObject, Vector3>();
 
@@ -22,9 +25,7 @@ public class ConnectorManager : MonoBehaviour
     void Start()
     {
         frameCenter = (cube1.transform.position + cube2.transform.position + cube3.transform.position + cube4.transform.position) / 4;
-        frameScale.x = Mathf.Abs(cube1.transform.position.x - frameCenter.x);
-        frameScale.y = Mathf.Abs(cube1.transform.position.y - frameCenter.y);
-        frameScale.z = Mathf.Abs(cube1.transform.position.z - frameCenter.z);
+        originalOffset = cube1.transform.position - frameCenter;
         Objects.Add(cube1);
         Objects.Add(cube2);
         Objects.Add(cube3);
@@ -51,17 +52,20 @@ public class ConnectorManager : MonoBehaviour
         
             if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 1)
             {
-                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position + vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
+                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
             }
             else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 2)
             {
-                frameScale = (AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position) / 2;
+                newOffset = (AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position) / 2;
+                frameScale = new Vector3(Mathf.Abs(newOffset.x/originalOffset.x), Mathf.Abs(newOffset.y/originalOffset.y), Mathf.Abs(newOffset.z/originalOffset.z));
+                frameCenter = (AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position + AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position) / 2;
             }
 
             foreach (var obj in Objects)
             {
                 obj.transform.position = frameCenter + new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
             }
+            AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus = false;
         }
 
     }

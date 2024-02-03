@@ -77,7 +77,6 @@ public class GrabAgentObject : MonoBehaviour
 
         if (movingStatus)
         {
-            AutoAdjustStatus = false;
             log.text += "\n" + "Moving...";
 
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
@@ -113,12 +112,7 @@ public class GrabAgentObject : MonoBehaviour
                     MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                     FinishedObjects.Add(MovingObject[0]);
                     MovingObject.RemoveAt(0);
-
                     AutoAdjustStatus = true;
-                }
-                else
-                {
-                    AutoAdjustStatus = false;
                 }
             }
         }
