@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ConnectorManager : MonoBehaviour
@@ -7,32 +8,61 @@ public class ConnectorManager : MonoBehaviour
     public GameObject cube3;
     public GameObject cube4;
 
-    private LineRenderer lineRenderer;
-    public Color lineColor = Color.red; // 设置默认颜色
-    public float lineWidth = 0.1f; // 设置默认宽度
+    public Vector3 frameCenter;
+    public Vector3 frameScale;
+    public List<GameObject> Objects = new List<GameObject>();
+    public Dictionary<GameObject, Vector3> vectorToCenter = new Dictionary<GameObject, Vector3>();
+
+    public GameObject AgentObject;
+
+    // private LineRenderer lineRenderer;
+    // public Color lineColor = Color.red; // 设置默认颜色
+    // public float lineWidth = 0.1f; // 设置默认宽度
 
     void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.startWidth = lineWidth;
-        lineRenderer.endWidth = lineWidth;
+        frameCenter = (cube1.transform.position + cube2.transform.position + cube3.transform.position + cube4.transform.position) / 4;
+        frameScale.x = Mathf.Abs(cube1.transform.position.x - frameCenter.x);
+        frameScale.y = Mathf.Abs(cube1.transform.position.y - frameCenter.y);
+        frameScale.z = Mathf.Abs(cube1.transform.position.z - frameCenter.z);
+        Objects.Add(cube1);
+        Objects.Add(cube2);
+        Objects.Add(cube3);
+        Objects.Add(cube4);
 
-        // 设置LineRenderer的颜色
-        lineRenderer.startColor = lineColor;
-        lineRenderer.endColor = lineColor;
+        foreach (var obj in Objects)
+        {
+            vectorToCenter[obj] = obj.transform.position - frameCenter;
+        }
+
+        // lineRenderer = GetComponent<LineRenderer>();
+        // lineRenderer.startWidth = lineWidth;
+        // lineRenderer.endWidth = lineWidth;
+
+        // // 设置LineRenderer的颜色
+        // lineRenderer.startColor = lineColor;
+        // lineRenderer.endColor = lineColor;
     }
 
     void Update()
     {
-        // 获取方块的位置
-        Vector3[] positions = new Vector3[4];
-        positions[0] = cube1.transform.position;
-        positions[1] = cube2.transform.position;
-        positions[2] = cube3.transform.position;
-        positions[3] = cube4.transform.position;
 
-        // 设置LineRenderer的位置
-        lineRenderer.positionCount = 4;
-        lineRenderer.SetPositions(positions);
+        if(AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus){
+        
+            if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 1)
+            {
+                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position + vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
+            }
+            else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 2)
+            {
+                frameScale = (AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position) / 2;
+            }
+
+            foreach (var obj in Objects)
+            {
+                obj.transform.position = frameCenter + new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
+            }
+        }
+
     }
 }

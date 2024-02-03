@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,26 +18,45 @@ public class GrabAgentObject : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    public GameObject[] TargetObject = new GameObject[2];
+    public List<GameObject> MovingObject = new List<GameObject>();
     private GameObject originalParent;
     private float movingScale;
+    private GameObject ConnectorManager;
+    public bool AutoAdjustStatus = false;
+
+    public List<GameObject> FinishedObjects = new List<GameObject>();
+    public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
+
+    bool initFlag = false;
 
     void Start()
     {
         originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
-        TargetObject[0] = GameObject.Find("Objects/Cube");
-        TargetObject[1] = GameObject.Find("Objects/Cube[2]");
+        MovingObject.Add(GameObject.Find("Objects/a"));
+        MovingObject.Add(GameObject.Find("Objects/c"));
+        ConnectorManager = GameObject.Find("ConnectorManager");
+
     }
 
     void Update()
     {
+
+        if(!initFlag)
+        {
+            foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
+            {
+                TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
+            }
+            initFlag = true;
+        }
+
         movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
-        log.text = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position).ToString();
         pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.02f;
 
         if (pinchStatus && grabStatus && !movingStatus)
         {
+            transform.position = rightIndex.transform.position;
             transform.parent = rightIndex.transform;
             lastPosition = rightIndex.transform.position;
             movingStatus = true;
@@ -49,19 +69,60 @@ public class GrabAgentObject : MonoBehaviour
             transform.localPosition = originalPosition;
         }
 
+
+        log.text = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position).ToString();
+        log.text += "\n" + AutoAdjustStatus.ToString();
+        log.text += "\n" + TargetObjects.Count.ToString();
+        log.text += "\n" + TargetObjects[MovingObject[0]].name.ToString() + " " + MovingObject[0].name.ToString() + " " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position).ToString();
+
         if (movingStatus)
         {
-            // 计算手指的移动向量
+            AutoAdjustStatus = false;
+            log.text += "\n" + "Moving...";
+
+            foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
+            {
+                if (obj != MovingObject[0])
+                {
+                    TargetObjects[obj].SetActive(false);
+                    obj.SetActive(false);
+                }
+            }
+
+            // Calculate finger movement vector
             Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
 
-            // 使用相对坐标同步位置
-            TargetObject[0].transform.position += deltaPosition * movingScale;
-            TargetObject[0].transform.rotation = transform.rotation;
+            // Use relative coordinates to synchronize position
+            MovingObject[0].transform.position += deltaPosition * movingScale;
 
-            // 更新原始位置
+            // Update the original position
             lastPosition = rightIndex.transform.position;
         }
-        log.text += "\n" + movingStatus.ToString();
+        else
+        {
+            foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
+            {
+                TargetObjects[obj].SetActive(true);
+                obj.SetActive(true);
+            }
+
+            if (MovingObject.Count > 0)
+            {
+                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 0.1f)
+                {
+                    MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                    FinishedObjects.Add(MovingObject[0]);
+                    MovingObject.RemoveAt(0);
+
+                    AutoAdjustStatus = true;
+                }
+                else
+                {
+                    AutoAdjustStatus = false;
+                }
+            }
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
