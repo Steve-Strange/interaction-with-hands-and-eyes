@@ -33,8 +33,8 @@ public class GrabAgentObject : MonoBehaviour
     {
         originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
-        MovingObject.Add(GameObject.Find("Objects/a"));
-        MovingObject.Add(GameObject.Find("Objects/c"));
+        MovingObject.Add(GameObject.Find("Objects/OriginalObjects/0"));
+        MovingObject.Add(GameObject.Find("Objects/OriginalObjects/2"));
         ConnectorManager = GameObject.Find("ConnectorManager");
 
     }
