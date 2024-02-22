@@ -48,10 +48,10 @@ public class SightCone : MonoBehaviour
                 foreach (GameObject obj in selectedObjects)
                 {
                     // 计算物体到视线中心的距离
-                    float distanceToLineOfSight = DistanceToLineOfSight(obj.transform.position, transform.position, 
+                    float angle = IncludedAngleBetweenSightAndObject(obj.transform.position, transform.position, 
                         EyeTrackingManager.GetComponent<EyeTrackingManager>().combineEyeGazeVectorInWorldSpace);
                     
-                    objectWeights[obj] += Mathf.Exp(- distanceToLineOfSight * distanceToLineOfSight * 10) * 3;
+                    objectWeights[obj] += Mathf.Exp(- angle * angle * 30) * 3;
                     if(obj.GetComponentInChildren<TextMeshPro>()){
                         obj.GetComponentInChildren<TextMeshPro>().fontSize = 5;
                         obj.GetComponentInChildren<TextMeshPro>().text = objectWeights[obj].ToShortString();
@@ -62,11 +62,11 @@ public class SightCone : MonoBehaviour
         }
     }
 
-    float DistanceToLineOfSight(Vector3 point, Vector3 linePoint, Vector3 lineDirection)
+    float IncludedAngleBetweenSightAndObject(Vector3 point, Vector3 linePoint, Vector3 lineDirection)
     {
         Vector3 pointToLinePoint = point - linePoint;
         float distance = (pointToLinePoint - Vector3.Project(pointToLinePoint, lineDirection)).magnitude;
-        return distance;
+        return Mathf.Atan(distance / Vector3.Project(pointToLinePoint, lineDirection).magnitude);
     }
 
     void OnTriggerEnter(Collider other)
