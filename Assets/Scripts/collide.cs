@@ -42,18 +42,24 @@ public class collide : MonoBehaviour
     private Vector3[] penCorner;
     public List<GameObject> cube = new List<GameObject>();// 
     private Vector3[] cubeCorner;
+    private GameObject now;
+    private void OnCollisionEnter(Collision collision)
+    {
+        now = finalObj[0];
+    }
     private void OnCollisionStay(Collision collision)
     {
         ContactPoint contact = collision.contacts[0];
         if (p.ispinch & finalObj.Count != 0) 
         { 
-            finalObj[0].transform.position = contact.point;
-            finalObj[0].transform.parent = collision.gameObject.transform;
+            now.transform.position = contact.point;
+            now.transform.parent = collision.gameObject.transform;
         }
     }
+
     private void OnCollisionExit(Collision collision){                                                                                                                                                   
-       t2.text = finalObj.Count.ToString();
-        if(ispinch)
+      
+        if(ispinch & !p.ispinch)
         { 
 
           
@@ -145,6 +151,7 @@ public class collide : MonoBehaviour
         {
          frameButton.SetActive(false);
         }
+        t2.text = finalObj.Count.ToString();
     }
     void Start()
     {
