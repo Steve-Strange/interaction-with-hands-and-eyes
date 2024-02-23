@@ -29,34 +29,33 @@ public class collide : MonoBehaviour
 
     public List<GameObject> onFrame;//object already on now frame
 
-    private List<GameObject> rect;// leftup rightup rightdown leftdown
+    public List<GameObject> rect = new List<GameObject>();// leftup rightup rightdown leftdown
     private Vector3[] rectCorner;
-    private List<GameObject> tri;// leftup rightup rightdown leftdown
+    public List<GameObject> tri = new List<GameObject>();// leftup rightup rightdown leftdown
     private Vector3[] triCorner;
-    private List<GameObject> circle;// 圆用前三个
+    public List<GameObject> circle = new List<GameObject>();// 圆用前三个
     private Vector3[] circleCorner;
     public int mark = 0;
-    private List<GameObject> para;// 
+    public List<GameObject> para = new List<GameObject>();// 
     private Vector3[] paraCorner;
-    private List<GameObject> pen;//
+    public List<GameObject> pen = new List<GameObject>();//
     private Vector3[] penCorner;
-    private List<GameObject> cube;// 
+    public List<GameObject> cube = new List<GameObject>();// 
     private Vector3[] cubeCorner;
-    private void OnCollisionEnter(Collision collision){
+    private void OnCollisionStay(Collision collision)
+    {
+        ContactPoint contact = collision.contacts[0];
+        if (p.ispinch & finalObj.Count != 0) 
+        { 
+            finalObj[0].transform.position = contact.point;
+            finalObj[0].transform.parent = collision.gameObject.transform;
+        }
+    }
+    private void OnCollisionExit(Collision collision){                                                                                                                                                   
+       t2.text = finalObj.Count.ToString();
+        if(ispinch)
+        { 
 
-        rect.Clear();
-        tri.Clear();
-        circle.Clear();
-        para.Clear();
-        pen.Clear();
-        cube.Clear();
-        t2.text = "HAHAH";
-        ContactPoint contact = collision.contacts[0];                                                                                                                                                      
-       
-        if(!p.ispinch & finalObj.Count !=0 & ispinch){ 
-
-          finalObj[0].transform.position = contact.point;
-          finalObj[0].transform.parent = collision.gameObject.transform;
           
           if(frame.GetComponent<frame>().Frame == "rect"){
 
@@ -128,15 +127,13 @@ public class collide : MonoBehaviour
           
           onFrame.Add(finalObj[0]);
           finalObj.RemoveAt(0);
-        }else if(p.ispinch)
-        {
-            finalObj[0].transform.position = contact.point;
-            finalObj[0].transform.parent = collision.gameObject.transform;
         }
     }
     public void getFinalObject()
     {
+        t2.text = "get";
         finalObj = FinalObjects.GetComponent<FinalObjects>().finalObj;
+
     }
     private void Update()
     {
@@ -146,7 +143,7 @@ public class collide : MonoBehaviour
         }
         else
         {
-            frameButton.SetActive(false);
+         frameButton.SetActive(false);
         }
     }
     void Start()

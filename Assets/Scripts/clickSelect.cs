@@ -18,7 +18,7 @@ public class clickSelect : MonoBehaviour
     private float[] angleLast = new float[5];
     private float[] gap = new float[5];
     public RaycastHit thumb, index, middle, ring, little;
-    public TMP_Text T, T2, T3, T4, T5, T6;
+   // public TMP_Text  T2, T3, T4, T5, T6;
     public TMP_InputField log;
 
     //private float angle, angle1, angle2, angle3, angle4, angleLast;
@@ -141,11 +141,11 @@ public class clickSelect : MonoBehaviour
                 mark[0] = true;
 
             }
-            T.text = mark[0].ToString();
-            T2.text = (d[0] - angleLast[0]).ToString();
+           // T.text = mark[0].ToString();
+            //T2.text = (d[0] - angleLast[0]).ToString();
             
 
-            T2.text = v.magnitude.ToString();
+            //T2.text = v.magnitude.ToString();
             if (  d[1]- angleLast[1]> 0.3)//0.99-0.7(С��0.7)
             {
 

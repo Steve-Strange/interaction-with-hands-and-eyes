@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frame: {fileID: 2069717106}
-  collide: {fileID: 1656019246}
+  collide: {fileID: 1832007822}
   frameCenter: {x: 0, y: 0, z: 0}
   frameScale: {x: 0, y: 0, z: 0}
   Objects: []
@@ -1972,7 +1972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -821, y: 690}
+  m_AnchoredPosition: {x: 627, y: 690}
   m_SizeDelta: {x: 878.6, y: 90.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &219836197
@@ -2030,8 +2030,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10223,7 +10223,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898500079}
   m_LocalRotation: {x: -0.10590483, y: -0, z: -0, w: 0.9943763}
-  m_LocalPosition: {x: 0, y: 0, z: 0.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0.556}
   m_LocalScale: {x: 0.0009999999, y: 0.0009999999, z: 0.0009999999}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10837,8 +10837,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15003,7 +15003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 380, y: 690}
+  m_AnchoredPosition: {x: 422, y: 690}
   m_SizeDelta: {x: 878.6, y: 90.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1352125977
@@ -16784,6 +16784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandRightWrist: {fileID: 346177839}
+  collide: {fileID: 1832007822}
   selectedRow: []
   FinalObjects: {fileID: 1376452831}
   Log: {fileID: 962823631}
@@ -17320,7 +17321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271, y: 690}
+  m_AnchoredPosition: {x: 529, y: 690}
   m_SizeDelta: {x: 878.6, y: 90.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1535429239
@@ -17378,8 +17379,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18586,68 +18587,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1656019246
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1656019248}
-  - component: {fileID: 1656019247}
-  m_Layer: 0
-  m_Name: collide
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1656019247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656019246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86fe2fdad64e3be47b34e113c76bf6a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectorManager: {fileID: 97899838}
-  GrabAgent: {fileID: 224216720}
-  pinch: {fileID: 1832007822}
-  frameButton: {fileID: 898500079}
-  handPoseManager: {fileID: 1491393215}
-  thumb: {fileID: 11376081}
-  index: {fileID: 609441111}
-  ispinch: 0
-  t: {fileID: 1535429240}
-  t2: {fileID: 219836198}
-  frame: {fileID: 2069717106}
-  frameMark: 
-  type: 
-  FinalObjects: {fileID: 1376452831}
-  finalObj: []
-  anchor: []
-  onFrame: []
-  mark: 0
---- !u!4 &1656019248
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656019246}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.55032814, y: 4.42239, z: 1.2846092}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1657999597
 GameObject:
   m_ObjectHideFlags: 0
@@ -20572,6 +20511,7 @@ GameObject:
   - component: {fileID: 1832007826}
   - component: {fileID: 1832007825}
   - component: {fileID: 1832007830}
+  - component: {fileID: 1832007831}
   m_Layer: 0
   m_Name: pinch
   m_TagString: Untagged
@@ -20594,28 +20534,6 @@ Transform:
   m_Father: {fileID: 1352125979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1832007824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832007822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86fe2fdad64e3be47b34e113c76bf6a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connectorManager: {fileID: 0}
-  pinch: {fileID: 1832007822}
-  frame: {fileID: 2069717106}
-  frameMark: 
-  type: 
-  FinalObjects: {fileID: 1376452831}
-  finalObj: []
-  anchor: []
-  onFrame: []
-  mark: 0
 --- !u!114 &1832007825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20724,6 +20642,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1832007831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832007822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86fe2fdad64e3be47b34e113c76bf6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectorManager: {fileID: 97899838}
+  GrabAgent: {fileID: 224216720}
+  pinch: {fileID: 1832007822}
+  frameButton: {fileID: 898500079}
+  handPoseManager: {fileID: 1491393215}
+  thumb: {fileID: 11376081}
+  index: {fileID: 609441111}
+  ispinch: 0
+  t: {fileID: 1535429240}
+  t2: {fileID: 219836198}
+  frame: {fileID: 2069717106}
+  frameMark: 
+  type: 
+  FinalObjects: {fileID: 1376452831}
+  finalObj: []
+  anchor: []
+  onFrame: []
+  mark: 0
 --- !u!1 &1842237734
 GameObject:
   m_ObjectHideFlags: 0
@@ -23628,8 +23576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21ddafe8140aad4db113db3c767f6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorManager: {fileID: 0}
-  collideObject: {fileID: 0}
+  connectorManager: {fileID: 97899838}
+  collideObject: {fileID: 1832007822}
   dis: 0.01
   head: {fileID: 1963383170}
   Frame: 
