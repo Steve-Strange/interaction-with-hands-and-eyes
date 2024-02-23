@@ -7,8 +7,8 @@ public class frame : MonoBehaviour
 {
     private LineRenderer line;
     public GameObject connectorManager;
+
     public GameObject collideObject;
-  
 
     private Vector3 forward;//ʵ�ֳ���
     private Vector3 right;
@@ -41,21 +41,21 @@ public class frame : MonoBehaviour
     float cubelenth = 0.1f;
     float cubeheight = 0.1f;
     float cubewidth = 0.1f;
-   /* public GameObject line_2;
+    public GameObject line_2;
     public GameObject line_3;
     public GameObject line_4;
     public GameObject line_5;
-    public GameObject line_6;*/
+    public GameObject line_6;
     private LineRenderer line2;
     private LineRenderer line3;
     private LineRenderer line4;
     private LineRenderer line5;
     private LineRenderer line6;
-    private float finalScale = 0.05f;
+    private float finalScale;
 
     
 
-    public Vector3 center;
+    Vector3 center;
     public void reverse()//将比例还原
     {
         center = new Vector3(0, 0, 0);
@@ -283,7 +283,7 @@ public class frame : MonoBehaviour
             }
         }        
 }
-/*public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
+public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
 {
         dis = 0.6f;
 
@@ -350,7 +350,7 @@ public class frame : MonoBehaviour
         line6.SetPosition(1, cubeCorner[7]);
 
 
-}*/
+}
     public void redoCircle(List<GameObject> anchor)
     {
      
@@ -578,6 +578,7 @@ public class frame : MonoBehaviour
         line.startWidth = 0.01f;
         line.endWidth = 0.01f;
         
+
 
 }
     // Update is called once per frame

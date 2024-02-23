@@ -10,7 +10,7 @@ public class GrabAgentObject : MonoBehaviour
 
     public GameObject leftThumb;
     public GameObject leftIndex;
-
+    public TMP_InputField log;
 
     private bool pinchStatus;
     private bool grabStatus;
@@ -33,6 +33,8 @@ public class GrabAgentObject : MonoBehaviour
     {
         originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
+        MovingObject.Add(GameObject.Find("Objects/OriginalObjects/0"));
+        MovingObject.Add(GameObject.Find("Objects/OriginalObjects/2"));
         ConnectorManager = GameObject.Find("ConnectorManager");
 
     }
@@ -67,15 +69,15 @@ public class GrabAgentObject : MonoBehaviour
             transform.localPosition = originalPosition;
         }
 
-        /*
+
         log.text = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position).ToString();
         log.text += "\n" + AutoAdjustStatus.ToString();
         log.text += "\n" + TargetObjects.Count.ToString();
-        log.text += "\n" + TargetObjects[MovingObject[0]].name.ToString() + " " + MovingObject[0].name.ToString() + " " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position).ToString();*/
+        log.text += "\n" + TargetObjects[MovingObject[0]].name.ToString() + " " + MovingObject[0].name.ToString() + " " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position).ToString();
 
         if (movingStatus)
         {
-          //  log.text += "\n" + "Moving...";
+            log.text += "\n" + "Moving...";
 
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
             {
