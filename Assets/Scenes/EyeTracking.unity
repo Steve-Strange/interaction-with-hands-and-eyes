@@ -20083,16 +20083,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fe2fdad64e3be47b34e113c76bf6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorManager: {fileID: 0}
+  t: {fileID: 1319728693}
   pinch: {fileID: 1832007822}
   frame: {fileID: 2069717106}
   frameMark: 
-  type: 
   FinalObjects: {fileID: 1376452831}
   finalObj: []
   anchor: []
   onFrame: []
   mark: 0
+  test: {fileID: 0}
 --- !u!114 &1832007825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23104,7 +23104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21ddafe8140aad4db113db3c767f6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorManager: {fileID: 0}
   collideObject: {fileID: 0}
   dis: 0.01
   head: {fileID: 1963383170}
