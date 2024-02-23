@@ -8,15 +8,7 @@ public class pinch : MonoBehaviour
     public GameObject thumb;
     public GameObject index;
     public bool ispinch = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    public void test()
-    {
-        
-    }
+
     // Update is called once per frame
     void Update()
     {

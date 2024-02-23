@@ -6,6 +6,8 @@ using TMPro;
 public class frame : MonoBehaviour
 {
     private LineRenderer line;
+    public GameObject connectorManager;
+
     public GameObject collideObject;
 
     private Vector3 forward;//ʵ�ֳ���
@@ -49,16 +51,50 @@ public class frame : MonoBehaviour
     private LineRenderer line4;
     private LineRenderer line5;
     private LineRenderer line6;
+    private float finalScale;
 
     
 
     Vector3 center;
+    public void reverse()//将比例还原
+    {
+        center = new Vector3(0, 0, 0);
+
+        foreach (var item in collideObject.GetComponent<collide>().onFrame)
+        {
+            item.transform.localScale *= (1.0f/finalScale);
+        }
+
+        if(Frame == "rect")
+        {
+            rectheight *= (1.0f / finalScale);
+            rectheight *= (1.0f / finalScale);
+
+            rectCorner = new Vector3[4];
+
+            forward = Vector3.forward;
+            right = Vector3.right;
+    
+            line.positionCount = 5;
+
+            rectCorner[0] = center + forward / 2 * rectheight - right / 2 * rectlenth;
+            rectCorner[1] = center + forward / 2 * rectheight + right / 2 * rectlenth;
+            rectCorner[2] = center - forward / 2 * rectheight + right / 2 * rectlenth;
+            rectCorner[3] = center - forward / 2 * rectheight - right / 2 * rectlenth;
+
+            for (int i = 0; i <= 3; i++){
+                line.SetPosition(i, rectCorner[i]);
+                if (i == 3){
+                    line.SetPosition(4, rectCorner[0]);
+                }
+            }
+        }
+    }
     
     public void creatRect()//2d, just make the origin frame
     {
         dis = 0.4f;
 
-        //rect
         rectlenth = 0.1f;
         rectheight = 0.1f;
 
@@ -69,29 +105,70 @@ public class frame : MonoBehaviour
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
         up = head.transform.up.normalized;
-
         center = head.transform.position + forward * dis;
 
         line.positionCount = 5;
-      /*  rectCorner[0] = center + up/2*rectheight-right/2*rectlenth;
+        rectCorner[0] = center + up/2*rectheight-right/2*rectlenth;
         rectCorner[1] = center + up/2*rectheight+right/2*rectlenth;
         rectCorner[2] = center - up/2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - up/2*rectheight-right/2*rectlenth;
-*/
-        rectCorner[0] = new Vector3(-0.1f, 0.1f, 0);
+
+        /* rectCorner[0] = new Vector3(-0.1f, 0.1f, 0);
         rectCorner[1] = new Vector3(0.1f, 0.1f, 0);
         rectCorner[2] = new Vector3(0.1f, -0.1f, 0);
-        rectCorner[3] = new Vector3(-0.1f, -0.1f, 0);
+        rectCorner[3] = new Vector3(-0.1f, -0.1f, 0);*/
         for (int i = 0;i<=3;i++){
             line.SetPosition(i,rectCorner[i]);
             if(i!=3){
                 addColliderToLine(rectCorner[i],rectCorner[i+1]);
             }
             else{
-                Debug.Log(1);
                 addColliderToLine(rectCorner[3],rectCorner[0]);
                 line.SetPosition(4, rectCorner[0]);
             }
+        }
+    }
+    public void updateFrame()
+    {
+        var anchor = collideObject.GetComponent<collide>().anchor;
+        if(Frame == "rect"){
+            redoRect(anchor);}
+        else if(Frame == "circle"){
+            redoCircle(anchor);}
+    }
+    public void redoRect(List<GameObject> anchor)
+    {
+        // get the original plane by previous points
+        Vector3 f = ((rectCorner[0] - rectCorner[1])).normalized;
+        Vector3 m = ((rectCorner[0] - rectCorner[3])).normalized;
+        if (collideObject.GetComponent<collide>().type == "1")// 左上，右下
+        {
+            rectCorner[0] = anchor[0].transform.position;
+            rectCorner[2] = anchor[1].transform.position;
+            Vector3 temp = rectCorner[0] - rectCorner[2];
+            rectheight = Vector3.Dot(temp, m);
+            rectlenth = Vector3.Dot(temp, f);
+            rectCorner[1] = rectCorner[0] - f * rectlenth;
+            rectCorner[2] = rectCorner[0] - m * rectheight;
+        }
+        else
+        {
+            rectCorner[1] = anchor[0].transform.position;
+            rectCorner[3] = anchor[1].transform.position;
+            Vector3 temp = rectCorner[1] - rectCorner[3];
+            rectheight = Vector3.Dot(temp, m);
+            rectlenth = Vector3.Dot(temp, f);
+            rectCorner[0] = rectCorner[1] - f * rectlenth;
+            rectCorner[2] = rectCorner[1] - m * rectheight;
+        }
+        for (int i = 0; i <= 3; i++)
+        {
+            line.SetPosition(i, rectCorner[i]);
+            if (i == 3)
+            {
+                line.SetPosition(4, rectCorner[0]);
+            }
+
         }
     }
     public void createPara()
@@ -274,69 +351,31 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
 
 
 }
-    //距离等比例变化
-    public void redoRect(string type)//visualize the frame by object position
+    public void redoCircle(List<GameObject> anchor)
     {
-        // get the original plane by previous points
-        Vector3 f = ((rectCorner[0]-rectCorner[1])).normalized;
-        Vector3 m = ((rectCorner[0]-rectCorner[3])).normalized;
-        if(type == "1")// 左上，右下
-        {
-            List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
-            rectCorner[0] = anchor[0].transform.position;
-            rectCorner[2] = anchor[1].transform.position;
-            Vector3 temp = rectCorner[0]-rectCorner[2];
-            rectheight = Vector3.Dot(temp , m);
-            rectlenth = Vector3.Dot(temp, f);
-            rectCorner[1] = rectCorner[0] - f * rectlenth;
-            rectCorner[2] = rectCorner[0] - m * rectheight;
-            
-            for(int i = 0;i<=3;i++){
-            line.SetPosition(i,rectCorner[i]);
-            if(i!=3){
-                resizeColliderToline(collider[i],rectCorner[i],rectCorner[i+1]);
-            }
-            else{
-                resizeColliderToline(collider[i],rectCorner[3],rectCorner[0]);
-            }
-        }
-            
-
-        }
-
-    }
-    //
-    public void redoCircle()
-    {
-        List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
+     
         Vector3 center =  CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
         float R = (anchor[0].transform.position - center).magnitude;
 
-
-        center = head.transform.position + forward * dis;
-
         line.positionCount = N + 1;
+        line.startWidth = 0.1f;
+        line.endWidth = 0.1f;
 
-
-
-        Vector3 last = new Vector3(0, 0, 0);
         Vector3 now;
+        right = Vector3.right;
+        forward = Vector3.forward;
 
 
-        for (int i = 0; i < N + 1; i++)
-        {
+        for (int i = 0; i < N + 1; i++){
             float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
             float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
-            now = center + right * x + up * z;
+            now = center + right * x + forward * z;
             line.SetPosition(i, now);
-            if (i != 0)
-                addColliderToLine(last, now);
-            last = now;
         }
         float xx = R * Mathf.Cos((0) * Mathf.Deg2Rad); //确定x坐标
         float zz = R * Mathf.Sin((0) * Mathf.Deg2Rad); //确定z坐标
-        now = center + right * xx + up * zz;
-        addColliderToLine(last, now);
+        now = center + right * xx + forward * zz;
+        line.SetPosition(N + 1, now);
     }
     public void redoTri()
     {

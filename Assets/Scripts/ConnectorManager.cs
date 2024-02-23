@@ -13,7 +13,8 @@ public class ConnectorManager : MonoBehaviour
     public GameObject cube6;
     public GameObject cube7;
     public GameObject cube8;
-
+    public GameObject frameTest;
+    //public GameObject frame;
     public Vector3 frameCenter;
     public Vector3 frameScale;
 
@@ -85,6 +86,8 @@ public class ConnectorManager : MonoBehaviour
                 obj.transform.position = frameCenter + new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
             }
             AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus = false;
+            frameTest.GetComponent<frameTest>().redoCircle();
+            //frame.GetComponent<frame>().redoCircle();
         }
 
     }
