@@ -14,6 +14,9 @@ public class HandPoseManager : MonoBehaviour
     public GameObject HandRightWrist;
     private GameObject SightCone;
     private GameObject SecondSelectionBG;
+    private GameObject ConnectorManager;
+    private GameObject collide;
+    private GameObject frame;
     public List<GameObject> selectedRow = new List<GameObject>();
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
 
@@ -42,7 +45,7 @@ public class HandPoseManager : MonoBehaviour
 
     public GameObject StartSelect;
     public GameObject clickSelect;
-    int phase = 0;
+    public int phase = 0;
     float timer = 0;
     bool finishFlag = false;
 
@@ -51,6 +54,9 @@ public class HandPoseManager : MonoBehaviour
         SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
+        collide = GameObject.Find("collide");
+        frame = GameObject.Find("frame");
+        ConnectorManager = GameObject.Find("ConnectorManager");
         // StartSelect = GameObject.Find("HandPoses/HandPoseGenerator/StartSelect");
         // clickSelect = GameObject.Find("clickSelect");
     }
@@ -181,7 +187,7 @@ public class HandPoseManager : MonoBehaviour
 
         SecondSelectionState = false;
     }
-
+    
 
     public void OnFinishPoseUpdate(){
         timer += Time.deltaTime;
@@ -196,9 +202,14 @@ public class HandPoseManager : MonoBehaviour
                     obj.GetComponent<Outline>().OutlineColor = Color.clear;
                 }
                 phase = 1;
+                collide.GetComponent<collide>().getFinalObject();
             }
             else if(phase == 1){
                 phase = 2;
+                frame.GetComponent<frame>().reverse();
+                ConnectorManager.GetComponent<ConnectorManager>().getFrameCenter();
+                ConnectorManager.GetComponent<ConnectorManager>().getOriginalOffset();
+
             }
             timer = 0;
             finishFlag = true;
