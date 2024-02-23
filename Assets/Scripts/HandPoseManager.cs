@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System;
 using System.Linq;
+using UnityEngine.Timeline;
 
 
 public class HandPoseManager : MonoBehaviour
@@ -38,17 +39,26 @@ public class HandPoseManager : MonoBehaviour
 
     private Dictionary<GameObject, float> sortedObjectWeights = new Dictionary<GameObject, float>();
 
+
+    public GameObject StartSelect;
+    public GameObject clickSelect;
+    int phase = 0;
+    float timer = 0;
+    bool finishFlag = false;
+
     void Start()
     {
         SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
+        // StartSelect = GameObject.Find("HandPoses/HandPoseGenerator/StartSelect");
+        // clickSelect = GameObject.Find("clickSelect");
     }
 
     // Update is called once per frame
     void Update()
     {
-//        Log.text = "SecondSelectionState: " + SecondSelectionState.ToString() + "\n" + "PalmPoseState: " + PalmPoseState.ToString() + "\n";
+        Log.text = "FinishFlag: " + finishFlag.ToString() + "\n" + "Phase: " + phase.ToString() + "\n" + "Timer: " + timer.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
             if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)
@@ -170,6 +180,34 @@ public class HandPoseManager : MonoBehaviour
         }
 
         SecondSelectionState = false;
+    }
+
+
+    public void OnFinishPoseUpdate(){
+        timer += Time.deltaTime;
+        if(timer > 0.6 && !finishFlag){
+            if(phase == 0){
+                StartSelect.SetActive(false);
+                clickSelect.SetActive(false);
+                SightCone.SetActive(false);
+                EyeTrackingManager.SetActive(false);
+                foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
+                {
+                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
+                }
+                phase = 1;
+            }
+            else if(phase == 1){
+                phase = 2;
+            }
+            timer = 0;
+            finishFlag = true;
+        }
+    }
+
+    public void OnFinishPoseEnd(){
+        finishFlag = false;
+        timer = 0;
     }
 
 }
