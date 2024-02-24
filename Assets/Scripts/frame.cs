@@ -7,7 +7,7 @@ public class frame : MonoBehaviour
 {
     private LineRenderer line;
     public GameObject connectorManager;
-
+    public GameObject[] cor;//透明物体，其位置用于标记顶点；
     public GameObject collideObject;
 
 
@@ -154,8 +154,8 @@ public class frame : MonoBehaviour
         clear();
         dis = 0.4f;
 
-        rectlenth = 0.1f;
-        rectheight = 0.1f;
+        rectlenth = 0.3f;
+        rectheight = 0.3f;
 
         Frame = "rect";
 
@@ -173,6 +173,11 @@ public class frame : MonoBehaviour
         rectCorner[2] = center - up/2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - up/2*rectheight-right/2*rectlenth;
 
+        for(int i=0;i<=3;i++){
+            cor[i].transform.position = rectCorner[i];
+        }
+
+
         for (int i = 0;i<=3;i++){
             line.SetPosition(i,rectCorner[i]);
             if(i!=3){
@@ -187,42 +192,19 @@ public class frame : MonoBehaviour
     public void updateFrame()
     {
         var anchor = collideObject.GetComponent<collide>().anchor;
-        if(Frame == "rect"){
+        if(Frame == "rect"){//根据透明物体来画
             redoRect(anchor);}
         else if(Frame == "circle"){
             redoCircle(anchor);}
     }
     public void redoRect(List<GameObject> anchor)
     {
-        // get the original plane by previous points
-        Vector3 f = ((rectCorner[0] - rectCorner[1])).normalized;
-        Vector3 m = ((rectCorner[0] - rectCorner[3])).normalized;
-        if (collideObject.GetComponent<collide>().type == "1")// 左上，右下
-        {
-            rectCorner[0] = anchor[0].transform.position;
-            rectCorner[2] = anchor[1].transform.position;
-            Vector3 temp = rectCorner[0] - rectCorner[2];
-            rectheight = Vector3.Dot(temp, m);
-            rectlenth = Vector3.Dot(temp, f);
-            rectCorner[1] = rectCorner[0] - f * rectlenth;
-            rectCorner[2] = rectCorner[0] - m * rectheight;
-        }
-        else
-        {
-            rectCorner[1] = anchor[0].transform.position;
-            rectCorner[3] = anchor[1].transform.position;
-            Vector3 temp = rectCorner[1] - rectCorner[3];
-            rectheight = Vector3.Dot(temp, m);
-            rectlenth = Vector3.Dot(temp, f);
-            rectCorner[0] = rectCorner[1] - f * rectlenth;
-            rectCorner[2] = rectCorner[1] - m * rectheight;
-        }
         for (int i = 0; i <= 3; i++)
         {
-            line.SetPosition(i, rectCorner[i]);
+            line.SetPosition(i, cor[i].transform.position);
             if (i == 3)
             {
-                line.SetPosition(4, rectCorner[0]);
+                line.SetPosition(4, cor[0].transform.position);
             }
 
         }

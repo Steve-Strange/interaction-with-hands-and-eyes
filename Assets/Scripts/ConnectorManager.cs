@@ -59,7 +59,17 @@ public class ConnectorManager : MonoBehaviour
         
         Objects = collide.GetComponent<collide>().onFrame;//得到框上所有物体信息
 
+        var cor = frame.GetComponent<frame>().cor;
+
         frameScale = new Vector3(1, 1, 1);//初始化
+
+        if(frame.GetComponent<frame>().Frame == "rect")
+        {
+            for(int i = 0; i <= 3; i++)
+            {
+                Objects.Add(cor[i]);
+            }
+        }
 
         foreach (var obj in Objects)
         {

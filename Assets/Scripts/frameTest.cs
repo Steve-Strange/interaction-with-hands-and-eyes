@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,8 @@ public class frameTest : MonoBehaviour
     private LineRenderer line;
     public List<GameObject> anchor;
     public GameObject connectorManager;
+    public GameObject[] cor;
+
 
     private Vector3 right;
     private Vector3 forward;
@@ -31,7 +33,7 @@ public class frameTest : MonoBehaviour
     //pen
     public Vector3[] penCorner = new Vector3[5];
     public float penedge;
-    public List<BoxCollider> collider;//´æÌí¼ÓµÄËùÓÐcolliderÎïÌå£»
+    public List<BoxCollider> collider;//å­˜æ·»åŠ çš„æ‰€æœ‰colliderç‰©ä½“ï¼›
     //cube
     public Vector3[] cubeCorner = new Vector3[8];
 
@@ -39,15 +41,17 @@ public class frameTest : MonoBehaviour
     void Start()
     {
         line = GetComponent<LineRenderer>();
-        redoCircle();
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+        
 
     }
+
+   
 
     public void redoCircle()
     {
@@ -70,8 +74,8 @@ public class frameTest : MonoBehaviour
 
         for (int i = 0; i < N + 1; i++)
         {
-            float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //È·¶¨x×ø±ê
-            float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //È·¶¨z×ø±ê
+            float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //ç¡®å®šxåæ ‡
+            float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //ç¡®å®šzåæ ‡
             now = center + right * x + forward * z;
             line.SetPosition(i, now);
         }
@@ -98,7 +102,7 @@ public class frameTest : MonoBehaviour
         float Yd = D.y;
         float Zd = D.z;
 
-        //µ¥Î»·¨ÏòÁ¿AN
+        //å•ä½æ³•å‘é‡AN
         Vector3 AB = B - A;
         Vector3 AC = C - A;
         Vector3 AN = Vector3.Cross(AB, AC).normalized;
@@ -107,7 +111,7 @@ public class frameTest : MonoBehaviour
         float v = AN.y;
         float w = AN.z;
 
-        //¹¹½¨ÈýÔªÒ»´Î·½³Ì²ÎÊý
+        //æž„å»ºä¸‰å…ƒä¸€æ¬¡æ–¹ç¨‹å‚æ•°
         float a = u;
         float b = v;
         float c = w;
