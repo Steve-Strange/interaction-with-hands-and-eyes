@@ -52,8 +52,26 @@ public class frame : MonoBehaviour
     private LineRenderer line5;
     private LineRenderer line6;
     private float finalScale;
+    public Material lineMaterial;
 
-    
+    public void LineSetProperties(LineRenderer line)
+    {
+        line.startWidth = 0.02f;
+        line.endWidth = 0.02f;
+        line.startColor = Color.black;
+        line.endColor = Color.black;
+        line.material = lineMaterial;
+    }
+
+    void start(){
+        LineSetProperties(line);
+        LineSetProperties(line2);
+        LineSetProperties(line3);
+        LineSetProperties(line4);
+        LineSetProperties(line5);
+        LineSetProperties(line6);
+
+    }
 
     Vector3 center;
     public void reverse()//将比例还原

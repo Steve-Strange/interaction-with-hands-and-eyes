@@ -26,7 +26,7 @@ public class HandPoseManager : MonoBehaviour
 
     public TMP_InputField Log;
 
-    private float delayTime = 0.5f; // 延迟时间，单位为秒
+    private float delayTime = 0.6f; // 延迟时间，单位为秒
     private float delayTimer = 0.0f; // 计时器
 
     public bool SecondSelectionState = false;
@@ -46,7 +46,9 @@ public class HandPoseManager : MonoBehaviour
     public GameObject StartSelect;
     public GameObject clickSelect;
     public int phase = 0;
-    float timer = 0;
+    float thumbHoldTimer = 0;
+    float thumbExitTimer = 0;
+    bool thumbHoldState = false;
     bool finishFlag = false;
 
     void Start()
@@ -63,7 +65,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Log.text = "FinishFlag: " + finishFlag.ToString() + "\n" + "Phase: " + phase.ToString() + "\n" + "Timer: " + timer.ToString() + "\n";
+        Log.text = "FinishFlag: " + finishFlag.ToString() + "\n" + "Phase: " + phase.ToString() + "\n" + "thumbHoldTimer: " + thumbHoldTimer.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
             if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)
@@ -71,7 +73,13 @@ public class HandPoseManager : MonoBehaviour
                 onPalmPoseExitDelay();
             }
         }
-        
+        if(!thumbHoldState){
+            thumbExitTimer += Time.deltaTime;
+            if(thumbExitTimer > delayTime){
+                finishFlag = false;
+                thumbHoldTimer = 0;
+            }
+        }
     }
 
     public void onPalmPoseStart()
@@ -189,8 +197,10 @@ public class HandPoseManager : MonoBehaviour
     
 
     public void OnFinishPoseUpdate(){
-        timer += Time.deltaTime;
-        if(timer > 0.6 && !finishFlag){
+        thumbExitTimer = 0;
+        thumbHoldState = true;
+        thumbHoldTimer += Time.deltaTime;
+        if(thumbHoldTimer > 0.6 && !finishFlag){
             if(phase == 0){
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
@@ -203,21 +213,20 @@ public class HandPoseManager : MonoBehaviour
                 phase = 1;
                 collide.GetComponent<collide>().getFinalObject();
             }
-           /* else if(phase == 1){
+            else if(phase == 1){
                 phase = 2;
                 frame.GetComponent<frame>().reverse();
-                ConnectorManager.GetComponent<ConnectorManager>().getFrameCenter();
-                ConnectorManager.GetComponent<ConnectorManager>().getOriginalOffset();
+                // ConnectorManager.GetComponent<ConnectorManager>().getFrameCenter();
+                // ConnectorManager.GetComponent<ConnectorManager>().getOriginalOffset();
 
-            }*/
-            timer = 0;
+            }
+            thumbHoldTimer = 0;
             finishFlag = true;
         }
     }
 
     public void OnFinishPoseEnd(){
-        finishFlag = false;
-        timer = 0;
+        thumbHoldState = false;
     }
 
 }
