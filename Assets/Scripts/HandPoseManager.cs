@@ -23,6 +23,7 @@ public class HandPoseManager : MonoBehaviour
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
     public GameObject FinalObjects;
     private GameObject EyeTrackingManager;
+    //public TMP_Text Phase;
 
     public TMP_InputField Log;
 
@@ -215,10 +216,8 @@ public class HandPoseManager : MonoBehaviour
             }
             else if(phase == 1){
                 phase = 2;
-                frame.GetComponent<frame>().reverse();
-                // ConnectorManager.GetComponent<ConnectorManager>().getFrameCenter();
-                // ConnectorManager.GetComponent<ConnectorManager>().getOriginalOffset();
-
+                collide.GetComponent<collide>().anchorChoose();
+                ConnectorManager.GetComponent<ConnectorManager>().reverse();
             }
             thumbHoldTimer = 0;
             finishFlag = true;

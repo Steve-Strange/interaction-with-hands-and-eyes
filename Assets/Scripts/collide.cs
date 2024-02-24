@@ -15,6 +15,8 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
+    public TMPro.TMP_Text T;
+
     public TMPro.TMP_Text t;
     public TMPro.TMP_Text t2;
 
@@ -43,23 +45,28 @@ public class collide : MonoBehaviour
     public List<GameObject> cube = new List<GameObject>();// 
     private Vector3[] cubeCorner;
     private GameObject now;
-    private void OnCollisionEnter(Collision collision)
-    {
+    int label = 0;
+    private void OnCollisionEnter(Collision collision){
         now = finalObj[0];
+        label = 0;
+        ContactPoint contact = collision.contacts[0];
+        if (p.ispinch & finalObj.Count != 0){
+            now.transform.position = contact.point;
+            now.transform.parent = collision.gameObject.transform;
+        }
     }
-    private void OnCollisionStay(Collision collision)
-    {
+    private void OnCollisionStay(Collision collision){
         ContactPoint contact = collision.contacts[0];
         if (p.ispinch & finalObj.Count != 0) 
         { 
             now.transform.position = contact.point;
             now.transform.parent = collision.gameObject.transform;
+            label = 1;
         }
     }
-
     private void OnCollisionExit(Collision collision){                                                                                                                                                   
       
-        if(ispinch & !p.ispinch)
+        if(label == 1)
         { 
 
           
@@ -133,11 +140,12 @@ public class collide : MonoBehaviour
           
           onFrame.Add(finalObj[0]);
           finalObj.RemoveAt(0);
+            label = 0;
         }
     }
     public void getFinalObject()
     {
-        t2.text = "get";
+     
         finalObj = FinalObjects.GetComponent<FinalObjects>().finalObj;
 
     }
@@ -168,22 +176,32 @@ public class collide : MonoBehaviour
         t.text = ispinch.ToString();
     }
 
-        void anchorChoose()
+    public void anchorChoose()
     {
+        T.text = "anchor";
         anchor.Clear();
-        if(frame.GetComponent<frame>().Frame == "rect"){
-        if(rect[0] && rect[2]){
-                type = "2"; 
-          anchor.Add(rect[0]);
-          anchor.Add(rect[2]);
-          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = rect[0];
-          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = rect[2];}
-        else if(rect[1] && rect[3]){
-                type = "1";
-          anchor.Add(rect[1]);
-          anchor.Add(rect[3]);
-          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = rect[1];
-          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = rect[3];}
+        T.text = "anchor1";
+        if (frame.GetComponent<frame>().Frame == "rect"){
+            T.text = onFrame[0].name;
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Clear();
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(onFrame[0]);
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(onFrame[1]);
+            T.text = "anchor3";
+            anchor.Add(onFrame[0]);
+            anchor.Add(onFrame[1]);
+            T.text = "anchor4";
+            /*if(rect[0] && rect[2]){
+                    type = "2"; 
+              anchor.Add(rect[0]);
+              anchor.Add(rect[2]);
+              GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = rect[0];
+              GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = rect[2];}
+            else if(rect[1] && rect[3]){
+                    type = "1";
+              anchor.Add(rect[1]);
+              anchor.Add(rect[3]);
+              GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = rect[1];
+              GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = rect[3];}*/
         }
         if (frame.GetComponent<frame>().Frame == "tri"){
                 anchor.Add(tri[0]);
@@ -318,9 +336,12 @@ public class collide : MonoBehaviour
             //maybe need three
             //connectorManager.GetComponent<ConnectorManager>().cube3 = anchor[2];
         }
-      /**/  foreach (var obj in anchor){
+        T.text = "anchor5";
+        /**/
+        foreach (var obj in anchor){
                 obj.GetComponent<Outline>().OutlineColor = Color.green;
         }
+        T.text = "anchor6";
     }
     // Update is called once per frame
   

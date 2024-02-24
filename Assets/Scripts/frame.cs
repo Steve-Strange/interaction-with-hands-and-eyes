@@ -10,9 +10,11 @@ public class frame : MonoBehaviour
 
     public GameObject collideObject;
 
-    private Vector3 forward;//ʵ�ֳ���
-    private Vector3 right;
-    private Vector3 up;
+
+    public Vector3 forward;//第2阶段生成框那个瞬间所用的
+    public Vector3 right;
+    public Vector3 up;
+
     public float dis = 0.2f;
     public GameObject head;
     public string Frame;
@@ -41,11 +43,11 @@ public class frame : MonoBehaviour
     float cubelenth = 0.1f;
     float cubeheight = 0.1f;
     float cubewidth = 0.1f;
-    public GameObject line_2;
+   /* public GameObject line_2;
     public GameObject line_3;
     public GameObject line_4;
     public GameObject line_5;
-    public GameObject line_6;
+    public GameObject line_6;*/
     private LineRenderer line2;
     private LineRenderer line3;
     private LineRenderer line4;
@@ -63,7 +65,10 @@ public class frame : MonoBehaviour
         line.material = lineMaterial;
     }
 
-    void start(){
+    void Start(){
+        line = GetComponent<LineRenderer>();
+        line.startWidth = 0.01f;
+        line.endWidth = 0.01f;
         LineSetProperties(line);
         LineSetProperties(line2);
         LineSetProperties(line3);
@@ -73,10 +78,16 @@ public class frame : MonoBehaviour
 
     }
 
-    Vector3 center;
+    public Vector3 center;
+    /*
     public void reverse()//将比例还原
     {
-        center = new Vector3(0, 0, 0);
+
+        forward = head.transform.forward.normalized;
+        right = head.transform.right.normalized;
+        up = head.transform.up.normalized;
+
+        center = head.transform.position + forward * dis*20;
 
         foreach (var item in collideObject.GetComponent<collide>().onFrame)
         {
@@ -106,8 +117,29 @@ public class frame : MonoBehaviour
                     line.SetPosition(4, rectCorner[0]);
                 }
             }
+        }else if(Frame == "circle"){
+
+            float r = R*(1f/finalScale);
+
+            line.positionCount = N + 1;
+
+            right = Vector3.right;
+            forward = Vector3.forward;
+
+
+            for (int i = 0; i < N + 1; i++)
+            {
+                float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
+                float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
+                Vector3 now = center + right * x + forward * z;
+                line.SetPosition(i, now);
+            }
+
+
+
         }
     }
+    */
     void clear()
     {
         collideObject.GetComponent<collide>().rect.Clear();
@@ -132,6 +164,7 @@ public class frame : MonoBehaviour
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
         up = head.transform.up.normalized;
+
         center = head.transform.position + forward * dis;
 
         line.positionCount = 5;
@@ -140,10 +173,6 @@ public class frame : MonoBehaviour
         rectCorner[2] = center - up/2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - up/2*rectheight-right/2*rectlenth;
 
-        /* rectCorner[0] = new Vector3(-0.1f, 0.1f, 0);
-        rectCorner[1] = new Vector3(0.1f, 0.1f, 0);
-        rectCorner[2] = new Vector3(0.1f, -0.1f, 0);
-        rectCorner[3] = new Vector3(-0.1f, -0.1f, 0);*/
         for (int i = 0;i<=3;i++){
             line.SetPosition(i,rectCorner[i]);
             if(i!=3){
@@ -321,12 +350,12 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
 
         Frame = "cube";
         //
-        line2 = line_2.GetComponent<LineRenderer>();
+       /* line2 = line_2.GetComponent<LineRenderer>();
         line3 = line_3.GetComponent<LineRenderer>();
         line4 = line_4.GetComponent<LineRenderer>();
         line5 = line_5.GetComponent<LineRenderer>();
         line6 = line_6.GetComponent<LineRenderer>();
-
+*/
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
         up = head.transform.up.normalized;
@@ -380,29 +409,31 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
 }
     public void redoCircle(List<GameObject> anchor)
     {
-     
-        Vector3 center =  CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
+
+        Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
+
+
+
         float R = (anchor[0].transform.position - center).magnitude;
 
-        line.positionCount = N + 1;
+
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;
+        line.positionCount = N + 1;
 
-        Vector3 now;
         right = Vector3.right;
         forward = Vector3.forward;
 
+        Vector3 now;
 
-        for (int i = 0; i < N + 1; i++){
+        for (int i = 0; i < N + 1; i++)
+        {
             float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
             float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
             now = center + right * x + forward * z;
             line.SetPosition(i, now);
         }
-        float xx = R * Mathf.Cos((0) * Mathf.Deg2Rad); //确定x坐标
-        float zz = R * Mathf.Sin((0) * Mathf.Deg2Rad); //确定z坐标
-        now = center + right * xx + forward * zz;
-        line.SetPosition(N + 1, now);
+
     }
     public void redoTri()
     {
@@ -599,15 +630,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         addColliderToLine(last, now);
     }
 
-    void Start()
-    {
-        line = GetComponent<LineRenderer>();
-        line.startWidth = 0.01f;
-        line.endWidth = 0.01f;
-        
 
-
-}
     // Update is called once per frame
     void Update()
     {
