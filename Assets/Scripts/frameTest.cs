@@ -58,6 +58,7 @@ public class frameTest : MonoBehaviour
 
         float R = (anchor[0].transform.position - center).magnitude;
 
+       
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;
         line.positionCount = N + 1;

@@ -90,9 +90,18 @@ public class frame : MonoBehaviour
             }
         }
     }
-    
+    void clear()
+    {
+        collideObject.GetComponent<collide>().rect.Clear();
+        collideObject.GetComponent<collide>().tri.Clear();
+        collideObject.GetComponent<collide>().circle.Clear();
+        collideObject.GetComponent<collide>().para.Clear();
+        collideObject.GetComponent<collide>().pen.Clear();
+        collideObject.GetComponent<collide>().cube.Clear();
+    }
     public void creatRect()//2d, just make the origin frame
     {
+        clear();
         dis = 0.4f;
 
         rectlenth = 0.1f;

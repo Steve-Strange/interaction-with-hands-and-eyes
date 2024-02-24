@@ -6,9 +6,17 @@ using UnityEngine;
 public class collide : MonoBehaviour
 {
     public GameObject connectorManager;
-
-    public GameObject pinch; 
+    public GameObject GrabAgent;
+    public GameObject pinch;
+    public GameObject frameButton;
+    public GameObject handPoseManager;
+    public GameObject thumb;
+    public GameObject index;
+    public bool ispinch = false;
     private pinch p;
+
+    public TMPro.TMP_Text t;
+    public TMPro.TMP_Text t2;
 
     public GameObject frame;  
     public string frameMark;//the mark of frame
@@ -21,34 +29,39 @@ public class collide : MonoBehaviour
 
     public List<GameObject> onFrame;//object already on now frame
 
-    private List<GameObject> rect;// leftup rightup rightdown leftdown
+    public List<GameObject> rect = new List<GameObject>();// leftup rightup rightdown leftdown
     private Vector3[] rectCorner;
-    private List<GameObject> tri;// leftup rightup rightdown leftdown
+    public List<GameObject> tri = new List<GameObject>();// leftup rightup rightdown leftdown
     private Vector3[] triCorner;
-    private List<GameObject> circle;// 圆用前三个
+    public List<GameObject> circle = new List<GameObject>();// 圆用前三个
     private Vector3[] circleCorner;
     public int mark = 0;
-    private List<GameObject> para;// 
+    public List<GameObject> para = new List<GameObject>();// 
     private Vector3[] paraCorner;
-    private List<GameObject> pen;//
+    public List<GameObject> pen = new List<GameObject>();//
     private Vector3[] penCorner;
-    private List<GameObject> cube;// 
+    public List<GameObject> cube = new List<GameObject>();// 
     private Vector3[] cubeCorner;
-    private void OnCollisionEnter(Collision collision){
+    private GameObject now;
+    private void OnCollisionEnter(Collision collision)
+    {
+        now = finalObj[0];
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        ContactPoint contact = collision.contacts[0];
+        if (p.ispinch & finalObj.Count != 0) 
+        { 
+            now.transform.position = contact.point;
+            now.transform.parent = collision.gameObject.transform;
+        }
+    }
 
-        rect.Clear();
-        tri.Clear();
-        circle.Clear();
-        para.Clear();
-        pen.Clear();
-        cube.Clear();
+    private void OnCollisionExit(Collision collision){                                                                                                                                                   
+      
+        if(ispinch & !p.ispinch)
+        { 
 
-        ContactPoint contact = collision.contacts[0];                                                                                                                                                      
-       
-        if(p.ispinch & finalObj.Count !=0 ){ 
-
-          finalObj[0].transform.position = contact.point;
-          finalObj[0].transform.parent = collision.gameObject.transform;
           
           if(frame.GetComponent<frame>().Frame == "rect"){
 
@@ -122,13 +135,40 @@ public class collide : MonoBehaviour
           finalObj.RemoveAt(0);
         }
     }
+    public void getFinalObject()
+    {
+        t2.text = "get";
+        finalObj = FinalObjects.GetComponent<FinalObjects>().finalObj;
+
+    }
+    private void Update()
+    {
+        if (handPoseManager.GetComponent<HandPoseManager>().phase == 1)
+        {
+            frameButton.SetActive(true);
+        }
+        else
+        {
+         frameButton.SetActive(false);
+        }
+        t2.text = finalObj.Count.ToString();
+    }
     void Start()
     {
         p = pinch.GetComponent<pinch>();
-        finalObj = FinalObjects.GetComponent<FinalObjects>().finalObj;
-    } 
- 
-    void anchorChoose()
+        InvokeRepeating("RepeatedMethod", 1f, 0.5f);
+    }
+    private void RepeatedMethod()
+    {
+        float f = (thumb.transform.position - index.transform.position).magnitude;
+        if (f < 0.01)
+            ispinch = true;
+        else
+            ispinch = false;
+        t.text = ispinch.ToString();
+    }
+
+        void anchorChoose()
     {
         anchor.Clear();
         if(frame.GetComponent<frame>().Frame == "rect"){
@@ -136,43 +176,43 @@ public class collide : MonoBehaviour
                 type = "2"; 
           anchor.Add(rect[0]);
           anchor.Add(rect[2]);
-          connectorManager.GetComponent<ConnectorManager>().cube1 = rect[0];
-          connectorManager.GetComponent<ConnectorManager>().cube2 = rect[2];}
+          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = rect[0];
+          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = rect[2];}
         else if(rect[1] && rect[3]){
                 type = "1";
-                anchor.Add(rect[1]);
+          anchor.Add(rect[1]);
           anchor.Add(rect[3]);
-          connectorManager.GetComponent<ConnectorManager>().cube1 = rect[1];
-          connectorManager.GetComponent<ConnectorManager>().cube2 = rect[3];}
+          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = rect[1];
+          GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = rect[3];}
         }
         if (frame.GetComponent<frame>().Frame == "tri"){
                 anchor.Add(tri[0]);
                 anchor.Add(tri[1]);
                 //anchor.Add(tri[2]);
-                connectorManager.GetComponent<ConnectorManager>().cube1 = tri[0];
-                connectorManager.GetComponent<ConnectorManager>().cube2 = tri[1];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = tri[0];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = tri[1];
         }
         if (frame.GetComponent<frame>().Frame == "circle"){
                 anchor.Add(circle[0]);
                 anchor.Add(circle[1]);
                 anchor.Add(circle[2]);
-            connectorManager.GetComponent<ConnectorManager>().cube1 = circle[0];
-            connectorManager.GetComponent<ConnectorManager>().cube2 = circle[1];
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = circle[0];
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = circle[1];
         }
         if (frame.GetComponent<frame>().Frame == "para"){
             if (para[0] && para[2])
             {
                 anchor.Add(para[0]);
                 anchor.Add(para[2]);
-                connectorManager.GetComponent<ConnectorManager>().cube1 = para[0];
-                connectorManager.GetComponent<ConnectorManager>().cube2 = para[2];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = para[0];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = para[2];
             }
             else if (para[1] && para[3])
             {
                 anchor.Add(para[1]);
                 anchor.Add(para[3]);
-                connectorManager.GetComponent<ConnectorManager>().cube1 = para[1];
-                connectorManager.GetComponent<ConnectorManager>().cube2 = para[3];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = para[1];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = para[3];
             }
         }
         if (frame.GetComponent<frame>().Frame == "cube"){
@@ -273,8 +313,8 @@ public class collide : MonoBehaviour
                 anchor.Add(cube[5]);
                 anchor.Add(cube[7]);
             }
-            connectorManager.GetComponent<ConnectorManager>().cube1 = anchor[0];
-            connectorManager.GetComponent<ConnectorManager>().cube2 = anchor[1];
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = anchor[0];
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = anchor[1];
             //maybe need three
             //connectorManager.GetComponent<ConnectorManager>().cube3 = anchor[2];
         }
