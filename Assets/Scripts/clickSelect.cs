@@ -20,6 +20,7 @@ public class clickSelect : MonoBehaviour
     public RaycastHit thumb, index, middle, ring, little;
    // public TMP_Text  T2, T3, T4, T5, T6;
     public TMP_InputField log;
+    private GameObject SightCone;
 
     //private float angle, angle1, angle2, angle3, angle4, angleLast;
     //private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
@@ -33,6 +34,7 @@ public class clickSelect : MonoBehaviour
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
       
         StartCoroutine("UpdateVelocity");
+        SightCone = GameObject.Find("SightCone");
     }
     private void RepeatedMethod()
     {
@@ -50,7 +52,7 @@ public class clickSelect : MonoBehaviour
         d = culculate(middle1, middle2, middle3);
        
             angleLast[2] = d;
- if (-d> 0.95f)
+        if (-d> 0.95f)
             ad[2] = d;
         d = culculate(ring1, ring2, ring3);
       
@@ -141,7 +143,7 @@ public class clickSelect : MonoBehaviour
                 mark[0] = true;
 
             }
-           // T.text = mark[0].ToString();
+            // T.text = mark[0].ToString();
             //T2.text = (d[0] - angleLast[0]).ToString();
             
 
@@ -191,10 +193,11 @@ public class clickSelect : MonoBehaviour
 
                 } //T2.text = select.ToString();
                 if(!(select==2&&mark[1]==true&&mark[3]==true))
-                if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select])
+                if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select] && selectedRow[select] != HandPoseManager.GetComponent<HandPoseManager>().emptyBlock)
                 {
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[select]);
-                    // selectedRow[select] = null; 
+                    SightCone.GetComponent<SightCone>().objectWeights.Remove(selectedRow[select]);
+                    // selectedRow[select] = null;
                     time = 0;
                 }
             }
