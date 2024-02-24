@@ -142,12 +142,14 @@ public class frame : MonoBehaviour
     */
     void clear()
     {
-        collideObject.GetComponent<collide>().rect.Clear();
-        collideObject.GetComponent<collide>().tri.Clear();
-        collideObject.GetComponent<collide>().circle.Clear();
-        collideObject.GetComponent<collide>().para.Clear();
-        collideObject.GetComponent<collide>().pen.Clear();
-        collideObject.GetComponent<collide>().cube.Clear();
+        for(int i = 0; i <= 7; i++) { 
+        collideObject.GetComponent<collide>().rectMark[i] = 0;
+        collideObject.GetComponent<collide>().triMark[i]  = 0;
+       // collideObject.GetComponent<collide>().circleMark[i] = 0;
+        collideObject.GetComponent<collide>().paraMark[i] = 0;
+        collideObject.GetComponent<collide>().penMark[i] = 0;
+        collideObject.GetComponent<collide>().cubeMark[i] = 0;
+        }
     }
     public void creatRect()//2d, just make the origin frame
     {
@@ -189,16 +191,53 @@ public class frame : MonoBehaviour
             }
         }
     }
+    public void createCircle()
+    {
+
+        clear();
+        dis = 0.4f;
+
+        //ciecle original 
+        N = 40;
+        R = 0.1f;
+
+        Frame = "circle";
+        collideObject.GetComponent<collide>().mark = 0;
+
+
+        forward = head.transform.forward.normalized;
+        right = head.transform.right.normalized;
+        up = head.transform.up.normalized;
+
+        center = head.transform.position + forward * dis;
+
+        line.positionCount = N + 1;
+
+        Vector3 last = new Vector3(0, 0, 0);
+        Vector3 now;
+
+        for (int i = 0; i <= N ; i++)
+        {
+            float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
+            float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
+            now = center + right * x + up * z;
+            line.SetPosition(i, now);
+            if (i != 0)
+                addColliderToLine(last, now);
+            last = now;
+
+        }
+    }
+
     public void updateFrame()
     {
         var anchor = collideObject.GetComponent<collide>().anchor;
         if(Frame == "rect"){//根据透明物体来画
-            redoRect(anchor);}
-        else if(Frame == "circle"){
+            redoRect();}
+        else if(Frame == "circle"){//用三个锚点画
             redoCircle(anchor);}
     }
-    public void redoRect(List<GameObject> anchor)
-    {
+    public void redoRect(){
         for (int i = 0; i <= 3; i++)
         {
             line.SetPosition(i, cor[i].transform.position);
@@ -206,8 +245,33 @@ public class frame : MonoBehaviour
             {
                 line.SetPosition(4, cor[0].transform.position);
             }
-
         }
+    }
+    public void redoCircle(List<GameObject> anchor)
+    {
+
+        Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
+
+        float R = (anchor[0].transform.position - center).magnitude;
+
+
+        line.startWidth = 0.1f;
+        line.endWidth = 0.1f;
+        line.positionCount = N + 1;
+
+        right = Vector3.right;
+        forward = Vector3.forward;
+
+        Vector3 now;
+
+        for (int i = 0; i < N + 1; i++)
+        {
+            float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
+            float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
+            now = center + right * x + forward * z;
+            line.SetPosition(i, now);
+        }
+
     }
     public void createPara()
     {
@@ -389,34 +453,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
 
 
 }
-    public void redoCircle(List<GameObject> anchor)
-    {
-
-        Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
-
-
-
-        float R = (anchor[0].transform.position - center).magnitude;
-
-
-        line.startWidth = 0.1f;
-        line.endWidth = 0.1f;
-        line.positionCount = N + 1;
-
-        right = Vector3.right;
-        forward = Vector3.forward;
-
-        Vector3 now;
-
-        for (int i = 0; i < N + 1; i++)
-        {
-            float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
-            float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
-            now = center + right * x + forward * z;
-            line.SetPosition(i, now);
-        }
-
-    }
+    
     public void redoTri()
     {
       
@@ -555,7 +592,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         collider.Add(col);
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
-        col.size = new Vector3(lineLength, 0.0001f, 0.0001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        col.size = new Vector3(lineLength, 0.001f, 0.001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startPos + endPos) / 2;
         col.transform.position = midPoint; // setting position of collider object
         // Following lines calculate the angle between startPos and endPos
@@ -571,46 +608,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
 
 
 
-    public void createCircle()
-    {   
-        dis = 0.4f;
-
-        //ciecle original 
-        N = 40;
-        R = 0.1f;
-
-        Frame = "circle";
-        collideObject.GetComponent<collide>().mark = 0;
-
-
-        forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
-
-        center = head.transform.position + forward * dis;
-
-        line.positionCount = N + 1;
-
-
-    
-        Vector3 last = new Vector3(0, 0, 0);
-        Vector3 now;
-
-
-        for (int i = 0; i < N + 1; i++){
-            float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
-            float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
-            now = center + right * x + up * z;
-            line.SetPosition(i, now);
-            if(i!=0)
-                addColliderToLine(last, now);
-            last = now;
-        }
-        float xx = R * Mathf.Cos((0) * Mathf.Deg2Rad) ; //确定x坐标
-        float zz = R * Mathf.Sin((0) * Mathf.Deg2Rad) ; //确定z坐标
-        now = center + right * xx + up * zz;
-        addColliderToLine(last, now);
-    }
+   
 
 
     // Update is called once per frame
