@@ -66,7 +66,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Log.text = "FinishFlag: " + finishFlag.ToString() + "\n" + "Phase: " + phase.ToString() + "\n" + "thumbHoldTimer: " + thumbHoldTimer.ToString() + "\n";
+        Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sortedObjectWeights: " + sortedObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
             if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)

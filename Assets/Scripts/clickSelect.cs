@@ -20,6 +20,7 @@ public class clickSelect : MonoBehaviour
     public RaycastHit thumb, index, middle, ring, little;
    // public TMP_Text  T2, T3, T4, T5, T6;
     public TMP_InputField log;
+    private GameObject SightCone;
 
     //private float angle, angle1, angle2, angle3, angle4, angleLast;
     //private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
@@ -33,6 +34,7 @@ public class clickSelect : MonoBehaviour
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
       
         StartCoroutine("UpdateVelocity");
+        SightCone = GameObject.Find("SightCone");
     }
     private void RepeatedMethod()
     {
@@ -194,7 +196,8 @@ public class clickSelect : MonoBehaviour
                 if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select] && selectedRow[select] != HandPoseManager.GetComponent<HandPoseManager>().emptyBlock)
                 {
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[select]);
-                    // selectedRow[select] = null; 
+                    SightCone.GetComponent<SightCone>().objectWeights.Remove(selectedRow[select]);
+                    // selectedRow[select] = null;
                     time = 0;
                 }
             }
