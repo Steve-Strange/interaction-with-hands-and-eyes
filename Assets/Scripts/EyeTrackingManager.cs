@@ -66,7 +66,6 @@ public class EyeTrackingManager : MonoBehaviour
     void Update()
     {
 
-
         PXR_EyeTracking.GetHeadPosMatrix(out headPoseMatrix);
         PXR_EyeTracking.GetCombineEyeGazeVector(out combineEyeGazeVector);
         PXR_EyeTracking.GetCombineEyeGazePoint(out combineEyeGazeOrigin);
@@ -84,7 +83,7 @@ public class EyeTrackingManager : MonoBehaviour
             PXR_EyeTracking.GetRightEyeGazeOpenness(out rightEyeOpenness)) {
             isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
             if(isEyesOpen){
-                if(closeEyesTime > 0.35f) BlinkSelect();
+                if(closeEyesTime > 0.32f) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
                 eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
                 if(eyeSelectedObjectBuffer.Count > maxBufferSize){
@@ -101,7 +100,7 @@ public class EyeTrackingManager : MonoBehaviour
     void GazeTargetControl(Vector3 origin,Vector3 vector)
     {
         int layerMask = 1;
-        if(Physics.SphereCast(origin, 0.1f, vector, out hitInfo, 20f, layerMask)){
+        if(Physics.SphereCast(origin, 0.12f, vector, out hitInfo, 50f, layerMask)){
             if(hitInfo.collider.gameObject.tag == "Target")
             {
                 if(eyeSelectedObject != hitInfo.collider.gameObject){

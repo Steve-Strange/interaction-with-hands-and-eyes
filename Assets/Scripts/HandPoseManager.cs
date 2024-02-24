@@ -18,6 +18,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject collide;
     private GameObject frame;
     public List<GameObject> selectedRow = new List<GameObject>();
+    public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
@@ -94,7 +95,7 @@ public class HandPoseManager : MonoBehaviour
             SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
             
             sortedObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderByDescending(kv => kv.Value).Take(15).ToDictionary(kv => kv.Key, kv => kv.Value);
-
+            rowNum = Mathf.CeilToInt(sortedObjectWeights.Count / columnNum);
             foreach (var obj in sortedObjectWeights)
             {
                 if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject || FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)) continue;
@@ -135,8 +136,11 @@ public class HandPoseManager : MonoBehaviour
         {
             if(i/columnNum == currentRow){
                 if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)){
-                    obj.Key.GetComponent<Outline>().OutlineColor = Color.yellow; 
+                    obj.Key.GetComponent<Outline>().OutlineColor = Color.yellow;
                     selectedRow.Add(obj.Key);
+                }
+                else {
+                    selectedRow.Add(emptyBlock);
                 }
             }
             else{
