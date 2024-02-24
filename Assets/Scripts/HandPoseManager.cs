@@ -216,10 +216,12 @@ public class HandPoseManager : MonoBehaviour
                     obj.GetComponent<Outline>().OutlineColor = Color.clear;
                 }
                 phase = 1;
+                //cm.setActive(false)
                 collide.GetComponent<collide>().getFinalObject();
             }
             else if(phase == 1){
                 phase = 2;
+                //cm.setActive(true)
                 collide.GetComponent<collide>().anchorChoose();
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();
             }

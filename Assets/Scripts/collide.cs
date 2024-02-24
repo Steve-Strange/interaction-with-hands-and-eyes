@@ -124,6 +124,7 @@ public class collide : MonoBehaviour
                         {
                             finalObj[0].transform.position = triCorner[i];
                             tri[i] = finalObj[0];
+                            triMark[i] = 1;
                             finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                         }
                 }
@@ -139,6 +140,7 @@ public class collide : MonoBehaviour
                         {
                             finalObj[0].transform.position = penCorner[i];
                             pen[i] = finalObj[0];
+                            penMark[i] = 1;
                             finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                         }
                 }
@@ -153,6 +155,7 @@ public class collide : MonoBehaviour
                         {
                             finalObj[0].transform.position = paraCorner[i];
                             para[i] = finalObj[0];
+                            paraMark[i] = 1;
                             finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                         }
                 }
@@ -191,7 +194,7 @@ public class collide : MonoBehaviour
         }
         else
         {
-       frameButton.SetActive(false);
+            frameButton.SetActive(false);
         }
         t2.text = m_logEntries[m_logEntries.Count-1];
         if(handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch)
@@ -203,7 +206,7 @@ public class collide : MonoBehaviour
     void Start()
     {
         p = pinch.GetComponent<pinch>();
-        InvokeRepeating("RepeatedMethod", 1f, 0.5f);
+
         Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>
         {
             if (type == LogType.Exception || type == LogType.Error)
@@ -218,15 +221,7 @@ public class collide : MonoBehaviour
         pen = new GameObject[8];
         cube = new GameObject[8];
     }
-    private void RepeatedMethod()
-    {
-        float f = (thumb.transform.position - index.transform.position).magnitude;
-        if (f < 0.01)
-            ispinch = true;
-        else
-            ispinch = false;
-        
-    }
+
 
     public void anchorChoose()
     {
@@ -267,24 +262,37 @@ public class collide : MonoBehaviour
                 anchor.Add(tri[0]);
                 anchor.Add(tri[1]);
                 anchor.Add(tri[2]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = tri[0];
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = tri[1];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[0]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[1]);
         }
 
         if (frame.GetComponent<frame>().Frame == "para"){
-            if (para[0] && para[2])
+            if (paraMark[0]==1 && paraMark[2]==1)
             {
                 anchor.Add(para[0]);
                 anchor.Add(para[2]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = para[0];
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = para[2];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[0]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[2]);
             }
-            else if (para[1] && para[3])
+            else if (paraMark[1]==1 && paraMark[3] ==1 )
             {
                 anchor.Add(para[1]);
                 anchor.Add(para[3]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = para[1];
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = para[3];
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[1]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[3]);
+            }
+        }
+        if (frame.GetComponent<frame>().Frame == "pen"){
+            k=0;
+            for(int i = 0;i<=4;i++)
+            for(int j = 0;j<=4;j++)
+            if(i!=j&&penMark[i]==1 && penMark[j]==1&k==0)
+            {
+                anchor.Add(pen[i]);
+                anchor.Add(pen[j]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[i]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[j]);
+                k=1;
             }
         }
         if (frame.GetComponent<frame>().Frame == "cube"){

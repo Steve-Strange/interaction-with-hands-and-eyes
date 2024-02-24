@@ -69,6 +69,24 @@ public class ConnectorManager : MonoBehaviour
             {
                 Objects.Add(cor[i]);
             }
+        }else if(frame.GetComponent<frame>().Frame == "tri")
+        {
+            for(int i = 0; i <= 2; i++)
+            {
+                Objects.Add(cor[i]);
+            }
+        }else if(frame.GetComponent<frame>().Frame == "pen")
+        {
+            for(int i = 0; i <= 4; i++)
+            {
+                Objects.Add(cor[i]);
+            }
+        }else if(frame.GetComponent<frame>().Frame == "para")
+        {
+            for(int i = 0; i <= 3; i++)
+            {
+                Objects.Add(cor[i]);
+            }
         }
 
         foreach (var obj in Objects)

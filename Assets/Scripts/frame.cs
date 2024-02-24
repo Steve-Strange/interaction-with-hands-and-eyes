@@ -199,7 +199,7 @@ public class frame : MonoBehaviour
 
         //ciecle original 
         N = 40;
-        R = 0.1f;
+        R = 0.3f;
 
         Frame = "circle";
         collideObject.GetComponent<collide>().mark = 0;
@@ -228,7 +228,46 @@ public class frame : MonoBehaviour
 
         }
     }
+public void createTri()
+    {
+        dis = 0.4f;
 
+        //triangle original 
+        triedge = 0.1f;
+
+        Frame = "tri";
+
+        rectCorner = new Vector3[3];
+
+        forward = head.transform.forward.normalized;
+        right = head.transform.right.normalized;
+        up = head.transform.up.normalized;
+
+        center = head.transform.position + forward * dis;
+
+        line.positionCount = 4;
+
+        rectCorner[0] = center + up * (float)(triedge / Math.Sqrt(3));
+        rectCorner[1] = center - up* (float)(triedge / Math.Sqrt(3) / 2) - right * ( triedge /2);
+        rectCorner[2] = center - up* (float)(triedge / Math.Sqrt(3) / 2) + right * ( triedge /2);
+
+        
+        for(int i=0;i<=2;i++){
+            cor[i].transform.position = rectCorner[i];
+        }
+
+        for(int i = 0;i<=2;i++){
+            line.SetPosition(i,rectCorner[i]);
+            if(i!=2){
+                addColliderToLine(rectCorner[i],rectCorner[i+1]);
+            }
+            else{
+                addColliderToLine(rectCorner[2],rectCorner[0]);
+                line.SetPosition(3, rectCorner[0]);
+            }
+        }        
+
+    }
     public void updateFrame()
     {
         var anchor = collideObject.GetComponent<collide>().anchor;
@@ -236,6 +275,13 @@ public class frame : MonoBehaviour
             redoRect();}
         else if(Frame == "circle"){//用三个锚点画
             redoCircle(anchor);}
+        else if(Frame == "tri"){    
+            redoTri();}
+        else if(Frame == "pen"){    
+            redoPen();}
+        else if(Frame == "para"){    
+            redoPara();}
+
     }
     public void redoRect(){
         for (int i = 0; i <= 3; i++)
@@ -273,6 +319,31 @@ public class frame : MonoBehaviour
         }
 
     }
+    public void redoTri(List<GameObject> anchor)
+    {   
+            for(int i = 0;i<=2;i++){
+            line.SetPosition(i,cor[i].transform.position);
+            if(i==2){
+                line.SetPosition(3,cor[0].transform.position);}
+        }
+    }    
+    public void redoPen(List<GameObject> anchor)
+    {   
+            for(int i = 0;i<=5;i++){
+            line.SetPosition(i,cor[i].transform.position);
+            if(i==2){
+                line.SetPosition(3,cor[0].transform.position);}
+        }
+    }
+    public void redoPara(List<GameObject> anchor)
+    {   
+            for(int i = 0;i<=3;i++){
+            line.SetPosition(i,cor[i].transform.position);
+            if(i==2){
+                line.SetPosition(3,cor[0].transform.position);}
+        }
+    }
+
     public void createPara()
     {
         dis = 0.4f;
@@ -298,6 +369,10 @@ public class frame : MonoBehaviour
         rectCorner[1] = center + up/2*rectheight*sinx-right/2*(rectlenth+cosx);
         rectCorner[2] = center - up/2*rectheight*sinx+right/2*(rectlenth-cosx);
         rectCorner[3] = center - up/2*rectheight-right/2*(rectlenth+cosx);
+
+        for(int i=0;i<=3;i++){
+            cor[i].transform.position = rectCorner[i];
+        }
         for(int i = 0;i<=3;i++){
             line.SetPosition(i,rectCorner[i]);
             if(i!=3){
@@ -311,42 +386,7 @@ public class frame : MonoBehaviour
         }
 
     }
-    public void createTri()
-    {
-        dis = 0.4f;
-
-        //triangle original 
-        triedge = 0.1f;
-
-        Frame = "tri";
-
-        rectCorner = new Vector3[3];
-
-        forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
-
-        center = head.transform.position + forward * dis;
-
-        line.positionCount = 4;
-
-        rectCorner[0] = center + up * (float)(triedge / Math.Sqrt(3));
-        rectCorner[1] = center - up* (float)(triedge / Math.Sqrt(3) / 2) - right * ( triedge /2);
-        rectCorner[2] = center - up* (float)(triedge / Math.Sqrt(3) / 2) + right * ( triedge /2);
-
-        for(int i = 0;i<=2;i++){
-            line.SetPosition(i,rectCorner[i]);
-            if(i!=2){
-                addColliderToLine(rectCorner[i],rectCorner[i+1]);
-            }
-            else{
-                Debug.Log(1);
-                addColliderToLine(rectCorner[2],rectCorner[0]);
-                line.SetPosition(3, rectCorner[0]);
-            }
-        }        
-
-    }
+    
     public void createPentagon()
 {
         dis = 0.4f;
@@ -454,26 +494,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
 
 }
     
-    public void redoTri()
-    {
-      
-            List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
-            triCorner[0] = anchor[0].transform.position;
-            triCorner[1] = anchor[1].transform.position;
-            triCorner[2] = anchor[2].transform.position;
 
-            
-            for(int i = 0;i<=2;i++){
-            line.SetPosition(i,triCorner[i]);
-            if(i!=2){
-                resizeColliderToline(collider[i],rectCorner[i],rectCorner[i+1]);
-            }
-            else{
-                line.SetPosition(3,triCorner[0]);
-                resizeColliderToline(collider[i],rectCorner[2],rectCorner[0]);
-            }
-        }
-    }
     public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动
     {
         List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
