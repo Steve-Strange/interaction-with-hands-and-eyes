@@ -55,7 +55,7 @@ public class ConnectorManager : MonoBehaviour
         }
     }  
     public void reverse()
-     {
+    {
         
         Objects = collide.GetComponent<collide>().onFrame;//得到框上所有物体信息
 
@@ -97,7 +97,7 @@ public class ConnectorManager : MonoBehaviour
         frameCenter = frame.GetComponent<frame>().center + Vector3.forward * 2 - Vector3.up * 0.8f;//新的中心
         T.text = frameCenter.ToString();
         foreach (var obj in Objects){
-            obj.transform.position = frameCenter + 20*rrotate(vectorToCenter[obj],frame.GetComponent<frame>().right, 90);
+            obj.transform.position = frameCenter + 20*rotate(vectorToCenter[obj],frame.GetComponent<frame>().right, 90);
             obj.transform.localScale *= 20;
         }//放置物体,恢复原来大小
 
@@ -113,7 +113,7 @@ public class ConnectorManager : MonoBehaviour
         originalOffset = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[1].transform.position;
     }
 
-    public Vector3 rrotate(Vector3 source, Vector3 axis, float angle)
+    public Vector3 rotate(Vector3 source, Vector3 axis, float angle)
     {
         Quaternion q = Quaternion.AngleAxis(angle, axis);// 旋转系数
         return q * source;// 返回目标点

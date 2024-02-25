@@ -42,8 +42,8 @@ public class HandPoseManager : MonoBehaviour
 
     public bool SelectionStatus = true;
 
-    private Dictionary<GameObject, float> sortedObjectWeights = new Dictionary<GameObject, float>();
-
+    private Dictionary<GameObject, float> sorted15ObjectWeights = new Dictionary<GameObject, float>();
+    private Dictionary<GameObject, float> sortedRemainObjectWeights = new Dictionary<GameObject, float>();
 
     public GameObject StartSelect;
     public GameObject clickSelect;
@@ -67,7 +67,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sortedObjectWeights: " + sortedObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
+        Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
             if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)
@@ -94,10 +94,35 @@ public class HandPoseManager : MonoBehaviour
             // selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
             int i = 0;
             SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
+
+
+            List<GameObject> keysToModify = new List<GameObject>();
+
+            foreach (var obj in SightCone.GetComponent<SightCone>().objectWeights)
+            {
+                if (sortedRemainObjectWeights.ContainsKey(obj.Key))
+                {
+                    keysToModify.Add(obj.Key);
+                }
+            }
+
+            // 修改键对应的值
+            foreach (var key in keysToModify)
+            {
+                SightCone.GetComponent<SightCone>().objectWeights[key] += sortedRemainObjectWeights[key] / 2;
+            }
             
-            sortedObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderByDescending(kv => kv.Value).Take(15).ToDictionary(kv => kv.Key, kv => kv.Value);
-            rowNum = Mathf.CeilToInt(sortedObjectWeights.Count / columnNum);
-            foreach (var obj in sortedObjectWeights)
+            sorted15ObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderByDescending(kv => kv.Value).Take(15).ToDictionary(kv => kv.Key, kv => kv.Value);
+            sortedRemainObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderByDescending(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value);
+            foreach (var obj in sorted15ObjectWeights)
+            {
+                if(sortedRemainObjectWeights.ContainsKey(obj.Key)){
+                    sortedRemainObjectWeights.Remove(obj.Key);
+                }
+            }
+
+            rowNum = Mathf.CeilToInt(sorted15ObjectWeights.Count / columnNum);
+            foreach (var obj in sorted15ObjectWeights)
             {
                 if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject || FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)) continue;
                 originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.localScale);
@@ -133,7 +158,7 @@ public class HandPoseManager : MonoBehaviour
         selectedRow.Clear();
 
         int i = 0;
-        foreach (var obj in sortedObjectWeights)
+        foreach (var obj in sorted15ObjectWeights)
         {
             if(i/columnNum == currentRow){
                 if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)){
@@ -168,7 +193,7 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseExitDelay()
     {
-        foreach (var obj in sortedObjectWeights)
+        foreach (var obj in sorted15ObjectWeights)
         {
             if (originalTransform.TryGetValue(obj.Key, out TransformData transformData) && 
                 !FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key))

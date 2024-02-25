@@ -23,8 +23,6 @@ public class SightCone : MonoBehaviour
 
     public Dictionary<GameObject, float> objectWeights = new Dictionary<GameObject, float>();
 
-
-
     void Start(){
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
         HandPoseManager = GameObject.Find("HandPoseManager");
