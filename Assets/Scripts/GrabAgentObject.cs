@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GrabAgentObject : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GrabAgentObject : MonoBehaviour
     public GameObject leftThumb;
     public GameObject leftIndex;
 
+    public GameObject pinchObject;
+
 
     private bool pinchStatus;
     private bool grabStatus;
@@ -18,7 +21,7 @@ public class GrabAgentObject : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    public TMP_Text t;
+    public TMP_InputField log;
 
     public List<GameObject> MovingObject = new List<GameObject>();
     private GameObject originalParent;
@@ -62,7 +65,7 @@ public class GrabAgentObject : MonoBehaviour
             }
         }
       
-            movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
+        movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
         pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.02f;
 
         if (pinchStatus && grabStatus && !movingStatus)
@@ -80,15 +83,16 @@ public class GrabAgentObject : MonoBehaviour
             transform.localPosition = originalPosition;
         }
 
-        /*
-        log.text = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position).ToString();
-        log.text += "\n" + AutoAdjustStatus.ToString();
-        log.text += "\n" + TargetObjects.Count.ToString();
-        log.text += "\n" + TargetObjects[MovingObject[0]].name.ToString() + " " + MovingObject[0].name.ToString() + " " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position).ToString();*/
+        
+        // log.text = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position).ToString();
+        // log.text += "\n" + AutoAdjustStatus.ToString();
+        // log.text += "\n pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
+        // log.text += "\n" + TargetObjects.Count.ToString();
+        // log.text += "\n" + TargetObjects[MovingObject[0]].name.ToString() + " " + MovingObject[0].name.ToString() + " " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position).ToString();
 
         if (movingStatus)
         {
-          //  log.text += "\n" + "Moving...";
+            log.text += "\n" + "Moving...";
 
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
                 if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
@@ -129,12 +133,12 @@ public class GrabAgentObject : MonoBehaviour
                 }
             }
         }
-        t.text = MovingObject.Count.ToString();
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == rightThumb || other.gameObject == rightIndex)
+        if (other.gameObject == pinchObject)
         {
             grabStatus = true;
         }
@@ -142,7 +146,7 @@ public class GrabAgentObject : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == rightThumb || other.gameObject == rightIndex)
+        if (other.gameObject == pinchObject)
         {
             grabStatus = false;
         }

@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ClickSelect.unity
     guid: 539a41f65412bda45bf6933d4a9be762
-  - enabled: 1
-    path: Assets/Scenes/EyeTracking.unity
-    guid: 4a74c8f6449c9d24e87c16cc3ef7412c
   - enabled: 0
     path: Assets/Scenes/ObjectMoving.unity
     guid: 75ff607e47be7384e9e6ddffcdd92c65
@@ -23,6 +20,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AutoTransform_frame.unity
     guid: aacab70275f853944aa17c317b654e1e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/EyeTracking.unity
+    guid: 9b35334922bca614ca535e069f071dd5
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 911a72a2498320e458cf8cf731a00095, type: 2}

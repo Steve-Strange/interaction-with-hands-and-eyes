@@ -13,7 +13,7 @@ public class pinch : MonoBehaviour
     void Update()
     {
         float f = (thumb.transform.position - index.transform.position).magnitude;
-        if (f < 0.01)
+        if (f < 0.02f)
             ispinch = true;
         else
             ispinch = false;
