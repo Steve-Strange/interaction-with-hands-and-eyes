@@ -55,7 +55,7 @@ public class frame : MonoBehaviour
     private LineRenderer line6;
     private float finalScale;
     public Material lineMaterial;
-
+    public GameObject axis;
     public void LineSetProperties(LineRenderer line)
     {
         line.startWidth = 0.02f;
@@ -164,7 +164,8 @@ public class frame : MonoBehaviour
         rectCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
+        right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z);
+        right = right.normalized;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis;
@@ -206,7 +207,8 @@ public class frame : MonoBehaviour
 
 
         forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
+        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
+        right = right.normalized;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis;
@@ -240,7 +242,8 @@ public void createTri()
         rectCorner = new Vector3[3];
 
         forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
+        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
+        right = right.normalized;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis;
@@ -280,7 +283,8 @@ public void createTri()
         penCorner = new Vector3[5];
 
         forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
+        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
+        right = right.normalized;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis;
@@ -323,7 +327,8 @@ public void createTri()
         paraCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
+        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
+        right = right.normalized;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis;
@@ -452,7 +457,8 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         line6 = line_6.GetComponent<LineRenderer>();
 */
         forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
+        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
+        right = right.normalized;
         up = head.transform.up.normalized;
 
         center = head.transform.position + forward * dis;
@@ -612,7 +618,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     /*public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动

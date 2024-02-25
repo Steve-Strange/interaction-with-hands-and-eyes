@@ -18,6 +18,8 @@ public class ConnectorManager : MonoBehaviour
     public Dictionary<GameObject, Vector3> vectorToCenter = new Dictionary<GameObject, Vector3>();
 
     public TMP_Text T;
+    public TMP_Text t1;
+    public TMP_Text t2;
     public GameObject AgentObject;
 
     // public TMP_InputField log;
@@ -106,9 +108,11 @@ public class ConnectorManager : MonoBehaviour
         T.text = frameCenter.ToString();
         foreach (var obj in Objects){
             obj.transform.position = frameCenter + 20*rotate(vectorToCenter[obj],frame.GetComponent<frame>().right, 90);
+            t2.text = frame.GetComponent<frame>().right.ToString();
+            t1.text = rotate(vectorToCenter[obj], frame.GetComponent<frame>().right, 90).ToString();
             obj.transform.localScale *= 20;
         }//放置物体,恢复原来大小
-
+        
 
         frame.GetComponent<frame>().updateFrame();//更新框
         

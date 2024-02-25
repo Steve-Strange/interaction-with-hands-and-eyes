@@ -82,6 +82,7 @@ public class collide : MonoBehaviour
             {
                 now.transform.position = contact.point;
                 now.transform.parent = collision.gameObject.transform;
+               
                 label = 1;
             }
             t2.text = now.name;
@@ -94,7 +95,11 @@ public class collide : MonoBehaviour
                     if ((now.transform.position - rectCorner[i]).magnitude < 0.01){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.blue;
                     }
-                t2.text = "4444";
+               
+            }
+            if (frame.GetComponent<frame>().Frame == "circle"){
+                var temp = now.transform.position - frame.GetComponent<frame>().center;
+                now.transform.position = temp.normalized * frame.GetComponent<frame>().R + frame.GetComponent<frame>().center;
             }
             if (frame.GetComponent<frame>().Frame == "tri"){
                 triCorner = frame.GetComponent<frame>().triCorner;
@@ -148,18 +153,19 @@ public class collide : MonoBehaviour
                         }
                 }
 
-                if (frame.GetComponent<frame>().Frame == "circle")
-                {
-                    //任意三个就可以
-                    if (mark < 3)
-                    {
-                        circle[mark] = finalObj[0];
-                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-                //todo j将物体固定在圆上
-                    }
-                    mark++;
-                }
-                if (frame.GetComponent<frame>().Frame == "tri")
+        if (frame.GetComponent<frame>().Frame == "circle")
+        {
+            var temp = finalObj[0].transform.position - frame.GetComponent<frame>().center;
+            finalObj[0].transform.position = temp.normalized * frame.GetComponent<frame>().R + frame.GetComponent<frame>().center;
+            //任意三个就可以
+            if (mark < 3)
+            {
+                circle[mark] = finalObj[0];
+                finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
+            }
+            mark++;
+        }
+        if (frame.GetComponent<frame>().Frame == "tri")
                 {
 
                     triCorner = frame.GetComponent<frame>().triCorner;
