@@ -246,7 +246,7 @@ public class HandPoseManager : MonoBehaviour
                     obj.GetComponent<Outline>().OutlineColor = Color.clear;
                 }
                 phase = 1;
-                collide.GetComponent<collide>().enabled = true;
+                //collide.GetComponent<collide>().enabled = true;
                 collide.GetComponent<collide>().frameButton.SetActive(true);
                 AgentObject.SetActive(false);
                 collide.GetComponent<collide>().getFinalObject();

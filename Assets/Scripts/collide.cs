@@ -84,14 +84,17 @@ public class collide : MonoBehaviour
                 now.transform.parent = collision.gameObject.transform;
                 label = 1;
             }
+            t2.text = now.name;
             now.GetComponent<Outline>().OutlineColor = Color.clear;
-
+            t2.text = "2222";
             if (frame.GetComponent<frame>().Frame == "rect"){
+                t2.text = "3333";
                 rectCorner = frame.GetComponent<frame>().rectCorner;//line 
                 for (int i = 0; i <= 3; i++)
                     if ((now.transform.position - rectCorner[i]).magnitude < 0.01){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.blue;
                     }
+                t2.text = "4444";
             }
             if (frame.GetComponent<frame>().Frame == "tri"){
                 triCorner = frame.GetComponent<frame>().triCorner;
@@ -230,13 +233,14 @@ public class collide : MonoBehaviour
     private List<string> m_logEntries = new List<string>();
     private void Update()
     {
-        t2.text = m_logEntries[m_logEntries.Count-1];
+      //  t2.text = m_logEntries[m_logEntries.Count-1];
         if(handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0])
         {
             label = 0;
             settleDown();
             label = 0;
         }
+        t.text = FinalObjects.GetComponent<FinalObjects>().finalObj.Count.ToString();
     }
     
     void Start()
