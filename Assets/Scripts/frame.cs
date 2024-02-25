@@ -165,7 +165,7 @@ public class frame : MonoBehaviour
 
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
+        up = Vector3.up;
 
         center = head.transform.position + forward * dis;
 
@@ -207,7 +207,7 @@ public class frame : MonoBehaviour
 
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
+        up = Vector3.up;
 
         center = head.transform.position + forward * dis;
 
@@ -241,7 +241,7 @@ public void createTri()
 
         forward = head.transform.forward.normalized;
         right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
+        up = Vector3.up;
 
         center = head.transform.position + forward * dis;
 
@@ -266,6 +266,93 @@ public void createTri()
                 line.SetPosition(3, rectCorner[0]);
             }
         }        
+
+    }
+    public void createPentagon()
+    {
+        dis = 0.4f;
+
+        //triangle original 
+        penedge = 0.1f;
+
+        Frame = "pen";
+
+        penCorner = new Vector3[5];
+
+        forward = head.transform.forward.normalized;
+        right = head.transform.right.normalized;
+        up = Vector3.up;
+
+        center = head.transform.position + forward * dis;
+
+        line.positionCount = 6;
+
+        penCorner[0] = center + up * penedge * Mathf.Cos((36) * Mathf.Deg2Rad);
+        penCorner[1] = center + up * penedge * Mathf.Cos((36) * Mathf.Deg2Rad) * Mathf.Cos((18) * Mathf.Deg2Rad) + right * penedge * Mathf.Sin((54) * Mathf.Deg2Rad);
+        penCorner[2] = center + up * penedge / 2 / Mathf.Tan((36) * Mathf.Deg2Rad) + right * penedge / 2;
+        penCorner[3] = center + up * penedge / 2 / Mathf.Tan((36) * Mathf.Deg2Rad) - right * penedge / 2;
+        penCorner[4] = center + up * penedge * Mathf.Cos((36) * Mathf.Deg2Rad) * Mathf.Cos((18) * Mathf.Deg2Rad) - right * penedge * Mathf.Sin((54) * Mathf.Deg2Rad);
+
+
+        for (int i = 0; i <= 4; i++)
+        {
+            line.SetPosition(i, penCorner[i]);
+            if (i != 4)
+            {
+                addColliderToLine(penCorner[i], penCorner[i + 1]);
+            }
+            else
+            {
+                Debug.Log(1);
+                addColliderToLine(penCorner[4], penCorner[0]);
+                line.SetPosition(4, penCorner[0]);
+            }
+        }
+    }
+    public void createPara()
+    {
+        dis = 0.4f;
+
+        //pingxing
+        angle = 45;
+        rectlenth = 0.1f;
+        rectheight = 0.1f;
+
+        Frame = "para";
+
+        paraCorner = new Vector3[4];
+
+        forward = head.transform.forward.normalized;
+        right = head.transform.right.normalized;
+        up = Vector3.up;
+
+        center = head.transform.position + forward * dis;
+        float sinx = Mathf.Cos((angle) * Mathf.Deg2Rad);
+        float cosx = Mathf.Cos((angle) * Mathf.Deg2Rad);
+        line.positionCount = 5;
+        rectCorner[0] = center + up / 2 * rectheight * sinx - right / 2 * (rectlenth - cosx);
+        rectCorner[1] = center + up / 2 * rectheight * sinx - right / 2 * (rectlenth + cosx);
+        rectCorner[2] = center - up / 2 * rectheight * sinx + right / 2 * (rectlenth - cosx);
+        rectCorner[3] = center - up / 2 * rectheight - right / 2 * (rectlenth + cosx);
+
+        for (int i = 0; i <= 3; i++)
+        {
+            cor[i].transform.position = rectCorner[i];
+        }
+        for (int i = 0; i <= 3; i++)
+        {
+            line.SetPosition(i, rectCorner[i]);
+            if (i != 3)
+            {
+                addColliderToLine(rectCorner[i], rectCorner[i + 1]);
+            }
+            else
+            {
+                Debug.Log(1);
+                addColliderToLine(rectCorner[3], rectCorner[0]);
+                line.SetPosition(4, rectCorner[0]);
+            }
+        }
 
     }
     public void updateFrame()
@@ -319,7 +406,7 @@ public void createTri()
         }
 
     }
-    public void redoTri(List<GameObject> anchor)
+    public void redoTri()
     {   
             for(int i = 0;i<=2;i++){
             line.SetPosition(i,cor[i].transform.position);
@@ -327,7 +414,7 @@ public void createTri()
                 line.SetPosition(3,cor[0].transform.position);}
         }
     }    
-    public void redoPen(List<GameObject> anchor)
+    public void redoPen()
     {   
             for(int i = 0;i<=5;i++){
             line.SetPosition(i,cor[i].transform.position);
@@ -335,7 +422,7 @@ public void createTri()
                 line.SetPosition(3,cor[0].transform.position);}
         }
     }
-    public void redoPara(List<GameObject> anchor)
+    public void redoPara()
     {   
             for(int i = 0;i<=3;i++){
             line.SetPosition(i,cor[i].transform.position);
@@ -344,87 +431,9 @@ public void createTri()
         }
     }
 
-    public void createPara()
-    {
-        dis = 0.4f;
-
-        //pingxing
-        angle = 45;
-        rectlenth = 0.1f;
-        rectheight = 0.1f;
-
-        Frame = "para";
-
-        paraCorner = new Vector3[4];
-
-        forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
-
-        center = head.transform.position + forward * dis;
-        float sinx = Mathf.Cos((angle) * Mathf.Deg2Rad);
-        float cosx = Mathf.Cos((angle) * Mathf.Deg2Rad);
-        line.positionCount = 5;
-        rectCorner[0] = center + up/2*rectheight*sinx-right/2*(rectlenth-cosx);
-        rectCorner[1] = center + up/2*rectheight*sinx-right/2*(rectlenth+cosx);
-        rectCorner[2] = center - up/2*rectheight*sinx+right/2*(rectlenth-cosx);
-        rectCorner[3] = center - up/2*rectheight-right/2*(rectlenth+cosx);
-
-        for(int i=0;i<=3;i++){
-            cor[i].transform.position = rectCorner[i];
-        }
-        for(int i = 0;i<=3;i++){
-            line.SetPosition(i,rectCorner[i]);
-            if(i!=3){
-                addColliderToLine(rectCorner[i],rectCorner[i+1]);
-            }
-            else{
-                Debug.Log(1);
-                addColliderToLine(rectCorner[3],rectCorner[0]);
-                line.SetPosition(4, rectCorner[0]);
-            }
-        }
-
-    }
+   
     
-    public void createPentagon()
-{
-        dis = 0.4f;
-
-        //triangle original 
-        penedge = 0.1f;
-
-        Frame = "pen";
-
-        penCorner = new Vector3[5];
-
-        forward = head.transform.forward.normalized;
-        right = head.transform.right.normalized;
-        up = head.transform.up.normalized;
-
-        center = head.transform.position + forward * dis;
-
-        line.positionCount = 6;
-
-        penCorner[0] = center + up * penedge * Mathf.Cos((36) * Mathf.Deg2Rad);
-        penCorner[1] =  center + up * penedge * Mathf.Cos((36) * Mathf.Deg2Rad) * Mathf.Cos((18) * Mathf.Deg2Rad) + right * penedge * Mathf.Sin((54) * Mathf.Deg2Rad) ;
-        penCorner[2] = center + up * penedge /2  / Mathf.Tan((36) * Mathf.Deg2Rad)  + right * penedge /2  ;
-        penCorner[3] = center + up * penedge /2  / Mathf.Tan((36) * Mathf.Deg2Rad)  - right * penedge /2  ;
-        penCorner[4] =  center + up * penedge * Mathf.Cos((36) * Mathf.Deg2Rad) * Mathf.Cos((18) * Mathf.Deg2Rad) - right * penedge * Mathf.Sin((54) * Mathf.Deg2Rad) ;
-
-
-        for(int i = 0;i<=4;i++){
-            line.SetPosition(i,penCorner[i]);
-            if(i!=4){
-                addColliderToLine(penCorner[i],penCorner[i+1]);
-            }
-            else{
-                Debug.Log(1);
-                addColliderToLine(penCorner[4],penCorner[0]);
-                line.SetPosition(4, penCorner[0]);
-            }
-        }        
-}
+    
 public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
 {
         dis = 0.6f;
@@ -495,38 +504,6 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
 }
     
 
-    public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动
-    {
-        List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
-
-                // get the original plane by previous points
-        Vector3 f = ((paraCorner[0]-paraCorner[1])).normalized;
-        Vector3 m = ((paraCorner[0]-paraCorner[3])).normalized;
-        if(type == "1")// 左上，右下
-        {
-            paraCorner[0] = anchor[0].transform.position;
-            paraCorner[2] = anchor[1].transform.position;
-            Vector3 temp = rectCorner[0]-rectCorner[2];
-            rectheight = Vector3.Dot(temp , m);
-            rectlenth = Vector3.Dot(temp, f);
-            rectCorner[1] = rectCorner[0] - f * rectlenth;
-            rectCorner[2] = rectCorner[0] - m * rectheight;
-            
-            for(int i = 0;i<=3;i++){
-            line.SetPosition(i,rectCorner[i]);
-            if(i!=3){
-                resizeColliderToline(collider[i],rectCorner[i],rectCorner[i+1]);
-            }
-            else{
-                resizeColliderToline(collider[i],rectCorner[3],rectCorner[0]);
-            }
-        }
-            
-
-        }
-
-
-    }
     private Vector3 CalculateTriangleOutCircleCenter(Vector3 A, Vector3 B, Vector3 C)
     {
         float Xa = A.x;
@@ -637,4 +614,37 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
     {
         
     }
+
+    /*public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动
+  {
+      List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
+
+              // get the original plane by previous points
+      Vector3 f = ((paraCorner[0]-paraCorner[1])).normalized;
+      Vector3 m = ((paraCorner[0]-paraCorner[3])).normalized;
+      if(type == "1")// 左上，右下
+      {
+          paraCorner[0] = anchor[0].transform.position;
+          paraCorner[2] = anchor[1].transform.position;
+          Vector3 temp = rectCorner[0]-rectCorner[2];
+          rectheight = Vector3.Dot(temp , m);
+          rectlenth = Vector3.Dot(temp, f);
+          rectCorner[1] = rectCorner[0] - f * rectlenth;
+          rectCorner[2] = rectCorner[0] - m * rectheight;
+
+          for(int i = 0;i<=3;i++){
+          line.SetPosition(i,rectCorner[i]);
+          if(i!=3){
+              resizeColliderToline(collider[i],rectCorner[i],rectCorner[i+1]);
+          }
+          else{
+              resizeColliderToline(collider[i],rectCorner[3],rectCorner[0]);
+          }
+      }
+
+
+      }
+
+
+  }*/
 }

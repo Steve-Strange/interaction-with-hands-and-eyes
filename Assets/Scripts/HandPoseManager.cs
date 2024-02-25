@@ -10,7 +10,7 @@ using UnityEngine.Timeline;
 
 
 public class HandPoseManager : MonoBehaviour
-{
+{   public GameObject FinalObjects;
     public GameObject HandRightWrist;
     private GameObject SightCone;
     private GameObject SecondSelectionBG;
@@ -22,11 +22,12 @@ public class HandPoseManager : MonoBehaviour
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
 
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
-    public GameObject FinalObjects;
+    
     private GameObject EyeTrackingManager;
     //public TMP_Text Phase;
 
     public TMP_InputField Log;
+    public GameObject AgentObject;
 
     private float delayTime = 0.6f; // 延迟时间，单位为秒
     private float delayTimer = 0.0f; // 计时器
@@ -81,6 +82,10 @@ public class HandPoseManager : MonoBehaviour
                 finishFlag = false;
                 thumbHoldTimer = 0;
             }
+        }
+        if(phase == 0)
+        {
+            FinalObjects.SetActive(true);
         }
     }
 
@@ -216,13 +221,18 @@ public class HandPoseManager : MonoBehaviour
                     obj.GetComponent<Outline>().OutlineColor = Color.clear;
                 }
                 phase = 1;
-                //cm.setActive(false)
+                collide.GetComponent<collide>().enabled = true;
+                collide.GetComponent<collide>().frameButton.SetActive(true);
+                AgentObject.SetActive(false);
                 collide.GetComponent<collide>().getFinalObject();
             }
             else if(phase == 1){
                 phase = 2;
-                //cm.setActive(true)
+                AgentObject.SetActive(true);
+                FinalObjects.SetActive(false);
                 collide.GetComponent<collide>().anchorChoose();
+                collide.GetComponent<collide>().frameButton.SetActive(false);
+                collide.GetComponent<collide>().enabled = false;
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();
             }
             thumbHoldTimer = 0;

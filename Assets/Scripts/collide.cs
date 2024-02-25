@@ -84,11 +84,53 @@ public class collide : MonoBehaviour
                 now.transform.parent = collision.gameObject.transform;
                 label = 1;
             }
+            now.GetComponent<Outline>().OutlineColor = Color.clear;
+
+            if (frame.GetComponent<frame>().Frame == "rect"){
+                rectCorner = frame.GetComponent<frame>().rectCorner;//line 
+                for (int i = 0; i <= 3; i++)
+                    if ((now.transform.position - rectCorner[i]).magnitude < 0.01){//有资格当anchor的变成蓝色
+                        now.GetComponent<Outline>().OutlineColor = Color.blue;
+                    }
+            }
+            if (frame.GetComponent<frame>().Frame == "tri"){
+                triCorner = frame.GetComponent<frame>().triCorner;
+                for (int i = 0; i <= 2; i++)
+                    if ((now.transform.position - triCorner[i]).magnitude < 0.01)
+                    {
+                        now.GetComponent<Outline>().OutlineColor = Color.blue;
+                    }
+            }
+            if (frame.GetComponent<frame>().Frame == "pen"){
+
+                penCorner = frame.GetComponent<frame>().penCorner;
+
+                for (int i = 0; i <= 4; i++)
+                    if ((now.transform.position - penCorner[i]).magnitude < 0.01){
+                        now.GetComponent<Outline>().OutlineColor = Color.blue;
+                    }
+            }
+
+            if (frame.GetComponent<frame>().Frame == "para"){
+                paraCorner = frame.GetComponent<frame>().paraCorner;
+                for (int i = 0; i <= 3; i++)
+                    if ((now.transform.position - paraCorner[i]).magnitude < 0.01){
+                        now.GetComponent<Outline>().OutlineColor = Color.blue;
+                    }
+            }
+            if (frame.GetComponent<frame>().Frame == "cube"){//要能确定新的长宽高
+                cubeCorner = frame.GetComponent<frame>().cubeCorner;
+                for (int i = 0; i <= 7; i++)
+                    if ((now.transform.position - cubeCorner[i]).magnitude < 0.01){
+                        now.GetComponent<Outline>().OutlineColor = Color.blue;
+                    }
+            }
         }
     }
-    private void settleDown(){
-        
-                if (frame.GetComponent<frame>().Frame == "rect")//解决空指针出错的问题
+    private void settleDown()
+    {
+        finalObj[0].GetComponent<Outline>().OutlineColor = Color.clear;
+        if (frame.GetComponent<frame>().Frame == "rect")//解决空指针出错的问题
                 {
 
                     rectCorner = frame.GetComponent<frame>().rectCorner;//line 
@@ -188,18 +230,12 @@ public class collide : MonoBehaviour
     private List<string> m_logEntries = new List<string>();
     private void Update()
     {
-        if (handPoseManager.GetComponent<HandPoseManager>().phase == 1)
-        {
-            frameButton.SetActive(true);
-        }
-        else
-        {
-            frameButton.SetActive(false);
-        }
         t2.text = m_logEntries[m_logEntries.Count-1];
-        if(handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch)
+        if(handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0])
         {
+            label = 0;
             settleDown();
+            label = 0;
         }
     }
     
@@ -225,7 +261,10 @@ public class collide : MonoBehaviour
 
     public void anchorChoose()
     {
-        anchor.Clear();   
+        anchor.Clear();
+        foreach (var item in onFrame){
+            item.GetComponent<Outline>().outlineColor = Color.clear;
+        }
         GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Clear();
         if (frame.GetComponent<frame>().Frame == "rect"){
             /*GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(onFrame[0]);
@@ -283,7 +322,7 @@ public class collide : MonoBehaviour
             }
         }
         if (frame.GetComponent<frame>().Frame == "pen"){
-            k=0;
+            int k=0;
             for(int i = 0;i<=4;i++)
             for(int j = 0;j<=4;j++)
             if(i!=j&&penMark[i]==1 && penMark[j]==1&k==0)

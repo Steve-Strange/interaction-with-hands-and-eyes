@@ -14,17 +14,21 @@ public class ConnectorManager : MonoBehaviour
     private Vector3 originalOffset;
     private Vector3 newOffset;
     public List<GameObject> Objects = new List<GameObject>();
+    public List<GameObject> emptyObjects = new List<GameObject>();
     public Dictionary<GameObject, Vector3> vectorToCenter = new Dictionary<GameObject, Vector3>();
 
     public TMP_Text T;
     public GameObject AgentObject;
 
-   // public TMP_InputField log;
+    // public TMP_InputField log;
 
     // private LineRenderer lineRenderer;
     // public Color lineColor = Color.red; // 设置默认颜色
     // public float lineWidth = 0.1f; // 设置默认宽度
-
+    void Start()
+    {
+        emptyObjects = new List<GameObject>();
+    }
     void Update()
     {
        // log.text = "frameCenter: " + frameCenter + "\n" + "frameScale: " + frameScale + "\n" + "originalOffset: " + originalOffset + "\n" + "newOffset: " + newOffset;
@@ -58,7 +62,7 @@ public class ConnectorManager : MonoBehaviour
      {
         
         Objects = collide.GetComponent<collide>().onFrame;//得到框上所有物体信息
-
+        emptyObjects.Clear();
         var cor = frame.GetComponent<frame>().cor;
 
         frameScale = new Vector3(1, 1, 1);//初始化
@@ -68,24 +72,28 @@ public class ConnectorManager : MonoBehaviour
             for(int i = 0; i <= 3; i++)
             {
                 Objects.Add(cor[i]);
+                emptyObjects.Add(cor[i]);
             }
         }else if(frame.GetComponent<frame>().Frame == "tri")
         {
             for(int i = 0; i <= 2; i++)
             {
                 Objects.Add(cor[i]);
+                emptyObjects.Add(cor[i]);
             }
         }else if(frame.GetComponent<frame>().Frame == "pen")
         {
             for(int i = 0; i <= 4; i++)
             {
                 Objects.Add(cor[i]);
+                emptyObjects.Add(cor[i]);
             }
         }else if(frame.GetComponent<frame>().Frame == "para")
         {
             for(int i = 0; i <= 3; i++)
             {
                 Objects.Add(cor[i]);
+                emptyObjects.Add(cor[i]);
             }
         }
 

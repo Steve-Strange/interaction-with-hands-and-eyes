@@ -18,11 +18,14 @@ public class GrabAgentObject : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
+    public TMP_Text t;
+
     public List<GameObject> MovingObject = new List<GameObject>();
     private GameObject originalParent;
     private float movingScale;
     private GameObject ConnectorManager;
     public bool AutoAdjustStatus = false;
+
 
     public List<GameObject> FinishedObjects = new List<GameObject>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
@@ -34,22 +37,32 @@ public class GrabAgentObject : MonoBehaviour
         originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
         ConnectorManager = GameObject.Find("ConnectorManager");
-
+        TargetObjects = new Dictionary<GameObject, GameObject>();
     }
 
     void Update()
     {
-
-        if(!initFlag)
+        
+        if (!initFlag)
         {
+       
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
             {
-                TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
-            }
-            initFlag = true;
-        }
+               
+                if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
+                {
+                  
+                    TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
+                  
+                    Debug.Log(TargetObjects[obj].name);
+                 
+                    initFlag = true;
+                }
 
-        movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
+            }
+        }
+      
+            movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
         pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.02f;
 
         if (pinchStatus && grabStatus && !movingStatus)
@@ -78,7 +91,8 @@ public class GrabAgentObject : MonoBehaviour
           //  log.text += "\n" + "Moving...";
 
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
-            {
+                if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
+                {
                 if (obj != MovingObject[0])
                 {
                     TargetObjects[obj].SetActive(false);
@@ -98,7 +112,8 @@ public class GrabAgentObject : MonoBehaviour
         else
         {
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
-            {
+                if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
+                {
                 TargetObjects[obj].SetActive(true);
                 obj.SetActive(true);
             }
@@ -114,7 +129,7 @@ public class GrabAgentObject : MonoBehaviour
                 }
             }
         }
-
+        t.text = MovingObject.Count.ToString();
     }
 
     void OnTriggerEnter(Collider other)
