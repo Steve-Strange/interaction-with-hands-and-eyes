@@ -26,7 +26,8 @@ public class collide : MonoBehaviour
 
     public GameObject FinalObjects;
     public List<GameObject> finalObj;//get all objects from last level
-    
+    public Dictionary<GameObject, Quaternion> finalObjQ = new Dictionary<GameObject, Quaternion>();
+
     public List<GameObject> anchor;//all anchor object,hilight them,we can only contact with them
 
     public List<GameObject> onFrame;//object already on now frame
@@ -70,6 +71,7 @@ public class collide : MonoBehaviour
             {
                 now.transform.position = contact.point;
                 now.transform.parent = collision.gameObject.transform;
+                now.transform.rotation = finalObjQ[now];
             }
         }
         
@@ -82,7 +84,7 @@ public class collide : MonoBehaviour
             {
                 now.transform.position = contact.point;
                 now.transform.parent = collision.gameObject.transform;
-               
+                now.transform.rotation = finalObjQ[now];
                 label = 1;
             }
             t2.text = now.name;
@@ -138,6 +140,7 @@ public class collide : MonoBehaviour
     private void settleDown()
     {
         finalObj[0].GetComponent<Outline>().OutlineColor = Color.clear;
+        finalObj[0].transform.rotation = finalObjQ[now];
         if (frame.GetComponent<frame>().Frame == "rect")//解决空指针出错的问题
                 {
 
@@ -234,7 +237,7 @@ public class collide : MonoBehaviour
     {
      
         finalObj = FinalObjects.GetComponent<FinalObjects>().finalObj;
-
+        finalObjQ = FinalObjects.GetComponent<FinalObjects>().finalObjQ;
     }
     private List<string> m_logEntries = new List<string>();
     private void Update()

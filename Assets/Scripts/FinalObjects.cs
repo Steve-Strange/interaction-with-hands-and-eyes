@@ -7,6 +7,7 @@ public class FinalObjects : MonoBehaviour
 
     private GameObject SightCone;
     public List<GameObject> finalObj = new List<GameObject>();
+    public Dictionary<GameObject, Quaternion> finalObjQ = new Dictionary<GameObject, Quaternion>();
     private float finalScale = 0.05f;
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class FinalObjects : MonoBehaviour
     public void AddFinalObj(GameObject obj)
     {
         obj.tag = "FinalObject";
+        finalObjQ[obj] = obj.transform.rotation;
         obj.GetComponent<Outline>().OutlineColor = Color.clear;
         obj.transform.parent = transform;
         obj.transform.localEulerAngles = new Vector3(0, 0, 0);
@@ -32,6 +34,7 @@ public class FinalObjects : MonoBehaviour
         obj.transform.localPosition = new Vector3(transform.localScale.x/2 - obj.transform.localScale.x * 2 * finalObj.Count, 0, 0);
         if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(obj)) SightCone.GetComponent<SightCone>().selectedObjects.Remove(obj);
         SightCone.GetComponent<SightCone>().objectWeights[obj] = -1;
+        
         finalObj.Add(obj);
     }
     public void RemoveFirst()

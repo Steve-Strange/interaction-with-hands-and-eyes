@@ -97,6 +97,7 @@ public class ConnectorManager : MonoBehaviour
                 Objects.Add(cor[i]);
                 emptyObjects.Add(cor[i]);
             }
+
         }
 
         foreach (var obj in Objects)
