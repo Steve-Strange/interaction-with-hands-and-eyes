@@ -84,11 +84,11 @@ public class GrabAgentObject : MonoBehaviour
         }
 
         
-        // log.text = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position).ToString();
-        // log.text += "\n" + AutoAdjustStatus.ToString();
-        // log.text += "\n pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
-        // log.text += "\n" + TargetObjects.Count.ToString();
-        // log.text += "\n" + TargetObjects[MovingObject[0]].name.ToString() + " " + MovingObject[0].name.ToString() + " " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position).ToString();
+        log.text = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position).ToString();
+        log.text += "\n" + AutoAdjustStatus.ToString();
+        log.text += "\n pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
+        log.text += "\n" + TargetObjects.Count.ToString();
+        log.text += "\n" + TargetObjects[MovingObject[0]].name.ToString() + " " + MovingObject[0].name.ToString() + " " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position).ToString();
 
         if (movingStatus)
         {

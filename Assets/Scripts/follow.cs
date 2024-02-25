@@ -16,7 +16,7 @@ public class follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = o.transform.position + gap;
+        transform.position = o.transform.position;
         transform.rotation = o.transform.rotation;
     }
 }
