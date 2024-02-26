@@ -308,6 +308,85 @@ public void createTri()
         }
 
     }
+
+    public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
+    {
+        dis = 0.6f;
+
+        //cube
+        cubelenth = 0.1f;
+        cubeheight = 0.1f;
+        cubewidth = 0.1f;
+
+        cubeCorner = new Vector3[8];
+
+        Frame = "cube";
+
+
+        forward = head.transform.forward.normalized;
+        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
+        right = right.normalized;
+        up = head.transform.up.normalized;
+
+
+        center = head.transform.position + forward * dis;
+        forward = Vector3.Cross(right, up).normalized;
+
+        line.positionCount = 4;
+        line2.positionCount = 4;
+
+        cubeCorner[0] = center + forward / 2 * cubeheight - right / 2 * cubelenth + up * cubewidth / 2;
+        cubeCorner[1] = center + forward / 2 * cubeheight + right / 2 * cubelenth + up * cubewidth / 2;
+        cubeCorner[2] = center - forward / 2 * cubeheight + right / 2 * cubelenth + up * cubewidth / 2;
+        cubeCorner[3] = center - forward / 2 * cubeheight - right / 2 * cubelenth + up * cubewidth / 2;
+
+        cubeCorner[4] = center + forward / 2 * cubeheight - right / 2 * cubelenth - up * cubewidth / 2;
+        cubeCorner[5] = center + forward / 2 * cubeheight + right / 2 * cubelenth - up * cubewidth / 2;
+        cubeCorner[6] = center - forward / 2 * cubeheight + right / 2 * cubelenth - up * cubewidth / 2;
+        cubeCorner[7] = center - forward / 2 * cubeheight - right / 2 * cubelenth - up * cubewidth / 2;
+        for (int i = 0; i <= 7; i++)
+        {
+            cor[i].transform.position = rectCorner[i];
+        }
+        for (int i = 0; i <= 3; i++)
+        {
+            line.SetPosition(i, cubeCorner[i]);
+            if (i != 3)
+            {
+                addColliderToLine(cubeCorner[i], cubeCorner[i + 1]);
+            }
+            else
+            {
+                addColliderToLine(cubeCorner[3], cubeCorner[0]);
+            }
+        }
+
+        for (int i = 4; i <= 7; i++)
+        {
+            line2.SetPosition(i - 4, cubeCorner[i]);
+            if (i != 7)
+            {
+                addColliderToLine(cubeCorner[i], cubeCorner[i + 1]);
+            }
+            else
+            {
+                addColliderToLine(cubeCorner[7], cubeCorner[4]);
+            }
+        }
+        line3.SetPosition(0, cubeCorner[0]);
+        line3.SetPosition(1, cubeCorner[4]);
+        addColliderToLine(cubeCorner[0], cubeCorner[4]);
+        line4.SetPosition(0, cubeCorner[1]);
+        line4.SetPosition(1, cubeCorner[5]);
+        addColliderToLine(cubeCorner[1], cubeCorner[5]);
+        line5.SetPosition(0, cubeCorner[2]);
+        line5.SetPosition(1, cubeCorner[6]);
+        addColliderToLine(cubeCorner[2], cubeCorner[6]);
+        line6.SetPosition(0, cubeCorner[3]);
+        line6.SetPosition(1, cubeCorner[7]);
+        addColliderToLine(cubeCorner[3], cubeCorner[7]);
+    }
+
     public void updateFrame()
     {
         var anchor = collideObject.GetComponent<collide>().anchor;
@@ -387,74 +466,7 @@ public void createTri()
    
     
     
-public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
-{
-        dis = 0.6f;
 
-        //cube
-        cubelenth = 0.1f;
-        cubeheight = 0.1f;
-        cubewidth = 0.1f;
-
-        cubeCorner = new Vector3[8];
-
-        Frame = "cube";
-        
-
-        forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
-        right = right.normalized;
-        up = head.transform.up.normalized;
-        
-
-        center = head.transform.position + forward * dis;
-        forward = Vector3.Cross(right, up).normalized;
-
-        line.positionCount = 4;
-        line2.positionCount = 4;
-
-        cubeCorner[0] = center + forward / 2*cubeheight-right/2* cubelenth + up * cubewidth/2;
-        cubeCorner[1] = center + forward / 2*cubeheight + right/2* cubelenth + up * cubewidth/2;
-        cubeCorner[2] = center - forward / 2* cubeheight + right/2* cubelenth + up * cubewidth/2;
-        cubeCorner[3] = center - forward / 2* cubeheight - right/2* cubelenth + up * cubewidth/2;
-
-        cubeCorner[4] = center + forward / 2* cubeheight - right/2* cubelenth - up * cubewidth/2;
-        cubeCorner[5] = center + forward / 2* cubeheight + right/2* cubelenth - up * cubewidth/2;
-        cubeCorner[6] = center - forward / 2* cubeheight + right/2* cubelenth - up * cubewidth/2;
-        cubeCorner[7] = center - forward / 2* cubeheight - right/2* cubelenth - up * cubewidth/2;
-        for(int i = 0;i<=3;i++){
-            line.SetPosition(i, cubeCorner[i]);
-            if(i!=3){
-                addColliderToLine(cubeCorner[i], cubeCorner[i+1]);
-            }
-            else{      
-                addColliderToLine(cubeCorner[3], cubeCorner[0]);
-            }
-        }
-
-        for(int i = 4;i<=7;i++){
-            line2.SetPosition(i-4, cubeCorner[i]);
-            if(i!=7){
-                addColliderToLine(cubeCorner[i], cubeCorner[i+1]);
-            }
-            else{     
-                addColliderToLine(cubeCorner[7], cubeCorner[4]);
-            }
-        }
-        line3.SetPosition(0, cubeCorner[0]);
-        line3.SetPosition(1, cubeCorner[4]);
-        addColliderToLine(cubeCorner[0], cubeCorner[4]);
-        line4.SetPosition(0, cubeCorner[1]);
-        line4.SetPosition(1, cubeCorner[5]);
-        addColliderToLine(cubeCorner[1], cubeCorner[5]);
-        line5.SetPosition(0, cubeCorner[2]);
-        line5.SetPosition(1, cubeCorner[6]);
-        addColliderToLine(cubeCorner[2], cubeCorner[6]);
-        line6.SetPosition(0, cubeCorner[3]);
-        line6.SetPosition(1, cubeCorner[7]);
-        addColliderToLine(cubeCorner[3], cubeCorner[7]);
-    }
-    
 
     private Vector3 CalculateTriangleOutCircleCenter(Vector3 A, Vector3 B, Vector3 C)
     {
