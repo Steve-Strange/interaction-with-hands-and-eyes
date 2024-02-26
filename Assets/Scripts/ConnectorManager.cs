@@ -10,6 +10,7 @@ public class ConnectorManager : MonoBehaviour
     public GameObject collide;
     public Vector3 frameCenter;
     public Vector3 frameScale;
+    private GameObject HandPoseManager;
 
     private Vector3 originalOffset;
     private Vector3 newOffset;
@@ -30,6 +31,7 @@ public class ConnectorManager : MonoBehaviour
     void Start()
     {
         emptyObjects = new List<GameObject>();
+        HandPoseManager = GameObject.Find("HandPoseManager");
     }
     void Update()
     {
@@ -108,10 +110,11 @@ public class ConnectorManager : MonoBehaviour
         frameCenter = frame.GetComponent<frame>().center + Vector3.forward * 2 - Vector3.up * 0.8f;//新的中心
         T.text = frameCenter.ToString();
         foreach (var obj in Objects){
-            obj.transform.position = frameCenter + 20*rotate(vectorToCenter[obj],frame.GetComponent<frame>().right, 90);
+            obj.transform.position = frameCenter + 6*rotate(vectorToCenter[obj],frame.GetComponent<frame>().right, 90);
             t2.text = frame.GetComponent<frame>().right.ToString();
             t1.text = rotate(vectorToCenter[obj], frame.GetComponent<frame>().right, 90).ToString();
-            obj.transform.localScale *= 20;
+            obj.transform.parent = null;
+            obj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().objScale[obj];
         }//放置物体,恢复原来大小
         
 

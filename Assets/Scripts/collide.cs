@@ -70,7 +70,7 @@ public class collide : MonoBehaviour
             if (p.ispinch & finalObj.Count != 0)
             {
                 now.transform.position = contact.point;
-                now.transform.parent = collision.gameObject.transform;
+                now.transform.parent = null;
                 now.transform.rotation = finalObjQ[now];
             }
         }
@@ -83,7 +83,7 @@ public class collide : MonoBehaviour
             if (p.ispinch & finalObj.Count != 0)
             {
                 now.transform.position = contact.point;
-                now.transform.parent = collision.gameObject.transform;
+                now.transform.parent = null;
                 now.transform.rotation = finalObjQ[now];
                 label = 1;
             }

@@ -610,17 +610,6 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
     }
 
 
-
-
-   
-
-
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
-
     /*public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动
   {
       List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;

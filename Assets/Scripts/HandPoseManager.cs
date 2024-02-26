@@ -20,7 +20,7 @@ public class HandPoseManager : MonoBehaviour
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
-
+    public Dictionary<GameObject, Vector3> objScale = new Dictionary<GameObject, Vector3>();
     private Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
     
     private GameObject EyeTrackingManager;
@@ -61,6 +61,11 @@ public class HandPoseManager : MonoBehaviour
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
         frame = GameObject.Find("frame");
         ConnectorManager = GameObject.Find("ConnectorManager");
+        objScale.Add(GameObject.Find("frame/1"), new Vector3(0, 0, 0));
+        objScale.Add(GameObject.Find("frame/2"), new Vector3(0, 0, 0));
+        objScale.Add(GameObject.Find("frame/3"), new Vector3(0, 0, 0));
+        objScale.Add(GameObject.Find("frame/4"), new Vector3(0, 0, 0));
+        objScale.Add(GameObject.Find("frame/5"), new Vector3(0, 0, 0));
         // StartSelect = GameObject.Find("HandPoses/HandPoseGenerator/StartSelect");
         // clickSelect = GameObject.Find("clickSelect");
     }
@@ -131,7 +136,8 @@ public class HandPoseManager : MonoBehaviour
             {
                 if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject || FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)) continue;
                 originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.localScale);
-                obj.Key.GetComponent<Outline>().OutlineColor = Color.clear; 
+                obj.Key.GetComponent<Outline>().OutlineColor = Color.clear;
+                objScale[obj.Key] = obj.Key.transform.localScale;
                 obj.Key.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 obj.Key.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, + SecondSelectionBG.transform.localScale.y/2, 0) + 
