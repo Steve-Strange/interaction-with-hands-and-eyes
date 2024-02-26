@@ -107,10 +107,10 @@ public class ConnectorManager : MonoBehaviour
             vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
         }
 
-        frameCenter = frame.GetComponent<frame>().center + Vector3.forward * 2 - Vector3.up * 0.8f;//新的中心
+        frameCenter = frame.GetComponent<frame>().center + Vector3.forward * 2 ;//新的中心
         T.text = frameCenter.ToString();
         foreach (var obj in Objects){
-            obj.transform.position = frameCenter + 6*rotate(vectorToCenter[obj],frame.GetComponent<frame>().right, 90);
+            obj.transform.position = frameCenter + 6*vectorToCenter[obj];
             t2.text = frame.GetComponent<frame>().right.ToString();
             t1.text = rotate(vectorToCenter[obj], frame.GetComponent<frame>().right, 90).ToString();
             obj.transform.parent = null;

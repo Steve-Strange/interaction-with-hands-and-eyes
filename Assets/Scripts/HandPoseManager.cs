@@ -253,7 +253,7 @@ public class HandPoseManager : MonoBehaviour
                 }
                 phase = 1;
                 //collide.GetComponent<collide>().enabled = true;
-                collide.GetComponent<collide>().frameButton.SetActive(true);
+                collide.GetComponent<collide>().frameManager.SetActive(true);
                 AgentObject.SetActive(false);
                 collide.GetComponent<collide>().getFinalObject();
             }
@@ -262,7 +262,7 @@ public class HandPoseManager : MonoBehaviour
                 AgentObject.SetActive(true);
                 FinalObjects.SetActive(false);
                 collide.GetComponent<collide>().anchorChoose();
-                collide.GetComponent<collide>().frameButton.SetActive(false);
+                collide.GetComponent<collide>().frameManager.SetActive(false);
                 collide.GetComponent<collide>().enabled = false;
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();
             }

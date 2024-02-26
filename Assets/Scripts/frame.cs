@@ -168,13 +168,15 @@ public class frame : MonoBehaviour
         right = right.normalized;
         up = Vector3.up;
 
-        center = head.transform.position + forward * dis;
+        center = head.transform.position + forward * dis - up * 0.2f;
+
+        forward = Vector3.Cross(right, up).normalized;
 
         line.positionCount = 5;
-        rectCorner[0] = center + up/2*rectheight-right/2*rectlenth;
-        rectCorner[1] = center + up/2*rectheight+right/2*rectlenth;
-        rectCorner[2] = center - up/2*rectheight+right/2*rectlenth;
-        rectCorner[3] = center - up/2*rectheight-right/2*rectlenth;
+        rectCorner[0] = center + forward /2*rectheight-right/2*rectlenth;
+        rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
+        rectCorner[2] = center - forward / 2*rectheight+right/2*rectlenth;
+        rectCorner[3] = center - forward / 2*rectheight-right/2*rectlenth;
 
         for(int i=0;i<=3;i++){
             cor[i].transform.position = rectCorner[i];
@@ -184,7 +186,7 @@ public class frame : MonoBehaviour
         for (int i = 0;i<=3;i++){
             line.SetPosition(i,rectCorner[i]);
             if(i!=3){
-                addColliderToLine(rectCorner[i],rectCorner[i+1]);
+               addColliderToLine(rectCorner[i],rectCorner[i+1]);
             }
             else{
                 addColliderToLine(rectCorner[3],rectCorner[0]);
@@ -460,6 +462,7 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
         right = right.normalized;
         up = head.transform.up.normalized;
+        forward = Vector3.Cross(right, up).normalized;
 
         center = head.transform.position + forward * dis;
 
@@ -596,17 +599,19 @@ public void createCube()// cant draw a cube at one time?->cube render manage mor
         collider.Add(col);
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
+        Debug.Log(lineLength.ToString());
         col.size = new Vector3(lineLength, 0.001f, 0.001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startPos + endPos) / 2;
         col.transform.position = midPoint; // setting position of collider object
         // Following lines calculate the angle between startPos and endPos
-        float angle = (Mathf.Abs(startPos.y - endPos.y) / Mathf.Abs(startPos.x - endPos.x));
-        if ((startPos.y < endPos.y && startPos.x > endPos.x) || (endPos.y < startPos.y && endPos.x > startPos.x))
+        float angle = ( Mathf.Abs(startPos.z - endPos.z)/Mathf.Abs(startPos.x - endPos.x));
+        if ((startPos.z < endPos.z && startPos.x < endPos.x) || (endPos.z <startPos.z && endPos.x < startPos.x))
         {
             angle *= -1;
         }
         angle = Mathf.Rad2Deg * Mathf.Atan(angle);
-        col.transform.Rotate(0, 0, angle);
+
+        col.transform.Rotate(0, angle,0);
     }
 
 

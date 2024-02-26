@@ -8,7 +8,7 @@ public class collide : MonoBehaviour
     public GameObject connectorManager;
     public GameObject GrabAgent;
     public GameObject pinch;
-    public GameObject frameButton;
+    public GameObject frameManager;
     public GameObject handPoseManager;
     public GameObject thumb;
     public GameObject index;
