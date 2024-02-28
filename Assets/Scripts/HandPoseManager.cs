@@ -215,6 +215,7 @@ public class HandPoseManager : MonoBehaviour
             {
                 obj.Key.transform.position = transformData.Position;
                 obj.Key.transform.localScale = transformData.Scale;
+                obj.Key.GetComponent<Outline>().OutlineColor = Color.clear;
             }
         }
 
@@ -251,6 +252,7 @@ public class HandPoseManager : MonoBehaviour
                 clickSelect.SetActive(false);
                 SightCone.SetActive(false);
                 EyeTrackingManager.SetActive(false);
+                onPalmPoseExitDelay();
                 SecondSelectionBG.SetActive(false);
                 foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
                 {
