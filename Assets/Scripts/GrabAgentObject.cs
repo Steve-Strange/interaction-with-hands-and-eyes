@@ -15,7 +15,7 @@ public class GrabAgentObject : MonoBehaviour
     public GameObject pinchObject;
 
 
-    private bool pinchStatus;
+    public bool pinchStatus;
     private bool grabStatus;
     private bool movingStatus;
     private Vector3 originalPosition;

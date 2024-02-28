@@ -1,51 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class frameManager : MonoBehaviour
+public class FrameManager : MonoBehaviour
 {
     public GameObject frame;
-    public GameObject fm;
+    public GameObject FinalObjects;
+    private bool releaseState = false;
     // Start is called before the first frame update
+
     void Start()
     {
         
     }
-    public void OnCollisionExit(Collision collision)
-    {
-        if(collision.gameObject.name  == "rect"){
-            frame.GetComponent<frame>().creatRect();
-            fm.SetActive(false);
-        }
-        if (collision.gameObject.name == "circle")
-        {
-            frame.GetComponent<frame>().createCircle();
-            fm.SetActive(false);
-        }
-        if (collision.gameObject.name == "tri")
-        {
-            frame.GetComponent<frame>().createTri();
-            fm.SetActive(false);
-        }
-        if (collision.gameObject.name == "pen")
-        {
-            frame.GetComponent<frame>().createPentagon();
-            fm.SetActive(false);
-        }
-        if (collision.gameObject.name == "para")
-        {
-            frame.GetComponent<frame>().createPara();
-            fm.SetActive(false);
-        }
-        if (collision.gameObject.name == "cube")
-        {
-            frame.GetComponent<frame>().createCube();
-            fm.SetActive(false);
-        }
-    }
-    // Update is called once per frame
+
     void Update()
     {
-        
+        if(releaseState == true && gameObject.GetComponent<pinch>().ispinch == false){
+            releaseState = false;
+        }
+
+
     }
+    public void OnCollisionStay(Collision collision)
+    {
+        if(gameObject.GetComponent<pinch>().ispinch == true && releaseState == false){
+            releaseState = true;
+            if(collision.gameObject.name  == "rect"){
+                frame.GetComponent<frame>().creatRect();
+                
+            }
+            if (collision.gameObject.name == "circle")
+            {
+                frame.GetComponent<frame>().createCircle();
+                
+            }
+            if (collision.gameObject.name == "tri")
+            {
+                frame.GetComponent<frame>().createTri();
+                
+            }
+            if (collision.gameObject.name == "pen")
+            {
+                frame.GetComponent<frame>().createPentagon();
+                
+            }
+            if (collision.gameObject.name == "para")
+            {
+                frame.GetComponent<frame>().createPara();
+                
+            }
+            if (collision.gameObject.name == "cube")
+            {
+                frame.GetComponent<frame>().createCube();
+                
+            }
+        }
+    }
+
 }

@@ -164,8 +164,8 @@ public class frame : MonoBehaviour
         rectCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z);
-        right = right.normalized;
+        // right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z).normalized;
+        right = Vector3.right;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -173,7 +173,7 @@ public class frame : MonoBehaviour
         forward = Vector3.Cross(right, up).normalized;
 
         line.positionCount = 5;
-        rectCorner[0] = center + forward /2*rectheight-right/2*rectlenth;
+        rectCorner[0] = center + forward / 2*rectheight-right/2*rectlenth;
         rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
         rectCorner[2] = center - forward / 2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - forward / 2*rectheight-right/2*rectlenth;

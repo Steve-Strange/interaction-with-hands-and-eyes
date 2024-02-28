@@ -19,7 +19,7 @@ public class FinalObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Camera.main.transform.position);
+        // transform.LookAt(Camera.main.transform.position);
 
     }
 

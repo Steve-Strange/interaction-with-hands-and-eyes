@@ -15,7 +15,7 @@ public class palm_distance : MonoBehaviour
     public TMP_Text gap_x;
     public TMP_Text gap_z;
     public Vector3 forward;
-    public GameObject boxCol;//×¢ÊÓµãÖĞĞÄÎïÌå
+    public GameObject boxCol;//æ³¨è§†ç‚¹ä¸­å¿ƒç‰©ä½“
     public float length;
     public float height;
     public float width;
@@ -24,7 +24,7 @@ public class palm_distance : MonoBehaviour
     public float palmMin;
     public float palmStart;
     public float palmNow;
-    public float dcenter;//×¢ÊÓµãÖĞĞÄÎïÌå¾àÀëµ±Ç°ÉãÏñ»úÆ½ÃæµÄ¾àÀë
+    public float dcenter;//æ³¨è§†ç‚¹ä¸­å¿ƒç‰©ä½“è·ç¦»å½“å‰æ‘„åƒæœºå¹³é¢çš„è·ç¦»
    
     // Start is called before the first frame update
     void Start()
@@ -35,11 +35,11 @@ public class palm_distance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //ÏÂÃæÕâ¶ÎÒª¸Ä³ÉÊÖÊÆÉú³ÉÊ±
+      //ä¸‹é¢è¿™æ®µè¦æ”¹æˆæ‰‹åŠ¿ç”Ÿæˆæ—¶
            forward = -head.transform.forward;
            forward.y = 0;
            forward = forward.normalized;
-          // head µÄÎ»ÖÃÒ²Òª¹Ì¶¨£¬Í·ÒÆ¶¯²»Ó°ÏìÊÖ²¿Î»ÖÃÅĞ¶Ï
+          // head çš„ä½ç½®ä¹Ÿè¦å›ºå®šï¼Œå¤´ç§»åŠ¨ä¸å½±å“æ‰‹éƒ¨ä½ç½®åˆ¤æ–­
         float z = leftPalm.transform.position.z - head.transform.position.z;
         float x = leftPalm.transform.position.x - head.transform.position.x;
         Vector3 dis = new Vector3(x,  0,z);

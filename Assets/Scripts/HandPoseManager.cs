@@ -13,9 +13,10 @@ public class HandPoseManager : MonoBehaviour
 {   public GameObject FinalObjects;
     public GameObject HandRightWrist;
     private GameObject SightCone;
-    private GameObject SecondSelectionBG;
+    public GameObject SecondSelectionBG;
     private GameObject ConnectorManager;
     public GameObject collide;
+    public GameObject frameManager;
     private GameObject frame;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
@@ -29,7 +30,7 @@ public class HandPoseManager : MonoBehaviour
     public TMP_InputField Log;
     public GameObject AgentObject;
 
-    private float delayTime = 0.6f; // 延迟时间，单位为秒
+    private float delayTime = 1f; // 延迟时间，单位为秒
     private float delayTimer = 0.0f; // 计时器
 
     public bool SecondSelectionState = false;
@@ -56,7 +57,7 @@ public class HandPoseManager : MonoBehaviour
 
     void Start()
     {
-        SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
+        // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
         frame = GameObject.Find("frame");
@@ -103,7 +104,7 @@ public class HandPoseManager : MonoBehaviour
             originalTransform.Clear();
             // selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
             int i = 0;
-            SecondSelectionBG.transform.position = new Vector3(0, 0.7f, 2.2f);
+            SecondSelectionBG.SetActive(true);
 
 
             List<GameObject> keysToModify = new List<GameObject>();
@@ -214,7 +215,7 @@ public class HandPoseManager : MonoBehaviour
             }
         }
 
-        SecondSelectionBG.transform.position = new Vector3(0, -3f, 2.2f);
+        SecondSelectionBG.SetActive(false);
         delayTimer = 0.0f;
         // selectedObjectsFixed.Clear();
         foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
@@ -241,19 +242,20 @@ public class HandPoseManager : MonoBehaviour
         thumbExitTimer = 0;
         thumbHoldState = true;
         thumbHoldTimer += Time.deltaTime;
-        if(thumbHoldTimer > 0.6 && !finishFlag){
+        if(thumbHoldTimer > 0.5 && !finishFlag){
             if(phase == 0){
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
                 SightCone.SetActive(false);
                 EyeTrackingManager.SetActive(false);
+                SecondSelectionBG.SetActive(false);
                 foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
                 {
                     obj.GetComponent<Outline>().OutlineColor = Color.clear;
                 }
                 phase = 1;
                 //collide.GetComponent<collide>().enabled = true;
-                collide.GetComponent<collide>().frameManager.SetActive(true);
+                frameManager.SetActive(true);
                 AgentObject.SetActive(false);
                 collide.GetComponent<collide>().getFinalObject();
             }
@@ -262,7 +264,7 @@ public class HandPoseManager : MonoBehaviour
                 AgentObject.SetActive(true);
                 FinalObjects.SetActive(false);
                 collide.GetComponent<collide>().anchorChoose();
-                collide.GetComponent<collide>().frameManager.SetActive(false);
+                frameManager.SetActive(false);
                 collide.GetComponent<collide>().enabled = false;
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();
             }
