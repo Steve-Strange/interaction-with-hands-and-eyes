@@ -126,8 +126,8 @@ public class HandPoseManager : MonoBehaviour
                 SightCone.GetComponent<SightCone>().objectWeights[key] += sortedRemainObjectWeights[key] / 2;
             }
             
-            sorted15ObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderByDescending(kv => kv.Value).Take(15).ToDictionary(kv => kv.Key, kv => kv.Value);
-            sortedRemainObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderByDescending(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value);
+            sorted15ObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderBy(kv => kv.Value).Take(15).ToDictionary(kv => kv.Key, kv => kv.Value);
+            sortedRemainObjectWeights = SightCone.GetComponent<SightCone>().objectWeights.OrderBy(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value);
             foreach (var obj in sorted15ObjectWeights)
             {
                 if(sortedRemainObjectWeights.ContainsKey(obj.Key)){
