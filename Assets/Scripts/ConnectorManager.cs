@@ -101,6 +101,15 @@ public class ConnectorManager : MonoBehaviour
             }
 
         }
+        else if (frame.GetComponent<frame>().Frame == "cube")
+        {
+            for (int i = 0; i <= 7; i++)
+            {
+                Objects.Add(cor[i]);
+                emptyObjects.Add(cor[i]);
+            }
+
+        }
 
         foreach (var obj in Objects)
         {

@@ -67,6 +67,9 @@ public class HandPoseManager : MonoBehaviour
         objScale.Add(GameObject.Find("frame/3"), new Vector3(0, 0, 0));
         objScale.Add(GameObject.Find("frame/4"), new Vector3(0, 0, 0));
         objScale.Add(GameObject.Find("frame/5"), new Vector3(0, 0, 0));
+        objScale.Add(GameObject.Find("frame/6"), new Vector3(0, 0, 0));
+        objScale.Add(GameObject.Find("frame/7"), new Vector3(0, 0, 0));
+        objScale.Add(GameObject.Find("frame/8"), new Vector3(0, 0, 0));
         // StartSelect = GameObject.Find("HandPoses/HandPoseGenerator/StartSelect");
         // clickSelect = GameObject.Find("clickSelect");
     }
