@@ -97,12 +97,12 @@ public class GrabAgentObject : MonoBehaviour
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
                 if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
                 {
-                if (obj != MovingObject[0])
-                {
-                    TargetObjects[obj].SetActive(false);
-                    obj.SetActive(false);
+                    if (obj != MovingObject[0])
+                    {
+                        TargetObjects[obj].SetActive(false);
+                        obj.SetActive(false);
+                    }
                 }
-            }
 
             // Calculate finger movement vector
             Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
@@ -120,7 +120,7 @@ public class GrabAgentObject : MonoBehaviour
                 {
                 TargetObjects[obj].SetActive(true);
                 obj.SetActive(true);
-            }
+                }
 
             if (MovingObject.Count > 0)
             {
