@@ -37,7 +37,7 @@ public class ConnectorManager : MonoBehaviour
     {
        // log.text = "frameCenter: " + frameCenter + "\n" + "frameScale: " + frameScale + "\n" + "originalOffset: " + originalOffset + "\n" + "newOffset: " + newOffset;
         if(AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus){
-        
+
             if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 1)
             {
                 frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
@@ -48,9 +48,9 @@ public class ConnectorManager : MonoBehaviour
                 frameScale.x = originalOffset.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset.x);
                 frameScale.y = originalOffset.y == 0 ? 0 : Mathf.Abs(newOffset.y/originalOffset.y);
                 frameScale.z = originalOffset.z == 0 ? 0 : Mathf.Abs(newOffset.z/originalOffset.z);
-                
+
                 // frameScale = new Vector3(Mathf.Abs(newOffset.x/originalOffset.x), Mathf.Abs(newOffset.y/originalOffset.y), Mathf.Abs(newOffset.z/originalOffset.z));
-                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - 
+                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position -
                 new Vector3(vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].x * frameScale.x ,vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].y * frameScale.y, vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].z * frameScale.z);
             }
 
@@ -61,17 +61,17 @@ public class ConnectorManager : MonoBehaviour
             AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus = false;
             frame.GetComponent<frame>().updateFrame();
         }
-    }  
+    }
     public void reverse()
     {
-        
+
         Objects = collide.GetComponent<collide>().onFrame;//得到框上所有物体信息
 
         emptyObjects.Clear();
         var cor = frame.GetComponent<frame>().cor;
 
         frameScale = new Vector3(1, 1, 1);//初始化
-            
+
         // foreach (var obj in Objects)
         // {
         //     GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
@@ -127,20 +127,19 @@ public class ConnectorManager : MonoBehaviour
         foreach (var obj in Objects){
             if(!obj.CompareTag("AgentObject"))
             {
-                obj.transform.position = frameCenter + 6 * vectorToCenter[obj];
-                t2.text = frame.GetComponent<frame>().right.ToString();
-                t1.text = rotate(vectorToCenter[obj], frame.GetComponent<frame>().right, 90).ToString();
+                vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
+                obj.transform.position = frameCenter + 6*vectorToCenter[obj];
                 obj.transform.parent = null;
                 obj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().objScale[obj];
                 vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
             }
         }//放置物体,恢复原来大小
-        
+
 
         frame.GetComponent<frame>().updateFrame();//更新框
 
         originalOffset = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[1].transform.position;
-    
+
     }
 
     public Vector3 rotate(Vector3 source, Vector3 axis, float angle)

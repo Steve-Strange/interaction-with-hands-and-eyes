@@ -262,6 +262,7 @@ public class HandPoseManager : MonoBehaviour
                 }
                 phase = 1;
                 //collide.GetComponent<collide>().enabled = true;
+                //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
                 frameManager.SetActive(true);
                 AgentObject.SetActive(false);
                 collide.GetComponent<collide>().getFinalObject();
