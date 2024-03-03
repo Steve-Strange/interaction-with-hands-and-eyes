@@ -16,6 +16,7 @@ using UnityEngine;
 public class Bubble : MonoBehaviour
 {
     public GameObject[] objects;
+    public GameObject choose;
     public GameObject index;
     public GameObject middle;
     public GameObject ring;
@@ -27,6 +28,14 @@ public class Bubble : MonoBehaviour
     int i,j;
 
    public GameObject[] target = new GameObject[3];
+    public GameObject  hand,
+        index0, index1, index2, index3, index4,
+        middle0, middle1, middle2, middle3,
+        ring0, ring1, ring2, ring3;
+
+    private float[] d = new float[5];
+    private float[] ad = new float[5];
+    private float[] angleLast = new float[5];
 
     public int mark;
    
@@ -88,6 +97,7 @@ public class Bubble : MonoBehaviour
 
     void Start()
     {
+        InvokeRepeating("RepeatedMethod", 1f, 0.6f);
         mark = 0;
         foreach (var item in LINE)
         {
@@ -96,18 +106,18 @@ public class Bubble : MonoBehaviour
         
              line[0].startColor = Color.blue;
              line[0].endColor = Color.blue;
-             line[0].startWidth = 0.01f;
-             line[0].endWidth = 0.01f;
+             line[0].startWidth = 0.001f;
+             line[0].endWidth = 0.001f;
 
              line[1].startColor = Color.white;
              line[1].endColor = Color.white;
-            line[1].startWidth = 0.01f;
-            line[1].endWidth = 0.01f;
+            line[1].startWidth = 0.001f;
+            line[1].endWidth = 0.001f;
 
             line[2].startColor = Color.red;
             line[2].endColor = Color.red;
-            line[2].startWidth = 0.01f;
-            line[2].endWidth = 0.01f;
+            line[2].startWidth = 0.001f;
+            line[2].endWidth = 0.001f;
     }
     // Update is called once per frame
     void Update()
@@ -167,8 +177,10 @@ public class Bubble : MonoBehaviour
         //检测出所有包含在这个sphere中的物体
         UpdataTarget();
         UpdateLine();//更新画线，需要更新了target之后
+        ChooseObject();
 
     }
+    private int time = 0;
     public void UpdateLine()
     {
         line[0].SetPosition(0, index.transform.position);
@@ -201,6 +213,94 @@ public class Bubble : MonoBehaviour
                     }
             }
         }
+    }
+    public void ChooseObject()
+    {
+
+        time += 1;
+        if (time > 30)
+            time = 22;
+        bool[] mark = new bool[5];
+        if (time > 20)
+        { 
+            d[1] = culculate(index1, index2, index3);
+            d[2] = culculate(middle1, middle2, middle3);
+            d[3] = culculate(ring1, ring2, ring3);
+
+
+            mark[1] = false;
+            mark[2] = false;
+            mark[3] = false;
+
+            if (d[1] - angleLast[1] > 0.3)//0.99-0.7(С��0.7)
+            {
+                mark[1] = true;
+            }
+
+            if (d[2] - angleLast[2] > 0.3)//С��0.7
+            {
+                mark[2] = true;
+            }
+            if (d[3] - angleLast[3] > 0.2)
+            {
+                mark[3] = true;
+            }
+                float max = -1;
+                int select = 0;
+                for (int i = 1; i <= 3; i++)
+                {
+                    if (d[i] - angleLast[i] > max)
+                    {
+                        max = d[i] - angleLast[i];
+                        select = i;
+                    }
+
+                }
+                
+                {
+                choose = target[select];
+                time = 0;
+                    
+                
+                }
+            
+
+
+
+
+
+
+        }
+
+
+
+
+    }
+    private void RepeatedMethod()
+    {
+        float d = culculate(index1, index2, index3);
+
+        angleLast[1] = d;
+        if (-d > 0.95f)
+            ad[1] = d;
+
+        d = culculate(middle1, middle2, middle3);
+
+        angleLast[2] = d;
+        if (-d > 0.95f)
+            ad[2] = d;
+        d = culculate(ring1, ring2, ring3);
+
+        angleLast[3] = d;
+        if (-d > 0.95f)
+            ad[3] = d;
+    }
+    private float culculate(GameObject one, GameObject two, GameObject three)//����н�
+    {
+        var first = one.transform.position - two.transform.position;
+        var second = three.transform.position - two.transform.position;
+        float angle = Vector3.Dot(first, second) / (first.magnitude * second.magnitude);
+        return angle;
     }
 }
 

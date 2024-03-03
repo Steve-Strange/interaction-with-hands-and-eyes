@@ -68,9 +68,9 @@ public class frame : MonoBehaviour
       
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
-            number = collideObject.GetComponent<collide>().finalObj.Count/4;           
-            rectheight = (float)((objSize + gap) * (number-1));
-            rectlenth = (float)((objSize + gap) * (number-1));
+            number = collideObject.GetComponent<collide>().finalObj.Count/4;
+            rectheight = (objSize + gap) * (number - 1);
+            rectlenth =  ((objSize + gap) * (number-1));
        }else if(Frame == "circle"){
             R = (float)(collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi));
        }else if(Frame == "tri"){
@@ -162,13 +162,13 @@ public class frame : MonoBehaviour
         Frame = "rect";
         clear();
         resize();
-        //rectlenth = rectheight = 0.2f;
+    
+        Debug.Log(rectheight);
         dis = 0.4f;
         rectCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
         right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z).normalized;
-        //right = Vector3.right;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -612,7 +612,6 @@ public void createTri()
         BoxCollider col = new GameObject("Edge").AddComponent<BoxCollider>();
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
-        Debug.Log(lineLength.ToString());
         col.size = new Vector3(lineLength, 0.001f, 0.001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startPos + endPos) / 2;
         col.transform.position = midPoint; // setting position of collider object
