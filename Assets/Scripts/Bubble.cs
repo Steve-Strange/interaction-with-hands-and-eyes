@@ -3,10 +3,14 @@ using System.Net.Mail;
 using System.Net.Sockets;
 using System.Transactions;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks.Dataflow;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.XR.PXR;
+using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour
@@ -15,115 +19,24 @@ public class Bubble : MonoBehaviour
     public GameObject index;
     public GameObject middle;
     public GameObject ring;
-    LineRenderer line;
-    float IntD[1000];
-    float ConD[1000];
+    public  GameObject[] LINE= new GameObject[3];
+    LineRenderer[] line = new LineRenderer[3];
+    float[] IntD = new float[1000];
+    float[] ConD = new float[1000];
     float radius;
     int i,j;
-    public SkinnedMeshRenderer LeftEyeExample;
-    public SkinnedMeshRenderer RightEyeExample;
 
-    private int leftEyeBlinkIndex;
-    private float leftEyeOpenness;
+   public GameObject[] target = new GameObject[3];
+
     public int mark;
-    
-    private int rightEyeBlinkIndex;
-    private float rightEyeOpenness;
+   
     // Start is called before the first frame update
-    void Start()
-    {
-        mark = 0;
-        line = getComponent<LineRenderer>();
-        if(mark == 0)
-        {
-             line.startColor = Color.blue;
-             line.endColor = Color.blue;
-        }
-                if(mark == 1)
-        {
-             line.startColor = Color.white;
-             line.endColor = Color.white;
-        }
-                if(mark == 2)
-        {
-             line.startColor = Color.red;
-             line.endColor = Color.red;
-        }
-                if(mark == 3)
-        {
-             line.startColor = Color.green;
-             line.endColor = Color.green;
-        }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        line[0].SetPosition(0,index.position);
-        line[0].SetPosition(1,target[0].position);
-        line[1].SetPosition(0,middle.position);
-        line[1].SetPosition(1,target[1].position);
-        line[2].SetPosition(0,ring.position);
-        line[2].SetPosition(1,target[2].position);
-
-        for(int i =0;i<objects.count;i++)
-        {
-            var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices//Vector3[]
-
-            foreach (var v in vertices){
-                var worldPos = objects[i].transform.TransformPoint(v);
-                dis = (worldPos-Transform.position).magnitude;
-                if(IntD[i] > dis){
-                    IntD[i] = dis;
-                }
-                if(ConD[i] < dis){
-                    ConD[i] = dis;
-                }
-            }
-        }
-        float min = 1000000;
-        int k = 0;
-        for(int i =0;i<objects.count;i++){
-                if(min<IntD[i]){
-                    min = IntD[i];
-                    k = i;
-                }
-        }
-        min = 1000000;
-        int k2 = 0;
-        for(int i =0;i<objects.count;i++){
-            if(i!=k)
-                if(min<IntD[i]){
-                    min = IntD[i];
-                    k = i;
-                }
-        }
-        if(ConD[i] < IntD[j]){
-            radius = ConD[i];
-        }        
-        else{
-            radius = IntD[j];
-        }
-        
-        transform.localScale = new Vector3 (radius, radius, radius);
-
-        //检测出所有包含在这个sphere中的物体
-
-    }
-}
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
-
-[ExecuteAlways]
-public class PhysicsSphereTest : MonoBehaviour
-{
     private SphereCollider _sphereCollider;
     [SerializeField] private Material _material;
     [SerializeField] private Material defaultMaterial;
+    public Material targetM;
+    public Material notargetM;
 
 
     [SerializeField] private List<MeshRenderer> _meshRenderers;
@@ -133,13 +46,8 @@ public class PhysicsSphereTest : MonoBehaviour
         _sphereCollider = GetComponent<SphereCollider>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-
-    private void OnDrawGizmos()
+   /* private void OnDrawGizmos()
     {
         if (_sphereCollider == null)
             _sphereCollider = GetComponent<SphereCollider>();
@@ -151,8 +59,8 @@ public class PhysicsSphereTest : MonoBehaviour
             double z = Math.Sin(angel * 1.0f);
             Vector3 v3 = Vector3.one;
             v3.y = 0;
-            v3.x = (float) x * radius;
-            v3.z = (float) z * radius;
+            v3.x = (float)x * radius;
+            v3.z = (float)z * radius;
             Vector3 target = transform.position + v3;
             Debug.DrawLine(transform.position, target, Color.magenta);
         }
@@ -160,20 +68,141 @@ public class PhysicsSphereTest : MonoBehaviour
         ResetMaterial();
         int layer = LayerMask.GetMask("BoxCollider");
         // Collider[] colliders = Physics.OverlapSphere(transform.position, radius, layer);
+
+        //得到所有在碰撞体内部的碰撞体
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (var boid in colliders)
+        foreach (var item in colliders)
         {
-            boid.GetComponent<MeshRenderer>().material = _material;
+            item.GetComponent<Outline>().outlineColor = Color.red;
         }
-    }
+    }*/
 
 
-    void ResetMaterial()
-    {
+    void ResetMaterial(){
         foreach (var mr in _meshRenderers)
         {
             mr.material = defaultMaterial;
         }
     }
+
+
+    void Start()
+    {
+        mark = 0;
+        foreach (var item in LINE)
+        {
+          line[mark++] = item.GetComponent<LineRenderer>();
+        }//得到三条画线的
+        
+             line[0].startColor = Color.blue;
+             line[0].endColor = Color.blue;
+             line[0].startWidth = 0.01f;
+             line[0].endWidth = 0.01f;
+
+             line[1].startColor = Color.white;
+             line[1].endColor = Color.white;
+            line[1].startWidth = 0.01f;
+            line[1].endWidth = 0.01f;
+
+            line[2].startColor = Color.red;
+            line[2].endColor = Color.red;
+            line[2].startWidth = 0.01f;
+            line[2].endWidth = 0.01f;
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        for (int i = 0; i < 1000; i++)
+        {
+            IntD[i] = 1000000000000;
+            ConD[i] = 0;
+        }
+
+            for (int i =0;i<objects.Length;i++)
+        {
+            var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices;//Vector3[]
+            
+            foreach (var v in vertices){
+                var worldPos = objects[i].transform.TransformPoint(v);
+                var dis = (worldPos-transform.position).magnitude;
+                
+                if(IntD[i] > dis){
+                    IntD[i] = dis;
+                }//物体所有点的最近
+                if(ConD[i] < dis){
+                    ConD[i] = dis;
+                }//物体所有点的最远
+            }
+        }
+        float min = 1000000;
+        int k = 0;
+        for(int i =0;i<objects.Length;i++){
+                if(min>IntD[i]){
+                    min = IntD[i];
+                    k = i;
+                }
+        }
+        min = 1000000;
+        int k2 = 0;
+        for(int i =0;i<objects.Length; i++){
+            if(i!=k)
+                if(min>IntD[i]){
+                    min = IntD[i];
+                    k2 = i;
+                }
+        }
+        i = k;
+        j = k2;
+
+        if (ConD[i] < IntD[j]){
+            radius = ConD[i];
+        }        
+        else{
+            radius = IntD[j];
+        }//两者间更小的那个
+        var size = transform.GetComponent<Renderer>().bounds.size;//现在球的size
+        radius = 2 * radius * transform.localScale.x / size.x;
+        transform.localScale = new Vector3 (radius, radius, radius);
+
+        //检测出所有包含在这个sphere中的物体
+        UpdataTarget();
+        UpdateLine();//更新画线，需要更新了target之后
+
+    }
+    public void UpdateLine()
+    {
+        line[0].SetPosition(0, index.transform.position);
+        line[0].SetPosition(1, target[0].transform.position);
+        line[1].SetPosition(0, middle.transform.position);
+        line[1].SetPosition(1, target[1].transform.position);
+        line[2].SetPosition(0, ring.transform.position);
+        line[2].SetPosition(1, target[2].transform.position);
+        //注意，三个target可能是一个物体
+    }
+    public void UpdataTarget()
+    {
+        //得到所有在碰撞体内部的碰撞体
+        Collider[] colliders = Physics.OverlapSphere(transform.position, transform.GetComponent<Renderer>().bounds.size.x/2);
+        Debug.Log(transform.GetComponent<Renderer>().bounds.size.x / 2);
+        foreach (var item in objects)
+        {
+            item.gameObject.GetComponent<MeshRenderer>().material = notargetM;
+        }
+        int targetNum = 0;//最多三个目标
+        foreach (var item in colliders)
+        if(item.gameObject.name!="bubble")
+        {
+            if (targetNum < 3) {
+                    targetNum++;
+                    Debug.Log(item.gameObject.name);
+                    item.gameObject.GetComponent<MeshRenderer>().material = targetM;
+                    for(int i = targetNum-1; i <= 2; i++) { 
+                    target[i] = item.gameObject;
+                    }
+            }
+        }
+    }
 }
+
+
 
