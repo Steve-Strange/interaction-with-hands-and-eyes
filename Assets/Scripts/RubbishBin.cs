@@ -9,7 +9,6 @@ public class RubbishBin : MonoBehaviour
     public GameObject Pinch;
     private GameObject HandPoseManager;
     public GameObject FinalObjects;
-    private bool touchState;
     private bool releaseFlag;
     void Start()
     {
@@ -22,7 +21,7 @@ public class RubbishBin : MonoBehaviour
         if(Pinch.GetComponent<pinch>().ispinch == false){
             releaseFlag = false;
         }
-            
+
     }
 
     public void OnCollisionEnter(Collision collision){
