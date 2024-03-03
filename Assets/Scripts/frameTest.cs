@@ -58,8 +58,6 @@ public class frameTest : MonoBehaviour
 
         Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
 
-            
-
         float R = (anchor[0].transform.position - center).magnitude;
 
        
