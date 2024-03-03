@@ -11,33 +11,33 @@ public class frame : MonoBehaviour
     public GameObject collideObject;
 
 
-    public Vector3 forward;//第2阶段生成框那个瞬间所用的
-    public Vector3 right;
-    public Vector3 up;
+    private Vector3 forward;//第2阶段生成框那个瞬间所用的
+    private Vector3 right;
+    private Vector3 up;
 
-    public float dis = 0.2f;
+    private float dis = 0.2f;
     public GameObject head;
     public string Frame;
-    
+
     //rect
-    public float rectlenth = 0.3f;
-    public float rectheight= 0.3f;
+    private float rectlenth = 0.3f;
+    private float rectheight= 0.3f;
 
     public Vector3[] rectCorner = new Vector3[4];// save the for corner
-    // tri
-    public float triedge;
+                                                 // tri
+    private float triedge;
     public Vector3[] triCorner = new Vector3[3];
     //circle
-    public float R = 0.1f;
-    public int N = 40;
+   public float R = 0.1f;
+    private int N = 40;
     public Vector3[] circle = new Vector3[3];
     //para
-    public float angle;
+    private float angle;
     public Vector3[] paraCorner = new Vector3[4];
     //pen
     public Vector3[] penCorner = new Vector3[5];
-    public float penedge;
-    public List<BoxCollider> collider;//存添加的所有collider物体；
+    private float penedge;
+ 
     //cube
     public Vector3[] cubeCorner = new Vector3[8];
     float cubelenth = 0.1f;
@@ -53,18 +53,10 @@ public class frame : MonoBehaviour
     private LineRenderer line4;
     private LineRenderer line5;
     private LineRenderer line6;
-    private float finalScale;
     public Material lineMaterial;
-    public GameObject axis;
+  
     public int number;
-    public void LineSetProperties(LineRenderer line)
-    {
-        line.startWidth = 0.02f;
-        line.endWidth = 0.02f;
-        line.startColor = Color.black;
-        line.endColor = Color.black;
-        line.material = lineMaterial;
-    }
+
     float pi = 3.1415926F;
     float gap;
     float objSize;
@@ -72,15 +64,15 @@ public class frame : MonoBehaviour
     {
         objSize = 0.1f;
         number = 3;
-        gap = 0.1f;
-        //var size = transform.GetComponent<Renderer>().bounds.size;
+        gap = 0.2f;
+      
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
-            number = collideObject.GetComponent<collide>().finalObj.Count/4;
+            number = collideObject.GetComponent<collide>().finalObj.Count/4;           
             rectheight = (float)((objSize + gap) * (number-1));
             rectlenth = (float)((objSize + gap) * (number-1));
        }else if(Frame == "circle"){
-            R = (float)(collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/2*pi);
+            R = (float)(collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi));
        }else if(Frame == "tri"){
             number = collideObject.GetComponent<collide>().finalObj.Count / 3;
             triedge = (float)((objSize + gap) * (number-1));
@@ -95,12 +87,7 @@ public class frame : MonoBehaviour
 
        }else if(Frame == "star")
        {
-
        }
-
-
-
-
     }
     void decideEachPosition()//change the frame size from number
     {
@@ -163,7 +150,6 @@ public class frame : MonoBehaviour
         LineSetProperties(line6);
     }
     public Vector3 center;
-
     public Vector3[] rectPosition;
     public Vector3[] circlePosition;
     public Vector3[] triPosition;
@@ -171,27 +157,18 @@ public class frame : MonoBehaviour
     public Vector3[] cubePosition;
     public Vector3[] paraPosition;
 
-    void clear()
-    {
-        for(int i = 0; i <= 7; i++) { 
-        collideObject.GetComponent<collide>().rectMark[i] = 0;
-        collideObject.GetComponent<collide>().triMark[i]  = 0;
-       // collideObject.GetComponent<collide>().circleMark[i] = 0;
-        collideObject.GetComponent<collide>().paraMark[i] = 0;
-        collideObject.GetComponent<collide>().penMark[i] = 0;
-        collideObject.GetComponent<collide>().cubeMark[i] = 0;
-        }
-    }
+    
     public void creatRect(){
         Frame = "rect";
         clear();
         resize();
+        //rectlenth = rectheight = 0.2f;
         dis = 0.4f;
         rectCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z).normalized;
-        right = Vector3.right;
+        right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z).normalized;
+        //right = Vector3.right;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -428,7 +405,7 @@ public void createTri()
         cubeCorner[7] = center - forward / 2 * cubeheight - right / 2 * cubelenth - up * cubewidth / 2;
         for (int i = 0; i <= 7; i++)
         {
-            cor[i].transform.position = rectCorner[i];
+            cor[i].transform.position = cubeCorner[i];
         }
         for (int i = 0; i <= 3; i++)
         {
@@ -633,7 +610,6 @@ public void createTri()
     {
         
         BoxCollider col = new GameObject("Edge").AddComponent<BoxCollider>();
-        collider.Add(col);
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
         Debug.Log(lineLength.ToString());
@@ -650,8 +626,26 @@ public void createTri()
 
         col.transform.Rotate(0, angle,0);
     }
-
-
+    void clear()
+    {
+        for (int i = 0; i <= 7; i++)
+        {
+            collideObject.GetComponent<collide>().rectMark[i] = 0;
+            collideObject.GetComponent<collide>().triMark[i] = 0;
+            // collideObject.GetComponent<collide>().circleMark[i] = 0;
+            collideObject.GetComponent<collide>().paraMark[i] = 0;
+            collideObject.GetComponent<collide>().penMark[i] = 0;
+            collideObject.GetComponent<collide>().cubeMark[i] = 0;
+        }
+    }
+    public void LineSetProperties(LineRenderer line)
+    {
+        line.startWidth = 0.02f;
+        line.endWidth = 0.02f;
+        line.startColor = Color.black;
+        line.endColor = Color.black;
+        line.material = lineMaterial;
+    }
     /*public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动
   {
       List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;

@@ -129,8 +129,6 @@ public class ConnectorManager : MonoBehaviour
             {
                 vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
                 obj.transform.position = frameCenter + 6*vectorToCenter[obj];
-                t2.text = frame.GetComponent<frame>().right.ToString();
-                t1.text = rotate(vectorToCenter[obj], frame.GetComponent<frame>().right, 90).ToString();
                 obj.transform.parent = null;
                 obj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().objScale[obj];
             }
