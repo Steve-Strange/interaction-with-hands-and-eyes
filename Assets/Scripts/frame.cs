@@ -1,4 +1,3 @@
-using System.Numerics;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,23 +65,25 @@ public class frame : MonoBehaviour
         line.endColor = Color.black;
         line.material = lineMaterial;
     }
-    float pi = 3.1415926;
+    float pi = 3.1415926F;
+    float gap;
+    float objSize;
     void resize()//change the frame size from number
     {
-        var objSize = 0.1;
+        objSize = 0.1f;
         number = 3;
-        var gap = 0.1;
+        gap = 0.1f;
         //var size = transform.GetComponent<Renderer>().bounds.size;
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
-            number = collideObject.getComponent<collide>.count/4;
-            rectheight = （objSize + gap） * (number-1) ;
-            rectlenth = （objSize + gap） * (number-1) ;
+            number = collideObject.GetComponent<collide>().finalObj.Count/4;
+            rectheight = (float)((objSize + gap) * (number-1));
+            rectlenth = (float)((objSize + gap) * (number-1));
        }else if(Frame == "circle"){
-            R = collideObject.getComponent<collide>.count * (objSize + gap)/2*pi;
+            R = (float)(collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/2*pi);
        }else if(Frame == "tri"){
-            number = collideObject.getComponent<collide>.count/3;
-            triedge = （objSize + gap） * (number-1) ;
+            number = collideObject.GetComponent<collide>().finalObj.Count / 3;
+            triedge = (float)((objSize + gap) * (number-1));
        }else if(Frame == "para")
        {
 
@@ -106,7 +107,7 @@ public class frame : MonoBehaviour
        if(Frame == "rect"){
             var X = rectCorner[1]-rectCorner[0];
             var Y = rectCorner[3]- rectCorner[0];
-            rectPosition = new Vector3[collideObject.getComponent<collide>.count];
+            rectPosition = new Vector3[collideObject.GetComponent<collide>().finalObj.Count];
             int mark = 0;
             for(int i = 1 ; i<= number-2 ;i++)
             {
@@ -162,6 +163,14 @@ public class frame : MonoBehaviour
         LineSetProperties(line6);
     }
     public Vector3 center;
+
+    public Vector3[] rectPosition;
+    public Vector3[] circlePosition;
+    public Vector3[] triPosition;
+    public Vector3[] penPosition;
+    public Vector3[] cubePosition;
+    public Vector3[] paraPosition;
+
     void clear()
     {
         for(int i = 0; i <= 7; i++) { 
@@ -189,13 +198,9 @@ public class frame : MonoBehaviour
 
         forward = Vector3.Cross(right, up).normalized;
 
-<<<<<<< Updated upstream
-        line.positionCount = 5;
-        rectCorner[0] = center + forward / 2*rectheight-right/2*rectlenth;
-=======
+  
         line.positionCount = 4;
         rectCorner[0] = center + forward /2*rectheight-right/2*rectlenth;
->>>>>>> Stashed changes
         rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
         rectCorner[2] = center - forward / 2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - forward / 2*rectheight-right/2*rectlenth;

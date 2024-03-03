@@ -95,7 +95,7 @@ public class collide : MonoBehaviour
             if (frame.GetComponent<frame>().Frame == "rect"){
 
                 rectPosition = frame.GetComponent<frame>().rectPosition;//line 
-                for(int i = 0; i < rectPosition.count ;i++)
+                for (int i = 0; i < rectPosition.Length; i++)
                 {
                      if ((now.transform.position - rectPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.red;
@@ -113,7 +113,7 @@ public class collide : MonoBehaviour
             if (frame.GetComponent<frame>().Frame == "circle"){
 
                 circlePosition = frame.GetComponent<frame>().circlePosition; 
-                for(int i = 0; i < circlePosition.count ;i++)
+                for(int i = 0; i < circlePosition.Length; i++)
                 {
                      if ((now.transform.position - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.red;
@@ -127,7 +127,7 @@ public class collide : MonoBehaviour
             }
             if (frame.GetComponent<frame>().Frame == "tri"){
                 triPosition = frame.GetComponent<frame>().triPosition;//line 
-                for(int i = 0; i < triPosition.count ;i++)
+                for(int i = 0; i < triPosition.Length; i++)
                 {
                      if ((now.transform.position - triPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.red;
@@ -143,7 +143,7 @@ public class collide : MonoBehaviour
             }
             if (frame.GetComponent<frame>().Frame == "pen"){
                 penPosition = frame.GetComponent<frame>().penPosition;//line 
-                for(int i = 0; i < penPosition.count ;i++)
+                for(int i = 0; i < penPosition.Length; i++)
                 {
                      if ((now.transform.position - penPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.red;
@@ -160,7 +160,7 @@ public class collide : MonoBehaviour
 
             if (frame.GetComponent<frame>().Frame == "para"){
                 paraPosition = frame.GetComponent<frame>().paraPosition;//line 
-                for(int i = 0; i < paraPosition.count ;i++)
+                for(int i = 0; i < paraPosition.Length; i++)
                 {
                      if ((now.transform.position - paraPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.red;
@@ -175,7 +175,7 @@ public class collide : MonoBehaviour
             }
             if (frame.GetComponent<frame>().Frame == "cube"){//要能确定新的长宽高
                 cubePosition = frame.GetComponent<frame>().cubePosition;//line 
-                for(int i = 0; i < cubePosition.count ;i++)
+                for(int i = 0; i < cubePosition.Length; i++)
                 {
                      if ((now.transform.position - cubePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.red;
@@ -195,7 +195,6 @@ public class collide : MonoBehaviour
         finalObj[0].GetComponent<Outline>().OutlineColor = Color.clear;
         finalObj[0].transform.rotation = finalObjQ[now];
         if (frame.GetComponent<frame>().Frame == "rect")//解决空指针出错的问题
-<<<<<<< Updated upstream
         {
             rectCorner = frame.GetComponent<frame>().rectCorner;//line 
             for (int i = 0; i <= 3; i++)
@@ -205,29 +204,6 @@ public class collide : MonoBehaviour
                     rect[i] = finalObj[0];
                     rectMark[i] = 1;
                     finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-=======
-                {
-
-                rectPosition = frame.GetComponent<frame>().rectPosition;
-                for(int i = 0; i < rectPosition.count ;i++)
-                {
-                     if ((finalObj[0].transform.position - rectPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
-                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
-                        finalObj[0].transform.position = rectPosition[i];
-                    }
-
-                }
-                    rectCorner = frame.GetComponent<frame>().rectCorner;//line 
-
-                    for (int i = 0; i <= 3; i++)
-                        if ((finalObj[0].transform.position - rectCorner[i]).magnitude < 0.02)
-                        {//有资格当anchor的变成蓝色
-                            finalObj[0].transform.position = rectCorner[i];
-                            rect[i] = finalObj[0];
-                            rectMark[i] = 1;
-                            finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-                        }
->>>>>>> Stashed changes
                 }
         }
 
@@ -235,7 +211,7 @@ public class collide : MonoBehaviour
         {
         
                 circlePosition = frame.GetComponent<frame>().circlePosition;
-                for(int i = 0; i < circlePosition.count ;i++)
+                for(int i = 0; i < circlePosition.Length; i++)
                 {
                      if ((finalObj[0].transform.position - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
@@ -258,112 +234,11 @@ public class collide : MonoBehaviour
             for (int i = 0; i <= 2; i++)
                 if ((finalObj[0].transform.position - triCorner[i]).magnitude < 0.02)
                 {
-<<<<<<< Updated upstream
                     finalObj[0].transform.position = triCorner[i];
                     tri[i] = finalObj[0];
                     triMark[i] = 1;
                     finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                 }
-=======
-
-                triPosition = frame.GetComponent<frame>().triPosition;
-                for(int i = 0; i < triPosition.count ;i++)
-                {
-                     if ((finalObj[0].transform.position - triPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
-                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
-                        finalObj[0].transform.position = triPosition[i];
-                    }
-
-                }
-
-                    triCorner = frame.GetComponent<frame>().triCorner;
-
-                    for (int i = 0; i <= 2; i++)
-                        if ((finalObj[0].transform.position - triCorner[i]).magnitude < 0.02)
-                        {
-                            finalObj[0].transform.position = triCorner[i];
-                            tri[i] = finalObj[0];
-                            triMark[i] = 1;
-                            finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-                        }
-                }
-
-
-                if (frame.GetComponent<frame>().Frame == "pen")
-                {
-
-                penPosition = frame.GetComponent<frame>().penPosition;
-                for(int i = 0; i < penPosition.count ;i++)
-                {
-                     if ((finalObj[0].transform.position - penPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
-                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
-                        finalObj[0].transform.position = penPosition[i];
-                    }
-
-                }
-                    penCorner = frame.GetComponent<frame>().penCorner;
-
-                    for (int i = 0; i <= 4; i++)
-                        if ((finalObj[0].transform.position - penCorner[i]).magnitude < 0.02)
-                        {
-                            finalObj[0].transform.position = penCorner[i];
-                            pen[i] = finalObj[0];
-                            penMark[i] = 1;
-                            finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-                        }
-                }
-
-                if (frame.GetComponent<frame>().Frame == "para")
-                {
-                    paraPosition = frame.GetComponent<frame>().paraPosition;
-                for(int i = 0; i < paraPosition.count ;i++)
-                {
-                     if ((finalObj[0].transform.position - paraPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
-                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
-                        finalObj[0].transform.position = paraPosition[i];
-                    }
-
-                }
-
-                    paraCorner = frame.GetComponent<frame>().paraCorner;
-
-                    for (int i = 0; i <= 3; i++)
-                        if ((finalObj[0].transform.position - paraCorner[i]).magnitude < 0.02)
-                        {
-                            finalObj[0].transform.position = paraCorner[i];
-                            para[i] = finalObj[0];
-                            paraMark[i] = 1;
-                            finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-                        }
-                }
-                if (frame.GetComponent<frame>().Frame == "cube")
-                {//要能确定新的长宽高
-                                cubePosition = frame.GetComponent<frame>().cubePosition;
-                for(int i = 0; i < cubePosition.count ;i++)
-                {
-                     if ((finalObj[0].transform.position - cubePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
-                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
-                        finalObj[0].transform.position = cubePosition[i];
-                    }
-
-                }
-
-                    cubeCorner = frame.GetComponent<frame>().cubeCorner;
-
-                    for (int i = 0; i <= 7; i++)
-                        if ((finalObj[0].transform.position - cubeCorner[i]).magnitude < 0.02)
-                        {
-                            finalObj[0].transform.position = cubeCorner[i];
-                            cube[i] = finalObj[0];
-                            finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-                        }
-                }
-
-                onFrame.Add(finalObj[0]);
-                finalObj.RemoveAt(0);
-                label = 0;
-         
->>>>>>> Stashed changes
         }
         if (frame.GetComponent<frame>().Frame == "pen")
         {
