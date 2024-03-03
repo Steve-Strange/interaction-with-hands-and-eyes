@@ -72,16 +72,16 @@ public class ConnectorManager : MonoBehaviour
 
         frameScale = new Vector3(1, 1, 1);//初始化
             
-        foreach (var obj in Objects)
-        {
-            GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
-            newObj.tag = "AgentObject";
-            newObj.name = obj.name + " Agent";
-            Objects.Remove(newObj);
-        }
-        GameObject frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
-        frameAgent.name = "frameAgent";
-        frameAgent.GetComponent<frame>().enabled = false;
+        // foreach (var obj in Objects)
+        // {
+        //     GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
+        //     newObj.tag = "AgentObject";
+        //     newObj.name = obj.name + " Agent";
+        //     Objects.Remove(newObj);
+        // }
+        // GameObject frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
+        // frameAgent.name = "frameAgent";
+        // frameAgent.GetComponent<frame>().enabled = false;
 
         if(frame.GetComponent<frame>().Frame == "rect")
         {
@@ -127,12 +127,12 @@ public class ConnectorManager : MonoBehaviour
         foreach (var obj in Objects){
             if(!obj.CompareTag("AgentObject"))
             {
-                vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
-                obj.transform.position = frameCenter + 6*vectorToCenter[obj];
+                obj.transform.position = frameCenter + 6 * vectorToCenter[obj];
                 t2.text = frame.GetComponent<frame>().right.ToString();
                 t1.text = rotate(vectorToCenter[obj], frame.GetComponent<frame>().right, 90).ToString();
                 obj.transform.parent = null;
                 obj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().objScale[obj];
+                vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
             }
         }//放置物体,恢复原来大小
         

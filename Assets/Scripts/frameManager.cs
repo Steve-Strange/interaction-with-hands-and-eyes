@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class FrameManager : MonoBehaviour
+public class frameManager : MonoBehaviour
 {
     public GameObject frame;
     public GameObject FinalObjects;

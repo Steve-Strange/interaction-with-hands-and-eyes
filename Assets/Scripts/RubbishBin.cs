@@ -8,6 +8,9 @@ public class RubbishBin : MonoBehaviour
 
     public GameObject Pinch;
     private GameObject HandPoseManager;
+    public GameObject FinalObjects;
+    private bool touchState;
+    private bool releaseFlag;
     void Start()
     {
         HandPoseManager = GameObject.Find("HandPoseManager");
@@ -16,27 +19,32 @@ public class RubbishBin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Pinch.GetComponent<pinch>().ispinch == false){
+            releaseFlag = false;
+        }
+            
     }
 
     public void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.CompareTag("FinalObject") && Pinch.GetComponent<pinch>().ispinch == true){
-            collision.gameObject.GetComponent<Outline>().OutlineColor = Color.red;
-        }
+        
     }
 
     public void OnCollisionStay(Collision collision){
-        if(collision.gameObject.CompareTag("FinalObject")){
-            if(Pinch.GetComponent<pinch>().ispinch == false){
-                collision.gameObject.tag = "Target";
-
-                if (HandPoseManager.GetComponent<HandPoseManager>().originalTransform.TryGetValue(collision.gameObject, out TransformData transformData))
+        if(collision.gameObject.name == "pinch" && Pinch.GetComponent<pinch>().ispinch == true && releaseFlag == false){
+            releaseFlag = true;
+        
+            if(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0){
+                GameObject deleteObj = FinalObjects.GetComponent<FinalObjects>().finalObj[0];
+                if (HandPoseManager.GetComponent<HandPoseManager>().originalTransform.TryGetValue(deleteObj, out TransformData transformData))
                 {
-                    collision.gameObject.transform.position = transformData.Position;
-                    collision.gameObject.transform.localScale = transformData.Scale;
-                    collision.gameObject.GetComponent<Outline>().OutlineColor = Color.clear;
+                    deleteObj.transform.position = transformData.Position;
+                    deleteObj.transform.rotation = transformData.Rotation;
+                    deleteObj.transform.localScale = transformData.Scale;
                 }
             }
         }
+        
     }
+        
 }
+

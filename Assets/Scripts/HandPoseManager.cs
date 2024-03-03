@@ -39,8 +39,8 @@ public class HandPoseManager : MonoBehaviour
     private int rowNum = 5;
     private int columnNum = 3;
 
-    private float maxAngel = 55f;
-    private float minAngel = 0f;
+    private float maxAngel = 50f;
+    private float minAngel = 10f;
 
     public bool SelectionStatus = true;
 
@@ -138,7 +138,7 @@ public class HandPoseManager : MonoBehaviour
             foreach (var obj in sorted15ObjectWeights)
             {
                 if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject || FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)) continue;
-                originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.localScale);
+                originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.rotation, obj.Key.transform.localScale);
                 obj.Key.GetComponent<Outline>().OutlineColor = Color.clear;
                 objScale[obj.Key] = obj.Key.transform.localScale;
                 obj.Key.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -160,10 +160,13 @@ public class HandPoseManager : MonoBehaviour
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if(wristRotation > 180f){
             wristRotation -= 360f;
-            wristRotation = - wristRotation;
         }
+        wristRotation = - wristRotation;
         
         int currentRow = Mathf.RoundToInt((wristRotation - minAngel)/(maxAngel - minAngel) * rowNum);
+
+        if(wristRotation < minAngel) currentRow = 0;
+        if(wristRotation > maxAngel) currentRow = rowNum - 1;
 
         // Log.text = "";
         // Log.text +="wristRotation: " + wristRotation.ToString() + "\n";
