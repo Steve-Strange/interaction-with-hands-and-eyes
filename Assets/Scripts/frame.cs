@@ -56,6 +56,7 @@ public class frame : MonoBehaviour
     private float finalScale;
     public Material lineMaterial;
     public GameObject axis;
+    public int number;
     public void LineSetProperties(LineRenderer line)
     {
         line.startWidth = 0.02f;
@@ -64,7 +65,89 @@ public class frame : MonoBehaviour
         line.endColor = Color.black;
         line.material = lineMaterial;
     }
+    float pi = 3.1415926F;
+    float gap;
+    float objSize;
+    void resize()//change the frame size from number
+    {
+        objSize = 0.1f;
+        number = 3;
+        gap = 0.1f;
+        //var size = transform.GetComponent<Renderer>().bounds.size;
+        //大小应该和尺寸以及数量有关
+       if(Frame == "rect"){
+            number = collideObject.GetComponent<collide>().finalObj.Count/4;
+            rectheight = (float)((objSize + gap) * (number-1));
+            rectlenth = (float)((objSize + gap) * (number-1));
+       }else if(Frame == "circle"){
+            R = (float)(collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/2*pi);
+       }else if(Frame == "tri"){
+            number = collideObject.GetComponent<collide>().finalObj.Count / 3;
+            triedge = (float)((objSize + gap) * (number-1));
+       }else if(Frame == "para")
+       {
 
+       }else if(Frame == "pen")
+       {
+
+       }else if(Frame == "cube")
+       {
+
+       }else if(Frame == "star")
+       {
+
+       }
+
+
+
+
+    }
+    void decideEachPosition()//change the frame size from number
+    {
+       if(Frame == "rect"){
+            var X = rectCorner[1]-rectCorner[0];
+            var Y = rectCorner[3]- rectCorner[0];
+            rectPosition = new Vector3[collideObject.GetComponent<collide>().finalObj.Count];
+            int mark = 0;
+            for(int i = 1 ; i<= number-2 ;i++)
+            {
+                rectPosition[mark++] = rectCorner[0] + (gap + objSize) * i * X;
+            }
+            for(int i = 1 ; i<= number-2 ;i++)
+            {
+                rectPosition[mark++] = rectCorner[4] + (gap + objSize) * i * X;
+            }
+            for(int i = 1 ; i<= number-2 ;i++)
+            {
+                rectPosition[mark++] = rectCorner[0] + (gap + objSize) * i * Y;
+            }
+            for(int i = 1 ; i<= number-2 ;i++)
+            {
+                rectPosition[mark++] = rectCorner[1] + (gap + objSize) * i * X;
+            }
+
+       }else if(Frame == "circle"){
+            
+       }else if(Frame == "tri"){
+            
+       }else if(Frame == "para")
+       {
+
+       }else if(Frame == "pen")
+       {
+
+       }else if(Frame == "cube")
+       {
+
+       }else if(Frame == "star")
+       {
+
+       }
+
+
+
+
+    }
     void Start(){
         line = GetComponent<LineRenderer>();
         line2 = line_2.GetComponent<LineRenderer>();
@@ -73,15 +156,21 @@ public class frame : MonoBehaviour
         line5 = line_5.GetComponent<LineRenderer>();
         line6 = line_6.GetComponent<LineRenderer>();
         LineSetProperties(line);
-       LineSetProperties(line2);
+        LineSetProperties(line2);
         LineSetProperties(line3);
         LineSetProperties(line4);
         LineSetProperties(line5);
         LineSetProperties(line6);
-
     }
-
     public Vector3 center;
+
+    public Vector3[] rectPosition;
+    public Vector3[] circlePosition;
+    public Vector3[] triPosition;
+    public Vector3[] penPosition;
+    public Vector3[] cubePosition;
+    public Vector3[] paraPosition;
+
     void clear()
     {
         for(int i = 0; i <= 7; i++) { 
@@ -93,16 +182,11 @@ public class frame : MonoBehaviour
         collideObject.GetComponent<collide>().cubeMark[i] = 0;
         }
     }
-    public void creatRect()//2d, just make the origin frame
-    {
-        clear();
-        dis = 0.4f;
-
-        rectlenth = 0.3f;
-        rectheight = 0.3f;
-
+    public void creatRect(){
         Frame = "rect";
-
+        clear();
+        resize();
+        dis = 0.4f;
         rectCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
@@ -114,8 +198,9 @@ public class frame : MonoBehaviour
 
         forward = Vector3.Cross(right, up).normalized;
 
-        line.positionCount = 5;
-        rectCorner[0] = center + forward / 2*rectheight-right/2*rectlenth;
+  
+        line.positionCount = 4;
+        rectCorner[0] = center + forward /2*rectheight-right/2*rectlenth;
         rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
         rectCorner[2] = center - forward / 2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - forward / 2*rectheight-right/2*rectlenth;
@@ -132,21 +217,17 @@ public class frame : MonoBehaviour
             }
             else{
                 addColliderToLine(rectCorner[3],rectCorner[0]);
-                line.SetPosition(4, rectCorner[0]);
             }
         }
     }
     public void createCircle()
     {
-
-        clear();
-        dis = 0.4f;
-
-        //ciecle original 
-        N = 40;
-        R = 0.3f;
-
         Frame = "circle";
+        clear();
+        resize();
+        dis = 0.4f;
+        N = 40;
+
         collideObject.GetComponent<collide>().mark = 0;
 
 
@@ -173,18 +254,15 @@ public class frame : MonoBehaviour
             if (i != 0)
                 addColliderToLine(last, now);
             last = now;
-
         }
     }
 public void createTri()
     {
         dis = 0.4f;
 
-        //triangle original 
-        triedge = 0.1f;
-
         Frame = "tri";
-
+        clear();
+        resize();
         rectCorner = new Vector3[3];
 
         forward = head.transform.forward.normalized;
@@ -214,7 +292,6 @@ public void createTri()
             }
             else{
                 addColliderToLine(rectCorner[2],rectCorner[0]);
-               // line.SetPosition(3, rectCorner[0]);
             }
         }        
 
@@ -227,6 +304,8 @@ public void createTri()
         penedge = 0.3f;//不是边而是顶点到中心距离
 
         Frame = "pen";
+        clear();
+        resize();
 
         penCorner = new Vector3[5];
 
@@ -269,6 +348,8 @@ public void createTri()
         rectheight = 0.1f;
 
         Frame = "para";
+        clear();
+        resize();
 
         paraCorner = new Vector3[4];
 
@@ -321,7 +402,8 @@ public void createTri()
         cubeCorner = new Vector3[8];
 
         Frame = "cube";
-
+        clear();
+        resize();
 
         forward = head.transform.forward.normalized;
         right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);

@@ -34,25 +34,31 @@ public class collide : MonoBehaviour
 
     public GameObject[] rect = new GameObject[4];// leftup rightup rightdown leftdown
     private Vector3[] rectCorner;
+    private Vector3[] rectPosition;
     public int[] rectMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
    
     public GameObject[] tri = new GameObject[3];// leftup rightup rightdown leftdown
     private Vector3[] triCorner;
+    private Vector3[] triPosition;
     public int[] triMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public GameObject[] circle = new GameObject[5];// 圆用前三个
+    private Vector3[] circlePosition;
     public int mark = 0;
 
     public GameObject[] para = new GameObject[2];// 
     private Vector3[] paraCorner;
+    private Vector3[] paraPosition;
     public int[] paraMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public GameObject[] pen = new GameObject[2];//
     private Vector3[] penCorner;
+    private Vector3[] penPosition;
     public int[] penMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public GameObject[] cube = new GameObject[8];// 
     private Vector3[] cubeCorner;
+    private Vector3[] cubePosition;
     public int[] cubeMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
     private GameObject now;
@@ -61,7 +67,6 @@ public class collide : MonoBehaviour
     int label = 0;
 
     private void OnCollisionEnter(Collision collision){
-       // T.text = collision.gameObject.name;
         if (collision.gameObject.name == "Edge")
         {
             now = finalObj[0];
@@ -74,7 +79,6 @@ public class collide : MonoBehaviour
                 now.transform.rotation = finalObjQ[now];
             }
         }
-        
     }
     private void OnCollisionStay(Collision collision){
         if (collision.gameObject.name == "Edge")
@@ -87,11 +91,18 @@ public class collide : MonoBehaviour
                 now.transform.rotation = finalObjQ[now];
                 label = 1;
             }
-            t2.text = now.name;
             now.GetComponent<Outline>().OutlineColor = Color.clear;
-            t2.text = "2222";
             if (frame.GetComponent<frame>().Frame == "rect"){
-                t2.text = "3333";
+
+                rectPosition = frame.GetComponent<frame>().rectPosition;//line 
+                for (int i = 0; i < rectPosition.Length; i++)
+                {
+                     if ((now.transform.position - rectPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        now.GetComponent<Outline>().OutlineColor = Color.red;
+                    }
+
+                }
+                //边角的优先级更靠前
                 rectCorner = frame.GetComponent<frame>().rectCorner;//line 
                 for (int i = 0; i <= 3; i++)
                     if ((now.transform.position - rectCorner[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -100,10 +111,29 @@ public class collide : MonoBehaviour
                
             }
             if (frame.GetComponent<frame>().Frame == "circle"){
+
+                circlePosition = frame.GetComponent<frame>().circlePosition; 
+                for(int i = 0; i < circlePosition.Length; i++)
+                {
+                     if ((now.transform.position - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        now.GetComponent<Outline>().OutlineColor = Color.red;
+                    }
+
+                }
+
                 var temp = now.transform.position - frame.GetComponent<frame>().center;
                 now.transform.position = temp.normalized * frame.GetComponent<frame>().R + frame.GetComponent<frame>().center;
+
             }
             if (frame.GetComponent<frame>().Frame == "tri"){
+                triPosition = frame.GetComponent<frame>().triPosition;//line 
+                for(int i = 0; i < triPosition.Length; i++)
+                {
+                     if ((now.transform.position - triPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        now.GetComponent<Outline>().OutlineColor = Color.red;
+                    }
+
+                }
                 triCorner = frame.GetComponent<frame>().triCorner;
                 for (int i = 0; i <= 2; i++)
                     if ((now.transform.position - triCorner[i]).magnitude < 0.02)
@@ -112,7 +142,14 @@ public class collide : MonoBehaviour
                     }
             }
             if (frame.GetComponent<frame>().Frame == "pen"){
+                penPosition = frame.GetComponent<frame>().penPosition;//line 
+                for(int i = 0; i < penPosition.Length; i++)
+                {
+                     if ((now.transform.position - penPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        now.GetComponent<Outline>().OutlineColor = Color.red;
+                    }
 
+                }
                 penCorner = frame.GetComponent<frame>().penCorner;
 
                 for (int i = 0; i <= 4; i++)
@@ -122,6 +159,14 @@ public class collide : MonoBehaviour
             }
 
             if (frame.GetComponent<frame>().Frame == "para"){
+                paraPosition = frame.GetComponent<frame>().paraPosition;//line 
+                for(int i = 0; i < paraPosition.Length; i++)
+                {
+                     if ((now.transform.position - paraPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        now.GetComponent<Outline>().OutlineColor = Color.red;
+                    }
+
+                }
                 paraCorner = frame.GetComponent<frame>().paraCorner;
                 for (int i = 0; i <= 3; i++)
                     if ((now.transform.position - paraCorner[i]).magnitude < 0.02){
@@ -129,6 +174,14 @@ public class collide : MonoBehaviour
                     }
             }
             if (frame.GetComponent<frame>().Frame == "cube"){//要能确定新的长宽高
+                cubePosition = frame.GetComponent<frame>().cubePosition;//line 
+                for(int i = 0; i < cubePosition.Length; i++)
+                {
+                     if ((now.transform.position - cubePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        now.GetComponent<Outline>().OutlineColor = Color.red;
+                    }
+
+                }
                 cubeCorner = frame.GetComponent<frame>().cubeCorner;
                 for (int i = 0; i <= 7; i++)
                     if ((now.transform.position - cubeCorner[i]).magnitude < 0.02){
@@ -156,15 +209,24 @@ public class collide : MonoBehaviour
 
         if (frame.GetComponent<frame>().Frame == "circle")
         {
-            var temp = finalObj[0].transform.position - frame.GetComponent<frame>().center;
-            finalObj[0].transform.position = temp.normalized * frame.GetComponent<frame>().R + frame.GetComponent<frame>().center;
-            //任意三个就可以
-            if (mark < 3)
+        
+                circlePosition = frame.GetComponent<frame>().circlePosition;
+                for(int i = 0; i < circlePosition.Length; i++)
+                {
+                     if ((finalObj[0].transform.position - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
+                        finalObj[0].transform.position = rectPosition[i];
+                         if (mark < 3)
             {
                 circle[mark] = finalObj[0];
                 finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
             }
-            mark++;
+            
+                    }
+
+                }    
+                mark++;
+
         }
         if (frame.GetComponent<frame>().Frame == "tri")
         {
