@@ -72,16 +72,16 @@ public class ConnectorManager : MonoBehaviour
 
         frameScale = new Vector3(1, 1, 1);//初始化
 
-        // foreach (var obj in Objects)
-        // {
-        //     GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
-        //     newObj.tag = "AgentObject";
-        //     newObj.name = obj.name + " Agent";
-        //     Objects.Remove(newObj);
-        // }
-        // GameObject frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
-        // frameAgent.name = "frameAgent";
-        // frameAgent.GetComponent<frame>().enabled = false;
+        foreach (var obj in Objects)
+        {
+            GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
+            newObj.tag = "AgentObject";
+            newObj.name = obj.name + " Agent";
+            Objects.Remove(newObj);
+        }
+        GameObject frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
+        frameAgent.name = "frameAgent";
+        frameAgent.GetComponent<frame>().enabled = false;
 
         if(frame.GetComponent<frame>().Frame == "rect")
         {

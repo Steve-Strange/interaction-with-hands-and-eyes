@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class pinch : MonoBehaviour
 {
-    public TMPro.TMP_Text T;
     public GameObject thumb;
     public GameObject index;
     public bool ispinch = false;
@@ -18,8 +17,7 @@ public class pinch : MonoBehaviour
         else
             ispinch = false;
 
-        T.text =ispinch.ToString();
-        
-       
+
+    
     }
 }

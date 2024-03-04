@@ -6,6 +6,8 @@ using UnityEngine;
 public class frameManager : MonoBehaviour
 {
     public GameObject frame;
+    public TMP_Text t;
+    public TMP_Text t2;
     public GameObject FinalObjects;
     private bool releaseState = false;
     // Start is called before the first frame update
@@ -17,6 +19,8 @@ public class frameManager : MonoBehaviour
 
     void Update()
     {
+        t2.text = "ReleaseState: " + releaseState.ToString();
+
         if(releaseState == true && gameObject.GetComponent<pinch>().ispinch == false){
             releaseState = false;
         }
@@ -28,6 +32,7 @@ public class frameManager : MonoBehaviour
         if(gameObject.GetComponent<pinch>().ispinch == true && releaseState == false){
             releaseState = true;
             if(collision.gameObject.name  == "rect"){
+                t.text = "Rect";
                 frame.GetComponent<frame>().creatRect();
                 
             }
