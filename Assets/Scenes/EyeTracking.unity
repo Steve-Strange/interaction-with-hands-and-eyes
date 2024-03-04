@@ -15879,6 +15879,7 @@ MonoBehaviour:
   frame: {fileID: 2069717106}
   t: {fileID: 1759714035}
   t2: {fileID: 2086484502}
+  log: {fileID: 962823631}
   FinalObjects: {fileID: 1376452831}
   Agent: {fileID: 224216720}
 --- !u!1 &1845424179

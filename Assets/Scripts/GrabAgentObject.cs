@@ -11,7 +11,6 @@ public class GrabAgentObject : MonoBehaviour
 
     public GameObject leftThumb;
     public GameObject leftIndex;
-
     public GameObject pinchObject;
 
 
@@ -58,7 +57,7 @@ public class GrabAgentObject : MonoBehaviour
                     TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
                   
                     Debug.Log(TargetObjects[obj].name);
-                 
+                
                     initFlag = true;
                 }
 
@@ -118,11 +117,11 @@ public class GrabAgentObject : MonoBehaviour
             foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
                 if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
                 {
-                TargetObjects[obj].SetActive(true);
-                obj.SetActive(true);
+                    TargetObjects[obj].SetActive(true);
+                    obj.SetActive(true);
                 }
 
-            if (MovingObject.Count > 0)
+            if (MovingObject.Count > 0 && FinishedObjects.Count < 2)
             {
                 if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 0.1f)
                 {
