@@ -143,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4434835
 Transform:
   m_ObjectHideFlags: 0
@@ -13468,6 +13468,7 @@ MonoBehaviour:
   emptyBlock: {fileID: 0}
   Log: {fileID: 418979002}
   AgentObject: {fileID: 224216720}
+  RubbishBin: {fileID: 4434834}
   SecondSelectionState: 0
   PalmPoseState: 0
   SelectionStatus: 1

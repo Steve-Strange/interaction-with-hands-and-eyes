@@ -29,6 +29,7 @@ public class HandPoseManager : MonoBehaviour
 
     public TMP_InputField Log;
     public GameObject AgentObject;
+    public GameObject RubbishBin;
 
     private float delayTime = 1f; // 延迟时间，单位为秒
     private float delayTimer = 0.0f; // 计时器
@@ -265,6 +266,7 @@ public class HandPoseManager : MonoBehaviour
                 //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
                 frameManager.SetActive(true);
                 AgentObject.SetActive(false);
+                RubbishBin.SetActive(true);
                 collide.GetComponent<collide>().getFinalObject();
             }
             else if(phase == 1){
@@ -274,6 +276,7 @@ public class HandPoseManager : MonoBehaviour
                 collide.GetComponent<collide>().anchorChoose();
                 frameManager.SetActive(false);
                 collide.GetComponent<collide>().enabled = false;
+                RubbishBin.SetActive(false);
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();
             }
             thumbHoldTimer = 0;

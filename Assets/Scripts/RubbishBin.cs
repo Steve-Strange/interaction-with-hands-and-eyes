@@ -34,8 +34,11 @@ public class RubbishBin : MonoBehaviour
         
             if(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0){
                 GameObject deleteObj = FinalObjects.GetComponent<FinalObjects>().finalObj[0];
+                FinalObjects.GetComponent<FinalObjects>().finalObj.RemoveAt(0);
+                FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
                 if (HandPoseManager.GetComponent<HandPoseManager>().originalTransform.TryGetValue(deleteObj, out TransformData transformData))
                 {
+                    deleteObj.transform.parent = null;
                     deleteObj.transform.position = transformData.Position;
                     deleteObj.transform.rotation = transformData.Rotation;
                     deleteObj.transform.localScale = transformData.Scale;

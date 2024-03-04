@@ -64,15 +64,15 @@ public class frame : MonoBehaviour
     {
         objSize = 0.1f;
         number = 3;
-        gap = 0.2f;
+        gap = 0.1f;
       
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4);
-            rectheight = (objSize + gap) * (number - 1) + 1;
-            rectlenth =  ((objSize + gap) * (number-1)) + 1;
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
+            rectheight = (objSize + gap) * number;
+            rectlenth =  (objSize + gap) * number;
        }else if(Frame == "circle"){
-            R = (float)(collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi));
+            R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
        }else if(Frame == "tri"){
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3);
             triedge = (float)((objSize + gap) * (number-1)) + 1;
@@ -168,7 +168,8 @@ public class frame : MonoBehaviour
         rectCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z).normalized;
+        //right = new Vector3(head.transform.right.normalized.x,0, head.transform.right.normalized.z).normalized;
+        right = Vector3.right;
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -209,8 +210,9 @@ public class frame : MonoBehaviour
 
 
         forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
-        right = right.normalized;
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        right = Vector3.right;
+
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -243,8 +245,9 @@ public void createTri()
         rectCorner = new Vector3[3];
 
         forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
-        right = right.normalized;
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        right = Vector3.right;
+
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -287,8 +290,9 @@ public void createTri()
         penCorner = new Vector3[5];
 
         forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
-        right = right.normalized;
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        right = Vector3.right;
+
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -331,8 +335,9 @@ public void createTri()
         paraCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
-        right = right.normalized;
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        right = Vector3.right;
+
         up = Vector3.up;
 
         center = head.transform.position + forward * dis - up * 0.2f;
@@ -383,9 +388,11 @@ public void createTri()
         resize();
 
         forward = head.transform.forward.normalized;
-        right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z);
-        right = right.normalized;
-        up = head.transform.up.normalized;
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        right = Vector3.right;
+
+        // up = head.transform.up.normalized;
+        up = Vector3.up;
 
 
         center = head.transform.position + forward * dis;

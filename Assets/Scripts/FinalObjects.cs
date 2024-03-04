@@ -37,8 +37,12 @@ public class FinalObjects : MonoBehaviour
         
         finalObj.Add(obj);
     }
-    public void RemoveFirst()
+    
+    public void RearrangeFinalObj()
     {
-
+        for(int i = 0; i < finalObj.Count; i++)
+        {
+            finalObj[i].transform.localPosition = new Vector3(transform.localScale.x/2 - finalObj[i].transform.localScale.x * 2 * i, 0, 0);
+        }
     }
 }
