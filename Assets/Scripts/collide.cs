@@ -278,7 +278,7 @@ public class collide : MonoBehaviour
         onFrame.Add(finalObj[0]);
         finalObj.RemoveAt(0);
         label = 0;
-         
+        
     }
   
     public void getFinalObject()
@@ -295,6 +295,7 @@ public class collide : MonoBehaviour
         {
             label = 0;
             settleDown();
+            FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
             label = 0;
         }
         t.text = FinalObjects.GetComponent<FinalObjects>().finalObj.Count.ToString();

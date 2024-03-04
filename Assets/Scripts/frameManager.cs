@@ -8,13 +8,17 @@ public class frameManager : MonoBehaviour
     public GameObject frame;
     public TMP_Text t;
     public TMP_Text t2;
+    public TMP_InputField log;
     public GameObject FinalObjects;
     private bool releaseState = false;
+    public GameObject Agent;
+
+    private GameObject currentAgentObject;
     // Start is called before the first frame update
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -60,6 +64,20 @@ public class frameManager : MonoBehaviour
             {
                 frame.GetComponent<frame>().createCube();
                 
+            }
+
+            if (collision.gameObject.CompareTag("AgentObject"))
+            {
+                
+                if(Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count >= 2){
+                    if(currentAgentObject.GetComponent<Outline>())
+                    {
+                        currentAgentObject.GetComponent<Outline>().OutlineColor = Color.clear;
+                    }
+                    currentAgentObject = collision.gameObject;
+                    currentAgentObject.GetComponent<Outline>().OutlineColor = Color.red;
+                    Agent.GetComponent<GrabAgentObject>().MovingObject[0] = GameObject.Find(collision.gameObject.name.Replace(" Agent",""));
+                }
             }
         }
     }

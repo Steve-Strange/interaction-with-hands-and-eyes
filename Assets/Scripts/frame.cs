@@ -75,7 +75,7 @@ public class frame : MonoBehaviour
             R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
        }else if(Frame == "tri"){
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3);
-            triedge = (float)((objSize + gap) * (number-1)) + 1;
+            triedge = (objSize + gap) * number;
        }else if(Frame == "para")
        {
 
