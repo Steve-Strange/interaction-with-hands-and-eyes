@@ -68,14 +68,14 @@ public class frame : MonoBehaviour
       
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
-            number = collideObject.GetComponent<collide>().finalObj.Count/4;
-            rectheight = (objSize + gap) * (number - 1);
-            rectlenth =  ((objSize + gap) * (number-1));
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4);
+            rectheight = (objSize + gap) * (number - 1) + 1;
+            rectlenth =  ((objSize + gap) * (number-1)) + 1;
        }else if(Frame == "circle"){
             R = (float)(collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi));
        }else if(Frame == "tri"){
-            number = collideObject.GetComponent<collide>().finalObj.Count / 3;
-            triedge = (float)((objSize + gap) * (number-1));
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3);
+            triedge = (float)((objSize + gap) * (number-1)) + 1;
        }else if(Frame == "para")
        {
 
