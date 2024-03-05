@@ -67,27 +67,27 @@ public class frame : MonoBehaviour
         gap = 0.1f;
       
         //大小应该和尺寸以及数量有关
-       if(Frame == "rect"){
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
-            rectheight = (objSize + gap) * number;
-            rectlenth =  (objSize + gap) * number;
-       }else if(Frame == "circle"){
-            R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
-       }else if(Frame == "tri"){
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3);
-            triedge = (objSize + gap) * number;
-       }else if(Frame == "para")
-       {
+        if(Frame == "rect"){
+                number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
+                rectheight = (objSize + gap) * number;
+                rectlenth =  (objSize + gap) * number;
+        }else if(Frame == "circle"){
+                R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
+        }else if(Frame == "tri"){
+                number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3);
+                triedge = (objSize + gap) * number;
+        }else if(Frame == "para")
+        {
 
-       }else if(Frame == "pen")
-       {
+        }else if(Frame == "pen")
+        {
 
-       }else if(Frame == "cube")
-       {
+        }else if(Frame == "cube")
+        {
 
-       }else if(Frame == "star")
-       {
-       }
+        }else if(Frame == "star")
+        {
+        }
     }
     void decideEachPosition()//change the frame size from number
     {
