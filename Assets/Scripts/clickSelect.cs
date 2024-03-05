@@ -43,9 +43,10 @@ public class clickSelect : MonoBehaviour
         { angleLast[0] = d; }
         if (-d > 0.95f)
             ad[0] = d;
+
         d = culculate(index1, index2, index3);
         
-            angleLast[1] = d;
+        angleLast[1] = d;
         if (-d > 0.95f)
         ad[1] = d;
 

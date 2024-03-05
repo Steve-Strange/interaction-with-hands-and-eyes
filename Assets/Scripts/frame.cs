@@ -9,6 +9,7 @@ public class frame : MonoBehaviour
     public GameObject connectorManager;
     public GameObject[] cor;//透明物体，其位置用于标记顶点；
     public GameObject collideObject;
+    public TMP_Text t;
 
 
     private Vector3 forward;//第2阶段生成框那个瞬间所用的
@@ -62,15 +63,16 @@ public class frame : MonoBehaviour
     float objSize;
     void resize()//change the frame size from number
     {
-        objSize = 0.1f;
+        objSize = collideObject.GetComponent<collide>().finalObj[0].transform.GetComponent<Renderer>().bounds.size.x;
         number = 3;
-        gap = 0.1f;
+        gap =  objSize;
       
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
             rectheight = (objSize + gap) * number;
             rectlenth =  (objSize + gap) * number;
+            t.text = rectheight.ToString();
        }else if(Frame == "circle"){
             R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
        }else if(Frame == "tri"){
@@ -92,28 +94,32 @@ public class frame : MonoBehaviour
     void decideEachPosition()//change the frame size from number
     {
        if(Frame == "rect"){
-            var X = rectCorner[1]-rectCorner[0];
-            var Y = rectCorner[3]- rectCorner[0];
-            rectPosition = new Vector3[collideObject.GetComponent<collide>().finalObj.Count];
-            int mark = 0;
-            for(int i = 1 ; i<= number-2 ;i++)
+            var X = (rectCorner[1]-rectCorner[0]).normalized;
+            var Y = (rectCorner[3]- rectCorner[0]).normalized;
+            rectPosition.Clear();
+           
+            for(int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[0] + (gap + objSize) * i * X;
+                rectPosition.Add(rectCorner[0] + (gap + objSize) * i * X);
             }
-            for(int i = 1 ; i<= number-2 ;i++)
+          
+            for (int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[4] + (gap + objSize) * i * X;
+                rectPosition.Add(rectCorner[3] + (gap + objSize) * i * X);
             }
-            for(int i = 1 ; i<= number-2 ;i++)
+            
+            for (int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[0] + (gap + objSize) * i * Y;
+                rectPosition.Add(rectCorner[0] + (gap + objSize) * i * Y);
             }
-            for(int i = 1 ; i<= number-2 ;i++)
+        
+            for (int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[1] + (gap + objSize) * i * X;
+                rectPosition.Add(rectCorner[1] + (gap + objSize) * i * Y);
             }
-
-       }else if(Frame == "circle"){
+   
+        }
+        else if(Frame == "circle"){
             
        }else if(Frame == "tri"){
             
@@ -150,20 +156,21 @@ public class frame : MonoBehaviour
         LineSetProperties(line6);
     }
     public Vector3 center;
-    public Vector3[] rectPosition;
-    public Vector3[] circlePosition;
-    public Vector3[] triPosition;
-    public Vector3[] penPosition;
-    public Vector3[] cubePosition;
-    public Vector3[] paraPosition;
+    public List<Vector3> rectPosition = new List<Vector3>();
+    public List<Vector3> circlePosition = new List<Vector3>();
+    public List<Vector3> triPosition = new List<Vector3>();
+    public List<Vector3> penPosition = new List<Vector3>();
+    public List<Vector3> cubePosition = new List<Vector3>();
+    public List<Vector3> paraPosition = new List<Vector3>();
 
     
     public void creatRect(){
         Frame = "rect";
         clear();
         resize();
+        
     
-        Debug.Log(rectheight);
+      //  Debug.Log(rectheight);
         dis = 0.4f;
         rectCorner = new Vector3[4];
 
@@ -182,6 +189,8 @@ public class frame : MonoBehaviour
         rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
         rectCorner[2] = center - forward / 2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - forward / 2*rectheight-right/2*rectlenth;
+
+        decideEachPosition();
 
         for(int i=0;i<=3;i++){
             cor[i].transform.position = rectCorner[i];
