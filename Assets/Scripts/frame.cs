@@ -40,7 +40,9 @@ public class frame : MonoBehaviour
     //pen
     public Vector3[] penCorner = new Vector3[5];
     private float penedge;
-
+    //star
+    public Vector3[] starCorner = new Vector3[5];
+    private float staredge;
     //cube
     public Vector3[] cubeCorner = new Vector3[8];
     float cubelenth = 0.1f;
@@ -166,6 +168,7 @@ public class frame : MonoBehaviour
     public List<Vector3> circlePosition = new List<Vector3>();
     public List<Vector3> triPosition = new List<Vector3>();
     public List<Vector3> penPosition = new List<Vector3>();
+    public List<Vector3> starPosition = new List<Vector3>();
     public List<Vector3> cubePosition = new List<Vector3>();
     public List<Vector3> paraPosition = new List<Vector3>();
 
@@ -334,6 +337,47 @@ public class frame : MonoBehaviour
             }
         }
     }
+/*
+    public void createStar()
+{
+
+        dis = 0.4f;
+
+        staredge = 0.3f;//不是边而是顶点到中心距离
+
+        Frame = "star";
+        clear();
+        resize();
+
+        starCorner = new Vector3[5];
+
+        forward = head.transform.forward.normalized;
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
+        right = Vector3.right;
+
+        up = Vector3.up;
+
+        center = head.transform.position + forward * dis - up * 0.2f;
+
+        forward = Vector3.Cross(right, up).normalized;
+
+        line.positionCount = 5;
+
+
+line.SetPosition(0, penCorner[4]);
+line.SetPosition(1, penCorner[1]);
+line.SetPosition(2, penCorner[3]);
+line.SetPosition(3, penCorner[0]);
+line.SetPosition(4, penCorner[2]);
+addColliderToLine(penCorner[4], penCorner[1]);
+addColliderToLine(penCorner[1], penCorner[3]);
+addColliderToLine(penCorner[3], penCorner[0]);
+addColliderToLine(penCorner[0], penCorner[2]);
+addColliderToLine(penCorner[2], penCorner[4]);
+
+}
+*/
+
     public void createPara()
     {
         dis = 0.4f;
@@ -482,13 +526,9 @@ public class frame : MonoBehaviour
 
     }
     public void redoRect(){
-        for (int i = 0; i <= 3; i++)
-        {
+        line.positionCount = 4;
+        for (int i = 0; i <= 3; i++){
             line.SetPosition(i, cor[i].transform.position);
-            if (i == 3)
-            {
-                line.SetPosition(4, cor[0].transform.position);
-            }
         }
     }
     public void redoCircle(List<GameObject> anchor)
@@ -519,26 +559,30 @@ public class frame : MonoBehaviour
     }
     public void redoTri()
     {
+            line.positionCount = 3;
             for(int i = 0;i<=2;i++){
             line.SetPosition(i,cor[i].transform.position);
-            if(i==2){
-                line.SetPosition(3,cor[0].transform.position);}
         }
     }
     public void redoPen()
     {
+            line.positionCount = 5;
             for(int i = 0;i<=5;i++){
             line.SetPosition(i,cor[i].transform.position);
-            if(i==2){
-                line.SetPosition(3,cor[0].transform.position);}
+        }
+    }
+    public void redoStar()
+    {
+            line.positionCount = 5;
+            for(int i = 0;i<=5;i++){
+            line.SetPosition(i,cor[i].transform.position);
         }
     }
     public void redoPara()
     {
+            line.positionCount = 4;
             for(int i = 0;i<=3;i++){
             line.SetPosition(i,cor[i].transform.position);
-            if(i==2){
-                line.SetPosition(3,cor[0].transform.position);}
         }
     }
 
