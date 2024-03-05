@@ -68,15 +68,22 @@ public class frameManager : MonoBehaviour
 
             if (collision.gameObject.CompareTag("AgentObject"))
             {
-                
+                log.text = "name: " + collision.gameObject.name + "\n";
+                log.text += "count: " + Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count + "\n";
                 if(Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count >= 2){
-                    if(currentAgentObject.GetComponent<Outline>())
-                    {
-                        currentAgentObject.GetComponent<Outline>().OutlineColor = Color.clear;
-                    }
+                    // if(currentAgentObject.TryGetComponent(out Outline outline)){
+                    //     outline.OutlineColor = Color.clear;
+                    // }
+                    
+                    
                     currentAgentObject = collision.gameObject;
-                    currentAgentObject.GetComponent<Outline>().OutlineColor = Color.red;
-                    Agent.GetComponent<GrabAgentObject>().MovingObject[0] = GameObject.Find(collision.gameObject.name.Replace(" Agent",""));
+                    log.text += "currentAgentObject: " + currentAgentObject.name + "\n";
+                    // currentAgentObject.GetComponent<Outline>().OutlineColor = Color.red;
+                    if(Agent.GetComponent<GrabAgentObject>().MovingObject.Count == 1){
+                        Agent.GetComponent<GrabAgentObject>().MovingObject.RemoveAt(0);
+                    }
+                    Agent.GetComponent<GrabAgentObject>().MovingObject.Add(GameObject.Find(collision.gameObject.name.Replace(" Agent","")));
+                    log.text += "MovingObject: " + Agent.GetComponent<GrabAgentObject>().MovingObject[0].name + "\n";
                 }
             }
         }

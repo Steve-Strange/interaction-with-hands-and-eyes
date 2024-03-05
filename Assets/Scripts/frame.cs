@@ -38,7 +38,7 @@ public class frame : MonoBehaviour
     //pen
     public Vector3[] penCorner = new Vector3[5];
     private float penedge;
- 
+
     //cube
     public Vector3[] cubeCorner = new Vector3[8];
     float cubelenth = 0.1f;
@@ -55,7 +55,7 @@ public class frame : MonoBehaviour
     private LineRenderer line5;
     private LineRenderer line6;
     public Material lineMaterial;
-  
+
     public int number;
 
     float pi = 3.1415926F;
@@ -66,7 +66,7 @@ public class frame : MonoBehaviour
         objSize = collideObject.GetComponent<collide>().finalObj[0].transform.GetComponent<Renderer>().bounds.size.x;
         number = 3;
         gap =  objSize;
-      
+
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
@@ -81,15 +81,15 @@ public class frame : MonoBehaviour
        }else if(Frame == "para")
        {
 
-       }else if(Frame == "pen")
-       {
+        }else if(Frame == "pen")
+        {
 
-       }else if(Frame == "cube")
-       {
+        }else if(Frame == "cube")
+        {
 
-       }else if(Frame == "star")
-       {
-       }
+        }else if(Frame == "star")
+        {
+        }
     }
     void decideEachPosition()//change the frame size from number
     {
@@ -97,32 +97,32 @@ public class frame : MonoBehaviour
             var X = (rectCorner[1]-rectCorner[0]).normalized;
             var Y = (rectCorner[3]- rectCorner[0]).normalized;
             rectPosition.Clear();
-           
+
             for(int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[0] + (gap + objSize) * i * X);
             }
-          
+
             for (int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[3] + (gap + objSize) * i * X);
             }
-            
+
             for (int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[0] + (gap + objSize) * i * Y);
             }
-        
+
             for (int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[1] + (gap + objSize) * i * Y);
             }
-   
+
         }
         else if(Frame == "circle"){
-            
+
        }else if(Frame == "tri"){
-            
+
        }else if(Frame == "para")
        {
 
@@ -163,13 +163,13 @@ public class frame : MonoBehaviour
     public List<Vector3> cubePosition = new List<Vector3>();
     public List<Vector3> paraPosition = new List<Vector3>();
 
-    
+
     public void creatRect(){
         Frame = "rect";
         clear();
         resize();
-        
-    
+
+
       //  Debug.Log(rectheight);
         dis = 0.4f;
         rectCorner = new Vector3[4];
@@ -183,7 +183,7 @@ public class frame : MonoBehaviour
 
         forward = Vector3.Cross(right, up).normalized;
 
-  
+
         line.positionCount = 4;
         rectCorner[0] = center + forward /2*rectheight-right/2*rectlenth;
         rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
@@ -219,7 +219,7 @@ public class frame : MonoBehaviour
 
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -254,7 +254,7 @@ public void createTri()
         rectCorner = new Vector3[3];
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -269,7 +269,7 @@ public void createTri()
         rectCorner[1] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) - right * ( triedge /2);
         rectCorner[2] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) + right * ( triedge /2);
 
-        
+
         for(int i=0;i<=2;i++){
             cor[i].transform.position = rectCorner[i];
         }
@@ -282,14 +282,14 @@ public void createTri()
             else{
                 addColliderToLine(rectCorner[2],rectCorner[0]);
             }
-        }        
+        }
 
     }
     public void createPentagon()
     {
         dis = 0.4f;
 
-        //triangle original 
+        //triangle original
         penedge = 0.3f;//不是边而是顶点到中心距离
 
         Frame = "pen";
@@ -299,7 +299,7 @@ public void createTri()
         penCorner = new Vector3[5];
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -344,7 +344,7 @@ public void createTri()
         paraCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -397,7 +397,7 @@ public void createTri()
         resize();
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         // up = head.transform.up.normalized;
@@ -469,11 +469,11 @@ public void createTri()
             redoRect();}
         else if(Frame == "circle"){//用三个锚点画
             redoCircle(anchor);}
-        else if(Frame == "tri"){    
+        else if(Frame == "tri"){
             redoTri();}
-        else if(Frame == "pen"){    
+        else if(Frame == "pen"){
             redoPen();}
-        else if(Frame == "para"){    
+        else if(Frame == "para"){
             redoPara();}
 
     }
@@ -514,15 +514,15 @@ public void createTri()
 
     }
     public void redoTri()
-    {   
+    {
             for(int i = 0;i<=2;i++){
             line.SetPosition(i,cor[i].transform.position);
             if(i==2){
                 line.SetPosition(3,cor[0].transform.position);}
         }
-    }    
+    }
     public void redoPen()
-    {   
+    {
             for(int i = 0;i<=5;i++){
             line.SetPosition(i,cor[i].transform.position);
             if(i==2){
@@ -530,7 +530,7 @@ public void createTri()
         }
     }
     public void redoPara()
-    {   
+    {
             for(int i = 0;i<=3;i++){
             line.SetPosition(i,cor[i].transform.position);
             if(i==2){
@@ -538,9 +538,9 @@ public void createTri()
         }
     }
 
-   
-    
-    
+
+
+
 
 
     private Vector3 CalculateTriangleOutCircleCenter(Vector3 A, Vector3 B, Vector3 C)
@@ -624,7 +624,7 @@ public void createTri()
     }
     private void addColliderToLine(Vector3 startPos,Vector3 endPos)
     {
-        
+
         BoxCollider col = new GameObject("Edge").AddComponent<BoxCollider>();
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
