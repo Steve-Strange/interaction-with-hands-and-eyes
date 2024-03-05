@@ -35,6 +35,8 @@ public class frame : MonoBehaviour
     //para
     private float angle;
     public Vector3[] paraCorner = new Vector3[4];
+    private float paralenth;
+    private float paraheight;
     //pen
     public Vector3[] penCorner = new Vector3[5];
     private float penedge;
@@ -72,19 +74,23 @@ public class frame : MonoBehaviour
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
             rectheight = (objSize + gap) * number;
             rectlenth =  (objSize + gap) * number;
-            t.text = rectheight.ToString();
        }else if(Frame == "circle"){
             R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
        }else if(Frame == "tri"){
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3);
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3f);
             triedge = (objSize + gap) * number;
        }else if(Frame == "para")
        {
-
-        }else if(Frame == "pen")
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 4f);
+            paraheight = (objSize + gap) * number;
+            paralenth = (objSize + gap) * number;
+        }
+        else if(Frame == "pen")
         {
-
-        }else if(Frame == "cube")
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+           // penedge = (objSize + gap) * number; 边长还要换算
+        }
+        else if(Frame == "cube")
         {
 
         }else if(Frame == "star")
@@ -244,7 +250,7 @@ public class frame : MonoBehaviour
             last = now;
         }
     }
-public void createTri()
+    public void createTri()
     {
         dis = 0.4f;
 
@@ -334,8 +340,6 @@ public void createTri()
 
         //pingxing
         angle = 45;
-        rectlenth = 0.1f;
-        rectheight = 0.1f;
 
         Frame = "para";
         clear();
