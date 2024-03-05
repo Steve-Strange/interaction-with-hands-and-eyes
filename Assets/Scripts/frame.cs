@@ -74,29 +74,50 @@ public class frame : MonoBehaviour
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
+            if(number == 0)
+                number = 1;
             rectheight = (objSize + gap) * number;
             rectlenth =  (objSize + gap) * number;
        }else if(Frame == "circle"){
+            number = collideObject.GetComponent<collide>().finalObj.Count;
+            if(number == 0)
+                number = 1;
             R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
        }else if(Frame == "tri"){
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3f);
+            if(number == 0)
+                number = 1;
             triedge = (objSize + gap) * number;
        }else if(Frame == "para")
        {
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 4f);
+            if(number == 0)
+                number = 1;
             paraheight = (objSize + gap) * number;
             paralenth = (objSize + gap) * number;
         }
         else if(Frame == "pen")
         {
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
-           // penedge = (objSize + gap) * number; 边长还要换算
+            if(number == 0)
+                number = 1;
+            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 边长还要换算
         }
         else if(Frame == "cube")
         {
-
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 12f);
+            if(number == 0)
+                number = 1;
+            cubeheight = (objSize + gap) * number;
+            cubelenth = (objSize + gap) * number;
+            cubelenth = (objSize + gap) * number;
+            
         }else if(Frame == "star")
         {
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+            if(number == 0)
+                number = 1;
+            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 边长还要换算
         }
     }
     void decideEachPosition()//change the frame size from number
@@ -105,37 +126,103 @@ public class frame : MonoBehaviour
             var X = (rectCorner[1]-rectCorner[0]).normalized;
             var Y = (rectCorner[3]- rectCorner[0]).normalized;
             rectPosition.Clear();
-
             for(int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[0] + (gap + objSize) * i * X);
             }
-
             for (int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[3] + (gap + objSize) * i * X);
             }
-
             for (int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[0] + (gap + objSize) * i * Y);
             }
-
             for (int i = 1 ; i<= number-1 ;i++)
             {
                 rectPosition.Add(rectCorner[1] + (gap + objSize) * i * Y);
             }
 
         }
-        else if(Frame == "circle"){
-
+       else if(Frame == "circle"){
+            circlePosition.Clear();
+            for (int i = 0; i < number ; i++){
+                float x = R * Mathf.Cos((360f / number * i) * Mathf.Deg2Rad); //确定x坐标
+                float z = R * Mathf.Sin((360f / number * i) * Mathf.Deg2Rad); //确定z坐标
+                Vector3 now = center + right * x + forward * z;
+                circlePosition.Add(now)
+            }
        }else if(Frame == "tri"){
+
+            var X = (triCorner[1]-triCorner[0]).normalized;
+            var Y = (triCorner[2]-triCorner[1]).normalized;
+            var Z = (triCorner[2]-triCorner[0]).normalized;
+            triPosition.Clear();
+            for(int i = 1 ; i<= number-1 ;i++)
+            {
+                triPosition.Add(triCorner[0] + (gap + objSize) * i * X);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                triPosition.Add(triCorner[1] + (gap + objSize) * i * Y);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                triPosition.Add(triCorner[0] + (gap + objSize) * i * Z);
+            }
+
 
        }else if(Frame == "para")
        {
 
+            var X = (paraCorner[1]-paraCorner[0]).normalized;
+            var Y = (paraCorner[3]- paraCorner[0]).normalized;
+            paraPosition.Clear();
+            for(int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[0] + (gap + objSize) * i * X);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[3] + (gap + objSize) * i * X);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[0] + (gap + objSize) * i * Y);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[1] + (gap + objSize) * i * Y);
+            }
+
        }else if(Frame == "pen")
        {
+            var e1 = (penCorner[1]-penCorner[0]).normalized;
+            var e2 = (penCorner[2]- penCorner[1]).normalized;
+            var e3 = (penCorner[3]-penCorner[2]).normalized;
+            var e4 = (penCorner[4]- penCorner[3]).normalized;
+            var e5 = (penCorner[0]- penCorner[4]).normalized;
+            penPosition.Clear();
+            for(int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[0] + (gap + objSize) * i * e1);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[1] + (gap + objSize) * i * e2);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[2] + (gap + objSize) * i * e3);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[3] + (gap + objSize) * i * e4);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[4] + (gap + objSize) * i * e5);
+            }
 
        }else if(Frame == "cube")
        {
