@@ -101,7 +101,8 @@ public class frame : MonoBehaviour
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
             if(number == 0)
                 number = 1;
-            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 边长还要换算
+            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 
+            //边长还要换算
         }
         else if(Frame == "cube")
         {
@@ -117,7 +118,8 @@ public class frame : MonoBehaviour
             number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
             if(number == 0)
                 number = 1;
-            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 边长还要换算
+            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 
+            //边长还要换算
         }
     }
     void decideEachPosition()//change the frame size from number
@@ -150,7 +152,8 @@ public class frame : MonoBehaviour
                 float x = R * Mathf.Cos((360f / number * i) * Mathf.Deg2Rad); //确定x坐标
                 float z = R * Mathf.Sin((360f / number * i) * Mathf.Deg2Rad); //确定z坐标
                 Vector3 now = center + right * x + forward * z;
-                circlePosition.Add(now)
+                circlePosition.Add(now);
+                
             }
        }else if(Frame == "tri"){
 
