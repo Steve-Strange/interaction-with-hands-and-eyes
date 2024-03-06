@@ -9,6 +9,7 @@ public class frame : MonoBehaviour
     public GameObject connectorManager;
     public GameObject[] cor;//透明物体，其位置用于标记顶点；
     public GameObject collideObject;
+    public TMP_Text t;
 
 
     private Vector3 forward;//第2阶段生成框那个瞬间所用的
@@ -34,10 +35,14 @@ public class frame : MonoBehaviour
     //para
     private float angle;
     public Vector3[] paraCorner = new Vector3[4];
+    private float paralenth;
+    private float paraheight;
     //pen
     public Vector3[] penCorner = new Vector3[5];
     private float penedge;
- 
+    //star
+    public Vector3[] starCorner = new Vector3[5];
+    private float staredge;
     //cube
     public Vector3[] cubeCorner = new Vector3[8];
     float cubelenth = 0.1f;
@@ -54,7 +59,7 @@ public class frame : MonoBehaviour
     private LineRenderer line5;
     private LineRenderer line6;
     public Material lineMaterial;
-  
+
     public int number;
 
     float pi = 3.1415926F;
@@ -62,66 +67,162 @@ public class frame : MonoBehaviour
     float objSize;
     void resize()//change the frame size from number
     {
-        objSize = 0.1f;
+        objSize = collideObject.GetComponent<collide>().finalObj[0].transform.GetComponent<Renderer>().bounds.size.x;
         number = 3;
-        gap = 0.1f;
-      
+        gap =  objSize;
+
         //大小应该和尺寸以及数量有关
-        if(Frame == "rect"){
-                number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
-                rectheight = (objSize + gap) * number;
-                rectlenth =  (objSize + gap) * number;
-        }else if(Frame == "circle"){
-                R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
-        }else if(Frame == "tri"){
-                number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3);
-                triedge = (objSize + gap) * number;
-        }else if(Frame == "para")
+       if(Frame == "rect"){
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
+            if(number == 0)
+                number = 1;
+            rectheight = (objSize + gap) * number;
+            rectlenth =  (objSize + gap) * number;
+       }else if(Frame == "circle"){
+            number = collideObject.GetComponent<collide>().finalObj.Count;
+            if(number == 0)
+                number = 1;
+            R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
+       }else if(Frame == "tri"){
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3f);
+            if(number == 0)
+                number = 1;
+            triedge = (objSize + gap) * number;
+       }else if(Frame == "para")
+       {
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 4f);
+            if(number == 0)
+                number = 1;
+            paraheight = (objSize + gap) * number;
+            paralenth = (objSize + gap) * number;
+        }
+        else if(Frame == "pen")
         {
-
-        }else if(Frame == "pen")
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+            if(number == 0)
+                number = 1;
+            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 边长还要换算
+        }
+        else if(Frame == "cube")
         {
-
-        }else if(Frame == "cube")
-        {
-
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 12f);
+            if(number == 0)
+                number = 1;
+            cubeheight = (objSize + gap) * number;
+            cubelenth = (objSize + gap) * number;
+            cubelenth = (objSize + gap) * number;
+            
         }else if(Frame == "star")
         {
+            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+            if(number == 0)
+                number = 1;
+            penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 边长还要换算
         }
     }
     void decideEachPosition()//change the frame size from number
     {
        if(Frame == "rect"){
-            var X = rectCorner[1]-rectCorner[0];
-            var Y = rectCorner[3]- rectCorner[0];
-            rectPosition = new Vector3[collideObject.GetComponent<collide>().finalObj.Count];
-            int mark = 0;
-            for(int i = 1 ; i<= number-2 ;i++)
+            var X = (rectCorner[1]-rectCorner[0]).normalized;
+            var Y = (rectCorner[3]- rectCorner[0]).normalized;
+            rectPosition.Clear();
+            for(int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[0] + (gap + objSize) * i * X;
+                rectPosition.Add(rectCorner[0] + (gap + objSize) * i * X);
             }
-            for(int i = 1 ; i<= number-2 ;i++)
+            for (int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[4] + (gap + objSize) * i * X;
+                rectPosition.Add(rectCorner[3] + (gap + objSize) * i * X);
             }
-            for(int i = 1 ; i<= number-2 ;i++)
+            for (int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[0] + (gap + objSize) * i * Y;
+                rectPosition.Add(rectCorner[0] + (gap + objSize) * i * Y);
             }
-            for(int i = 1 ; i<= number-2 ;i++)
+            for (int i = 1 ; i<= number-1 ;i++)
             {
-                rectPosition[mark++] = rectCorner[1] + (gap + objSize) * i * X;
+                rectPosition.Add(rectCorner[1] + (gap + objSize) * i * Y);
             }
 
-       }else if(Frame == "circle"){
-            
+        }
+       else if(Frame == "circle"){
+            circlePosition.Clear();
+            for (int i = 0; i < number ; i++){
+                float x = R * Mathf.Cos((360f / number * i) * Mathf.Deg2Rad); //确定x坐标
+                float z = R * Mathf.Sin((360f / number * i) * Mathf.Deg2Rad); //确定z坐标
+                Vector3 now = center + right * x + forward * z;
+                circlePosition.Add(now)
+            }
        }else if(Frame == "tri"){
-            
+
+            var X = (triCorner[1]-triCorner[0]).normalized;
+            var Y = (triCorner[2]-triCorner[1]).normalized;
+            var Z = (triCorner[2]-triCorner[0]).normalized;
+            triPosition.Clear();
+            for(int i = 1 ; i<= number-1 ;i++)
+            {
+                triPosition.Add(triCorner[0] + (gap + objSize) * i * X);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                triPosition.Add(triCorner[1] + (gap + objSize) * i * Y);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                triPosition.Add(triCorner[0] + (gap + objSize) * i * Z);
+            }
+
+
        }else if(Frame == "para")
        {
 
+            var X = (paraCorner[1]-paraCorner[0]).normalized;
+            var Y = (paraCorner[3]- paraCorner[0]).normalized;
+            paraPosition.Clear();
+            for(int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[0] + (gap + objSize) * i * X);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[3] + (gap + objSize) * i * X);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[0] + (gap + objSize) * i * Y);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(paraCorner[1] + (gap + objSize) * i * Y);
+            }
+
        }else if(Frame == "pen")
        {
+            var e1 = (penCorner[1]-penCorner[0]).normalized;
+            var e2 = (penCorner[2]- penCorner[1]).normalized;
+            var e3 = (penCorner[3]-penCorner[2]).normalized;
+            var e4 = (penCorner[4]- penCorner[3]).normalized;
+            var e5 = (penCorner[0]- penCorner[4]).normalized;
+            penPosition.Clear();
+            for(int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[0] + (gap + objSize) * i * e1);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[1] + (gap + objSize) * i * e2);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[2] + (gap + objSize) * i * e3);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[3] + (gap + objSize) * i * e4);
+            }
+            for (int i = 1 ; i<= number-1 ;i++)
+            {
+                paraPosition.Add(penCorner[4] + (gap + objSize) * i * e5);
+            }
 
        }else if(Frame == "cube")
        {
@@ -150,20 +251,22 @@ public class frame : MonoBehaviour
         LineSetProperties(line6);
     }
     public Vector3 center;
-    public Vector3[] rectPosition;
-    public Vector3[] circlePosition;
-    public Vector3[] triPosition;
-    public Vector3[] penPosition;
-    public Vector3[] cubePosition;
-    public Vector3[] paraPosition;
+    public List<Vector3> rectPosition = new List<Vector3>();
+    public List<Vector3> circlePosition = new List<Vector3>();
+    public List<Vector3> triPosition = new List<Vector3>();
+    public List<Vector3> penPosition = new List<Vector3>();
+    public List<Vector3> starPosition = new List<Vector3>();
+    public List<Vector3> cubePosition = new List<Vector3>();
+    public List<Vector3> paraPosition = new List<Vector3>();
 
-    
+
     public void creatRect(){
         Frame = "rect";
         clear();
         resize();
-    
-        Debug.Log(rectheight);
+
+
+      //  Debug.Log(rectheight);
         dis = 0.4f;
         rectCorner = new Vector3[4];
 
@@ -176,12 +279,14 @@ public class frame : MonoBehaviour
 
         forward = Vector3.Cross(right, up).normalized;
 
-  
+
         line.positionCount = 4;
         rectCorner[0] = center + forward /2*rectheight-right/2*rectlenth;
         rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
         rectCorner[2] = center - forward / 2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - forward / 2*rectheight-right/2*rectlenth;
+
+        decideEachPosition();
 
         for(int i=0;i<=3;i++){
             cor[i].transform.position = rectCorner[i];
@@ -210,7 +315,7 @@ public class frame : MonoBehaviour
 
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -235,7 +340,7 @@ public class frame : MonoBehaviour
             last = now;
         }
     }
-public void createTri()
+    public void createTri()
     {
         dis = 0.4f;
 
@@ -245,7 +350,7 @@ public void createTri()
         rectCorner = new Vector3[3];
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -260,7 +365,7 @@ public void createTri()
         rectCorner[1] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) - right * ( triedge /2);
         rectCorner[2] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) + right * ( triedge /2);
 
-        
+
         for(int i=0;i<=2;i++){
             cor[i].transform.position = rectCorner[i];
         }
@@ -273,14 +378,14 @@ public void createTri()
             else{
                 addColliderToLine(rectCorner[2],rectCorner[0]);
             }
-        }        
+        }
 
     }
     public void createPentagon()
     {
         dis = 0.4f;
 
-        //triangle original 
+        //triangle original
         penedge = 0.3f;//不是边而是顶点到中心距离
 
         Frame = "pen";
@@ -290,7 +395,7 @@ public void createTri()
         penCorner = new Vector3[5];
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -319,14 +424,53 @@ public void createTri()
             }
         }
     }
+/*
+    public void createStar()
+{
+
+        dis = 0.4f;
+
+        staredge = 0.3f;//不是边而是顶点到中心距离
+
+        Frame = "star";
+        clear();
+        resize();
+
+        starCorner = new Vector3[5];
+
+        forward = head.transform.forward.normalized;
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
+        right = Vector3.right;
+
+        up = Vector3.up;
+
+        center = head.transform.position + forward * dis - up * 0.2f;
+
+        forward = Vector3.Cross(right, up).normalized;
+
+        line.positionCount = 5;
+
+
+line.SetPosition(0, penCorner[4]);
+line.SetPosition(1, penCorner[1]);
+line.SetPosition(2, penCorner[3]);
+line.SetPosition(3, penCorner[0]);
+line.SetPosition(4, penCorner[2]);
+addColliderToLine(penCorner[4], penCorner[1]);
+addColliderToLine(penCorner[1], penCorner[3]);
+addColliderToLine(penCorner[3], penCorner[0]);
+addColliderToLine(penCorner[0], penCorner[2]);
+addColliderToLine(penCorner[2], penCorner[4]);
+
+}
+*/
+
     public void createPara()
     {
         dis = 0.4f;
 
         //pingxing
         angle = 45;
-        rectlenth = 0.1f;
-        rectheight = 0.1f;
 
         Frame = "para";
         clear();
@@ -335,7 +479,7 @@ public void createTri()
         paraCorner = new Vector3[4];
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         up = Vector3.up;
@@ -388,7 +532,7 @@ public void createTri()
         resize();
 
         forward = head.transform.forward.normalized;
-        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized; 
+        // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
         right = Vector3.right;
 
         // up = head.transform.up.normalized;
@@ -460,22 +604,18 @@ public void createTri()
             redoRect();}
         else if(Frame == "circle"){//用三个锚点画
             redoCircle(anchor);}
-        else if(Frame == "tri"){    
+        else if(Frame == "tri"){
             redoTri();}
-        else if(Frame == "pen"){    
+        else if(Frame == "pen"){
             redoPen();}
-        else if(Frame == "para"){    
+        else if(Frame == "para"){
             redoPara();}
 
     }
     public void redoRect(){
-        for (int i = 0; i <= 3; i++)
-        {
+        line.positionCount = 4;
+        for (int i = 0; i <= 3; i++){
             line.SetPosition(i, cor[i].transform.position);
-            if (i == 3)
-            {
-                line.SetPosition(4, cor[0].transform.position);
-            }
         }
     }
     public void redoCircle(List<GameObject> anchor)
@@ -505,33 +645,37 @@ public void createTri()
 
     }
     public void redoTri()
-    {   
+    {
+            line.positionCount = 3;
             for(int i = 0;i<=2;i++){
             line.SetPosition(i,cor[i].transform.position);
-            if(i==2){
-                line.SetPosition(3,cor[0].transform.position);}
         }
-    }    
+    }
     public void redoPen()
-    {   
+    {
+            line.positionCount = 5;
             for(int i = 0;i<=5;i++){
             line.SetPosition(i,cor[i].transform.position);
-            if(i==2){
-                line.SetPosition(3,cor[0].transform.position);}
+        }
+    }
+    public void redoStar()
+    {
+            line.positionCount = 5;
+            for(int i = 0;i<=5;i++){
+            line.SetPosition(i,cor[i].transform.position);
         }
     }
     public void redoPara()
-    {   
+    {
+            line.positionCount = 4;
             for(int i = 0;i<=3;i++){
             line.SetPosition(i,cor[i].transform.position);
-            if(i==2){
-                line.SetPosition(3,cor[0].transform.position);}
         }
     }
 
-   
-    
-    
+
+
+
 
 
     private Vector3 CalculateTriangleOutCircleCenter(Vector3 A, Vector3 B, Vector3 C)
@@ -615,7 +759,7 @@ public void createTri()
     }
     private void addColliderToLine(Vector3 startPos,Vector3 endPos)
     {
-        
+
         BoxCollider col = new GameObject("Edge").AddComponent<BoxCollider>();
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
