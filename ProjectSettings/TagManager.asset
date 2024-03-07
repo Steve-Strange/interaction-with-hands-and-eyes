@@ -7,6 +7,7 @@ TagManager:
   - Target
   - FinalObject
   - AgentObject
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - toIgnore
+  - objects
   - 
   - 
   - 
