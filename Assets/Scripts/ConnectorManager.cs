@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class ConnectorManager : MonoBehaviour
     public TMP_Text t1;
     public TMP_Text t2;
     public GameObject AgentObject;
+    private Quaternion FrameRotation;
 
     // public TMP_InputField log;
 
@@ -42,21 +44,26 @@ public class ConnectorManager : MonoBehaviour
             {
                 frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
             }
-            else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 2)
-            {
-                newOffset = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position;
-                frameScale.x = originalOffset.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset.x);
-                frameScale.y = originalOffset.y == 0 ? 0 : Mathf.Abs(newOffset.y/originalOffset.y);
-                frameScale.z = originalOffset.z == 0 ? 0 : Mathf.Abs(newOffset.z/originalOffset.z);
+            // else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 2)
+            // {
+            //     newOffset = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position;
+            //     frameScale.x = originalOffset.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset.x);
+            //     frameScale.y = originalOffset.y == 0 ? 0 : Mathf.Abs(newOffset.y/originalOffset.y);
+            //     frameScale.z = originalOffset.z == 0 ? 0 : Mathf.Abs(newOffset.z/originalOffset.z);
 
-                // frameScale = new Vector3(Mathf.Abs(newOffset.x/originalOffset.x), Mathf.Abs(newOffset.y/originalOffset.y), Mathf.Abs(newOffset.z/originalOffset.z));
-                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position -
-                new Vector3(vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].x * frameScale.x ,vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].y * frameScale.y, vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].z * frameScale.z);
+            //     // frameScale = new Vector3(Mathf.Abs(newOffset.x/originalOffset.x), Mathf.Abs(newOffset.y/originalOffset.y), Mathf.Abs(newOffset.z/originalOffset.z));
+            //     frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position -
+            //     new Vector3(vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].x * frameScale.x ,vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].y * frameScale.y, vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].z * frameScale.z);
+            // }
+            else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 2){
+                newOffset = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position;
+                FrameRotation = Quaternion.FromToRotation(originalOffset, newOffset);
+                
             }
 
             foreach (var obj in Objects)
             {
-                obj.transform.position = frameCenter + new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
+                obj.transform.position = frameCenter + FrameRotation * new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
             }
             AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus = false;
             frame.GetComponent<frame>().updateFrame();
