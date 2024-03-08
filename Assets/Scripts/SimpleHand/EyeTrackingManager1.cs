@@ -11,8 +11,10 @@ public class EyeTrackingManager1 : MonoBehaviour
     public GameObject Models;
     public Transform Greenpoint;
     public GameObject SpotLight;
-    public GameObject ray;
-    
+    public GameObject rayVisualizer;
+    public TMP_Text t;
+    public TMP_Text t2;
+
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;
     private Matrix4x4 headPoseMatrix;
@@ -22,29 +24,21 @@ public class EyeTrackingManager1 : MonoBehaviour
     public Vector3 combineEyeGazeOriginInWorldSpace;
     private float leftEyeOpenness;
     private float rightEyeOpenness;
-    public GameObject GrabAgentObject1;
+    public GameObject GrabAgentObject;
     private GameObject SightCone;
 
-    public GameObject HandPoseManager;
-    public Material highlightMaterial;
-    public GameObject eyeSelectedObject;
-    public Material originalMaterial;
-
-    public GameObject FinalObject;
-    
-    public GameObject blinkSelectedObject;
     private float closeEyesTime = 0f;
     public bool isEyesOpen = true;
     
 
-    public void AddOutline(GameObject target, Color color)
+   /* public void AddOutline(GameObject target, Color color)
     {
         if (target.GetComponent<Outline>() == null)
         {
             target.AddComponent<Outline>();
             target.GetComponent<Outline>().OutlineColor = color;
         }
-    }
+    }*/
     int mark;
     void Start()
     {
@@ -52,14 +46,13 @@ public class EyeTrackingManager1 : MonoBehaviour
         combineEyeGazeVector = Vector3.zero;
         combineEyeGazeOrigin = Vector3.zero;
         originPoseMatrix = Origin.localToWorldMatrix;
-        HandPoseManager = GameObject.Find("HandPoseManager");
         SightCone = GameObject.Find("SightCone");
        
     }
 
     void Update()
     {
-
+        t.text = closeEyesTime.ToString();
         PXR_EyeTracking.GetHeadPosMatrix(out headPoseMatrix);
         PXR_EyeTracking.GetCombineEyeGazeVector(out combineEyeGazeVector);
         PXR_EyeTracking.GetCombineEyeGazePoint(out combineEyeGazeOrigin);
@@ -88,10 +81,12 @@ public class EyeTrackingManager1 : MonoBehaviour
     
     void BlinkSelect(){
 
-        if(ray.GetComponent<RayVisualizer>().target!=null & mark == 0)
+        if(rayVisualizer.GetComponent<RayVisualizer>().target!=null & mark == 0)
         {
+            t2.text = "yesselect";
             mark = 1;
-            GrabAgentObject1.GetComponent<GrabAgentObject1>().MovingObject.Add(ray.GetComponent<RayVisualizer>().target);
+            GrabAgentObject.SetActive(true);
+            GrabAgentObject.GetComponent<GrabAgentObject1>().MovingObject.Add(rayVisualizer.GetComponent<RayVisualizer>().target);
         }
 
     }

@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 public class Bubble : MonoBehaviour
 {
     public GameObject[] objects;
+    int layerMask;
+    LineRenderer l;
     public GameObject palm;
     private Vector3 palmOrigin;
     private Vector3 bubbleOrigin;
@@ -15,13 +18,14 @@ public class Bubble : MonoBehaviour
     float[] IntD = new float[1000];
     float[] ConD = new float[1000];
     float radius;
+    public TMP_Text t;
     int i, j;
 
     public GameObject[] target = new GameObject[3];
-    public GameObject hand,
-        index0, index1, index2, index3, index4,
-        middle0, middle1, middle2, middle3,
-        ring0, ring1, ring2, ring3;
+    public GameObject 
+         index1, index2, index3,
+         middle1, middle2, middle3,
+         ring1, ring2, ring3;
 
     private float[] d = new float[5];
     private float[] ad = new float[5];
@@ -42,6 +46,7 @@ public class Bubble : MonoBehaviour
 
     private void Awake()
     {
+        layerMask = 1 << 6;
         _sphereCollider = GetComponent<SphereCollider>();
     }
 
@@ -152,6 +157,7 @@ public class Bubble : MonoBehaviour
     void Start()
     {
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
+        l = GetComponent<LineRenderer>();
         mark = 0;
         foreach (var item in LINE)
         {
@@ -176,6 +182,11 @@ public class Bubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        l.SetPosition(0, palm.transform.position);
+        l.SetPosition(1, -palm.transform.up* 100);
+        l.endWidth = 0.01f;
+        l.startWidth = 0.01f;
+
         decideCenter();
         follow();
         changeRadius();
@@ -187,19 +198,19 @@ public class Bubble : MonoBehaviour
     }
     public void decideCenter()
     {
-        Ray ray = new Ray(palm.transform.position, palm.transform.forward);//手掌心向前发出射线
+        Ray ray = new Ray(palm.transform.position, -palm.transform.up);//手掌心向前发出射线
         RaycastHit hitInfo;
         //声明一个RaycastHit结构体，存储碰撞信息
-        if (Physics.Raycast(ray, out hitInfo))
+        if (Physics.Raycast(ray, out hitInfo, int.MaxValue, layerMask))
         {
             Debug.Log(hitInfo.collider.gameObject.name);
-            if((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 2)
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.4)
             {
                 bubbleOrigin = hitInfo.collider.gameObject.transform.position;
+                palmOrigin = palm.transform.position;
+                transform.position = bubbleOrigin;
             }
-            //这里使用了RaycastHit结构体中的collider属性
-            //因为hitInfo是一个结构体类型，其collider属性用于存储射线检测到的碰撞器。
-            //通过collider.gameObject.name，来获取该碰撞器的游戏对象的名字。
+          
         }
     }
         public void follow()
@@ -209,18 +220,26 @@ public class Bubble : MonoBehaviour
     private int time = 0;
     public void UpdateLine()
     {
+        if (target[0]) { 
         line[0].SetPosition(0, index.transform.position);
         line[0].SetPosition(1, target[0].transform.position);
-        line[1].SetPosition(0, middle.transform.position);
-        line[1].SetPosition(1, target[1].transform.position);
-        line[2].SetPosition(0, ring.transform.position);
-        line[2].SetPosition(1, target[2].transform.position);
+        }
+        if (target[1])
+        {
+            line[1].SetPosition(0, middle.transform.position);
+            line[1].SetPosition(1, target[1].transform.position);
+        }
+        if (target[2])
+        {
+            line[2].SetPosition(0, ring.transform.position);
+            line[2].SetPosition(1, target[2].transform.position);
+        }
         //注意，三个target可能是一个物体
     }
     public void UpdataTarget()
     {
         //得到所有在碰撞体内部的碰撞体
-        Collider[] colliders = Physics.OverlapSphere(transform.position, transform.GetComponent<Renderer>().bounds.size.x/2);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, transform.GetComponent<Renderer>().bounds.size.x/2,layerMask);
         Debug.Log(transform.GetComponent<Renderer>().bounds.size.x / 2);
         foreach (var item in objects)
         {
@@ -286,6 +305,7 @@ public class Bubble : MonoBehaviour
                 if(mark[select] == true){
                 choose = target[select];
                 time = 0;
+                t.text = choose.name;
             }
             else
             {
@@ -323,7 +343,7 @@ public class Bubble : MonoBehaviour
         if (-d > 0.95f)
             ad[3] = d;
     }
-    private float culculate(GameObject one, GameObject two, GameObject three)//����н�
+    private float culculate(GameObject one, GameObject two, GameObject three)
     {
         var first = one.transform.position - two.transform.position;
         var second = three.transform.position - two.transform.position;
