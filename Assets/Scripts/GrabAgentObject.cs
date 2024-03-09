@@ -121,7 +121,7 @@ public class GrabAgentObject : MonoBehaviour
                     obj.SetActive(true);
                 }
 
-            if (MovingObject.Count > 0 && FinishedObjects.Count < 2)
+            if (MovingObject.Count > 0 && FinishedObjects.Count < 3)
             {
                 if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 0.1f)
                 {

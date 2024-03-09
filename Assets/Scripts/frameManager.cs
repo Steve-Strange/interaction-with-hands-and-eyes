@@ -70,7 +70,7 @@ public class frameManager : MonoBehaviour
             {
                 log.text = "name: " + collision.gameObject.name + "\n";
                 log.text += "count: " + Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count + "\n";
-                if(Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count >= 2){
+                if(Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count >= 3){
                     // if(currentAgentObject.TryGetComponent(out Outline outline)){
                     //     outline.OutlineColor = Color.clear;
                     // }

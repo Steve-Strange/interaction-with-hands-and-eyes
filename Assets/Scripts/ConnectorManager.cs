@@ -13,7 +13,7 @@ public class ConnectorManager : MonoBehaviour
     public Vector3 frameScale;
     private GameObject HandPoseManager;
 
-    private Vector3 originalOffset;
+    private Vector3 originalOffset1, originalOffset2;
     private Vector3 newOffset;
     public List<GameObject> Objects = new List<GameObject>();
     public List<GameObject> emptyObjects = new List<GameObject>();
@@ -25,7 +25,7 @@ public class ConnectorManager : MonoBehaviour
     public GameObject AgentObject;
     private Quaternion FrameRotation;
 
-    // public TMP_InputField log;
+    public TMP_InputField log;
 
     // private LineRenderer lineRenderer;
     // public Color lineColor = Color.red; // 设置默认颜色
@@ -37,34 +37,53 @@ public class ConnectorManager : MonoBehaviour
     }
     void Update()
     {
-       // log.text = "frameCenter: " + frameCenter + "\n" + "frameScale: " + frameScale + "\n" + "originalOffset: " + originalOffset + "\n" + "newOffset: " + newOffset;
+        log.text = "frameCenter: " + frameCenter + "\n" + "frameScale: " + frameScale + "\n" + "frameRotation: " + FrameRotation;
         if(AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus){
 
             if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 1)
             {
                 frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
             }
-            // else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 2)
-            // {
-            //     newOffset = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position;
-            //     frameScale.x = originalOffset.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset.x);
-            //     frameScale.y = originalOffset.y == 0 ? 0 : Mathf.Abs(newOffset.y/originalOffset.y);
-            //     frameScale.z = originalOffset.z == 0 ? 0 : Mathf.Abs(newOffset.z/originalOffset.z);
-
-            //     // frameScale = new Vector3(Mathf.Abs(newOffset.x/originalOffset.x), Mathf.Abs(newOffset.y/originalOffset.y), Mathf.Abs(newOffset.z/originalOffset.z));
-            //     frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position -
-            //     new Vector3(vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].x * frameScale.x ,vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].y * frameScale.y, vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].z * frameScale.z);
-            // }
             else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 2){
                 newOffset = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[1].transform.position;
-                FrameRotation = Quaternion.FromToRotation(originalOffset, newOffset);
-                
+                FrameRotation = Quaternion.FromToRotation(originalOffset1, newOffset).normalized;
+                frameScale *= newOffset.magnitude / originalOffset1.magnitude;
+                // Vector3 rotatedVectorToCenter = FrameRotation * vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
+                // frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - 
+                //  new Vector3(rotatedVectorToCenter.x * frameScale.x ,rotatedVectorToCenter.y * frameScale.y, rotatedVectorToCenter.z * frameScale.z);
+
+                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - FrameRotation * 
+                 new Vector3(vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].x * frameScale.x,
+                            vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].y * frameScale.y,
+                            vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].z * frameScale.z);
             }
+            else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 3){
+                newOffset = Quaternion.Inverse(FrameRotation).normalized * (AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[2].transform.position);
+                frameScale.x = originalOffset2.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset2.x); 
+                frameScale.y = originalOffset2.y == 0 ? 0 : Mathf.Abs(newOffset.y/originalOffset2.y);
+                frameScale.z = originalOffset2.z == 0 ? 0 : Mathf.Abs(newOffset.z/originalOffset2.z);
+
+                // Vector3 rotatedVectorToCenter = FrameRotation * vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]];
+                // frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - 
+                //  new Vector3(rotatedVectorToCenter.x * frameScale.x ,rotatedVectorToCenter.y * frameScale.y, rotatedVectorToCenter.z * frameScale.z);
+
+                frameCenter = AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - FrameRotation * 
+                 new Vector3(vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].x * frameScale.x,
+                            vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].y * frameScale.y,
+                            vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].z * frameScale.z);
+            }
+
+            // foreach (var obj in Objects)
+            // {
+            //     Vector3 rotatedVectorToCenter = FrameRotation * vectorToCenter[obj];
+            //     obj.transform.position = frameCenter + new Vector3(rotatedVectorToCenter.x * frameScale.x ,rotatedVectorToCenter.y * frameScale.y, rotatedVectorToCenter.z * frameScale.z);
+            // }
 
             foreach (var obj in Objects)
             {
                 obj.transform.position = frameCenter + FrameRotation * new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
             }
+
             AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus = false;
             frame.GetComponent<frame>().updateFrame();
         }
@@ -145,7 +164,8 @@ public class ConnectorManager : MonoBehaviour
 
         frame.GetComponent<frame>().updateFrame();//更新框
 
-        originalOffset = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[1].transform.position;
+        originalOffset1 = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[1].transform.position;
+        originalOffset2 = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[2].transform.position;
 
     }
 

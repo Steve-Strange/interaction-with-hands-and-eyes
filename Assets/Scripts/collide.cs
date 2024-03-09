@@ -343,18 +343,47 @@ public class collide : MonoBehaviour
         
             anchor.Add(onFrame[0]);
             anchor.Add(onFrame[1]);*/
-            if(rectMark[0]==1 && rectMark[2]==1){         
-              anchor.Add(rect[0]);
-              anchor.Add(rect[2]);
-              GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
-              GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+            if(rectMark[0]==1 && rectMark[2]==1){
+                if(rectMark[1] == 1) 
+                {
+                    anchor.Add(rect[0]);
+                    anchor.Add(rect[1]);
+                    anchor.Add(rect[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+                    
+                }
+                else if(rectMark[3] == 1) 
+                {
+                    anchor.Add(rect[2]);
+                    anchor.Add(rect[3]);
+                    anchor.Add(rect[0]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
+                }
             }
             else if(rectMark[1] == 1 && rectMark[3] == 1)
             {
-              anchor.Add(rect[1]);
-              anchor.Add(rect[3]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                if(rectMark[0] == 1) 
+                {
+                    anchor.Add(rect[1]);
+                    anchor.Add(rect[0]);
+                    anchor.Add(rect[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                }
+                else if(rectMark[2] == 1) 
+                {
+                    anchor.Add(rect[1]);
+                    anchor.Add(rect[2]);
+                    anchor.Add(rect[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                }
             }
         }        
         if (frame.GetComponent<frame>().Frame == "circle"){
