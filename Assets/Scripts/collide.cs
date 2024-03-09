@@ -15,10 +15,10 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
-    public TMPro.TMP_Text T;
+    // public TMPro.TMP_Text T;
 
-    public TMPro.TMP_Text t;
-    public TMPro.TMP_Text t2;
+    // public TMPro.TMP_Text t;
+    // public TMPro.TMP_Text t2;
 
     public GameObject frame;  
     public string frameMark;//the mark of frame
@@ -307,7 +307,7 @@ public class collide : MonoBehaviour
             FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
             label = 0;
         }
-        t.text = FinalObjects.GetComponent<FinalObjects>().finalObj.Count.ToString();
+        // t.text = FinalObjects.GetComponent<FinalObjects>().finalObj.Count.ToString();
     }
     
     void Start()
@@ -537,12 +537,12 @@ public class collide : MonoBehaviour
             //maybe need three
             //connectorManager.GetComponent<ConnectorManager>().cube3 = anchor[2];
         }
-        T.text = "anchor5";
+        // T.text = "anchor5";
         /**/
         foreach (var obj in anchor){
                 obj.GetComponent<Outline>().OutlineColor = Color.green;
         }
-        T.text = "anchor6";
+        // T.text = "anchor6";
     }
     // Update is called once per frame
   

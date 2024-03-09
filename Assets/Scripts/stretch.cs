@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class stretch : MonoBehaviour
 {
  
-    public TMP_Text text;
+    // public TMP_Text text;
     public GameObject ob;
     // Start is called before the first frame update
     void Start()
@@ -16,11 +16,11 @@ public class stretch : MonoBehaviour
     }
     public void stretch1()
     {
-        text.text = "yes";
+        // text.text = "yes";
     }
     public void stretch2()
     {
-        text.text = "no";
+        // text.text = "no";
     }
 
     // Update is called once per frame

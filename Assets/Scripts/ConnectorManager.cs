@@ -19,13 +19,13 @@ public class ConnectorManager : MonoBehaviour
     public List<GameObject> emptyObjects = new List<GameObject>();
     public Dictionary<GameObject, Vector3> vectorToCenter = new Dictionary<GameObject, Vector3>();
 
-    public TMP_Text T;
-    public TMP_Text t1;
-    public TMP_Text t2;
+    // public TMP_Text T;
+    // public TMP_Text t1;
+    // public TMP_Text t2;
     public GameObject AgentObject;
     private Quaternion FrameRotation;
 
-    public TMP_InputField log;
+    // public TMP_InputField log;
 
     // private LineRenderer lineRenderer;
     // public Color lineColor = Color.red; // 设置默认颜色
@@ -37,7 +37,7 @@ public class ConnectorManager : MonoBehaviour
     }
     void Update()
     {
-        log.text = "frameCenter: " + frameCenter + "\n" + "frameScale: " + frameScale + "\n" + "frameRotation: " + FrameRotation;
+    //     log.text = "frameCenter: " + frameCenter + "\n" + "frameScale: " + frameScale + "\n" + "frameRotation: " + FrameRotation;
         if(AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus){
 
             if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 1)

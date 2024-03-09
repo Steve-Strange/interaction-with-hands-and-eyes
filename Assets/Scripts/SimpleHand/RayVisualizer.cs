@@ -9,7 +9,7 @@ public class RayVisualizer : MonoBehaviour
     public GameObject finger1;
     public GameObject finger2;
     public GameObject target;
-    public TMP_Text t;
+    // public TMP_Text t;
     int layerMask;
 
     void Start()

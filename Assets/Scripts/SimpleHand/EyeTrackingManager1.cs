@@ -12,8 +12,8 @@ public class EyeTrackingManager1 : MonoBehaviour
     public Transform Greenpoint;
     public GameObject SpotLight;
     public GameObject rayVisualizer;
-    public TMP_Text t;
-    public TMP_Text t2;
+    // public TMP_Text t;
+    // public TMP_Text t2;
 
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;
@@ -52,7 +52,7 @@ public class EyeTrackingManager1 : MonoBehaviour
 
     void Update()
     {
-        t.text = closeEyesTime.ToString();
+        // t.text = closeEyesTime.ToString();
         PXR_EyeTracking.GetHeadPosMatrix(out headPoseMatrix);
         PXR_EyeTracking.GetCombineEyeGazeVector(out combineEyeGazeVector);
         PXR_EyeTracking.GetCombineEyeGazePoint(out combineEyeGazeOrigin);
@@ -83,7 +83,7 @@ public class EyeTrackingManager1 : MonoBehaviour
 
         if(rayVisualizer.GetComponent<RayVisualizer>().target!=null & mark == 0)
         {
-            t2.text = "yesselect";
+            // t2.text = "yesselect";
             mark = 1;
             GrabAgentObject.SetActive(true);
             GrabAgentObject.GetComponent<GrabAgentObject1>().MovingObject.Add(rayVisualizer.GetComponent<RayVisualizer>().target);

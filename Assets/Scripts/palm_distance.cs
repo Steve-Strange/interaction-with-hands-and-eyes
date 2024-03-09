@@ -7,13 +7,13 @@ public class palm_distance : MonoBehaviour
 {
     public GameObject leftPalm;
     public GameObject head;
-    public TMP_Text distance_text;
-    public TMP_Text forward_x;
-    public TMP_Text forward_z;
-    public TMP_Text palm_x;
-    public TMP_Text palm_z;
-    public TMP_Text gap_x;
-    public TMP_Text gap_z;
+    // public TMP_Text distance_text;
+    // public TMP_Text forward_x;
+    // public TMP_Text forward_z;
+    // public TMP_Text palm_x;
+    // public TMP_Text palm_z;
+    // public TMP_Text gap_x;
+    // public TMP_Text gap_z;
     public Vector3 forward;
     public GameObject boxCol;//注视点中心物体
     public float length;
@@ -44,12 +44,12 @@ public class palm_distance : MonoBehaviour
         float x = leftPalm.transform.position.x - head.transform.position.x;
         Vector3 dis = new Vector3(x,  0,z);
         float distance = Vector3.Dot(dis,forward);
-        distance_text.text = distance.ToString();
-        palm_x.text = leftPalm.transform.position.x.ToString();
-        palm_z.text = leftPalm.transform.position.z.ToString();
-        forward_x.text = forward.x.ToString();
-        forward_z.text = forward.z.ToString();
-        gap_x.text = x.ToString();
-        gap_z.text = z.ToString();
+        // distance_text.text = distance.ToString();
+        // palm_x.text = leftPalm.transform.position.x.ToString();
+        // palm_z.text = leftPalm.transform.position.z.ToString();
+        // forward_x.text = forward.x.ToString();
+        // forward_z.text = forward.z.ToString();
+        // gap_x.text = x.ToString();
+        // gap_z.text = z.ToString();
     }
 }
