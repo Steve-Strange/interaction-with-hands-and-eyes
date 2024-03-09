@@ -46,15 +46,20 @@ public class collide : MonoBehaviour
     private List<Vector3> circlePosition;
     public int mark = 0;
 
-    public GameObject[] para = new GameObject[2];// 
+    public GameObject[] para = new GameObject[3];// 
     private Vector3[] paraCorner;
     private List<Vector3> paraPosition;
     public int[] paraMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
-    public GameObject[] pen = new GameObject[2];//
+    public GameObject[] pen = new GameObject[3];//
     private Vector3[] penCorner;
     private List<Vector3> penPosition;
     public int[] penMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
+
+    public GameObject[] star = new GameObject[3];//
+    private Vector3[] starCorner;
+    private List<Vector3> starPosition;
+    public int[] starMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
     public GameObject[] cube = new GameObject[8];// 
     private Vector3[] cubeCorner;
@@ -367,6 +372,7 @@ public class collide : MonoBehaviour
           
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[0]);
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[1]);
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[2]);
         }
         if (frame.GetComponent<frame>().Frame == "tri"){
                 anchor.Add(tri[0]);
@@ -374,36 +380,85 @@ public class collide : MonoBehaviour
                 anchor.Add(tri[2]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[0]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[1]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[3]);
         }
 
         if (frame.GetComponent<frame>().Frame == "para"){
             if (paraMark[0]==1 && paraMark[2]==1)
-            {
+            {   if(paraMark[1] == 1)
+                { 
                 anchor.Add(para[0]);
-                anchor.Add(para[2]);
+                    anchor.Add(para[1]);
+                    anchor.Add(para[2]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[0]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[2]);
+                
+                }
+                else if (paraMark[3] == 1)
+                {
+                    anchor.Add(para[0]);
+                    anchor.Add(para[3]);
+                    anchor.Add(para[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[0]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[2]);
+
+                }
             }
             else if (paraMark[1]==1 && paraMark[3] ==1 )
             {
+                if (paraMark[0] == 1) { 
                 anchor.Add(para[1]);
-                anchor.Add(para[3]);
+                    anchor.Add(para[0]);
+                    anchor.Add(para[3]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[1]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[0]);
+                }
+                else if (paraMark[2] == 1)
+                {
+                    anchor.Add(para[1]);
+                    anchor.Add(para[2]);
+                    anchor.Add(para[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[2]);
+                }
             }
         }
         if (frame.GetComponent<frame>().Frame == "pen"){
             int k=0;
-            for(int i = 0;i<=4;i++)
+            for (int z = 0; z <= 4; z++)
+            for (int i = 0;i<=4;i++)
             for(int j = 0;j<=4;j++)
-            if(i!=j&&penMark[i]==1 && penMark[j]==1&k==0)
+            if(i!=j&&penMark[i]==1 && penMark[j]==1&k==0 && penMark[z] == 1)
             {
                 anchor.Add(pen[i]);
                 anchor.Add(pen[j]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[i]);
+                            anchor.Add(pen[z]);
+                            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[i]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[j]);
-                k=1;
+                            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[z]);
+                            k =1;
             }
+        }
+        if (frame.GetComponent<frame>().Frame == "star")
+        {
+            int k = 0;
+            for (int z = 0; z <= 4; z++)
+                for (int i = 0; i <= 4; i++)
+                    for (int j = 0; j <= 4; j++)
+                        if (i != j && starMark[i] == 1 && starMark[j] == 1 & k == 0 && starMark[z] == 1)
+                        {
+                            anchor.Add(star[i]);
+                            anchor.Add(star[j]);
+                            anchor.Add(star[z]);
+                            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(star[i]);
+                            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(star[j]);
+                            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(star[z]);
+                            k = 1;
+                        }
         }
         if (frame.GetComponent<frame>().Frame == "cube"){
             // need three anchor to calculate 
@@ -506,14 +561,13 @@ public class collide : MonoBehaviour
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject[0] = anchor[0];
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = anchor[1];
             //maybe need three
-            //connectorManager.GetComponent<ConnectorManager>().cube3 = anchor[2];
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = anchor[2];
         }
-        T.text = "anchor5";
-        /**/
+   
         foreach (var obj in anchor){
                 obj.GetComponent<Outline>().OutlineColor = Color.green;
         }
-        T.text = "anchor6";
+ 
     }
     // Update is called once per frame
   
