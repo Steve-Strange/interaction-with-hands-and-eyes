@@ -18,7 +18,7 @@ public class Bubble : MonoBehaviour
     float[] IntD = new float[1000];
     float[] ConD = new float[1000];
     float radius;
-    public TMP_Text t;
+    // public TMP_Text t;
     int i, j;
 
     public GameObject[] target = new GameObject[3];
@@ -305,7 +305,7 @@ public class Bubble : MonoBehaviour
                 if(mark[select] == true){
                 choose = target[select];
                 time = 0;
-                t.text = choose.name;
+                // t.text = choose.name;
             }
             else
             {

@@ -15,12 +15,12 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
-    public TMPro.TMP_Text T;
+    // public TMPro.TMP_Text T;
 
-    public TMPro.TMP_Text t;
-    public TMPro.TMP_Text t2;
+    // public TMPro.TMP_Text t;
+    // public TMPro.TMP_Text t2;
 
-    public GameObject frame;  
+    public GameObject frame;
     public string frameMark;//the mark of frame
     public string type;
 
@@ -36,7 +36,7 @@ public class collide : MonoBehaviour
     private Vector3[] rectCorner;
     private List<Vector3> rectPosition;
     public int[] rectMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
-   
+
     public GameObject[] tri = new GameObject[3];// leftup rightup rightdown leftdown
     private Vector3[] triCorner;
     private List<Vector3> triPosition;
@@ -46,7 +46,7 @@ public class collide : MonoBehaviour
     private List<Vector3> circlePosition;
     public int mark = 0;
 
-    public GameObject[] para = new GameObject[3];// 
+    public GameObject[] para = new GameObject[3];//
     private Vector3[] paraCorner;
     private List<Vector3> paraPosition;
     public int[] paraMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -61,7 +61,7 @@ public class collide : MonoBehaviour
     private List<Vector3> starPosition;
     public int[] starMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
-    public GameObject[] cube = new GameObject[8];// 
+    public GameObject[] cube = new GameObject[8];//
     private Vector3[] cubeCorner;
     private List<Vector3> cubePosition;
     public int[] cubeMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -99,7 +99,7 @@ public class collide : MonoBehaviour
             now.GetComponent<Outline>().OutlineColor = Color.clear;
             if (frame.GetComponent<frame>().Frame == "rect"){
 
-                rectPosition = frame.GetComponent<frame>().rectPosition;//line 
+                rectPosition = frame.GetComponent<frame>().rectPosition;//line
                 for (int i = 0; i < rectPosition.Count; i++)
                 {
                      if ((now.transform.position - rectPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -108,16 +108,16 @@ public class collide : MonoBehaviour
 
                 }
                 //边角的优先级更靠前
-                rectCorner = frame.GetComponent<frame>().rectCorner;//line 
+                rectCorner = frame.GetComponent<frame>().rectCorner;//line
                 for (int i = 0; i <= 3; i++)
                     if ((now.transform.position - rectCorner[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
                         now.GetComponent<Outline>().OutlineColor = Color.blue;
                     }
-               
+
             }
             if (frame.GetComponent<frame>().Frame == "circle"){
 
-                circlePosition = frame.GetComponent<frame>().circlePosition; 
+                circlePosition = frame.GetComponent<frame>().circlePosition;
                 for(int i = 0; i < circlePosition.Count; i++)
                 {
                      if ((now.transform.position - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -131,7 +131,7 @@ public class collide : MonoBehaviour
 
             }
             if (frame.GetComponent<frame>().Frame == "tri"){
-                triPosition = frame.GetComponent<frame>().triPosition;//line 
+                triPosition = frame.GetComponent<frame>().triPosition;//line
                 for(int i = 0; i < triPosition.Count; i++)
                 {
                      if ((now.transform.position - triPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -147,7 +147,7 @@ public class collide : MonoBehaviour
                     }
             }
             if (frame.GetComponent<frame>().Frame == "pen"){
-                penPosition = frame.GetComponent<frame>().penPosition;//line 
+                penPosition = frame.GetComponent<frame>().penPosition;//line
                 for(int i = 0; i < penPosition.Count; i++)
                 {
                      if ((now.transform.position - penPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -164,7 +164,7 @@ public class collide : MonoBehaviour
             }
 
             if (frame.GetComponent<frame>().Frame == "para"){
-                paraPosition = frame.GetComponent<frame>().paraPosition;//line 
+                paraPosition = frame.GetComponent<frame>().paraPosition;//line
                 for(int i = 0; i < paraPosition.Count; i++)
                 {
                      if ((now.transform.position - paraPosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -179,7 +179,7 @@ public class collide : MonoBehaviour
                     }
             }
             if (frame.GetComponent<frame>().Frame == "cube"){//要能确定新的长宽高
-                cubePosition = frame.GetComponent<frame>().cubePosition;//line 
+                cubePosition = frame.GetComponent<frame>().cubePosition;//line
                 for(int i = 0; i < cubePosition.Count; i++)
                 {
                      if ((now.transform.position - cubePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -201,7 +201,7 @@ public class collide : MonoBehaviour
         finalObj[0].transform.rotation = finalObjQ[now];
         if (frame.GetComponent<frame>().Frame == "rect")//解决空指针出错的问题
         {
-            rectPosition = frame.GetComponent<frame>().rectPosition;//line 
+            rectPosition = frame.GetComponent<frame>().rectPosition;//line
             for (int i = 0; i < rectPosition.Count; i++)
             {
                 if ((finalObj[0].transform.position - rectPosition[i]).magnitude < 0.02){
@@ -210,7 +210,7 @@ public class collide : MonoBehaviour
 
             }
 
-            rectCorner = frame.GetComponent<frame>().rectCorner;//line 
+            rectCorner = frame.GetComponent<frame>().rectCorner;//line
             for (int i = 0; i <= 3; i++)
                 if ((finalObj[0].transform.position - rectCorner[i]).magnitude < 0.02)
                 {//有资格当anchor的变成蓝色
@@ -223,7 +223,7 @@ public class collide : MonoBehaviour
 
         if (frame.GetComponent<frame>().Frame == "circle")
         {
-        
+
                 circlePosition = frame.GetComponent<frame>().circlePosition;
                 for(int i = 0; i < circlePosition.Count; i++)
                 {
@@ -235,10 +235,10 @@ public class collide : MonoBehaviour
                 circle[mark] = finalObj[0];
                 finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
             }
-            
+
                     }
 
-                }    
+                }
                 mark++;
 
         }
@@ -292,12 +292,12 @@ public class collide : MonoBehaviour
         onFrame.Add(finalObj[0]);
         finalObj.RemoveAt(0);
         label = 0;
-        
+
     }
-  
+
     public void getFinalObject()
     {
-     
+
         finalObj = FinalObjects.GetComponent<FinalObjects>().finalObj;
         finalObjQ = FinalObjects.GetComponent<FinalObjects>().finalObjQ;
     }
@@ -312,9 +312,9 @@ public class collide : MonoBehaviour
             FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
             label = 0;
         }
-        t.text = FinalObjects.GetComponent<FinalObjects>().finalObj.Count.ToString();
+        // t.text = FinalObjects.GetComponent<FinalObjects>().finalObj.Count.ToString();
     }
-    
+
     void Start()
     {
         p = pinch.GetComponent<pinch>();
@@ -345,31 +345,60 @@ public class collide : MonoBehaviour
         if (frame.GetComponent<frame>().Frame == "rect"){
             /*GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(onFrame[0]);
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(onFrame[1]);//!!!改这里
-        
+
             anchor.Add(onFrame[0]);
             anchor.Add(onFrame[1]);*/
-            if(rectMark[0]==1 && rectMark[2]==1){         
-              anchor.Add(rect[0]);
-              anchor.Add(rect[2]);
-              GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
-              GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+            if(rectMark[0]==1 && rectMark[2]==1){
+                if(rectMark[1] == 1)
+                {
+                    anchor.Add(rect[0]);
+                    anchor.Add(rect[1]);
+                    anchor.Add(rect[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+
+                }
+                else if(rectMark[3] == 1)
+                {
+                    anchor.Add(rect[2]);
+                    anchor.Add(rect[3]);
+                    anchor.Add(rect[0]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
+                }
             }
             else if(rectMark[1] == 1 && rectMark[3] == 1)
             {
-              anchor.Add(rect[1]);
-              anchor.Add(rect[3]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                if(rectMark[0] == 1)
+                {
+                    anchor.Add(rect[1]);
+                    anchor.Add(rect[0]);
+                    anchor.Add(rect[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[0]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                }
+                else if(rectMark[2] == 1)
+                {
+                    anchor.Add(rect[1]);
+                    anchor.Add(rect[2]);
+                    anchor.Add(rect[3]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[1]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[2]);
+                    GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(rect[3]);
+                }
             }
-        }        
+        }
         if (frame.GetComponent<frame>().Frame == "circle"){
-         
+
             anchor.Add(circle[0]);
-           
+
             anchor.Add(circle[1]);
-        
+
             anchor.Add(circle[2]);
-          
+
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[0]);
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[1]);
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[2]);
@@ -386,14 +415,14 @@ public class collide : MonoBehaviour
         if (frame.GetComponent<frame>().Frame == "para"){
             if (paraMark[0]==1 && paraMark[2]==1)
             {   if(paraMark[1] == 1)
-                { 
+                {
                 anchor.Add(para[0]);
                     anchor.Add(para[1]);
                     anchor.Add(para[2]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[0]);
                     GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[1]);
                     GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(para[2]);
-                
+
                 }
                 else if (paraMark[3] == 1)
                 {
@@ -408,7 +437,7 @@ public class collide : MonoBehaviour
             }
             else if (paraMark[1]==1 && paraMark[3] ==1 )
             {
-                if (paraMark[0] == 1) { 
+                if (paraMark[0] == 1) {
                 anchor.Add(para[1]);
                     anchor.Add(para[0]);
                     anchor.Add(para[3]);
@@ -461,7 +490,7 @@ public class collide : MonoBehaviour
                         }
         }
         if (frame.GetComponent<frame>().Frame == "cube"){
-            // need three anchor to calculate 
+            // need three anchor to calculate
             if (cube[0] && cube[2] && cube[5])//0，2，5
             {
                 anchor.Add(cube[0]);
@@ -563,16 +592,15 @@ public class collide : MonoBehaviour
             //maybe need three
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject[1] = anchor[2];
         }
-   
+
         foreach (var obj in anchor){
                 obj.GetComponent<Outline>().OutlineColor = Color.green;
         }
- 
+
     }
     // Update is called once per frame
-  
+
 
 
 
 }
-                                                                                                                                                                                                                                                          

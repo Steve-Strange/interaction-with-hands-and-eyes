@@ -6,8 +6,8 @@ using UnityEngine;
 public class frameManager : MonoBehaviour
 {
     public GameObject frame;
-    public TMP_Text t;
-    public TMP_Text t2;
+    // public TMP_Text t;
+    // public TMP_Text t2;
     public TMP_InputField log;
     public GameObject FinalObjects;
     private bool releaseState = false;
@@ -23,7 +23,7 @@ public class frameManager : MonoBehaviour
 
     void Update()
     {
-        t2.text = "ReleaseState: " + releaseState.ToString();
+        // t2.text = "ReleaseState: " + releaseState.ToString();
 
         if(releaseState == true && gameObject.GetComponent<pinch>().ispinch == false){
             releaseState = false;
@@ -36,7 +36,7 @@ public class frameManager : MonoBehaviour
         if(gameObject.GetComponent<pinch>().ispinch == true && releaseState == false){
             releaseState = true;
             if(collision.gameObject.name  == "rect"){
-                t.text = "Rect";
+                // t.text = "Rect";
                 frame.GetComponent<frame>().creatRect();
                 
             }
@@ -70,7 +70,7 @@ public class frameManager : MonoBehaviour
             {
                 log.text = "name: " + collision.gameObject.name + "\n";
                 log.text += "count: " + Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count + "\n";
-                if(Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count >= 2){
+                if(Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count >= 3){
                     // if(currentAgentObject.TryGetComponent(out Outline outline)){
                     //     outline.OutlineColor = Color.clear;
                     // }

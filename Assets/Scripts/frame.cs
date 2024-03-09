@@ -9,8 +9,7 @@ public class frame : MonoBehaviour
     public GameObject connectorManager;
     public GameObject[] cor;//透明物体，其位置用于标记顶点；
     public GameObject collideObject;
-    public TMP_Text t;
-
+    // public TMP_Text t;
 
     private Vector3 forward;//第2阶段生成框那个瞬间所用的
     private Vector3 right;

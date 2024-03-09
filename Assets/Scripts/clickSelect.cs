@@ -19,7 +19,7 @@ public class clickSelect : MonoBehaviour
     private float[] gap = new float[5];
     public RaycastHit thumb, index, middle, ring, little;
    // public TMP_Text  T2, T3, T4, T5, T6;
-    public TMP_InputField log;
+    // public TMP_InputField log;
     private GameObject SightCone;
 
     //private float angle, angle1, angle2, angle3, angle4, angleLast;
@@ -100,7 +100,7 @@ public class clickSelect : MonoBehaviour
     {
         
         selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
-        log.text = string.Join(",", FinalObjects.GetComponent<FinalObjects>().finalObj);
+        // log.text = string.Join(",", FinalObjects.GetComponent<FinalObjects>().finalObj);
 
         /*if(selectedRow[0])
             T2.text = selectedRow[0].name;
