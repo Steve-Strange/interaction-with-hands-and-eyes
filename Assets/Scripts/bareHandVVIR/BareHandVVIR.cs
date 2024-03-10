@@ -2,56 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class BareHandVVIR : MonoBehaviour
-    {//¿ÉÒÔ³¢ÊÔºóĞø¼ÓÉÏÑÛÉñ×¢ÊÓ
+    {//å¯ä»¥å°è¯•åç»­åŠ ä¸Šçœ¼ç¥æ³¨è§†
 
-        // public GameObject mainCameraObject; // VRÏà»ú¶ÔÏó,ĞèÒªÍÏÈë
+        public GameObject mainCameraObject; // VRç›¸æœºå¯¹è±¡,éœ€è¦æ‹–å…¥
         private LineRenderer line;
         public GameObject select;
 
-        //ÎÒµÄĞéÄâÊÖÕÆ
-        public GameObject rightHand; // ĞèÒªÍÏÈë
+        //æˆ‘çš„è™šæ‹Ÿæ‰‹æŒ
+        public GameObject rightHand; // éœ€è¦æ‹–å…¥
 
-        // µ¥ÊÖ²Ù×÷¿Õ¼äÏà¹ØĞÅÏ¢
-        public float userArmLength; // ÓÃ»§ÊÖ±Û³¤¶È£¬ĞèÒªÊäÈë
-        public float userBoomLength; // ÓÃ»§´ó±Û³¤¶È£¬ÓÃÓÚ¼ÆËãÊÖÖâÎ»ÖÃ
+        // å•æ‰‹æ“ä½œç©ºé—´ç›¸å…³ä¿¡æ¯
+        public float userArmLength; // ç”¨æˆ·æ‰‹è‡‚é•¿åº¦ï¼Œéœ€è¦è¾“å…¥
+        public float userBoomLength; // ç”¨æˆ·å¤§è‡‚é•¿åº¦ï¼Œç”¨äºè®¡ç®—æ‰‹è‚˜ä½ç½®
 
-        // ÊÓ¿ÚÏà¹ØĞÅÏ¢
+        // è§†å£ç›¸å…³ä¿¡æ¯
         private Camera mainCamera;
-        private float halfFov; // ´¹Ö±FOVÒ»°ë£¬»¡¶È
-        private float aspectFov; // ÊÓ×¶ÌåµÄ¿í¸ß±È
+        private float halfFov; // å‚ç›´FOVä¸€åŠï¼Œå¼§åº¦
+        private float aspectFov; // è§†é”¥ä½“çš„å®½é«˜æ¯”
         public float farPlaneValue;
 
-        // ¸¸ÎïÌåÎªHeadµÄÊÖ±ú¶ÔÏó¸´ÖÆ
+        // çˆ¶ç‰©ä½“ä¸ºHeadçš„æ‰‹æŸ„å¯¹è±¡å¤åˆ¶
         public GameObject localHandle;
 
         /// <summary>
-        /// ²Ù×÷Á÷³ÌÏà¹Ø±äÁ¿
+        /// æ“ä½œæµç¨‹ç›¸å…³å˜é‡
         /// </summary>
-        // 1.ÊÖ±ú°´¼ü»ñÈ¡¼ç°òÎ»ÖÃ
-        public GameObject userShoulder; // ÓÃ»§¼ç°ò¶ÔÏó£¬ĞèÒªÍÏÈë
-        //public SteamVR_Action_Boolean selectUserShoulder; //¸ÄÎªÔ¤´¦Àí
+        // 1.æ‰‹æŸ„æŒ‰é”®è·å–è‚©è†€ä½ç½®
+        public GameObject userShoulder; // ç”¨æˆ·è‚©è†€å¯¹è±¡ï¼Œéœ€è¦æ‹–å…¥
+        //public SteamVR_Action_Boolean selectUserShoulder; //æ”¹ä¸ºé¢„å¤„ç†
         private bool isUserShoulderSampled;
-        // 2.ÊÖ±ú°´¼ü¸üĞÂÍ·²¿³¯Ïò£¨¼ç°òÎªÆä×ÓÎïÌå£©
+        // 2.æ‰‹æŸ„æŒ‰é”®æ›´æ–°å¤´éƒ¨æœå‘ï¼ˆè‚©è†€ä¸ºå…¶å­ç‰©ä½“ï¼‰
         public GameObject userHead;
-        //public SteamVR_Action_Boolean updateUserHead; // ¸üĞÂµ¥ÊÖ²Ù×÷¿Õ¼ä³¯Ïò
-        // 3.ÊÖ±ú°´¼ü¸üĞÂÊÓ¿Ú³¯Ïò
-        //2,3¸ÄÎªË«pinch×Ô¶¯»¯
-        private List<Vector3> cameraInfo; // ×ø±ê¡¢Ç°·½¡¢ÉÏ·½¡¢ÓÒ·½
-        //public SteamVR_Action_Boolean updateUserFov; // ¸üĞÂÖ÷Ïà»úÎ»ÖÃºÍ³¯Ïò
-        //ÀûÓÃÉäÏßÕ£ÑÛÀ´Ñ¡Ôñ
+        //public SteamVR_Action_Boolean updateUserHead; // æ›´æ–°å•æ‰‹æ“ä½œç©ºé—´æœå‘
+        // 3.æ‰‹æŸ„æŒ‰é”®æ›´æ–°è§†å£æœå‘
+        //2,3æ”¹ä¸ºåŒpinchè‡ªåŠ¨åŒ–
+        private List<Vector3> cameraInfo; // åæ ‡ã€å‰æ–¹ã€ä¸Šæ–¹ã€å³æ–¹
+        //public SteamVR_Action_Boolean updateUserFov; // æ›´æ–°ä¸»ç›¸æœºä½ç½®å’Œæœå‘
+        //åˆ©ç”¨å°„çº¿çœ¨çœ¼æ¥é€‰æ‹©
         public GameObject targetObject;
        
        
 
-        // ÄıÊÓÏà¹Ø½Å±¾
-        // ÑÛ²¿¸ú×ÙĞÅÏ¢
+        // å‡è§†ç›¸å…³è„šæœ¬
+        // çœ¼éƒ¨è·Ÿè¸ªä¿¡æ¯
         public GameObject GazeRaySample;
         //private SRanipal_GazeRaySample_v2 sRanipalGazeSample;
 
-        // ²ÉÑùÏà¹Ø±äÁ¿
-        //public GameObject standardObject; // ÓÃÓÚ¼ÆËãÎó²îµÄÄ¿±êÎïÌå
+        // é‡‡æ ·ç›¸å…³å˜é‡
+        //public GameObject standardObject; // ç”¨äºè®¡ç®—è¯¯å·®çš„ç›®æ ‡ç‰©ä½“
         //public bool isSampleData = false;
-        //private SMSampler smSamplerScript; // ²ÉÑù½Å±¾
+        //private SMSampler smSamplerScript; // é‡‡æ ·è„šæœ¬
 
 
         void Start()
@@ -67,9 +67,9 @@ public class BareHandVVIR : MonoBehaviour
             cameraInfo = new List<Vector3>(new Vector3[4]);
             //Debug.Log("camerainfo:" + cameraInfo.Count);
 
-            // ³õÊ¼»¯ÄıÊÓ½Å±¾
+            // åˆå§‹åŒ–å‡è§†è„šæœ¬
             //sRanipalGazeSample = GazeRaySample.GetComponent<SRanipal_GazeRaySample_v2>();
-            // ³õÊ¼»¯²ÉÑù½Å±¾
+            // åˆå§‹åŒ–é‡‡æ ·è„šæœ¬
             //if (isSampleData)
            // {
            //     smSamplerScript = GetComponent<SMSampler>();
@@ -80,35 +80,30 @@ public class BareHandVVIR : MonoBehaviour
         }
         public GameObject rightPinch;
         public GameObject leftPinch;
-    // Update is called once per frame
     void Update()
         {
-            UpdateLocalHandle();//localhandleÓëÓÒÊÖ±úÎ»ÖÃÍ¬²½
+            UpdateLocalHandle();//localhandleä¸å³æ‰‹æŸ„ä½ç½®åŒæ­¥
         if (rightPinch.GetComponent<pinch>().ispinch) { 
-            GetShoulderPosition();//¸Ä³É¹Ì¶¨µÄÏòÁ¿
+            GetShoulderPosition();//æ”¹æˆå›ºå®šçš„å‘é‡
                                   }
             if(rightPinch.GetComponent<pinch>().ispinch && leftPinch.GetComponent<pinch>().ispinch) { 
-            UpdateSHSForward();//ÓÒÊÖb
+            UpdateSHSForward();//å³æ‰‹b
 
-            UpdateUserFov();//ÓÒÊÖA
+            UpdateUserFov();//å³æ‰‹A
 }
-            /* ´ËÊ±ÓĞÄ¿±êÎïÌå
-            if (select.GetComponent<>().)
+            /* æ­¤æ—¶æœ‰ç›®æ ‡ç‰©ä½“,é€šè¿‡å°„çº¿ã€çœ¨çœ¼é€‰æ‹©
+            if (select.GetComponent<RayVisualizer>().target ï¼=null )
             {
-            targetObject = select.GetComponent<>().;
-            }else
-        {
-            targetObject = null;
-        }*/
+                targetObject = select.GetComponent<RayVisualizer>().target;
+            }
+            {
+                targetObject = null;
+            }*/
             TranslateObjectBySyncMapping();
-
-            // ²ÉÑù³ÌĞò
-
-            //SampleManipulateData();
         }
 
         /// <summary>
-        /// ¸üĞÂÊÖ±ú¸´ÖÆ¶ÔÏóµÄÊÀ½ç×ø±ê£¬ÓëÊÖ±úÍ¬²½
+        /// æ›´æ–°æ‰‹æŸ„å¤åˆ¶å¯¹è±¡çš„ä¸–ç•Œåæ ‡ï¼Œä¸æ‰‹æŸ„åŒæ­¥
         /// </summary>
         void UpdateLocalHandle()
         {
@@ -116,73 +111,62 @@ public class BareHandVVIR : MonoBehaviour
         }
 
         /// <summary>
-        /// °´¼ü»ñÈ¡¼ç°òÊÀ½ç×ø±ê
+        /// è·å–è‚©è†€ä¸–ç•Œåæ ‡
         /// </summary>
         void GetShoulderPosition()
         {
-          
-                // if (!isUserShoulderSampled)
-                {
-                    // »ñÈ¡´ËÊ±µÄÓÒÊÖÊÀ½ç×ø±ê²¢¸³Öµ¸ø¼ç°ò
-                    userShoulder.transform.position = rightHand.transform.position;
+                    var temp = new Vector3(0,0,0);
+                    // temp é€šè¿‡æµ‹è¯•è·å¾—
+                    userShoulder.transform.position = rightHand.transform.position + temp;
                     isUserShoulderSampled = true;
-                    Debug.Log("³É¹¦»ñÈ¡¼ç°ò×ø±ê");
-                }
             
         }
 
         /// <summary>
-        /// Í¨¹ı°´¼ü½«µ¥ÊÖ²Ù×÷¿Õ¼äµÄ³¯ÏòÓëVRÏà»ú³¯ÏòÍ¬²½
+        /// å°†å•æ‰‹æ“ä½œç©ºé—´çš„æœå‘ä¸VRç›¸æœºæœå‘åŒæ­¥
         /// </summary>
         void UpdateSHSForward()
         {
-                // Ö»Í¬²½yÖáºÍxÖáµÄÆ«×ª£¬zÖá²»¿¼ÂÇ
                 Vector3 eyeEulerAngle = new Vector3(0, mainCamera.transform.eulerAngles.y, mainCamera.transform.eulerAngles.z);
                 userHead.transform.eulerAngles = eyeEulerAngle;
-                // Í¬²½¿Õ¼äÎ»ÖÃ
-                userHead.transform.position = mainCamera.transform.position;
-                Debug.Log("¸üĞÂÁËµ¥ÊÖ²Ù×÷¿Õ¼äµÄ³¯Ïò");        
+                // åŒæ­¥ç©ºé—´ä½ç½®
+                userHead.transform.position = mainCamera.transform.position;   
         }
 
         /// <summary>
-        /// Í¨¹ı°´¼ü½«ÓÃ»§ÊÓÒ°³¯ÏòÓëVRÏà»ú³¯ÏòÍ¬²½
+        /// å°†ç”¨æˆ·è§†é‡æœå‘ä¸VRç›¸æœºæœå‘åŒæ­¥
         /// </summary>
         void UpdateUserFov()
         {
                 cameraInfo[0] = mainCamera.transform.position;
                 cameraInfo[1] = mainCamera.transform.forward;
                 cameraInfo[2] = mainCamera.transform.right;
-                cameraInfo[3] = mainCamera.transform.up;
-                Debug.Log("¸üĞÂÁËÓÃ»§FOVµÄTransform:");        
+                cameraInfo[3] = mainCamera.transform.up;      
         }
-
-
-
-
-
+        
         /// <summary>
-        /// ¸ù¾İÊÖ±ú¾Ö²¿×ø±ê¼ÆËãĞéÄâ¶ÔÏóÔÚ³¡¾°²Ù×÷¿Õ¼äÖĞµÄÎ»ÖÃ
-        /// µ¥ÊÖ²Ù×÷¿Õ¼äÎªÇòÌå
+        /// æ ¹æ®æ‰‹æŸ„å±€éƒ¨åæ ‡è®¡ç®—è™šæ‹Ÿå¯¹è±¡åœ¨åœºæ™¯æ“ä½œç©ºé—´ä¸­çš„ä½ç½®
+        /// å•æ‰‹æ“ä½œç©ºé—´ä¸ºçƒä½“
         /// </summary>
-        /// <param name="p_h">ÊÖ±ú×ø±ê</param>
-        /// <returns>²Ù×÷¶ÔÏóµÄ×ø±ê</returns>
+        /// <param name="p_h">æ‰‹æŸ„åæ ‡</param>
+        /// <returns>æ“ä½œå¯¹è±¡çš„åæ ‡</returns>
         Vector3 GetSMSObjectPosition(Vector3 p_h)
         {
             float d_np = mainCamera.nearClipPlane; // distance_near_plane
             float d_fp = mainCamera.farClipPlane; // distance_far_plane
-            d_fp = 7f; // ²âÊÔÊ±¹æ¶¨
-            float d_fn = d_fp - d_np; // Æ½½ØÍ·ÌåµÄ¸ß
+            d_fp = 7f; // æµ‹è¯•æ—¶è§„å®š
+            float d_fn = d_fp - d_np; // å¹³æˆªå¤´ä½“çš„é«˜
             float l_arm = userArmLength;
             Vector3 p_s = userShoulder.transform.localPosition;
 
-            Vector3 p_c = cameraInfo[0]; // Ïà»úÎ»ÖÃ
+            Vector3 p_c = cameraInfo[0]; // ç›¸æœºä½ç½®
 
             //Debug.Log("p_s:" + p_s.ToString());
             //Debug.Log("p_h:" + p_h.ToString());
 
-            // ¼ÆËãzo
+            // è®¡ç®—zo
             float z_rate = Mathf.Abs(p_h.z - p_s.z) / l_arm;
-            float z_o; // ±êÁ¿£¬Ö®ºóĞèÒª³ËÒÔ·½ÏòÏòÁ¿
+            float z_o; // æ ‡é‡ï¼Œä¹‹åéœ€è¦ä¹˜ä»¥æ–¹å‘å‘é‡
             if (p_h.z > p_s.z)
             {
                 z_o = d_np + d_fn * z_rate;
@@ -192,12 +176,12 @@ public class BareHandVVIR : MonoBehaviour
                 z_o = d_np - d_fn * z_rate;
             }
 
-            // ¼ÆËãz_o´¦µÄÆÁÄ»³¤¿í
+            // è®¡ç®—z_oå¤„çš„å±å¹•é•¿å®½
             float height_o = z_o * Mathf.Tan(halfFov);
             float width_o = height_o * aspectFov;
 
 
-            // ¼ÆËãxo
+            // è®¡ç®—xo
             float l_yx = Mathf.Sqrt(Mathf.Pow(l_arm, 2) - Mathf.Pow(p_h.y - p_s.y, 2) - Mathf.Pow(p_h.z - p_s.z, 2));
             //Debug.Log("l_yx:" + l_yx.ToString());
             float rate_h_x = Mathf.Abs(p_h.x - p_s.x) / l_yx;
@@ -212,7 +196,7 @@ public class BareHandVVIR : MonoBehaviour
                 x_o = -(width_o / 2f) * rate_h_x;
             }
 
-            // ¼ÆËãyo
+            // è®¡ç®—yo
             float l_xz = Mathf.Sqrt(Mathf.Pow(l_arm, 2) - Mathf.Pow(p_h.y - p_s.y, 2) - Mathf.Pow(p_h.x - p_s.x, 2));
             float rate_h_y = Mathf.Abs(p_h.y - p_s.y) / l_xz;
             float y_o;
@@ -226,14 +210,14 @@ public class BareHandVVIR : MonoBehaviour
                 y_o = -(height_o / 2f) * rate_h_y;
             }
 
-            // ¼ÆËãp_o
+            // è®¡ç®—p_o
             Vector3 p_o = p_c + cameraInfo[1] * z_o + cameraInfo[2] * x_o + cameraInfo[3] * y_o;
             return p_o;
 
         }
 
         /// <summary>
-        /// ¸ù¾İÊÖ±ú¾Ö²¿×ø±ê¼ÆËãĞéÄâ¶ÔÏóÎ»ÖÃ£¬µ¥ÊÖ²Ù×÷¿Õ¼äÎªµ¹Á¢°ëÇò
+        /// æ ¹æ®æ‰‹æŸ„å±€éƒ¨åæ ‡è®¡ç®—è™šæ‹Ÿå¯¹è±¡ä½ç½®ï¼Œå•æ‰‹æ“ä½œç©ºé—´ä¸ºå€’ç«‹åŠçƒ
         /// </summary>
         /// <param name="p_h"></param>
         /// <returns></returns>
@@ -241,15 +225,15 @@ public class BareHandVVIR : MonoBehaviour
         {
             float d_np = mainCamera.nearClipPlane; // distance_near_plane
             float d_fp = mainCamera.farClipPlane; // distance_far_plane
-            d_fp = farPlaneValue; // ²âÊÔÊ±¹æ¶¨
-            float d_fn = d_fp - d_np; // Æ½½ØÍ·ÌåµÄ¸ß
-            float r_arm = 1.1f * (userArmLength - userBoomLength); // ÊÊµ±·Å´óuserArmLength
+            d_fp = farPlaneValue; // æµ‹è¯•æ—¶è§„å®š
+            float d_fn = d_fp - d_np; // å¹³æˆªå¤´ä½“çš„é«˜
+            float r_arm = 1.1f * (userArmLength - userBoomLength); // é€‚å½“æ”¾å¤§userArmLength
 
-            Vector3 p_shoulder = userShoulder.transform.localPosition; // ¼ç°ò¾Ö²¿×ø±ê
-            Vector3 p_elbow = p_shoulder - userBoomLength * Vector3.down; // ÊÖÖâ×ø±ê=¼ç°ò×ø±ê-´ó±Û³¤¶È*(0,-1,0)
-            Vector3 p_camera = cameraInfo[0]; // Ïà»úÎ»ÖÃ
+            Vector3 p_shoulder = userShoulder.transform.localPosition; // è‚©è†€å±€éƒ¨åæ ‡
+            Vector3 p_elbow = p_shoulder - userBoomLength * Vector3.down; // æ‰‹è‚˜åæ ‡=è‚©è†€åæ ‡-å¤§è‡‚é•¿åº¦*(0,-1,0)
+            Vector3 p_camera = cameraInfo[0]; // ç›¸æœºä½ç½®
 
-            // ¼ÆËãzo
+            // è®¡ç®—zo
 
             float z_distance = p_h.z - p_elbow.z;
             float z_abs_dis;
@@ -270,17 +254,17 @@ public class BareHandVVIR : MonoBehaviour
 
             float z_object = d_np + d_fn * z_rate;
 
-            // ¼ÆËãz_object´¦µÄÆÁÄ»³¤¿í
+            // è®¡ç®—z_objectå¤„çš„å±å¹•é•¿å®½
             float height_object = z_object * Mathf.Tan(halfFov);
             float width_object = height_object * aspectFov;
 
 
 
             float r_xy_2 = Mathf.Pow(r_arm, 2) - Mathf.Pow(r_arm - z_abs_dis, 2);
-            if (r_xy_2 < 0) { Debug.LogError("Ó³ÉäÔ²Ãæ°ë¾¶¼ÆËãĞ¡ÓÚ0,Çë¼ì²é×ø±ê³õÊ¼»¯.."); }
-            float r_xy = Mathf.Sqrt(r_xy_2); // Ó³ÉäÔ²Ãæ°ë¾¶
+            if (r_xy_2 < 0) { Debug.LogError("æ˜ å°„åœ†é¢åŠå¾„è®¡ç®—å°äº0,è¯·æ£€æŸ¥åæ ‡åˆå§‹åŒ–.."); }
+            float r_xy = Mathf.Sqrt(r_xy_2); // æ˜ å°„åœ†é¢åŠå¾„
 
-            // ¼ÆËãx_object
+            // è®¡ç®—x_object
             float x_abs_dis = Mathf.Abs(p_h.x - p_elbow.x);
             float x_rate;
             if (x_abs_dis > r_xy)
@@ -302,7 +286,7 @@ public class BareHandVVIR : MonoBehaviour
                 x_object = -(width_object / 2f) * x_rate;
             }
 
-            // ¼ÆËãy_object
+            // è®¡ç®—y_object
 
             float y_abs_dis = Mathf.Abs(p_h.y - p_elbow.y);
             float y_rate;
@@ -326,20 +310,20 @@ public class BareHandVVIR : MonoBehaviour
                 y_object = -(height_object / 2f) * y_rate;
             }
 
-            // ¼ÆËãp_o
+            // è®¡ç®—p_o
             Vector3 p_object = p_camera + cameraInfo[1] * z_object + cameraInfo[2] * x_object + cameraInfo[3] * y_object;
             return p_object;
         }
 
 
         /// <summary>
-        /// ÎïÌåºÍÊÖ±ú½øĞĞÎ»ÖÃÓ³Éä£¬ÔÚÁ½¸ö¿Õ¼äÖĞ½øĞĞÍ¬²½
+        /// ç‰©ä½“å’Œæ‰‹æŸ„è¿›è¡Œä½ç½®æ˜ å°„ï¼Œåœ¨ä¸¤ä¸ªç©ºé—´ä¸­è¿›è¡ŒåŒæ­¥
         /// </summary>
         void TranslateObjectBySyncMapping()
         {
             if (targetObject!=null)
             {
-                targetObject.transform.position = GetSMSObjectPositionHemi(localHandle.transform.localPosition);//¸ù¾İÊÖ±úµÄÎ»ÖÃ½øĞĞÒÆ¶¯
+                targetObject.transform.position = GetSMSObjectPositionHemi(localHandle.transform.localPosition);//æ ¹æ®æ‰‹æŸ„çš„ä½ç½®è¿›è¡Œç§»åŠ¨
             }
         }
     }
