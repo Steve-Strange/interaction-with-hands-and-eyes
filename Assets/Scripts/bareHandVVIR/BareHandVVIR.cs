@@ -4,9 +4,8 @@ using UnityEngine;
 public class BareHandVVIR : MonoBehaviour
     {//可以尝试后续加上眼神注视
 
+        public GameObject bubble;
         public GameObject mainCameraObject; // VR相机对象,需要拖入
-        private LineRenderer line;
-        public GameObject select;
 
         //我的虚拟手掌
         public GameObject rightHand; // 需要拖入
@@ -22,30 +21,29 @@ public class BareHandVVIR : MonoBehaviour
         public float farPlaneValue;
 
         // 父物体为Head的手柄对象复制
-        public GameObject localHandle;
+        private GameObject localHandle;
 
         /// <summary>
         /// 操作流程相关变量
         /// </summary>
         // 1.手柄按键获取肩膀位置
-        public GameObject userShoulder; // 用户肩膀对象，需要拖入
-        //public SteamVR_Action_Boolean selectUserShoulder; //改为预处理
-        private bool isUserShoulderSampled;
+        private GameObject userShoulder; // 用户肩膀对象，需要拖入
+        
         // 2.手柄按键更新头部朝向（肩膀为其子物体）
-        public GameObject userHead;
+        private GameObject userHead;
         //public SteamVR_Action_Boolean updateUserHead; // 更新单手操作空间朝向
         // 3.手柄按键更新视口朝向
         //2,3改为双pinch自动化
         private List<Vector3> cameraInfo; // 坐标、前方、上方、右方
         //public SteamVR_Action_Boolean updateUserFov; // 更新主相机位置和朝向
         //利用射线眨眼来选择
-        public GameObject targetObject;
+        private GameObject targetObject;
        
        
 
         // 凝视相关脚本
         // 眼部跟踪信息
-        public GameObject GazeRaySample;
+        //public GameObject GazeRaySample;
         //private SRanipal_GazeRaySample_v2 sRanipalGazeSample;
 
         // 采样相关变量
@@ -57,15 +55,13 @@ public class BareHandVVIR : MonoBehaviour
         void Start()
         {
             mainCamera = Camera.main;
-            line = GetComponent<LineRenderer>();
             halfFov = (mainCamera.fieldOfView * 0.5f) * Mathf.Deg2Rad;
             aspectFov = mainCamera.aspect;
 
-            //manipulateStatus = ManipulateStatus.UNSELECTED;
-            isUserShoulderSampled = false;
+          
 
             cameraInfo = new List<Vector3>(new Vector3[4]);
-            //Debug.Log("camerainfo:" + cameraInfo.Count);
+           
 
             // 初始化凝视脚本
             //sRanipalGazeSample = GazeRaySample.GetComponent<SRanipal_GazeRaySample_v2>();
@@ -78,27 +74,39 @@ public class BareHandVVIR : MonoBehaviour
 
 
         }
-        public GameObject rightPinch;
-        public GameObject leftPinch;
+        public GameObject rightPinch1;
+        public GameObject rightPinch2;
+        public GameObject leftPinch1;
+        public GameObject leftPinch2;
+    bool ispinch(GameObject a, GameObject b)
+    {
+
+        if((a.transform.position-b.transform.position).magnitude < 0.01)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     void Update()
         {
             UpdateLocalHandle();//localhandle与右手柄位置同步
-        if (rightPinch.GetComponent<pinch>().ispinch) { 
+        if (ispinch(rightPinch1,rightPinch2)) { 
             GetShoulderPosition();//改成固定的向量
                                   }
-            if(rightPinch.GetComponent<pinch>().ispinch && leftPinch.GetComponent<pinch>().ispinch) { 
+            if(ispinch(rightPinch1, rightPinch2) && ispinch(leftPinch1, leftPinch2)) { 
             UpdateSHSForward();//右手b
 
             UpdateUserFov();//右手A
 }
-            /* 此时有目标物体,通过射线、眨眼选择
-            if (select.GetComponent<RayVisualizer>().target ！=null )
-            {
-                targetObject = select.GetComponent<RayVisualizer>().target;
-            }
-            {
+            /* 此时有目标物体,通过射线、眨眼选择*/
+            if (bubble.GetComponent<Bubble>().choose != null ){
+                targetObject = bubble.GetComponent<Bubble>().choose;
+            }else{
                 targetObject = null;
-            }*/
+            }
             TranslateObjectBySyncMapping();
         }
 
@@ -117,16 +125,14 @@ public class BareHandVVIR : MonoBehaviour
         {
                     var temp = new Vector3(0,0,0);
                     // temp 通过测试获得
-                    userShoulder.transform.position = rightHand.transform.position + temp;
-                    isUserShoulderSampled = true;
-            
-        }
+                    userShoulder.transform.localPosition = temp;
+
+    }
 
         /// <summary>
         /// 将单手操作空间的朝向与VR相机朝向同步
         /// </summary>
-        void UpdateSHSForward()
-        {
+        void UpdateSHSForward(){
                 Vector3 eyeEulerAngle = new Vector3(0, mainCamera.transform.eulerAngles.y, mainCamera.transform.eulerAngles.z);
                 userHead.transform.eulerAngles = eyeEulerAngle;
                 // 同步空间位置
@@ -136,8 +142,7 @@ public class BareHandVVIR : MonoBehaviour
         /// <summary>
         /// 将用户视野朝向与VR相机朝向同步
         /// </summary>
-        void UpdateUserFov()
-        {
+        void UpdateUserFov(){
                 cameraInfo[0] = mainCamera.transform.position;
                 cameraInfo[1] = mainCamera.transform.forward;
                 cameraInfo[2] = mainCamera.transform.right;
