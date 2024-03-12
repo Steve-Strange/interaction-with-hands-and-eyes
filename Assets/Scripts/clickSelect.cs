@@ -10,9 +10,7 @@ public class clickSelect : MonoBehaviour
     private List<GameObject> selectedRow = new List<GameObject>();
     public GameObject HandPoseManager, hand, thumb0, thumb1, thumb2, thumb3,
         index0, index1, index2, index3, index4,
-        middle0, middle1, middle2, middle3,
-        ring0, ring1, ring2, ring3,
-        little0, little1, little2, little3;
+        middle0, middle1, middle2, middle3;
     private float[] d = new float[5];
     private float[] ad = new float[5];
     private float[] angleLast = new float[5];
@@ -27,13 +25,12 @@ public class clickSelect : MonoBehaviour
 
 
     public GameObject FinalObjects;
-    // Start is called before the first frame update
     void Start()
     {
      
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
       
-        StartCoroutine("UpdateVelocity");
+        //StartCoroutine("UpdateVelocity");
         SightCone = GameObject.Find("SightCone");
     }
     private void RepeatedMethod()
@@ -55,18 +52,6 @@ public class clickSelect : MonoBehaviour
             angleLast[2] = d;
         if (-d> 0.95f)
             ad[2] = d;
-        d = culculate(ring1, ring2, ring3);
-      
-            angleLast[3] = d; 
-        if (-d > 0.95f)
-            ad[3] = d;
-
-        d = culculate(little1, little2, little3);
-       
-            angleLast[4]= d;
-         if (-d> 0.95f)
-            ad[4] = d;
-
     }
     private float culculate(GameObject one,GameObject two,GameObject three)//����н�
     {
@@ -130,61 +115,33 @@ public class clickSelect : MonoBehaviour
             d[0] = culculate(thumb1, thumb2, thumb3);//0.96-0.6   
             d[1] = culculate(index1, index2, index3);
             d[2] = culculate(middle1, middle2, middle3);
-            d[3] = culculate(ring1, ring2, ring3);
-            d[4] = culculate(little1, little2, little3);
             
             mark[0] = false;
             mark[1] = false;
             mark[2] = false;
-            mark[3] = false;
-            mark[4] = false;
 
-            if (d[0]-angleLast[0] > 0.12 && v.magnitude > 0.25)
+            if (d[0]-angleLast[0] > 0.15)
             {
                 mark[0] = true;
-
             }
-            // T.text = mark[0].ToString();
-            //T2.text = (d[0] - angleLast[0]).ToString();
-            
-
-            //T2.text = v.magnitude.ToString();
-            if (  d[1]- angleLast[1]> 0.3)//0.99-0.7(С��0.7)
+            if (  d[1]- angleLast[1]> 0.25)//0.99-0.7(С��0.7)
             {
-
                 mark[1] = true;
-
-                
-            }
+             }
         
             if ( d[2]- angleLast[2] > 0.3)//С��0.7
             {
-
                 mark[2] = true;
-
-
             }            
-            if (d[3]-angleLast[3]  > 0.2)//С��0.7
-            {
-                mark[3] = true;
-                
-            }
-           if (d[4]-angleLast[4] > 0.3)//С��0.7
-            {
-                mark[4] = true;
-
-            }
-
-            if (! (mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true || 
-                mark[0]== true && mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true ||
-                mark[1] == true && mark[2] == true && mark[3]|| d[2] - angleLast[2]>0.45 && d[1] - angleLast[1] > 0.45 ||
-                d[0] - angleLast[0] > 0.45 && d[1] - angleLast[1] > 0.45 || d[2] - angleLast[2] > 0.45 && d[0] - angleLast[0] > 0.45))//��ֹ��ȭͷ
+            //if (! (mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true || 
+            //    mark[0]== true && mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true ||
+            //    mark[1] == true && mark[2] == true && mark[3]|| d[2] - angleLast[2]>0.45 && d[1] - angleLast[1] > 0.45 ||
+            //    d[0] - angleLast[0] > 0.45 && d[1] - angleLast[1] > 0.45 || d[2] - angleLast[2] > 0.45 && d[0] - angleLast[0] > 0.45))//��ֹ��ȭͷ
             {
                 
                 float max = -1;
-                int i = 0;
-                int select = 0;
-                for (i=0;i<=4;i++)
+                int select = -1;
+                for (int i=0;i<=2;i++)
                 {
                     if(d[i]-angleLast[i]>max)
                     {
@@ -192,8 +149,7 @@ public class clickSelect : MonoBehaviour
                         select = i;
                     }
 
-                } //T2.text = select.ToString();
-                if(!(select==2&&mark[1]==true&&mark[3]==true))
+                } 
                 if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select] && selectedRow[select] != HandPoseManager.GetComponent<HandPoseManager>().emptyBlock)
                 {
                     FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[select]);

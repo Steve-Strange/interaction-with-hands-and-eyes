@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 public class Bubble : MonoBehaviour
 {
-    public GameObject[] objects;
+    public List<GameObject> objects =  new List<GameObject>();
     int layerMask;
     LineRenderer l;
     public GameObject palm;
@@ -18,7 +18,6 @@ public class Bubble : MonoBehaviour
     float[] IntD = new float[1000];
     float[] ConD = new float[1000];
     float radius;
-    // public TMP_Text t;
     int i, j;
 
     public GameObject[] target = new GameObject[3];
@@ -35,7 +34,6 @@ public class Bubble : MonoBehaviour
 
     // Start is called before the first frame update
 
-    private SphereCollider _sphereCollider;
     [SerializeField] private Material _material;
     [SerializeField] private Material defaultMaterial;
     public Material targetM;
@@ -44,49 +42,14 @@ public class Bubble : MonoBehaviour
 
     [SerializeField] private List<MeshRenderer> _meshRenderers;
 
-    private void Awake()
-    {
+    private void Awake(){
         layerMask = 1 << 6;
-        _sphereCollider = GetComponent<SphereCollider>();
-    }
+        var temp = GameObject.Find("Objects");
 
-
-    /* private void OnDrawGizmos()
-     {
-         if (_sphereCollider == null)
-             _sphereCollider = GetComponent<SphereCollider>();
-         float radius = _sphereCollider.radius;
-
-         for (int angel = 0; angel < 360; angel += 2)
-         {
-             double x = Math.Cos(angel * 1.0f);
-             double z = Math.Sin(angel * 1.0f);
-             Vector3 v3 = Vector3.one;
-             v3.y = 0;
-             v3.x = (float)x * radius;
-             v3.z = (float)z * radius;
-             Vector3 target = transform.position + v3;
-             Debug.DrawLine(transform.position, target, Color.magenta);
-         }
-
-         ResetMaterial();
-         int layer = LayerMask.GetMask("BoxCollider");
-         // Collider[] colliders = Physics.OverlapSphere(transform.position, radius, layer);
-
-         //得到所有在碰撞体内部的碰撞体
-         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-         foreach (var item in colliders)
-         {
-             item.GetComponent<Outline>().outlineColor = Color.red;
-         }
-     }*/
-
-
-    void ResetMaterial() {
-        foreach (var mr in _meshRenderers)
-        {
-            mr.material = defaultMaterial;
+        foreach (Transform t in temp.GetComponentsInChildren<Transform>()){
+            objects.Add(t.gameObject);
         }
+        
     }
     public void changeRadius()
     {
@@ -96,7 +59,7 @@ public class Bubble : MonoBehaviour
             ConD[i] = 0;
         }
 
-        for (int i = 0; i < objects.Length; i++)
+        for (int i = 0; i < objects.Count; i++)
         {
             var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices;//Vector3[]
 
@@ -117,7 +80,7 @@ public class Bubble : MonoBehaviour
         }
         float min = 1000000;
         int k = 0;
-        for (int i = 0; i < objects.Length; i++)
+        for (int i = 0; i < objects.Count; i++)
         {
             if (min > IntD[i])
             {
@@ -127,7 +90,7 @@ public class Bubble : MonoBehaviour
         }
         min = 1000000;
         int k2 = 0;
-        for (int i = 0; i < objects.Length; i++)
+        for (int i = 0; i < objects.Count; i++)
         {
             if (i != k)
                 if (min > IntD[i])
@@ -150,8 +113,6 @@ public class Bubble : MonoBehaviour
         var size = transform.GetComponent<Renderer>().bounds.size;//现在球的size
         radius = 2 * radius * transform.localScale.x / size.x;
         transform.localScale = new Vector3(radius, radius, radius);
-
-
     }
 
     void Start()
@@ -166,18 +127,19 @@ public class Bubble : MonoBehaviour
         
              line[0].startColor = Color.blue;
              line[0].endColor = Color.blue;
-             line[0].startWidth = 0.001f;
-             line[0].endWidth = 0.001f;
+
+             line[0].startWidth = 0.005f;
+             line[0].endWidth = 0.005f;
 
              line[1].startColor = Color.white;
              line[1].endColor = Color.white;
-            line[1].startWidth = 0.001f;
-            line[1].endWidth = 0.001f;
+            line[1].startWidth = 0.005f;
+            line[1].endWidth = 0.005f;
 
             line[2].startColor = Color.red;
             line[2].endColor = Color.red;
-            line[2].startWidth = 0.001f;
-            line[2].endWidth = 0.001f;
+            line[2].startWidth = 0.005f;
+            line[2].endWidth = 0.005f;
     }
     // Update is called once per frame
     void Update()
