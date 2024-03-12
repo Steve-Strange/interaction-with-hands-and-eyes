@@ -10,7 +10,6 @@ public class EyeTrackingManager1 : MonoBehaviour
     public Transform Origin;
     public GameObject Models;
     public Transform Greenpoint;
-    public GameObject SpotLight;
     public GameObject rayVisualizer;
     // public TMP_Text t;
     // public TMP_Text t2;
@@ -60,8 +59,6 @@ public class EyeTrackingManager1 : MonoBehaviour
         combineEyeGazeOriginInWorldSpace = originPoseMatrix.MultiplyPoint(headPoseMatrix.MultiplyPoint(combineEyeGazeOrigin));
         combineEyeGazeVectorInWorldSpace = originPoseMatrix.MultiplyVector(headPoseMatrix.MultiplyVector(combineEyeGazeVector));
 
-        SpotLight.transform.position = combineEyeGazeOriginInWorldSpace;
-        SpotLight.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
 

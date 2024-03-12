@@ -8,6 +8,13 @@ TagManager:
   - FinalObject
   - AgentObject
   - Door
+  - ground_pave
+  - wall_wood
+  - wall_brick
+  - metal
+  - ColliderX
+  - ColliderY
+  - ColliderZ
   layers:
   - Default
   - TransparentFX

@@ -29,10 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DiningRoom.unity
     guid: 9345c6aee7ca4294abf0c02897ae4beb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Museum.unity
     guid: 004a2af36b69afb4d8efb029a80f61d3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EyeTracking 2.unity
     guid: 1a99be3005497d24a8c8397f55305411
   m_configObjects:

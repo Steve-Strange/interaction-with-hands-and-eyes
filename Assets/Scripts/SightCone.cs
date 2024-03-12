@@ -15,7 +15,7 @@ public class SightCone : MonoBehaviour
     private GameObject HandPoseManager;
     private GameObject EyeTrackingManager;
     private float MaxDepth = 20f;
-    public TMP_InputField Log;
+    // public TMP_InputField Log;
     private bool reFocus = true;
     private Queue<Vector3> orientationQueue = new Queue<Vector3>();
     private int reFoucsTime = 20;

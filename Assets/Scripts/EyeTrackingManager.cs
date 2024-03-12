@@ -9,8 +9,6 @@ public class EyeTrackingManager : MonoBehaviour
 {   
     public Transform Origin;
     public GameObject Models;
-    public Transform Greenpoint;
-    public GameObject SpotLight;
     
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;
@@ -73,8 +71,7 @@ public class EyeTrackingManager : MonoBehaviour
         combineEyeGazeOriginInWorldSpace = originPoseMatrix.MultiplyPoint(headPoseMatrix.MultiplyPoint(combineEyeGazeOrigin));
         combineEyeGazeVectorInWorldSpace = originPoseMatrix.MultiplyVector(headPoseMatrix.MultiplyVector(combineEyeGazeVector));
 
-        SpotLight.transform.position = combineEyeGazeOriginInWorldSpace;
-        SpotLight.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
+
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
 

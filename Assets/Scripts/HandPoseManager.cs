@@ -27,7 +27,7 @@ public class HandPoseManager : MonoBehaviour
     private GameObject EyeTrackingManager;
     //public TMP_Text Phase;
 
-    public TMP_InputField Log;
+    // public TMP_InputField Log;
     public GameObject AgentObject;
     public GameObject RubbishBin;
 
@@ -78,7 +78,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
+        // Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
             if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)

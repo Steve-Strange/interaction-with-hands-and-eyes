@@ -21,7 +21,7 @@ public class GrabAgentObject1 : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    public TMP_InputField log;
+    // public TMP_InputField log;
 
     public List<GameObject> MovingObject = new List<GameObject>();
     private GameObject originalParent;
@@ -85,7 +85,7 @@ public class GrabAgentObject1 : MonoBehaviour
  
         if (movingStatus)
         {
-            log.text += "\n" + "Moving...";
+            //  log.text += "\n" + "Moving...";
 
            /* foreach (var obj in ConnectorManager1.GetComponent<ConnectorManager1>().Objects)
                 if (!ConnectorManager1.GetComponent<ConnectorManager1>().emptyObjects.Contains(obj))
@@ -96,7 +96,7 @@ public class GrabAgentObject1 : MonoBehaviour
                         obj.SetActive(false);
                     }
                 }
-*/
+            */
             // Calculate finger movement vector
             Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
 

@@ -8,7 +8,7 @@ public class frameManager : MonoBehaviour
     public GameObject frame;
     // public TMP_Text t;
     // public TMP_Text t2;
-    public TMP_InputField log;
+    // public TMP_InputField log;
     public GameObject FinalObjects;
     private bool releaseState = false;
     public GameObject Agent;
@@ -68,8 +68,8 @@ public class frameManager : MonoBehaviour
 
             if (collision.gameObject.CompareTag("AgentObject"))
             {
-                log.text = "name: " + collision.gameObject.name + "\n";
-                log.text += "count: " + Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count + "\n";
+                // log.text = "name: " + collision.gameObject.name + "\n";
+                // log.text += "count: " + Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count + "\n";
                 if(Agent.GetComponent<GrabAgentObject>().FinishedObjects.Count >= 3){
                     // if(currentAgentObject.TryGetComponent(out Outline outline)){
                     //     outline.OutlineColor = Color.clear;
@@ -77,13 +77,13 @@ public class frameManager : MonoBehaviour
                     
                     
                     currentAgentObject = collision.gameObject;
-                    log.text += "currentAgentObject: " + currentAgentObject.name + "\n";
+                    // log.text += "currentAgentObject: " + currentAgentObject.name + "\n";
                     // currentAgentObject.GetComponent<Outline>().OutlineColor = Color.red;
                     if(Agent.GetComponent<GrabAgentObject>().MovingObject.Count == 1){
                         Agent.GetComponent<GrabAgentObject>().MovingObject.RemoveAt(0);
                     }
                     Agent.GetComponent<GrabAgentObject>().MovingObject.Add(GameObject.Find(collision.gameObject.name.Replace(" Agent","")));
-                    log.text += "MovingObject: " + Agent.GetComponent<GrabAgentObject>().MovingObject[0].name + "\n";
+                    // log.text += "MovingObject: " + Agent.GetComponent<GrabAgentObject>().MovingObject[0].name + "\n";
                 }
             }
         }
