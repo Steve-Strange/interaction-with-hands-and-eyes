@@ -66,30 +66,37 @@ public class frame : MonoBehaviour
     float objSize;
     void resize()//change the frame size from number
     {
-        objSize = collideObject.GetComponent<collide>().finalObj[0].transform.GetComponent<Renderer>().bounds.size.x;
+        float averageSize = 0f;
+        foreach (var obj in collideObject.GetComponent<collide>().finalObj)
+        {
+            averageSize += (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + 
+                            obj.transform.GetComponent<Renderer>().bounds.size.z) / 3;
+        }
+
+        objSize = averageSize / collideObject.GetComponent<collide>().finalObj.Count;
         number = 3;
         gap =  objSize;
 
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count/4f);
+            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count/4f);
             if(number == 0)
                 number = 1;
             rectheight = (objSize + gap) * number;
             rectlenth =  (objSize + gap) * number;
        }else if(Frame == "circle"){
-            number = collideObject.GetComponent<collide>().finalObj.Count;
+            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count/4f);
             if(number == 0)
                 number = 1;
             R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
        }else if(Frame == "tri"){
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 3f);
+            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 3f);
             if(number == 0)
                 number = 1;
             triedge = (objSize + gap) * number;
        }else if(Frame == "para")
        {
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 4f);
+            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 4f);
             if(number == 0)
                 number = 1;
             paraheight = (objSize + gap) * number;
@@ -97,14 +104,14 @@ public class frame : MonoBehaviour
         }
         else if(Frame == "pen")
         {
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 5f);
             if(number == 0)
                 number = 1;
             penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 
         }
         else if(Frame == "cube")
         {
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 12f);
+            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 12f);
             if(number == 0)
                 number = 1;
             cubeheight = (objSize + gap) * number;
@@ -113,7 +120,7 @@ public class frame : MonoBehaviour
             
         }else if(Frame == "star")
         {
-            number = (int)Mathf.Ceil(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 5f);
             if(number == 0)
                 number = 1;
             penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 

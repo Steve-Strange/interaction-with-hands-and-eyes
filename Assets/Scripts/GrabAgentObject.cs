@@ -19,7 +19,7 @@ public class GrabAgentObject : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    // public TMP_InputField log;
+    public TMP_InputField log;
 
     public List<GameObject> MovingObject = new List<GameObject>();
     // private GameObject originalParent;
@@ -29,6 +29,7 @@ public class GrabAgentObject : MonoBehaviour
 
     public List<GameObject> FinishedObjects = new List<GameObject>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
+    public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
 
     bool initFlag = false;
 
@@ -62,7 +63,7 @@ public class GrabAgentObject : MonoBehaviour
             }
         }
       
-        movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
+        movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
         pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.014f;
 
         if (pinchStatus && grabStatus!=0 && !movingStatus)
@@ -78,27 +79,29 @@ public class GrabAgentObject : MonoBehaviour
             transform.localPosition = originalPosition;
             if(MovingObject.Count > 0) transform.rotation = MovingObject[0].transform.rotation;
             else transform.rotation = Quaternion.identity;
-                
+            
         }
-        // log.text = "rotation gap: " + Vector3.Distance(MovingObject[0].transform.eulerAngles, TargetObjects[MovingObject[0]].transform.eulerAngles) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position); 
+        log.text = "rotation gap: " + Vector3.Distance(MovingObject[0].transform.eulerAngles, TargetObjects[MovingObject[0]].transform.eulerAngles) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
+        log.text += "MovingObject: " + MovingObject[0].name + "\n" + "TargetObjects: " + TargetObjects[MovingObject[0]].name + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
 
-        // log.text = "pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
+        // log.text += "pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
 
         if (movingStatus)
         {
+            // MovingObject[0].GetComponent<Outline>().OutlineColor = Color.clear;  ???
+            foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
+                if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
+                {
+                    if (obj != MovingObject[0])
+                    {
+                        TargetObjects[obj].SetActive(false);
+                        obj.SetActive(false);
+                    }
+                }
             // log.text += "\n" + "Moving...";
             if(grabStatus == 1){
                 transform.position = rightIndex.transform.position;
                 transform.parent = rightIndex.transform;
-                foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
-                    if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
-                    {
-                        if (obj != MovingObject[0])
-                        {
-                            TargetObjects[obj].SetActive(false);
-                            obj.SetActive(false);
-                        }
-                    }
 
                 // Calculate finger movement vector
                 Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
@@ -109,10 +112,8 @@ public class GrabAgentObject : MonoBehaviour
             }
             else
             {
-                
                 float deltaRotation = Vector3.Angle(lastPosition - transform.position, rightIndex.transform.position - transform.position);
                 Vector3 crossProduct = Vector3.Cross(lastPosition - transform.position, rightIndex.transform.position - transform.position);
-                
                 
                 if (grabStatus == 2)
                 {
@@ -148,31 +149,35 @@ public class GrabAgentObject : MonoBehaviour
                     TargetObjects[obj].SetActive(true);
                     obj.SetActive(true);
                 }
-
-            if (MovingObject.Count > 0 && FinishedObjects.Count < 3)
-            {
-                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 0.1f &&
-                Vector3.Distance(MovingObject[0].transform.eulerAngles, TargetObjects[MovingObject[0]].transform.eulerAngles) < 90f)
-                {
-                    MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-                    foreach (var obj in pinchObject.GetComponent<collide>().onFrame)
-                    {
-                        obj.transform.eulerAngles = TargetObjects[MovingObject[0]].transform.eulerAngles;
-                         if (Vector3.Distance(obj.transform.position, TargetObjects[obj].transform.position) < 0.1f &&
-                        Vector3.Distance(obj.transform.eulerAngles, TargetObjects[obj].transform.eulerAngles) < 90f)
-                        {
-                            obj.transform.position = TargetObjects[obj].transform.position;
-                            obj.transform.eulerAngles = TargetObjects[obj].transform.eulerAngles;
-                        }
-                    }
-                    FinishedObjects.Add(MovingObject[0]);
-                    MovingObject.RemoveAt(0);
-                    AutoAdjustStatus = true;
-                }
-
+            if(MovingObjectStatus[MovingObject[0]] == 2){
+                MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                FinishedObjects.Add(MovingObject[0]);
+                MovingObject.RemoveAt(0);
+                AutoAdjustStatus = true;
             }
         }
 
+        if (MovingObject.Count > 0)
+            {
+                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f
+                    && MovingObjectStatus[MovingObject[0]] == 0){
+                        MovingObjectStatus[MovingObject[0]] = 1;
+                        MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
+                        MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
+                    }
+
+                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                    Vector3.Distance(MovingObject[0].transform.eulerAngles, TargetObjects[MovingObject[0]].transform.eulerAngles) < 90f){
+
+                        MovingObjectStatus[MovingObject[0]] = 2;
+                        MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
+                        MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
+                    }
+            }
+
     }
+
 
 }

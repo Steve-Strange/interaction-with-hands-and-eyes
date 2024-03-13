@@ -64,7 +64,7 @@ public class GrabAgentObject1 : MonoBehaviour
         }
       
         movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
-        pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.02f;
+        pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.014f;
 
         if (pinchStatus && grabStatus && !movingStatus)
         {

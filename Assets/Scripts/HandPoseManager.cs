@@ -145,7 +145,7 @@ public class HandPoseManager : MonoBehaviour
                 obj.Key.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 obj.Key.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, - SecondSelectionBG.transform.localScale.y/2, 0) + 
-                    new Vector3(obj.Key.transform.localScale.x * (2 * (i%columnNum) + 1) , + obj.Key.transform.localScale.y * (2 * (i/columnNum) + 1), - 2 * obj.Key.transform.localScale.z);
+                    new Vector3(obj.Key.transform.localScale.x * (2 * (i%columnNum) + 1) , + obj.Key.transform.localScale.y * (2 * (i/columnNum) + 1), - 5 * obj.Key.transform.localScale.z);
                 i++;
             }
 

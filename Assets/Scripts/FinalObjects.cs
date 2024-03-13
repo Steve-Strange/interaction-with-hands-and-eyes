@@ -31,7 +31,7 @@ public class FinalObjects : MonoBehaviour
         obj.transform.parent = transform;
         obj.transform.localEulerAngles = new Vector3(0, 0, 0);
         obj.transform.localScale = new Vector3(finalScale / transform.localScale.x, finalScale / transform.localScale.y, finalScale / transform.localScale.z);
-        obj.transform.localPosition = new Vector3(obj.transform.localScale.x * 2 * finalObj.Count - transform.localScale.x/2 , 0, transform.localScale.z);
+        obj.transform.localPosition = new Vector3(obj.transform.localScale.x * 2 * finalObj.Count - transform.localScale.x/2 , 0, - 2 * obj.transform.localScale.z);
         if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(obj)) SightCone.GetComponent<SightCone>().selectedObjects.Remove(obj);
         SightCone.GetComponent<SightCone>().objectWeights[obj] = -1;
         
@@ -42,7 +42,7 @@ public class FinalObjects : MonoBehaviour
     {
         for(int i = 0; i < finalObj.Count; i++)
         {
-            finalObj[i].transform.localPosition = new Vector3(finalObj[i].transform.localScale.x * 2 * i - transform.localScale.x/2 , 0, transform.localScale.z);
+            finalObj[i].transform.localPosition = new Vector3(finalObj[i].transform.localScale.x * 2 * i - transform.localScale.x/2 , 0, - 2 * finalObj[i].transform.localScale.z);
         }
     }
 }

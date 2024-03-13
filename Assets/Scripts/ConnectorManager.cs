@@ -25,6 +25,8 @@ public class ConnectorManager : MonoBehaviour
     public GameObject AgentObject;
     private Quaternion FrameRotation;
 
+    private Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
+
     // public TMP_InputField log;
 
     // private LineRenderer lineRenderer;
@@ -84,14 +86,32 @@ public class ConnectorManager : MonoBehaviour
                 obj.transform.position = frameCenter + FrameRotation * new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
             }
 
+
+            // foreach (var obj in collide.GetComponent<collide>().onFrame)
+            // {
+            //      if (Vector3.Distance(obj.transform.position, TargetObjects[obj].transform.position) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + 
+            //         obj.transform.GetComponent<Renderer>().bounds.size.z) / 6f &&
+            //     Vector3.Distance(obj.transform.eulerAngles, TargetObjects[obj].transform.eulerAngles) < 90f)
+            //     {
+            //         obj.transform.position = TargetObjects[obj].transform.position;
+            //         obj.transform.eulerAngles = TargetObjects[obj].transform.eulerAngles;
+            //     }
+            // }
+
+
+            TargetObjects = AgentObject.GetComponent<GrabAgentObject>().TargetObjects;
             AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus = false;
             frame.GetComponent<frame>().updateFrame();
         }
     }
     public void reverse()
     {
-
         Objects = collide.GetComponent<collide>().onFrame;//得到框上所有物体信息
+        foreach (var item in Objects)
+        {
+            AgentObject.GetComponent<GrabAgentObject>().MovingObjectStatus.Add(item, 0);
+        }
+        
 
         emptyObjects.Clear();
         var cor = frame.GetComponent<frame>().cor;
@@ -100,6 +120,7 @@ public class ConnectorManager : MonoBehaviour
 
         foreach (var obj in Objects)
         {
+            obj.transform.parent = null;
             GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
             newObj.tag = "AgentObject";
             newObj.name = obj.name + " Agent";
@@ -154,7 +175,7 @@ public class ConnectorManager : MonoBehaviour
             if(!obj.CompareTag("AgentObject"))
             {
                 vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
-                obj.transform.position = frameCenter + 6*vectorToCenter[obj];
+                obj.transform.position = frameCenter + 10 * vectorToCenter[obj];
                 obj.transform.parent = null;
                 obj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().objScale[obj];
                 vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
