@@ -33,6 +33,9 @@ public class GrabAgentObject : MonoBehaviour
 
     bool initFlag = false;
 
+    public float coarseMovingTime;
+    public float accurateMovingTime;
+
     void Start()
     {
         // originalParent = transform.parent.gameObject;
@@ -151,31 +154,34 @@ public class GrabAgentObject : MonoBehaviour
                 }
             if(MovingObjectStatus[MovingObject[0]] == 2){
                 MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-                FinishedObjects.Add(MovingObject[0]);
+                if(!FinishedObjects.Contains(MovingObject[0])) FinishedObjects.Add(MovingObject[0]);
                 MovingObject.RemoveAt(0);
                 AutoAdjustStatus = true;
             }
         }
 
         if (MovingObject.Count > 0)
-            {
-                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
-                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f
-                    && MovingObjectStatus[MovingObject[0]] == 0){
-                        MovingObjectStatus[MovingObject[0]] = 1;
-                        MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
-                        MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
-                    }
+        {
+            if(MovingObjectStatus[MovingObject[0]]==0) coarseMovingTime += Time.deltaTime;
+            else if(MovingObjectStatus[MovingObject[0]]==1) accurateMovingTime += Time.deltaTime;
 
-                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
-                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-                    Vector3.Distance(MovingObject[0].transform.eulerAngles, TargetObjects[MovingObject[0]].transform.eulerAngles) < 90f){
-
-                        MovingObjectStatus[MovingObject[0]] = 2;
-                        MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
-                        MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
-                    }
+            if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f
+                && MovingObjectStatus[MovingObject[0]] == 0){
+                    MovingObjectStatus[MovingObject[0]] = 1;
+                    MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
+                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
             }
+            if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                Mathf.Abs(MovingObject[0].transform.eulerAngles.x - TargetObjects[MovingObject[0]].transform.eulerAngles.x) + 
+                Mathf.Abs(MovingObject[0].transform.eulerAngles.y - TargetObjects[MovingObject[0]].transform.eulerAngles.y) +
+                Mathf.Abs(MovingObject[0].transform.eulerAngles.z - TargetObjects[MovingObject[0]].transform.eulerAngles.z) < 30f){
+                    MovingObjectStatus[MovingObject[0]] = 2;
+                    MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
+                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
+            }
+        }
 
     }
 

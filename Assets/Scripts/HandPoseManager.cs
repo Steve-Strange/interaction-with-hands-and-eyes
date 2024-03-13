@@ -56,6 +56,9 @@ public class HandPoseManager : MonoBehaviour
     bool thumbHoldState = false;
     bool finishFlag = false;
 
+
+    public float selectionTime;
+
     void Start()
     {
         // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
@@ -78,6 +81,9 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(phase == 0){
+            selectionTime += Time.deltaTime;
+        }
         // Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
@@ -249,7 +255,7 @@ public class HandPoseManager : MonoBehaviour
         thumbExitTimer = 0;
         thumbHoldState = true;
         thumbHoldTimer += Time.deltaTime;
-        if(thumbHoldTimer > 0.5 && !finishFlag){
+        if(thumbHoldTimer > 0.4f && !finishFlag){
             if(phase == 0){
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
