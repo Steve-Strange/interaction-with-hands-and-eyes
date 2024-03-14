@@ -84,8 +84,9 @@ public class GrabAgentObject : MonoBehaviour
             else transform.rotation = Quaternion.identity;
             
         }
-        log.text = "rotation gap: " + Vector3.Distance(MovingObject[0].transform.eulerAngles, TargetObjects[MovingObject[0]].transform.eulerAngles) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
+        log.text = "rotation gap: " + rotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
         log.text += "MovingObject: " + MovingObject[0].name + "\n" + "TargetObjects: " + TargetObjects[MovingObject[0]].name + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
+        log.text += "onFrame.Count:" + pinchObject.GetComponent<collide>().onFrame.Count + "\n"; 
 
         // log.text += "pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
 
@@ -155,6 +156,9 @@ public class GrabAgentObject : MonoBehaviour
             if(MovingObjectStatus[MovingObject[0]] == 2){
                 MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                 if(!FinishedObjects.Contains(MovingObject[0])) FinishedObjects.Add(MovingObject[0]);
+                if(FinishedObjects.Count == pinchObject.GetComponent<collide>().onFrame.Count){
+                    log.text = "coarseMovingTime: " + coarseMovingTime + "\n" + "accurateMovingTime: " + accurateMovingTime + "\n";
+                }
                 MovingObject.RemoveAt(0);
                 AutoAdjustStatus = true;
             }
@@ -174,15 +178,21 @@ public class GrabAgentObject : MonoBehaviour
             }
             if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                 (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-                Mathf.Abs(MovingObject[0].transform.eulerAngles.x - TargetObjects[MovingObject[0]].transform.eulerAngles.x) + 
-                Mathf.Abs(MovingObject[0].transform.eulerAngles.y - TargetObjects[MovingObject[0]].transform.eulerAngles.y) +
-                Mathf.Abs(MovingObject[0].transform.eulerAngles.z - TargetObjects[MovingObject[0]].transform.eulerAngles.z) < 30f){
+                rotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
                     MovingObjectStatus[MovingObject[0]] = 2;
                     MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
-                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
+                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
+
             }
         }
 
+    }
+
+    float rotationGap(GameObject obj1, GameObject obj2)
+    {
+        return Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.x - obj2.transform.eulerAngles.x), 360 - Mathf.Abs(obj1.transform.eulerAngles.x - obj2.transform.eulerAngles.x)) + 
+                Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y), 360 - Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y)) +
+                Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z), 360 - Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z));
     }
 
 

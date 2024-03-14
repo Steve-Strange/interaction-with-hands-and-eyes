@@ -61,7 +61,7 @@ public class ConnectorManager : MonoBehaviour
             }
             else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 3){
                 newOffset = Quaternion.Inverse(FrameRotation).normalized * (AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[2].transform.position);
-                frameScale.x = originalOffset2.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset2.x); 
+                frameScale.x = originalOffset2.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset2.x);
                 frameScale.y = originalOffset2.y == 0 ? 0 : Mathf.Abs(newOffset.y/originalOffset2.y);
                 frameScale.z = originalOffset2.z == 0 ? 0 : Mathf.Abs(newOffset.z/originalOffset2.z);
 
@@ -106,7 +106,7 @@ public class ConnectorManager : MonoBehaviour
     }
     public void reverse()
     {
-        Objects = collide.GetComponent<collide>().onFrame;//得到框上所有物体信息
+        Objects = new List<GameObject>(collide.GetComponent<collide>().onFrame);
         foreach (var item in Objects)
         {
             AgentObject.GetComponent<GrabAgentObject>().MovingObjectStatus.Add(item, 0);
