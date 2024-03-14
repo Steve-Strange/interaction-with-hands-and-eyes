@@ -31,9 +31,7 @@ public class Bubble : MonoBehaviour
     private float[] ad = new float[5];
     private float[] angleLast = new float[5];
 
-    public int mark;
-
-    // Start is called before the first frame update
+    public bool selectingObject;//当前是否有选中物体
 
     [SerializeField] private Material _material;
     [SerializeField] private Material defaultMaterial;
@@ -128,7 +126,9 @@ public class Bubble : MonoBehaviour
     {
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
         l = GetComponent<LineRenderer>();
-        mark = 0;
+        l.startWidth = 0.005f;
+        l.endWidth = 0.005f;
+        int mark = 0;
         foreach (var item in LINE)
         {
           line[mark++] = item.GetComponent<LineRenderer>();
@@ -137,26 +137,43 @@ public class Bubble : MonoBehaviour
         }
     }
     // Update is called once per frame
+    void killTheBubble(){
+        l.startWidth = 0f;
+        l.endWidth = 0f;
+        foreach (var item in line)
+        {
+            item.startWidth = 0f;
+            item.endWidth = 0f;
+        }//线段可视化关掉
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        //球关掉
+    }
+    public void awakeTheBubble()
+    {
+        l.startWidth = 0.005f;
+        l.endWidth = 0.005f;
+        foreach (var item in line)
+        {
+            item.startWidth = 0.005f;
+            item.endWidth = 0.005f;
+        }//线段可视化关掉
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        //球关掉
+    }
     void Update()
     {
-        //l.SetPosition(0, palm.transform.position);
-        //l.SetPosition(1, -palm.transform.up* 100);
-        l.SetPosition(0, palm.transform.position + 0.05f * Vector3.up);
-        l.SetPosition(1, -palm.transform.up* 100 + 0.05f * Vector3.up);
-        l.endWidth = 0.01f;
-        l.startWidth = 0.01f;
-
+        l.SetPosition(0, palm.transform.position);
+        l.SetPosition(1, -palm.transform.up* 100);
+        //l.SetPosition(0, palm.transform.position + 0.05f * Vector3.up);todo在手掌心周围多加一点范围
+        //l.SetPosition(1, -palm.transform.up* 100 + 0.05f * Vector3.up);
         decideCenter();
         follow();
-        t.text = "0";
         changeRadius();
-        t.text = "1";
         //检测出所有包含在这个sphere中的物体
         UpdataTarget();
-        t.text = "6";
         UpdateLine();//更新画线，需要更新了target之后
-        ChooseObject();
-
+        if(!selectingObject)
+            ChooseObject();
     }
     public void decideCenter()
     {
@@ -228,13 +245,12 @@ public class Bubble : MonoBehaviour
             }
         }
     }
-    public void ChooseObject()
-    {
-
+    public void ChooseObject(){
         time += 1;
         if (time > 30)
             time = 22;
-        bool[] mark = new bool[5];
+        bool[] mark = new bool[3];
+
         if (time > 20)
         { 
             d[1] = culculate(index1, index2, index3);
@@ -259,39 +275,28 @@ public class Bubble : MonoBehaviour
             {
                 mark[3] = true;
             }
-                float max = -1;
-                int select = 0;
-                for (int i = 1; i <= 3; i++)
-                {
+            float max = -1;
+            int select = 0;
+            for (int i = 1; i <= 3; i++){
                     if (d[i] - angleLast[i] > max)
                     {
                         max = d[i] - angleLast[i];
                         select = i;
                     }
-
-                }
-                
+                }     
             if(mark[select] == true){
                 choose = target[select];
+                selectingObject = true;
                 time = 0;
                 t.text = choose.name;
+                killTheBubble();
             }
-            else
-            {   
+            else{
+                selectingObject = false;
                 choose = null;
             }
             
-
-
-
-
-
-
         }
-
-
-
-
     }
     private void RepeatedMethod()
     {
@@ -318,6 +323,14 @@ public class Bubble : MonoBehaviour
         var second = three.transform.position - two.transform.position;
         float angle = Vector3.Dot(first, second) / (first.magnitude * second.magnitude);
         return angle;
+    }
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+            target.GetComponent<Outline>().OutlineColor = color;
+        }
     }
 }
 

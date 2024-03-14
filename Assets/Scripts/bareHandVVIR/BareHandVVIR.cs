@@ -101,13 +101,12 @@ public class BareHandVVIR : MonoBehaviour
 
             UpdateUserFov();//右手A
 }
-            /* 此时有目标物体,通过射线、眨眼选择*/
-            if (bubble.GetComponent<Bubble>().choose != null ){
+            /* 此时有目标物体被选中*/
+            if (bubble.GetComponent<Bubble>().selectingObject){
                 targetObject = bubble.GetComponent<Bubble>().choose;
-            }else{
-                targetObject = null;
+                TranslateObjectBySyncMapping();
             }
-            TranslateObjectBySyncMapping();
+  
         }
 
         /// <summary>
@@ -121,13 +120,10 @@ public class BareHandVVIR : MonoBehaviour
         /// <summary>
         /// 获取肩膀世界坐标
         /// </summary>
-        void GetShoulderPosition()
-        {
+        void GetShoulderPosition(){
                     var temp = new Vector3(0,0,0);
                     // temp 通过测试获得
-                    userShoulder.transform.localPosition = temp;
-
-    }
+                    userShoulder.transform.localPosition = temp;}
 
         /// <summary>
         /// 将单手操作空间的朝向与VR相机朝向同步
@@ -148,79 +144,6 @@ public class BareHandVVIR : MonoBehaviour
                 cameraInfo[2] = mainCamera.transform.right;
                 cameraInfo[3] = mainCamera.transform.up;      
         }
-        
-        /// <summary>
-        /// 根据手柄局部坐标计算虚拟对象在场景操作空间中的位置
-        /// 单手操作空间为球体
-        /// </summary>
-        /// <param name="p_h">手柄坐标</param>
-        /// <returns>操作对象的坐标</returns>
-        Vector3 GetSMSObjectPosition(Vector3 p_h)
-        {
-            float d_np = mainCamera.nearClipPlane; // distance_near_plane
-            float d_fp = mainCamera.farClipPlane; // distance_far_plane
-            d_fp = 7f; // 测试时规定
-            float d_fn = d_fp - d_np; // 平截头体的高
-            float l_arm = userArmLength;
-            Vector3 p_s = userShoulder.transform.localPosition;
-
-            Vector3 p_c = cameraInfo[0]; // 相机位置
-
-            //Debug.Log("p_s:" + p_s.ToString());
-            //Debug.Log("p_h:" + p_h.ToString());
-
-            // 计算zo
-            float z_rate = Mathf.Abs(p_h.z - p_s.z) / l_arm;
-            float z_o; // 标量，之后需要乘以方向向量
-            if (p_h.z > p_s.z)
-            {
-                z_o = d_np + d_fn * z_rate;
-            }
-            else
-            {
-                z_o = d_np - d_fn * z_rate;
-            }
-
-            // 计算z_o处的屏幕长宽
-            float height_o = z_o * Mathf.Tan(halfFov);
-            float width_o = height_o * aspectFov;
-
-
-            // 计算xo
-            float l_yx = Mathf.Sqrt(Mathf.Pow(l_arm, 2) - Mathf.Pow(p_h.y - p_s.y, 2) - Mathf.Pow(p_h.z - p_s.z, 2));
-            //Debug.Log("l_yx:" + l_yx.ToString());
-            float rate_h_x = Mathf.Abs(p_h.x - p_s.x) / l_yx;
-            //Debug.Log("rate_h_x:" + rate_h_x.ToString());
-            float x_o;
-            if (p_h.x > p_s.x)
-            {
-                x_o = (width_o / 2f) * rate_h_x;
-            }
-            else
-            {
-                x_o = -(width_o / 2f) * rate_h_x;
-            }
-
-            // 计算yo
-            float l_xz = Mathf.Sqrt(Mathf.Pow(l_arm, 2) - Mathf.Pow(p_h.y - p_s.y, 2) - Mathf.Pow(p_h.x - p_s.x, 2));
-            float rate_h_y = Mathf.Abs(p_h.y - p_s.y) / l_xz;
-            float y_o;
-
-            if (p_h.y > p_s.y)
-            {
-                y_o = (height_o / 2f) * rate_h_y;
-            }
-            else
-            {
-                y_o = -(height_o / 2f) * rate_h_y;
-            }
-
-            // 计算p_o
-            Vector3 p_o = p_c + cameraInfo[1] * z_o + cameraInfo[2] * x_o + cameraInfo[3] * y_o;
-            return p_o;
-
-        }
-
         /// <summary>
         /// 根据手柄局部坐标计算虚拟对象位置，单手操作空间为倒立半球
         /// </summary>
