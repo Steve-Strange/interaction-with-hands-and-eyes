@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GrabAgentObject1 : MonoBehaviour
+public class GrabAgentObjectBareHand : MonoBehaviour
 {
     public GameObject rightThumb;
     public GameObject rightIndex;

@@ -4,12 +4,13 @@ using UnityEngine;
 using TMPro;
 public class RayVisualizer : MonoBehaviour
 {
+    //  注意，物体要有碰撞箱
     // Start is called before the first frame update
     private LineRenderer line;
     public GameObject finger1;
     public GameObject finger2;
     public GameObject target;
-    // public TMP_Text t;
+    //public TMP_Text T;
     int layerMask;
 
     void Start()
@@ -34,12 +35,11 @@ public class RayVisualizer : MonoBehaviour
             line.SetPosition(1, hit.transform.position);
             
             target = hit.transform.gameObject;
-           
+           // T.text = "yes";
             AddOutline(target, Color.red);
-
-
         }
         else{
+           // T.text = "no";
             line.SetPosition(1, finger2.transform.position + 100 * direction);
             target = null;
         }

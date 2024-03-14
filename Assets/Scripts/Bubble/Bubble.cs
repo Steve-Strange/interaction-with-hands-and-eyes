@@ -5,6 +5,7 @@ public class Bubble : MonoBehaviour
 {
     public List<GameObject> objects =  new List<GameObject>();
     int layerMask;
+    public GameObject Objects;
     LineRenderer l;
     public GameObject palm;
     private Vector3 palmOrigin;
@@ -19,7 +20,7 @@ public class Bubble : MonoBehaviour
     float[] ConD = new float[1000];
     float radius;
     int i, j;
-
+    public TMP_Text t;
     public GameObject[] target = new GameObject[3];
     public GameObject 
          index1, index2, index3,
@@ -43,28 +44,34 @@ public class Bubble : MonoBehaviour
     [SerializeField] private List<MeshRenderer> _meshRenderers;
 
     private void Awake(){
-        layerMask = 1 << 6;
-        var temp = GameObject.Find("Objects");
-
-        foreach (Transform t in temp.GetComponentsInChildren<Transform>()){
+        layerMask = 1 << 7;   
+        objects = new List<GameObject>();
+        foreach (Transform t in Objects.GetComponentsInChildren<Transform>())
+        if(t.name != "Objects")
+        {
             objects.Add(t.gameObject);
+            Debug.Log(t.gameObject.name);
         }
         
     }
     public void changeRadius()
     {
-        for(int i = 0; i < 1000; i++)
+        t.text = "101";
+        for (int i = 0; i < 1000; i++)
         {
             IntD[i] = 1000000000000;
             ConD[i] = 0;
         }
-
+        t.text = "111";
         for (int i = 0; i < objects.Count; i++)
+            if(objects[i].GetComponent<MeshFilter>()!=null)
         {
+            t.text = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices.Length.ToString();
             var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices;//Vector3[]
-
+            t.text = "131";
             foreach (var v in vertices)
             {
+                t.text = "141";
                 var worldPos = objects[i].transform.TransformPoint(v);
                 var dis = (worldPos - transform.position).magnitude;
 
@@ -78,6 +85,7 @@ public class Bubble : MonoBehaviour
                 }//物体所有点的最远
             }
         }
+        t.text = "12";
         float min = 1000000;
         int k = 0;
         for (int i = 0; i < objects.Count; i++)
@@ -88,6 +96,7 @@ public class Bubble : MonoBehaviour
                 k = i;
             }
         }
+        t.text = "13";
         min = 1000000;
         int k2 = 0;
         for (int i = 0; i < objects.Count; i++)
@@ -101,7 +110,7 @@ public class Bubble : MonoBehaviour
         }
         i = k;
         j = k2;
-
+        t.text = "14";
         if (ConD[i] < IntD[j])
         {
             radius = ConD[i];
@@ -123,37 +132,28 @@ public class Bubble : MonoBehaviour
         foreach (var item in LINE)
         {
           line[mark++] = item.GetComponent<LineRenderer>();
-        }//得到三条画线的
-        
-             line[0].startColor = Color.blue;
-             line[0].endColor = Color.blue;
-
-             line[0].startWidth = 0.005f;
-             line[0].endWidth = 0.005f;
-
-             line[1].startColor = Color.white;
-             line[1].endColor = Color.white;
-            line[1].startWidth = 0.005f;
-            line[1].endWidth = 0.005f;
-
-            line[2].startColor = Color.red;
-            line[2].endColor = Color.red;
-            line[2].startWidth = 0.005f;
-            line[2].endWidth = 0.005f;
+          line[mark-1].startWidth = 0.005f;
+          line[mark-1].endWidth = 0.005f;
+        }
     }
     // Update is called once per frame
     void Update()
     {
-        l.SetPosition(0, palm.transform.position);
-        l.SetPosition(1, -palm.transform.up* 100);
+        //l.SetPosition(0, palm.transform.position);
+        //l.SetPosition(1, -palm.transform.up* 100);
+        l.SetPosition(0, palm.transform.position + 0.05f * Vector3.up);
+        l.SetPosition(1, -palm.transform.up* 100 + 0.05f * Vector3.up);
         l.endWidth = 0.01f;
         l.startWidth = 0.01f;
 
         decideCenter();
         follow();
+        t.text = "0";
         changeRadius();
+        t.text = "1";
         //检测出所有包含在这个sphere中的物体
         UpdataTarget();
+        t.text = "6";
         UpdateLine();//更新画线，需要更新了target之后
         ChooseObject();
 
@@ -161,6 +161,10 @@ public class Bubble : MonoBehaviour
     public void decideCenter()
     {
         Ray ray = new Ray(palm.transform.position, -palm.transform.up);//手掌心向前发出射线
+        Ray ray1 = new Ray(palm.transform.position + 0.2f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        Ray ray2 = new Ray(palm.transform.position - 0.2f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        Ray ray3 = new Ray(palm.transform.position + 0.1f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        Ray ray4 = new Ray(palm.transform.position - 0.1f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
         RaycastHit hitInfo;
         //声明一个RaycastHit结构体，存储碰撞信息
         if (Physics.Raycast(ray, out hitInfo, int.MaxValue, layerMask))
@@ -201,16 +205,19 @@ public class Bubble : MonoBehaviour
     public void UpdataTarget()
     {
         //得到所有在碰撞体内部的碰撞体
+        t.text = "2";
         Collider[] colliders = Physics.OverlapSphere(transform.position, transform.GetComponent<Renderer>().bounds.size.x/2,layerMask);
-        Debug.Log(transform.GetComponent<Renderer>().bounds.size.x / 2);
         foreach (var item in objects)
         {
+            Debug.Log(item.name);
             item.gameObject.GetComponent<MeshRenderer>().material = notargetM;
         }
+        t.text = "3";
         int targetNum = 0;//最多三个目标
         foreach (var item in colliders)
-        if(item.gameObject.name!="bubble")
+        //if(item.gameObject.name!="bubble")
         {
+            t.text = "4";
             if (targetNum < 3) {
                     targetNum++;
                     Debug.Log(item.gameObject.name);
@@ -264,13 +271,13 @@ public class Bubble : MonoBehaviour
 
                 }
                 
-                if(mark[select] == true){
+            if(mark[select] == true){
                 choose = target[select];
                 time = 0;
-                // t.text = choose.name;
+                t.text = choose.name;
             }
             else
-            {
+            {   
                 choose = null;
             }
             

@@ -5,13 +5,11 @@ using UnityEngine.XR;
 using TMPro;
 using System.Linq;
 
-public class EyeTrackingManager1 : MonoBehaviour
+public class EyeTrackingManagerBareHand : MonoBehaviour
 {   
     public Transform Origin;
-    public GameObject Models;
-    public Transform Greenpoint;
     public GameObject rayVisualizer;
-    // public TMP_Text t;
+    public TMP_Text t;
     // public TMP_Text t2;
 
     private Vector3 combineEyeGazeVector;
@@ -24,34 +22,23 @@ public class EyeTrackingManager1 : MonoBehaviour
     private float leftEyeOpenness;
     private float rightEyeOpenness;
     public GameObject GrabAgentObject;
-    private GameObject SightCone;
+    public GameObject SightCone;
 
     private float closeEyesTime = 0f;
     public bool isEyesOpen = true;
     
-
-   /* public void AddOutline(GameObject target, Color color)
-    {
-        if (target.GetComponent<Outline>() == null)
-        {
-            target.AddComponent<Outline>();
-            target.GetComponent<Outline>().OutlineColor = color;
-        }
-    }*/
     int mark;
     void Start()
     {
         mark = 0;
         combineEyeGazeVector = Vector3.zero;
         combineEyeGazeOrigin = Vector3.zero;
-        originPoseMatrix = Origin.localToWorldMatrix;
-        SightCone = GameObject.Find("SightCone");
-       
+        originPoseMatrix = Origin.localToWorldMatrix;   
     }
 
     void Update()
     {
-        // t.text = closeEyesTime.ToString();
+        t.text = closeEyesTime.ToString();
         PXR_EyeTracking.GetHeadPosMatrix(out headPoseMatrix);
         PXR_EyeTracking.GetCombineEyeGazeVector(out combineEyeGazeVector);
         PXR_EyeTracking.GetCombineEyeGazePoint(out combineEyeGazeOrigin);
@@ -74,16 +61,24 @@ public class EyeTrackingManager1 : MonoBehaviour
             }
         }
     }
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+            target.GetComponent<Outline>().OutlineColor = color;
+        }
+    }
 
-    
     void BlinkSelect(){
 
         if(rayVisualizer.GetComponent<RayVisualizer>().target!=null & mark == 0)
         {
             // t2.text = "yesselect";
             mark = 1;
+            AddOutline(rayVisualizer.GetComponent<RayVisualizer>().target, Color.blue);
             GrabAgentObject.SetActive(true);
-            GrabAgentObject.GetComponent<GrabAgentObject1>().MovingObject.Add(rayVisualizer.GetComponent<RayVisualizer>().target);
+            GrabAgentObject.GetComponent<GrabAgentObjectBareHand>().MovingObject.Add(rayVisualizer.GetComponent<RayVisualizer>().target);
         }
 
     }
