@@ -11,137 +11,123 @@ public class GrabAgentObjectBareHand : MonoBehaviour
 
     public GameObject leftThumb;
     public GameObject leftIndex;
-
     public GameObject pinchObject;
 
-
     public bool pinchStatus;
-    private bool grabStatus;
+    private int grabStatus;
     private bool movingStatus;
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    // public TMP_InputField log;
+    public TMP_InputField log;
 
     public List<GameObject> MovingObject = new List<GameObject>();
-    private GameObject originalParent;
+    // private GameObject originalParent;
     private float movingScale;
 
 
-
     public List<GameObject> FinishedObjects = new List<GameObject>();
-    public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
+    // public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
+    public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
 
     bool initFlag = false;
 
     void Start()
     {
-        originalParent = transform.parent.gameObject;
+        // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
-        TargetObjects = new Dictionary<GameObject, GameObject>();
+        // TargetObjects = new Dictionary<GameObject, GameObject>();
     }
 
     void Update()
     {
-        
-        if (!initFlag)//初始化
-        {
+        grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
+        // if (!initFlag)//初始化
+        // {
        
-            /*foreach (var obj in ConnectorManager1.GetComponent<ConnectorManager1>().Objects)
-            {
+        //     foreach (var obj in ConnectorManager1.GetComponent<ConnectorManager1>().Objects)
+        //     {
                
-                if (!ConnectorManager1.GetComponent<ConnectorManager1>().emptyObjects.Contains(obj))
-                {
+        //         if (!ConnectorManager1.GetComponent<ConnectorManager1>().emptyObjects.Contains(obj))
+        //         {
                   
-                    TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
+        //             TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
                   
-                    Debug.Log(TargetObjects[obj].name);
+        //             Debug.Log(TargetObjects[obj].name);
                 
-                    initFlag = true;
-                }
+        //             initFlag = true;
+        //         }
 
-            }*///改成直接在grab里一一对应
-        }
+        //     }//改成直接在grab里一一对应
+        // }
       
-        movingScale = Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position) * 100;
+        movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
         pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.014f;
 
-        if (pinchStatus && grabStatus && !movingStatus)
+
+        if (pinchStatus && grabStatus!=0 && !movingStatus)
         {
-            transform.position = rightIndex.transform.position;
-            transform.parent = rightIndex.transform;
             lastPosition = rightIndex.transform.position;
             movingStatus = true;
         }
 
-        if ((!pinchStatus || !grabStatus) && movingStatus)
+        if ((!pinchStatus || grabStatus==0) && movingStatus)
         {
             movingStatus = false;
-            transform.parent = originalParent.transform;
+            transform.parent = null;
             transform.localPosition = originalPosition;
+            if(MovingObject.Count > 0) transform.rotation = MovingObject[0].transform.rotation;
+            else transform.rotation = Quaternion.identity;
+            
         }
+        // log.text = "rotation gap: " + rotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
+        // log.text += "MovingObject: " + MovingObject[0].name + "\n" + "TargetObjects: " + TargetObjects[MovingObject[0]].name + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
+        // log.text += "onFrame.Count:" + pinchObject.GetComponent<collide>().onFrame.Count + "\n"; 
 
-        
- 
         if (movingStatus)
         {
-            //  log.text += "\n" + "Moving...";
+            if(grabStatus == 1){
+                transform.position = rightIndex.transform.position;
+                transform.parent = rightIndex.transform;
 
-           /* foreach (var obj in ConnectorManager1.GetComponent<ConnectorManager1>().Objects)
-                if (!ConnectorManager1.GetComponent<ConnectorManager1>().emptyObjects.Contains(obj))
-                {
-                    if (obj != MovingObject[0])
-                    {
-                        TargetObjects[obj].SetActive(false);
-                        obj.SetActive(false);
-                    }
-                }
-            */
-            // Calculate finger movement vector
-            Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
+                // Calculate finger movement vector
+                Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
 
-            // Use relative coordinates to synchronize position
-            MovingObject[0].transform.position += deltaPosition * movingScale;
+                // Use relative coordinates to synchronize position
+                MovingObject[0].transform.position += deltaPosition * movingScale;
 
-            // Update the original position
-            lastPosition = rightIndex.transform.position;
-        }
-        else
-        {
-         /*   foreach (var obj in ConnectorManager1.GetComponent<ConnectorManager1>().Objects)
-                if (!ConnectorManager1.GetComponent<ConnectorManager1>().emptyObjects.Contains(obj))
-                {
-                    TargetObjects[obj].SetActive(true);
-                    obj.SetActive(true);
-                }
-*/
-            if (MovingObject.Count > 0 && FinishedObjects.Count < 3)
-            {
-                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 0.1f)
-                {
-                    MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-                    FinishedObjects.Add(MovingObject[0]);
-                    MovingObject.RemoveAt(0);
-                   // AutoAdjustStatus = true;
-                }
             }
-        }
+            else
+            {
+                float deltaRotation = Vector3.Angle(lastPosition - transform.position, rightIndex.transform.position - transform.position);
+                Vector3 crossProduct = Vector3.Cross(lastPosition - transform.position, rightIndex.transform.position - transform.position);
+                
+                if (grabStatus == 2)
+                {
+                    float dotProduct = Vector3.Dot(crossProduct, Vector3.right);
+                    if (dotProduct < 0) deltaRotation = -deltaRotation;
+                    transform.RotateAround(transform.position, Vector3.right, deltaRotation);
+                }
+                else if (grabStatus == 3)
+                {
+                    float dotProduct = Vector3.Dot(crossProduct, Vector3.up);
+                    if (dotProduct < 0) deltaRotation = -deltaRotation;
+                    transform.RotateAround(transform.position, Vector3.up, deltaRotation);
+                }
+                else if (grabStatus == 4)
+                {
+                    float dotProduct = Vector3.Dot(crossProduct, Vector3.forward);
+                    if (dotProduct < 0) deltaRotation = -deltaRotation;
+                    transform.RotateAround(transform.position, Vector3.forward, deltaRotation);
+                }
+                
+                MovingObject[0].transform.rotation = transform.rotation;
 
+            }
+
+            lastPosition = rightIndex.transform.position;
+
+        }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == pinchObject)
-        {
-            grabStatus = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == pinchObject)
-        {
-            grabStatus = false;
-        }
-    }
 }

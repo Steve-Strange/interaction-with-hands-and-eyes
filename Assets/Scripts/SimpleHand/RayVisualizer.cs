@@ -30,16 +30,20 @@ public class RayVisualizer : MonoBehaviour
         line.SetPosition(0, finger2.transform.position);
         line.SetPosition(1, finger2.transform.position + 100 * direction);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, int.MaxValue,layerMask))
+        if (Physics.Raycast(ray, out hit,1000 ,layerMask))
         {
             line.SetPosition(1, hit.transform.position);
+            if(target!=null && target!=hit.transform.gameObject){
+                AddOutline(target, Color.clear);
+            }
             
             target = hit.transform.gameObject;
-           // T.text = "yes";
+            // T.text = "yes";
             AddOutline(target, Color.red);
         }
         else{
-           // T.text = "no";
+            // T.text = "no";
+            AddOutline(target, Color.clear);
             line.SetPosition(1, finger2.transform.position + 100 * direction);
             target = null;
         }
@@ -50,7 +54,7 @@ public class RayVisualizer : MonoBehaviour
             if (target.GetComponent<Outline>() == null)
             {
                 target.AddComponent<Outline>();
-                target.GetComponent<Outline>().OutlineColor = color;
             }
+            target.GetComponent<Outline>().OutlineColor = color;
         }
 }
