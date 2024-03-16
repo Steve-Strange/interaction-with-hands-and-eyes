@@ -29,7 +29,7 @@ public class GrabAgentObject : MonoBehaviour
 
     public List<GameObject> FinishedObjects = new List<GameObject>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
-    public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
+    public List<GameObject> ObjectsOnFrame = new List<GameObject>();
 
     bool initFlag = false;
 
@@ -49,6 +49,7 @@ public class GrabAgentObject : MonoBehaviour
             foreach (var obj in pinchObject.GetComponent<collide>().onFrame)
             {
                 TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
+                ObjectsOnFrame.Add(obj);
                 initFlag = true;
             }
         }

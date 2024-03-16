@@ -58,7 +58,6 @@ public class HandPoseManager : MonoBehaviour
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
-    public float coarseMovingTime;
 
     void Start()
     {
@@ -84,9 +83,6 @@ public class HandPoseManager : MonoBehaviour
     {
         if(phase == 0){
             selectionTime += Time.deltaTime;
-        }
-        else if(phase == 1 || phase == 2){
-            coarseMovingTime += Time.deltaTime;
         }
         
         // Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
@@ -282,12 +278,13 @@ public class HandPoseManager : MonoBehaviour
                 phase = 2;
                 AgentObject.SetActive(true);
                 FinalObjects.SetActive(false);
+                ProcessRecorder.SetActive(true);
                 collide.GetComponent<collide>().anchorChoose();
                 frameManager.SetActive(false);
                 collide.GetComponent<collide>().enabled = false;
                 RubbishBin.SetActive(false);
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();
-                ProcessRecorder.SetActive(true);
+                
             }
             thumbHoldTimer = 0;
             finishFlag = true;
