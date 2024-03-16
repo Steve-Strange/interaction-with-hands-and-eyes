@@ -270,9 +270,7 @@ public class frame : MonoBehaviour
         Frame = "rect";
         clear();
         resize();
-
-
-      //  Debug.Log(rectheight);
+       //  Debug.Log(rectheight);
         dis = 0.4f;
         rectCorner = new Vector3[4];
 

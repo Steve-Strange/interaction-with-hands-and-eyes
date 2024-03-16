@@ -120,7 +120,7 @@ public class clickSelect : MonoBehaviour
             mark[1] = false;
             mark[2] = false;
 
-            if (d[0]-angleLast[0] > 0.15)
+            if (d[0]-angleLast[0] > 0.10)
             {
                 mark[0] = true;
             }
