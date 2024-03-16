@@ -57,4 +57,9 @@ public class RayVisualizer : MonoBehaviour
             }
             target.GetComponent<Outline>().OutlineColor = color;
         }
+    public void setLine(float a)
+    {
+        line.startWidth = a;
+        line.endWidth = a;
+    }
 }
