@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using System;
 using System.Linq;
 using UnityEngine.Timeline;
+using System.Diagnostics;
 
 
 public class HandPoseManager : MonoBehaviour
@@ -31,6 +32,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject AgentObject;
     public GameObject RubbishBin;
 
+
     private float delayTime = 1f; // 延迟时间，单位为秒
     private float delayTimer = 0.0f; // 计时器
 
@@ -42,7 +44,6 @@ public class HandPoseManager : MonoBehaviour
 
     private float maxAngel = 50f;
     private float minAngel = 10f;
-
     public bool SelectionStatus = true;
 
     private Dictionary<GameObject, float> sorted15ObjectWeights = new Dictionary<GameObject, float>();
@@ -50,14 +51,14 @@ public class HandPoseManager : MonoBehaviour
 
     public GameObject StartSelect;
     public GameObject clickSelect;
+    public GameObject ProcessRecorder;
     public int phase = 0;
     float thumbHoldTimer = 0;
     float thumbExitTimer = 0;
     bool thumbHoldState = false;
     bool finishFlag = false;
-
-
     public float selectionTime;
+    public float coarseMovingTime;
 
     void Start()
     {
@@ -84,6 +85,10 @@ public class HandPoseManager : MonoBehaviour
         if(phase == 0){
             selectionTime += Time.deltaTime;
         }
+        else if(phase == 1 || phase == 2){
+            coarseMovingTime += Time.deltaTime;
+        }
+        
         // Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
@@ -98,10 +103,6 @@ public class HandPoseManager : MonoBehaviour
                 finishFlag = false;
                 thumbHoldTimer = 0;
             }
-        }
-        if(phase == 0)
-        {
-            FinalObjects.SetActive(true);
         }
     }
 
@@ -257,6 +258,8 @@ public class HandPoseManager : MonoBehaviour
         thumbHoldTimer += Time.deltaTime;
         if(thumbHoldTimer > 0.4f && !finishFlag){
             if(phase == 0){
+                FinalObjects.SetActive(true);
+                ProcessRecorder.SetActive(false);
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
                 SightCone.SetActive(false);
@@ -284,6 +287,7 @@ public class HandPoseManager : MonoBehaviour
                 collide.GetComponent<collide>().enabled = false;
                 RubbishBin.SetActive(false);
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();
+                ProcessRecorder.SetActive(true);
             }
             thumbHoldTimer = 0;
             finishFlag = true;

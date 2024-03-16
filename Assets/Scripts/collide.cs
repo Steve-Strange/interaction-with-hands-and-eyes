@@ -354,7 +354,10 @@ public class collide : MonoBehaviour
         if(timeMark > gap)
         {   
             timeMark = 0;
-            positionLast =  finalObj[0].transform.position;
+            if(finalObj.Count > 0)
+            {
+                positionLast = finalObj[0].transform.position;
+            }
         }
       //  t2.text = m_logEntries[m_logEntries.Count-1];
         if(handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0])
