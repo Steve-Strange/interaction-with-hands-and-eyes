@@ -1,6 +1,5 @@
 
 using System.Threading;
-using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -370,9 +369,9 @@ public class collide : MonoBehaviour
     private int gap;
     private void Awake() {
         timeMark = 0;
-        gap = 1 /Time.deltaTime * 0.2;
+        gap = (int)(1f /Time.deltaTime * 0.2f);
     }
-    private Vector3 positionLast；
+    private Vector3 positionLast;
     private int timeMark = 0;
     void Start()
     {
