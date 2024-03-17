@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,19 +19,37 @@ public class ProcessRecorder : MonoBehaviour
     public float coarseMovingTime;
     private GameObject HandPoseManager;
 
+    private string folderPath = "";
+    private string filePath = "";
+    private bool finishStatus = false;
+
     void Start()
     {
         HandPoseManager = GameObject.Find("HandPoseManager");
+
+        // 获取外部存储器的路径
+        folderPath = Application.persistentDataPath;
+
+        // 设置文件路径和名称
+        filePath = Path.Combine(folderPath, "example.txt");
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if(CompleteObjects.Count == agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count){
             log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
             "coarseMovingTime: " + coarseMovingTime + "\n" + 
             "MovingTime: " + MovingTime + "\n";
             log.text += "Finished!!!!!!!!!!!!";
+            if(!finishStatus)
+            {
+                File.WriteAllText(filePath, "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
+                                "coarseMovingTime: " + coarseMovingTime + "\n" + 
+                                "MovingTime: " + MovingTime + "\n");
+                finishStatus = true;
+            }
         }
         else{
             log.text = "CompleteObjects: " + CompleteObjects.Count + "\n";
