@@ -30,6 +30,7 @@ public class GrabAgentObject : MonoBehaviour
     public List<GameObject> FinishedObjects = new List<GameObject>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public List<GameObject> ObjectsOnFrame = new List<GameObject>();
+    public GameObject ProcessRecorder;
 
     bool initFlag = false;
 
@@ -81,15 +82,15 @@ public class GrabAgentObject : MonoBehaviour
         if (movingStatus)
         {
             // MovingObject[0].GetComponent<Outline>().OutlineColor = Color.clear;  ???
-            foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
-                if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
+            foreach (var obj in ObjectsOnFrame)
+            {
+                if (obj != MovingObject[0])
                 {
-                    if (obj != MovingObject[0])
-                    {
-                        TargetObjects[obj].SetActive(false);
-                        obj.SetActive(false);
-                    }
+                    TargetObjects[obj].SetActive(false);
+                    obj.SetActive(false);
                 }
+            }
+
             // log.text += "\n" + "Moving...";
             if(grabStatus == 1){
                 transform.position = rightIndex.transform.position;
@@ -135,17 +136,26 @@ public class GrabAgentObject : MonoBehaviour
         }
         else
         {
-            foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().Objects)
-                if (!ConnectorManager.GetComponent<ConnectorManager>().emptyObjects.Contains(obj))
+            foreach (var obj in ObjectsOnFrame)
+            {
+                if (obj != MovingObject[0])
                 {
                     TargetObjects[obj].SetActive(true);
                     obj.SetActive(true);
                 }
+            }
+
             if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                 (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                 RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
-                // MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                 if(!FinishedObjects.Contains(MovingObject[0])) FinishedObjects.Add(MovingObject[0]);
+                // MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                // if(FinishedObjects.Count <= 3 && ProcessRecorder.GetComponent<ProcessRecorder>().CompleteObjects.Count <= 3){
+                //     foreach (var obj in ObjectsOnFrame)
+                //     {
+                //         obj.transform.rotation = MovingObject[0].transform.rotation;
+                //     }
+                // }
                 MovingObject.RemoveAt(0);
                 AutoAdjustStatus = true;
             }

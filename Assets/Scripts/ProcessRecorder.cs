@@ -19,9 +19,11 @@ public class ProcessRecorder : MonoBehaviour
     public float coarseMovingTime;
     private GameObject HandPoseManager;
 
-    private string folderPath = "";
-    private string filePath = "";
+    private string folderPath;
+    private string filePath;
+    private string fileName;
     private bool finishStatus = false;
+    public string userName;
 
     void Start()
     {
@@ -29,9 +31,10 @@ public class ProcessRecorder : MonoBehaviour
 
         // 获取外部存储器的路径
         folderPath = Application.persistentDataPath;
+        fileName = userName + "-" + System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
 
         // 设置文件路径和名称
-        filePath = Path.Combine(folderPath, "example.txt");
+        filePath = Path.Combine(folderPath, fileName);
     }
 
     // Update is called once per frame
