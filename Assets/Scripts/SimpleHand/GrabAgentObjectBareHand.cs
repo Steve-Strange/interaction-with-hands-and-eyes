@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class GrabAgentObjectBareHand : MonoBehaviour
 {
+    public GameObject singleSelect;
+    public GameObject targets;
     public GameObject rightThumb;
     public GameObject rightIndex;
 
     public GameObject leftThumb;
     public GameObject leftIndex;
     public GameObject pinchObject;
-
+    public GameObject eyeTrackingManager;
     public bool pinchStatus;
     private int grabStatus;
     private bool movingStatus;
@@ -27,7 +29,7 @@ public class GrabAgentObjectBareHand : MonoBehaviour
 
 
     public List<GameObject> FinishedObjects = new List<GameObject>();
-    // public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
+    public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
 
     bool initFlag = false;
@@ -36,30 +38,43 @@ public class GrabAgentObjectBareHand : MonoBehaviour
     {
         // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
-        // TargetObjects = new Dictionary<GameObject, GameObject>();
+        TargetObjects = new Dictionary<GameObject, GameObject>();
+        FindChild(targets);
     }
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+        }
+        target.GetComponent<Outline>().OutlineColor = color;
+    }
+    void FindChild(GameObject child)
+    {
 
+        //利用for循环 获取物体下的全部子物体
+        for (int c = 0; c < child.transform.childCount; c++)
+        {
+            TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");;
+        }
+    }
     void Update()
     {
-        grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
-        // if (!initFlag)//初始化
-        // {
-       
-        //     foreach (var obj in ConnectorManager1.GetComponent<ConnectorManager1>().Objects)
-        //     {
-               
-        //         if (!ConnectorManager1.GetComponent<ConnectorManager1>().emptyObjects.Contains(obj))
-        //         {
-                  
-        //             TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
-                  
-        //             Debug.Log(TargetObjects[obj].name);
-                
-        //             initFlag = true;
-        //         }
-
-        //     }//改成直接在grab里一一对应
-        // }
+        if(MovingObject.Count>0)
+        if(TargetObjects.ContainsKey(MovingObject[0]))
+        if((MovingObject[0].transform.position- TargetObjects[MovingObject[0]].transform.position).magnitude < 0.01)
+        //距离目标位置小于阈值
+        {
+            singleSelect.GetComponent<singleSelect>().finishOneObject();
+            
+            MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+            MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
+            AddOutline(MovingObject[0],Color.green);
+            eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().mark = 0;
+            eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().rayVisualizer.GetComponent<RayVisualizer>().setLine(0.01f);
+                    MovingObject.RemoveAt(0);
+        }
+        grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus; 
       
         movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
         pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.014f;
