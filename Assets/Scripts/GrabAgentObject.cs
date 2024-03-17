@@ -19,7 +19,7 @@ public class GrabAgentObject : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    public TMP_InputField log;
+    // public TMP_InputField log;
 
     public List<GameObject> MovingObject = new List<GameObject>();
     // private GameObject originalParent;
@@ -73,9 +73,9 @@ public class GrabAgentObject : MonoBehaviour
             else transform.rotation = Quaternion.identity;
             
         }
-        log.text = "rotation gap: " + RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
-        log.text += "MovingObject: " + MovingObject[0].name + "\n" + "TargetObjects: " + TargetObjects[MovingObject[0]].name + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
-        log.text += "onFrame.Count:" + pinchObject.GetComponent<collide>().onFrame.Count + "\n"; 
+        // log.text = "rotation gap: " + RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
+        // log.text += "MovingObject: " + MovingObject[0].name + "\n" + "TargetObjects: " + TargetObjects[MovingObject[0]].name + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
+        // log.text += "onFrame.Count:" + pinchObject.GetComponent<collide>().onFrame.Count + "\n"; 
 
         // log.text += "pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
 
