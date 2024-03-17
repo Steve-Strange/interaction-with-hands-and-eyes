@@ -51,7 +51,7 @@ public class HandPoseManager : MonoBehaviour
 
     public GameObject StartSelect;
     public GameObject clickSelect;
-    public GameObject ProcessRecorder;
+    public GameObject TimeRecorder;
     public int phase = 0;
     float thumbHoldTimer = 0;
     float thumbExitTimer = 0;
@@ -255,7 +255,7 @@ public class HandPoseManager : MonoBehaviour
         if(thumbHoldTimer > 0.4f && !finishFlag){
             if(phase == 0){
                 FinalObjects.SetActive(true);
-                ProcessRecorder.SetActive(false);
+                TimeRecorder.SetActive(false);
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
                 SightCone.SetActive(false);
@@ -278,7 +278,7 @@ public class HandPoseManager : MonoBehaviour
                 phase = 2;
                 AgentObject.SetActive(true);
                 FinalObjects.SetActive(false);
-                ProcessRecorder.SetActive(true);
+                TimeRecorder.SetActive(true);
                 collide.GetComponent<collide>().anchorChoose();
                 frameManager.SetActive(false);
                 collide.GetComponent<collide>().enabled = false;

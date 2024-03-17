@@ -24,7 +24,7 @@ public class ConnectorManager : MonoBehaviour
     // public TMP_Text t2;
     public GameObject AgentObject;
     private Quaternion FrameRotation;
-    public GameObject ProcessRecorder;
+    public GameObject TimeRecorder;
 
     private Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
 
@@ -110,7 +110,7 @@ public class ConnectorManager : MonoBehaviour
         Objects = new List<GameObject>(collide.GetComponent<collide>().onFrame);
         foreach (var item in Objects)
         {
-            ProcessRecorder.GetComponent<ProcessRecorder>().MovingObjectStatus.Add(item, 0);
+            TimeRecorder.GetComponent<TimeRecorder>().MovingObjectStatus.Add(item, 0);
         }
         
 

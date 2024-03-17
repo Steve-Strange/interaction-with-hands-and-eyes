@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ProcessRecorder : MonoBehaviour
+public class TimeRecorder : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -13,7 +13,7 @@ public class ProcessRecorder : MonoBehaviour
     public List<GameObject> CompleteObjects = new List<GameObject>();
     public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
 
-    public TMP_InputField log;
+    // public TMP_InputField log;
     public GameObject pinchObject;
     public float MovingTime;
     public float coarseMovingTime;
@@ -24,10 +24,13 @@ public class ProcessRecorder : MonoBehaviour
     private string fileName;
     private bool finishStatus = false;
     public string userName;
+    private GameObject MovingRecorder;
+
 
     void Start()
     {
         HandPoseManager = GameObject.Find("HandPoseManager");
+        MovingRecorder = GameObject.Find("MovingRecorder");
 
         // 获取外部存储器的路径
         folderPath = Application.persistentDataPath;
@@ -42,22 +45,23 @@ public class ProcessRecorder : MonoBehaviour
     {
         
         if(CompleteObjects.Count == agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count){
-            log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
-            "coarseMovingTime: " + coarseMovingTime + "\n" + 
-            "MovingTime: " + MovingTime + "\n";
-            log.text += "Finished!!!!!!!!!!!!";
+            // log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
+            // "coarseMovingTime: " + coarseMovingTime + "\n" + 
+            // "MovingTime: " + MovingTime + "\n";
+            // log.text += "Finished!!!!!!!!!!!!";
             if(!finishStatus)
             {
-                File.WriteAllText(filePath, "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
-                                "coarseMovingTime: " + coarseMovingTime + "\n" + 
-                                "MovingTime: " + MovingTime + "\n");
+                File.WriteAllText(filePath, "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
+                                "Coarse Moving Time: " + coarseMovingTime + "\n" + "Moving Time: " + MovingTime + "\n" + MovingRecorder.GetComponent<MovingRecorder>().output
+                                );
                 finishStatus = true;
             }
         }
         else{
-            log.text = "CompleteObjects: " + CompleteObjects.Count + "\n";
-            log.text += "agentObject.GetComponent<GrabAgentObject>().TargetObjects: " + agentObject.GetComponent<GrabAgentObject>().TargetObjects.Count + "\n";
-            log.text += "FrameObjects: " + agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count + "\n";
+            // log.text = "CompleteObjects: " + CompleteObjects.Count + "\n";
+            // log.text += "agentObject.GetComponent<GrabAgentObject>().TargetObjects: " + agentObject.GetComponent<GrabAgentObject>().TargetObjects.Count + "\n";
+            // log.text += "FrameObjects: " + agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count + "\n";
+
         }
 
         foreach (var obj in agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame){
@@ -96,7 +100,6 @@ public class ProcessRecorder : MonoBehaviour
             MovingTime += Time.deltaTime;
             
         }
-        
 
     }
 
@@ -107,4 +110,5 @@ public class ProcessRecorder : MonoBehaviour
                 Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y), 360 - Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y)) +
                 Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z), 360 - Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z));
     }
+
 }
