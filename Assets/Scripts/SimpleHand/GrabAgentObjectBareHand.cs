@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class GrabAgentObjectBareHand : MonoBehaviour
 {
     public GameObject singleSelect;
-    public GameObject targets;
+    public GameObject targets;//虚拟空物体，这下面需要放所有代表目标位置的物体
     public GameObject rightThumb;
     public GameObject rightIndex;
-
+    private int  allNumber = 0;
+    private int  finishNumber = 0;
+    //public TMP_Text t;
     public GameObject leftThumb;
     public GameObject leftIndex;
     public GameObject pinchObject;
@@ -32,48 +34,54 @@ public class GrabAgentObjectBareHand : MonoBehaviour
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
 
-    bool initFlag = false;
-
     void Start()
     {
         // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
         TargetObjects = new Dictionary<GameObject, GameObject>();
         FindChild(targets);
-    }
-    public void AddOutline(GameObject target, Color color)
-    {
-        if (target.GetComponent<Outline>() == null)
-        {
-            target.AddComponent<Outline>();
-        }
-        target.GetComponent<Outline>().OutlineColor = color;
-    }
-    void FindChild(GameObject child)
-    {
-
-        //利用for循环 获取物体下的全部子物体
-        for (int c = 0; c < child.transform.childCount; c++)
-        {
-            TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");;
-        }
+        finishNumber = TargetObjects.Count;
     }
     void Update()
     {
-        if(MovingObject.Count>0)
-        if(TargetObjects.ContainsKey(MovingObject[0]))
-        if((MovingObject[0].transform.position- TargetObjects[MovingObject[0]].transform.position).magnitude < 0.01)
-        //距离目标位置小于阈值
+        if(finishNumber == allNumber && finishNumber != 0)
         {
-            singleSelect.GetComponent<singleSelect>().finishOneObject();
-            
-            MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-            MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
-            AddOutline(MovingObject[0],Color.green);
-            eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().mark = 0;
-            eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().rayVisualizer.GetComponent<RayVisualizer>().setLine(0.01f);
-                    MovingObject.RemoveAt(0);
+            singleSelect.GetComponent<singleSelect>().finishAll(); 
         }
+        if(MovingObject.Count>0)
+            if (TargetObjects.ContainsKey(MovingObject[0])) {
+                
+                var obj = MovingObject[0];
+               // t.text = TargetObjects[obj].name;
+                var targetPosition = TargetObjects[obj].transform.position;
+                if (Vector3.Distance(obj.transform.position, targetPosition) <
+         (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f)
+                {
+                    singleSelect.GetComponent<singleSelect>().finishCoarseOneObject();
+                    AddOutline(MovingObject[0], Color.yellow);
+                    obj.GetComponent<Outline>().OutlineWidth = 4f;
+                }
+                if (Vector3.Distance(obj.transform.position, targetPosition) <
+                    (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                    RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){
+
+                    AddOutline(MovingObject[0], Color.red);
+                    obj.GetComponent<Outline>().OutlineWidth = 6f;
+                    finishNumber += 1;
+                    singleSelect.GetComponent<singleSelect>().finishOneObject();
+            
+                    MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                    MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
+                    
+                    eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().mark = 0;
+                    eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().rayVisualizer.GetComponent<RayVisualizer>().setLine(0.01f);
+                    MovingObject.RemoveAt(0);
+                }
+}
+            else
+            {
+                //t.text = "nonono";
+            }
         grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus; 
       
         movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
@@ -144,5 +152,26 @@ public class GrabAgentObjectBareHand : MonoBehaviour
 
         }
     }
-
+    float RotationGap(GameObject obj1, GameObject obj2)
+    {
+        return Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.x - obj2.transform.eulerAngles.x), 360 - Mathf.Abs(obj1.transform.eulerAngles.x - obj2.transform.eulerAngles.x)) +
+                Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y), 360 - Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y)) +
+                Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z), 360 - Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z));
+    }
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+        }
+        target.GetComponent<Outline>().OutlineColor = color;
+    }
+    void FindChild(GameObject child)
+    {
+        //利用for循环 获取物体下的全部子物体
+        for (int c = 0; c < child.transform.childCount; c++)
+        {
+            TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)"); ;
+        }
+    }
 }

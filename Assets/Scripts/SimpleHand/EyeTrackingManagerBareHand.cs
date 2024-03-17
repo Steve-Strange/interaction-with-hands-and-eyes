@@ -67,8 +67,9 @@ public class EyeTrackingManagerBareHand : MonoBehaviour
         if (target.GetComponent<Outline>() == null)
         {
             target.AddComponent<Outline>();
-            target.GetComponent<Outline>().OutlineColor = color;
+            
         }
+        target.GetComponent<Outline>().OutlineColor = color;
     }
 
     void BlinkSelect(){
@@ -76,7 +77,8 @@ public class EyeTrackingManagerBareHand : MonoBehaviour
         if(rayVisualizer.GetComponent<RayVisualizer>().target!=null & mark == 0)
         {
             rayVisualizer.GetComponent<RayVisualizer>().setLine(0f);
-            t.text = "yesselect";
+            t.text = rayVisualizer.GetComponent<RayVisualizer>().target.name;
+            singelSelect.GetComponent<singleSelect>().writeFile("selectObject:" + rayVisualizer.GetComponent<RayVisualizer>().target.name);
             mark = 1;
             singelSelect.GetComponent<singleSelect>().selectOneObject();
             AddOutline(rayVisualizer.GetComponent<RayVisualizer>().target, Color.blue);
