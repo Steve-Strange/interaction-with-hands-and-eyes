@@ -21,7 +21,7 @@ public class GrabAgentObjectBareHand : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 lastPosition;
 
-    public TMP_InputField log;
+    // public TMP_InputField log;
 
     public List<GameObject> MovingObject = new List<GameObject>();
     // private GameObject originalParent;
