@@ -28,7 +28,9 @@ public class Bubble : MonoBehaviour
     float radius; 
     int layerMask;
     int i, j;
-   // public TMP_Text t;
+    public TMP_Text t;
+    public TMP_Text t2;
+    public TMP_Text t3;
     private GameObject[] target = new GameObject[3];
     private float[] d = new float[5];
     private float[] ad = new float[5];
@@ -50,15 +52,16 @@ public class Bubble : MonoBehaviour
         objects = new List<GameObject>();
         FindChilds(Objects);
         finishNumber = 0;
+        selectingObject = false;
         needNumber = autoGenerate.GetComponent<autoGenerate>().targetNumber;
 
     }
     public void FindChilds(GameObject OBJ)
     {
-        for (int c = 0; c < Objects.transform.childCount; c++)
+        for (int c = 0; c < OBJ.transform.childCount; c++)
         {
-            if (Objects.transform.GetChild(c).gameObject.transform.childCount == 0)
-                objects.Add(Objects.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
+            if (OBJ.transform.GetChild(c).gameObject.transform.childCount == 0)
+                objects.Add(OBJ.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
            // else
                // FindChilds(Objects.transform.GetChild(c).gameObject);
         }
@@ -136,6 +139,7 @@ public class Bubble : MonoBehaviour
     void Start()
     {
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
+        time = 0;
         l = GetComponent<LineRenderer>();
         l.startWidth = 0.005f;
         l.endWidth = 0.005f;
@@ -184,7 +188,10 @@ public class Bubble : MonoBehaviour
         UpdataTarget();
         UpdateLine();//更新画线，需要更新了target之后
         if(!selectingObject)
+        {
+            t.text = "1";
             ChooseObject();
+        }
     }
     public void decideCenter()
     {
@@ -276,21 +283,19 @@ public class Bubble : MonoBehaviour
        // t.text = "2";
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, transform.GetComponent<Renderer>().bounds.size.x/2,layerMask);
-        foreach (var item in objects)
+     /**/   foreach (var item in objects)
         {
-            Debug.Log(item.name);
-            item.gameObject.GetComponent<MeshRenderer>().material = notargetM;
+            AddOutline(item.gameObject, Color.clear);
         }
       //  t.text = "3";
         int targetNum = 0;//最多三个目标
         foreach (var item in colliders)
-        //if(item.gameObject.name!="bubble")
         {
            // t.text = "4";
             if (targetNum < 3) {
                     targetNum++;
-                    Debug.Log(item.gameObject.name);
-                    item.gameObject.GetComponent<MeshRenderer>().material = targetM;
+                    AddOutline(item.gameObject, Color.blue);
+                    item.GetComponent<Outline>().OutlineWidth = 1f;
                     for(int i = targetNum-1; i <= 2; i++) { 
                     target[i] = item.gameObject;
                     }
@@ -301,15 +306,16 @@ public class Bubble : MonoBehaviour
         time += 1;
         if (time > 30)
             time = 22;
-        bool[] mark = new bool[3];
+        bool[] mark = new bool[4];
 
         if (time > 20)
-        { 
+        {
+            t.text = "2";
             d[1] = culculate(index1, index2, index3);
             d[2] = culculate(middle1, middle2, middle3);
             d[3] = culculate(ring1, ring2, ring3);
 
-
+            t.text = "3";
             mark[1] = false;
             mark[2] = false;
             mark[3] = false;
@@ -335,7 +341,9 @@ public class Bubble : MonoBehaviour
                         max = d[i] - angleLast[i];
                         select = i;
                     }
-                }     
+                }   
+            t2.text = select.ToString();
+            t3.text = mark[select].ToString();
             if(mark[select] == true){
 
                 if(recorder.GetComponent<singleSelect>().sampleType == 2){//select + manipulate
@@ -351,6 +359,7 @@ public class Bubble : MonoBehaviour
                 }
                 else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
                 {
+                    t.text = "right";
                     if (autoGenerate.GetComponent<autoGenerate>().targets.Contains((target[select])))//选中的是需要的物体
                     {
                         target[select].GetComponent<Renderer>().material.color = Color.blue;//这个是随机颜色变绿，选中后颜色变回蓝色
