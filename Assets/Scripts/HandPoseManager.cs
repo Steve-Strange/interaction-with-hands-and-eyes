@@ -145,10 +145,12 @@ public class HandPoseManager : MonoBehaviour
                 originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.rotation, obj.Key.transform.localScale);
                 obj.Key.GetComponent<Outline>().OutlineColor = Color.clear;
                 objScale[obj.Key] = obj.Key.transform.localScale;
-                obj.Key.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                float objMaxScale = Mathf.Max(obj.Key.transform.GetComponent<Renderer>().bounds.size.x, obj.Key.transform.GetComponent<Renderer>().bounds.size.y, obj.Key.transform.GetComponent<Renderer>().bounds.size.z);
+                obj.Key.transform.localScale = new Vector3(0.1f / objMaxScale, 0.1f / objMaxScale, 0.01f / objMaxScale);
+                obj.Key.transform.localEulerAngles = new Vector3(0, 0, 0);
                 obj.Key.transform.position = SecondSelectionBG.transform.position + 
-                    new Vector3(- SecondSelectionBG.transform.localScale.z/2, - SecondSelectionBG.transform.localScale.y/2, 0) + 
-                    new Vector3(obj.Key.transform.localScale.x * (2 * (i%columnNum) + 1) , + obj.Key.transform.localScale.y * (2 * (i/columnNum) + 1), - 5 * obj.Key.transform.localScale.z);
+                    new Vector3(- SecondSelectionBG.transform.localScale.z/2, - SecondSelectionBG.transform.localScale.y/2, -SecondSelectionBG.transform.localScale.x/2) + 
+                    new Vector3(0.1f * (2 * (i%columnNum) + 1) , + 0.1f * (2 * (i/columnNum) + 1), - 0.02f);
                 i++;
             }
 
@@ -184,6 +186,7 @@ public class HandPoseManager : MonoBehaviour
             if(i/columnNum == currentRow){
                 if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)){
                     obj.Key.GetComponent<Outline>().OutlineColor = Color.yellow;
+                    obj.Key.GetComponent<Outline>().OutlineWidth = 5f;
                     selectedRow.Add(obj.Key);
                 }
                 else {
