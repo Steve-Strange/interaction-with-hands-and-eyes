@@ -1,12 +1,7 @@
-using System;
-using System.Drawing;
-using System.IO.Enumeration;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
-using static UnityEngine.ParticleSystem;
 
 public class autoGenerate : MonoBehaviour
 {
@@ -17,10 +12,10 @@ public class autoGenerate : MonoBehaviour
     void Start()
     {
         FindChild(father);
-        testArray = GetRandomSequence(allObjects.Count,6);
+        var testArray = GetRandomSequence(allObjects.Count,6);
         for (int i = 0;i < 6;i++)
         {
-            allObjects[testArray[i]].GetComponent<MeshRenderer>().Color = Color.green;
+            allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
             targets.Add(allObjects[testArray[i]]);
         }
 
@@ -28,10 +23,10 @@ public class autoGenerate : MonoBehaviour
     public void reGenerate()
     {
         targets.Clear();
-        testArray = GetRandomSequence(allObjects.Count,6);
+        var testArray = GetRandomSequence(allObjects.Count,6);
         for (int i = 0;i < 6;i++)
         {
-            allObjects[testArray[i]].GetComponent<MeshRenderer>().Color = Color.green;
+            allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
             targets.Add(allObjects[testArray[i]]);
         }
     }

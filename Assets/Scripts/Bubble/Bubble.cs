@@ -1,6 +1,4 @@
-using System.Security.Cryptography.X509Certificates;
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -39,7 +37,8 @@ public class Bubble : MonoBehaviour
     private float[] angleLast = new float[5];
     int wrongTime;
     public bool selectingObject;//当前是否有选中物体
-
+    private int finishNumber;
+    private int needNumber;
     [SerializeField] private Material _material;
     [SerializeField] private Material defaultMaterial;
     public Material targetM;
@@ -340,16 +339,16 @@ public class Bubble : MonoBehaviour
                     AddOutline(target[select],Color.blue);
                     grabAgentObject.SetActive(true);
                     grabAgentObject.GetComponent<GrabAgentObjectBareHand>().MovingObject.Add(target[select]);
-                    recorder.GetComponent<singleSelect>().writeFile("selectObject:" + rayVisualizer.GetComponent<RayVisualizer>().target.name);
+                    recorder.GetComponent<singleSelect>().writeFile("selectObject:" + target[select].name);
                     recorder.GetComponent<singleSelect>().selectOneObject();
                     killTheBubble();
                 }
                 else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
                 {
-                    if(autoGenerate.GetComponent<autoGenerate>().targets.Contain(target[select]))//选中的是需要的物体
+                    if (autoGenerate.GetComponent<autoGenerate>().targets.Contains((target[select])))//选中的是需要的物体
                     {
-                        target[select].GetComponent<MeshRenderer>().Color = Color.blue;//这个是随机颜色变绿，选中后颜色变回蓝色
-                        recorder.GetComponent<singleSelect>().writeFile("selectObject:" + rayVisualizer.GetComponent<RayVisualizer>().target.name);
+                        target[select].GetComponent<Renderer>().material.color = Color.blue;//这个是随机颜色变绿，选中后颜色变回蓝色
+                        recorder.GetComponent<singleSelect>().writeFile("selectObject:" + target[select].name);
                         recorder.GetComponent<singleSelect>().selectOneObject();
                         finishNumber += 1;
                         if(finishNumber == needNumber)
