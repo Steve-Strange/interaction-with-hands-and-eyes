@@ -1,10 +1,16 @@
+using System.Security.Cryptography.X509Certificates;
+using System;
+using System.Drawing;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class Bubble : MonoBehaviour
 {
+    public GameObject recorder;
+    public GameObject autoGenerate; 
+    public GameObject grabAgentObject;
     public List<GameObject> objects =  new List<GameObject>();
-    int layerMask;
+   
     public GameObject Objects;
     LineRenderer l;
     public GameObject palm;
@@ -18,7 +24,8 @@ public class Bubble : MonoBehaviour
     LineRenderer[] line = new LineRenderer[3];
     float[] IntD = new float[1000];
     float[] ConD = new float[1000];
-    float radius;
+    float radius; 
+    int layerMask;
     int i, j;
     public TMP_Text t;
     public GameObject[] target = new GameObject[3];
@@ -30,7 +37,7 @@ public class Bubble : MonoBehaviour
     private float[] d = new float[5];
     private float[] ad = new float[5];
     private float[] angleLast = new float[5];
-
+    int wrongTime;
     public bool selectingObject;//当前是否有选中物体
 
     [SerializeField] private Material _material;
@@ -45,10 +52,10 @@ public class Bubble : MonoBehaviour
         layerMask = 1 << 7;   
         objects = new List<GameObject>();
         foreach (Transform t in Objects.GetComponentsInChildren<Transform>())
-        if(t.name != "Objects")
+        if(t.name != "Objects")//todo 要排除空白物体，里面放所有需要参与计算的
         {
             objects.Add(t.gameObject);
-            Debug.Log(t.gameObject.name);
+            //Debug.Log(t.gameObject.name);
         }
         
     }
@@ -178,13 +185,53 @@ public class Bubble : MonoBehaviour
     public void decideCenter()
     {
         Ray ray = new Ray(palm.transform.position, -palm.transform.up);//手掌心向前发出射线
-        Ray ray1 = new Ray(palm.transform.position + 0.2f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
-        Ray ray2 = new Ray(palm.transform.position - 0.2f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
-        Ray ray3 = new Ray(palm.transform.position + 0.1f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
-        Ray ray4 = new Ray(palm.transform.position - 0.1f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        Ray ray1 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        Ray ray2 = new Ray(palm.transform.position - 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        Ray ray3 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        Ray ray4 = new Ray(palm.transform.position - 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
         RaycastHit hitInfo;
         //声明一个RaycastHit结构体，存储碰撞信息
         if (Physics.Raycast(ray, out hitInfo, int.MaxValue, layerMask))
+        {
+            Debug.Log(hitInfo.collider.gameObject.name);
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.4)
+            {
+                bubbleOrigin = hitInfo.collider.gameObject.transform.position;
+                palmOrigin = palm.transform.position;
+                transform.position = bubbleOrigin;
+            }
+          
+        }else if (Physics.Raycast(ray1, out hitInfo, int.MaxValue, layerMask))
+        {
+            Debug.Log(hitInfo.collider.gameObject.name);
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.4)
+            {
+                bubbleOrigin = hitInfo.collider.gameObject.transform.position;
+                palmOrigin = palm.transform.position;
+                transform.position = bubbleOrigin;
+            }
+          
+        }else        if (Physics.Raycast(ray2, out hitInfo, int.MaxValue, layerMask))
+        {
+            Debug.Log(hitInfo.collider.gameObject.name);
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.4)
+            {
+                bubbleOrigin = hitInfo.collider.gameObject.transform.position;
+                palmOrigin = palm.transform.position;
+                transform.position = bubbleOrigin;
+            }
+          
+        }else        if (Physics.Raycast(ray3, out hitInfo, int.MaxValue, layerMask))
+        {
+            Debug.Log(hitInfo.collider.gameObject.name);
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.4)
+            {
+                bubbleOrigin = hitInfo.collider.gameObject.transform.position;
+                palmOrigin = palm.transform.position;
+                transform.position = bubbleOrigin;
+            }
+          
+        }else        if (Physics.Raycast(ray4, out hitInfo, int.MaxValue, layerMask))
         {
             Debug.Log(hitInfo.collider.gameObject.name);
             if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.4)
@@ -285,11 +332,38 @@ public class Bubble : MonoBehaviour
                     }
                 }     
             if(mark[select] == true){
-                choose = target[select];
-                selectingObject = true;
-                time = 0;
-                t.text = choose.name;
-                killTheBubble();
+
+                if(recorder.GetComponent<singleSelect>().sampleType == 2){//select + manipulate
+                    choose = target[select];
+                    selectingObject = true;
+                    time = 0;
+                    AddOutline(target[select],Color.blue);
+                    grabAgentObject.SetActive(true);
+                    grabAgentObject.GetComponent<GrabAgentObjectBareHand>().MovingObject.Add(target[select]);
+                    recorder.GetComponent<singleSelect>().writeFile("selectObject:" + rayVisualizer.GetComponent<RayVisualizer>().target.name);
+                    recorder.GetComponent<singleSelect>().selectOneObject();
+                    killTheBubble();
+                }
+                else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
+                {
+                    if(autoGenerate.GetComponent<autoGenerate>().targets.Contain(target[select]))//选中的是需要的物体
+                    {
+                        target[select].GetComponent<MeshRenderer>().Color = Color.blue;//这个是随机颜色变绿，选中后颜色变回蓝色
+                        recorder.GetComponent<singleSelect>().writeFile("selectObject:" + rayVisualizer.GetComponent<RayVisualizer>().target.name);
+                        recorder.GetComponent<singleSelect>().selectOneObject();
+                        finishNumber += 1;
+                        if(finishNumber == needNumber)
+                        {
+                            recorder.GetComponent<singleSelect>().finishAll();
+                        }
+                    }
+                    else
+                    {
+                        wrongTime += 1;
+                        AddOutline(target[select],Color.red);
+                    }
+                    selectingObject = false;
+                }
             }
             else{
                 selectingObject = false;
@@ -329,8 +403,9 @@ public class Bubble : MonoBehaviour
         if (target.GetComponent<Outline>() == null)
         {
             target.AddComponent<Outline>();
-            target.GetComponent<Outline>().OutlineColor = color;
+            
         }
+        target.GetComponent<Outline>().OutlineColor = color;
     }
 }
 

@@ -7,16 +7,18 @@ public class singleSelect : MonoBehaviour
 {
     [SerializeField]
     string userName;
-    public GameObject[] targetGameobject;//´æËùÓÐµÄÐèÒª±»²Ù×÷µÄÄ¿±êÎïÌå
+    [SerializeField]
+    public int sampleType;
+    public GameObject[] targetGameobject;//ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     // Start is called before the first frame update
     private float timer = 0;
-    private float selectTime = 0;//Ä¿Ç°ÎªÖ¹µÄ×ÜÑ¡ÔñÊ±¼ä
-    private float manipulateTime = 0;//Ä¿Ç°ÎªÖ¹µÄ×Ü²Ù×ÝÊ±¼ä
+    private float selectTime = 0;//Ä¿Ç°ÎªÖ¹ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½
+    private float manipulateTime = 0;//Ä¿Ç°ÎªÖ¹ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
     private float coarseManipulateTime = 0;
-    private float fineManipulateTime = 0;//Ä¿Ç°ÎªÖ¹µÄ×Ü¾«Ï¸²Ù×ÝÊ±¼ä
-    public float beginSelectTime;//¿ªÊ¼Ñ¡ÔñµÄÊ±¼ä
-    public float beginManipulateTime;//¿ªÊ¼²Ù×ÝµÄÊ±¼ä
-    public float beginFineManipulateTime;//¿ªÊ¼¾«Ï¸²Ù×ÝµÄÊ±¼ä
+    private float fineManipulateTime = 0;//Ä¿Ç°ÎªÖ¹ï¿½ï¿½ï¿½Ü¾ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public float beginSelectTime;//ï¿½ï¿½Ê¼Ñ¡ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public float beginManipulateTime;//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ýµï¿½Ê±ï¿½ï¿½
+    public float beginFineManipulateTime;//ï¿½ï¿½Ê¼ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½Ýµï¿½Ê±ï¿½ï¿½
     public TMP_Text t;
     public TMP_Text t2;
     public TMP_Text t3;
@@ -28,11 +30,16 @@ public class singleSelect : MonoBehaviour
     {
         logs = "";
         timer = 0;
-        // »ñÈ¡Íâ²¿´æ´¢Æ÷µÄÂ·¾¶
+        // ï¿½ï¿½È¡ï¿½â²¿ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
         folderPath = Application.persistentDataPath;
+        if(sampleType == 2){
         fileName = userName + "-" + System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
-
-        // ÉèÖÃÎÄ¼þÂ·¾¶ºÍÃû³Æ
+    }else if(sampleType == 0){
+    fileName = userName + "-" +"select_"+ System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
+    }else{
+     fileName = userName + "-" +"manipulate_"+ System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
+    }
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         filePath = Path.Combine(folderPath, fileName);
 
     }
@@ -44,7 +51,7 @@ public class singleSelect : MonoBehaviour
         t2.text = selectTime.ToString();
         t3.text = manipulateTime.ToString();
         timer += Time.deltaTime;
-        if(timer > 3 && begin == true )//¿ªÊ¼ÈýÃëÖ®ºó¿ªÊ¼¼ÆÊ±
+        if(timer > 3 && begin == true )//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ê¼ï¿½ï¿½Ê±
         {
             beginSelectTime = timer;
             begin = false;
@@ -59,15 +66,15 @@ public class singleSelect : MonoBehaviour
     {
         logs += a  + "\n";
     }
-    public void selectOneObject()//°ÑÃ¿´ÎÑ¡ÔñµÄÊ±¼ä¼ÓÉÏ
-    { 
+    public void selectOneObject()//ï¿½ï¿½Ã¿ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
+    {   
         var temp = timer - beginSelectTime;
         selectTime += temp;
         beginManipulateTime = timer;
         logs += "thisSelectionTime: " + temp + "\n";
         logs += "allSelectionTime: " + selectTime + "\n";
     }
-    public void finishOneObject()//°ÑÃ¿´Î²Ù×ÝÊ±¼ä¼ÓÉÏ
+    public void finishOneObject()//ï¿½ï¿½Ã¿ï¿½Î²ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         var temp = timer - beginManipulateTime;
         manipulateTime += temp;
@@ -84,7 +91,7 @@ public class singleSelect : MonoBehaviour
         logs += "thisManipulateTime: " + temp + "\n";
         logs += "allManipulateTime: " + manipulateTime + "\n";
     }
-    public void finishCoarseOneObject()//°ÑÃ¿´Î´Ö²Ù×ÝÊ±¼ä¼ÓÉÏ
+    public void finishCoarseOneObject()//ï¿½ï¿½Ã¿ï¿½Î´Ö²ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         coarseManipulateTime += timer - beginManipulateTime;
         beginFineManipulateTime = timer;

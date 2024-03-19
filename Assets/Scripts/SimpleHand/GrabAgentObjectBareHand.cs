@@ -6,69 +6,67 @@ using UnityEngine.UI;
 
 public class GrabAgentObjectBareHand : MonoBehaviour
 {
-    public GameObject singleSelect;
-    public GameObject targets;//ĞéÄâ¿ÕÎïÌå£¬ÕâÏÂÃæĞèÒª·ÅËùÓĞ´ú±íÄ¿±êÎ»ÖÃµÄÎïÌå
+    public GameObject recorder;
+    public List<GameObject> manipulateObjects;//æ”¾æ‰€æœ‰éœ€è¦æ“çºµçš„å¾…é€‰ç‰©ä½“
+    public GameObject targets;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
     public GameObject rightThumb;
     public GameObject rightIndex;
-    private int  allNumber = 0;
-    private int  finishNumber = 0;
-    //public TMP_Text t;
     public GameObject leftThumb;
     public GameObject leftIndex;
     public GameObject pinchObject;
     public GameObject eyeTrackingManager;
     public bool pinchStatus;
+
+
     private int grabStatus;
     private bool movingStatus;
     private Vector3 originalPosition;
     private Vector3 lastPosition;
-
-    // public TMP_InputField log;
+    private float movingScale;
+    private int  allNumber = 0;
+    private int  finishNumber = 0;
 
     public List<GameObject> MovingObject = new List<GameObject>();
     // private GameObject originalParent;
-    private float movingScale;
 
 
-    public List<GameObject> FinishedObjects = new List<GameObject>();
-    public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
-    public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
+    private Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
 
     void Start()
     {
-        // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
         TargetObjects = new Dictionary<GameObject, GameObject>();
         FindChild(targets);
-        finishNumber = TargetObjects.Count;
+        allNumber = TargetObjects.Count;
+        if(recorder.GetComponent<singleSelect>().sampleType == 1){
+            MovingObject.Add(manipulateObjects[0]);
+            manipulateObjects.RemoveAt(0);
+            allNumber = manipulateObjects.Count;
+        }
     }
     void Update()
     {
-        if(finishNumber == allNumber && finishNumber != 0)
-        {
-            singleSelect.GetComponent<singleSelect>().finishAll(); 
+        if(finishNumber == allNumber && finishNumber != 0){
+            recorder.GetComponent<singleSelect>().finishAll(); 
         }
         if(MovingObject.Count>0)
             if (TargetObjects.ContainsKey(MovingObject[0])) {
                 
                 var obj = MovingObject[0];
-               // t.text = TargetObjects[obj].name;
                 var targetPosition = TargetObjects[obj].transform.position;
-                if (Vector3.Distance(obj.transform.position, targetPosition) <
-         (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f)
+                if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f)
                 {
-                    singleSelect.GetComponent<singleSelect>().finishCoarseOneObject();
+                    recorder.GetComponent<singleSelect>().finishCoarseOneObject();
                     AddOutline(MovingObject[0], Color.yellow);
                     obj.GetComponent<Outline>().OutlineWidth = 4f;
                 }
-                if (Vector3.Distance(obj.transform.position, targetPosition) <
-                    (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){
 
                     AddOutline(MovingObject[0], Color.red);
                     obj.GetComponent<Outline>().OutlineWidth = 6f;
                     finishNumber += 1;
-                    singleSelect.GetComponent<singleSelect>().finishOneObject();
+                    recorder.GetComponent<singleSelect>().finishOneObject();
             
                     MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                     MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
@@ -76,12 +74,12 @@ public class GrabAgentObjectBareHand : MonoBehaviour
                     eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().mark = 0;
                     eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().rayVisualizer.GetComponent<RayVisualizer>().setLine(0.01f);
                     MovingObject.RemoveAt(0);
+                    
+                    MovingObject.Add(manipulateObjects[0]);
+                    manipulateObjects.RemoveAt(0);
+
                 }
 }
-            else
-            {
-                //t.text = "nonono";
-            }
         grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus; 
       
         movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
@@ -103,9 +101,6 @@ public class GrabAgentObjectBareHand : MonoBehaviour
             else transform.rotation = Quaternion.identity;
             
         }
-        // log.text = "rotation gap: " + rotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
-        // log.text += "MovingObject: " + MovingObject[0].name + "\n" + "TargetObjects: " + TargetObjects[MovingObject[0]].name + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
-        // log.text += "onFrame.Count:" + pinchObject.GetComponent<collide>().onFrame.Count + "\n"; 
 
         if (movingStatus)
         {
@@ -168,7 +163,7 @@ public class GrabAgentObjectBareHand : MonoBehaviour
     }
     void FindChild(GameObject child)
     {
-        //ÀûÓÃforÑ­»· »ñÈ¡ÎïÌåÏÂµÄÈ«²¿×ÓÎïÌå
+        //ï¿½ï¿½ï¿½ï¿½forÑ­ï¿½ï¿½ ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         for (int c = 0; c < child.transform.childCount; c++)
         {
             TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)"); ;
