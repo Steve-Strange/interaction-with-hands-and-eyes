@@ -47,9 +47,9 @@ public class singleSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t.text = timer.ToString();
-        t2.text = selectTime.ToString();
-        t3.text = manipulateTime.ToString();
+       // t.text = timer.ToString();
+       // t2.text = selectTime.ToString();
+       // t3.text = manipulateTime.ToString();
         timer += Time.deltaTime;
         if(timer > 3 && begin == true )//��ʼ����֮��ʼ��ʱ
         {

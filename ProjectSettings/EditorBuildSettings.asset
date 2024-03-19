@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EyeTracking 2.unity
     guid: 1a99be3005497d24a8c8397f55305411
   - enabled: 0
-    path: Assets/Scenes/Bubble.unity
+    path: Assets/Scenes/SelectOnly/SelectCompare-bubble.unity
     guid: c12a5edad6b33ef40b556a89e820b7bf
   - enabled: 0
     path: Assets/Scenes/SimpleHand.unity
@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Museum-Ours.unity
     guid: 004a2af36b69afb4d8efb029a80f61d3
   - enabled: 0
-    path: Assets/Scenes/Museum-conventional.unity
+    path: Assets/Scenes/select+manipulate/Museum-bubble-agent.unity
     guid: 163b3c4347ee05146b21c19dfd883574
   - enabled: 0
     path: Assets/Scenes/EyeTracking.unity

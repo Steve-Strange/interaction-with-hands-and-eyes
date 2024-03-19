@@ -4,17 +4,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GrabAgentObjectBareHand : MonoBehaviour
+public class GrabAgentObjectBubble : MonoBehaviour
 {
     public GameObject recorder;
-    public List<GameObject> manipulateObjects;//放所有需要操纵的待选物体
+    public List<GameObject> manipulateObjects;//放所有需要操纵的待选物体，为了仅移动的方法
     public GameObject targets;//��������壬��������Ҫ�����д���Ŀ��λ�õ�����
     public GameObject rightThumb;
     public GameObject rightIndex;
     public GameObject leftThumb;
     public GameObject leftIndex;
     public GameObject pinchObject;
-    public GameObject eyeTrackingManager;
+    public GameObject bubble;
     public bool pinchStatus;
 
 
@@ -63,21 +63,39 @@ public class GrabAgentObjectBareHand : MonoBehaviour
                 if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){
 
+                    if(recorder.GetComponent<singleSelect>().sampleType == 2) { //select+manipulate
+
                     AddOutline(MovingObject[0], Color.red);
                     obj.GetComponent<Outline>().OutlineWidth = 6f;
                     finishNumber += 1;
                     recorder.GetComponent<singleSelect>().finishOneObject();
-            
+                    
                     MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                     MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
                     
-                    eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().mark = 0;
-                    eyeTrackingManager.GetComponent<EyeTrackingManagerBareHand>().rayVisualizer.GetComponent<RayVisualizer>().setLine(0.01f);
-                    MovingObject.RemoveAt(0);
-                    
-                    //MovingObject.Add(manipulateObjects[0]);
-                    //manipulateObjects.RemoveAt(0);
+                    bubble.GetComponent<Bubble>().selectingObject = false;
 
+                    MovingObject.RemoveAt(0);
+
+                    }else if (recorder.GetComponent<singleSelect>().sampleType == 1)//manipulateOnly
+                    {
+
+                        AddOutline(MovingObject[0], Color.red);
+                        obj.GetComponent<Outline>().OutlineWidth = 6f;
+                        finishNumber += 1;
+                        recorder.GetComponent<singleSelect>().finishOneObject();
+                        MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                        MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
+                        
+                        MovingObject.RemoveAt(0);
+                        if(manipulateObjects.Count > 0) { 
+                            MovingObject.Add(manipulateObjects[0]);
+                            AddOutline(MovingObject[0], Color.green);//当前操纵的这个物体泛绿光
+                            MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
+
+                            manipulateObjects.RemoveAt(0);
+                        }
+                    }
                 }
 }
         grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus; 

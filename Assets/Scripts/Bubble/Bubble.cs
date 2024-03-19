@@ -7,31 +7,29 @@ public class Bubble : MonoBehaviour
     public GameObject recorder;
     public GameObject autoGenerate; 
     public GameObject grabAgentObject;
-    public List<GameObject> objects =  new List<GameObject>();
+    private List<GameObject> objects =  new List<GameObject>();
    
     public GameObject Objects;
     LineRenderer l;
     public GameObject palm;
     private Vector3 palmOrigin;
     private Vector3 bubbleOrigin;
-    public GameObject choose;
     public GameObject index;
     public GameObject middle;
-    public GameObject ring;
-    public GameObject[] LINE = new GameObject[3];
-    LineRenderer[] line = new LineRenderer[3];
+    public GameObject ring;    
+    public GameObject 
+         index1, index2, index3,
+         middle1, middle2, middle3,
+         ring1, ring2, ring3;
+    public GameObject[] Lines = new GameObject[3];
+    private LineRenderer[] line = new LineRenderer[3];
     float[] IntD = new float[1000];
     float[] ConD = new float[1000];
     float radius; 
     int layerMask;
     int i, j;
-    public TMP_Text t;
-    public GameObject[] target = new GameObject[3];
-    public GameObject 
-         index1, index2, index3,
-         middle1, middle2, middle3,
-         ring1, ring2, ring3;
-
+   // public TMP_Text t;
+    private GameObject[] target = new GameObject[3];
     private float[] d = new float[5];
     private float[] ad = new float[5];
     private float[] angleLast = new float[5];
@@ -50,32 +48,39 @@ public class Bubble : MonoBehaviour
     private void Awake(){
         layerMask = 1 << 7;   
         objects = new List<GameObject>();
-        foreach (Transform t in Objects.GetComponentsInChildren<Transform>())
-        if(t.name != "Objects")//todo 要排除空白物体，里面放所有需要参与计算的
+        FindChilds(Objects);
+        finishNumber = 0;
+        needNumber = autoGenerate.GetComponent<autoGenerate>().targetNumber;
+
+    }
+    public void FindChilds(GameObject OBJ)
+    {
+        for (int c = 0; c < Objects.transform.childCount; c++)
         {
-            objects.Add(t.gameObject);
-            //Debug.Log(t.gameObject.name);
+            if (Objects.transform.GetChild(c).gameObject.transform.childCount == 0)
+                objects.Add(Objects.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
+           // else
+               // FindChilds(Objects.transform.GetChild(c).gameObject);
         }
-        
     }
     public void changeRadius()
     {
-        t.text = "101";
+      //  t.text = "101";
         for (int i = 0; i < 1000; i++)
         {
             IntD[i] = 1000000000000;
             ConD[i] = 0;
         }
-        t.text = "111";
+       // t.text = "111";
         for (int i = 0; i < objects.Count; i++)
             if(objects[i].GetComponent<MeshFilter>()!=null)
         {
-            t.text = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices.Length.ToString();
+       //     t.text = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices.Length.ToString();
             var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices;//Vector3[]
-            t.text = "131";
+       //     t.text = "131";
             foreach (var v in vertices)
             {
-                t.text = "141";
+            //    t.text = "141";
                 var worldPos = objects[i].transform.TransformPoint(v);
                 var dis = (worldPos - transform.position).magnitude;
 
@@ -89,7 +94,7 @@ public class Bubble : MonoBehaviour
                 }//物体所有点的最远
             }
         }
-        t.text = "12";
+     //   t.text = "12";
         float min = 1000000;
         int k = 0;
         for (int i = 0; i < objects.Count; i++)
@@ -100,7 +105,7 @@ public class Bubble : MonoBehaviour
                 k = i;
             }
         }
-        t.text = "13";
+       // t.text = "13";
         min = 1000000;
         int k2 = 0;
         for (int i = 0; i < objects.Count; i++)
@@ -114,7 +119,7 @@ public class Bubble : MonoBehaviour
         }
         i = k;
         j = k2;
-        t.text = "14";
+    //    t.text = "14";
         if (ConD[i] < IntD[j])
         {
             radius = ConD[i];
@@ -135,7 +140,7 @@ public class Bubble : MonoBehaviour
         l.startWidth = 0.005f;
         l.endWidth = 0.005f;
         int mark = 0;
-        foreach (var item in LINE)
+        foreach (var item in Lines)
         {
           line[mark++] = item.GetComponent<LineRenderer>();
           line[mark-1].startWidth = 0.005f;
@@ -268,19 +273,20 @@ public class Bubble : MonoBehaviour
     public void UpdataTarget()
     {
         //得到所有在碰撞体内部的碰撞体
-        t.text = "2";
+       // t.text = "2";
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, transform.GetComponent<Renderer>().bounds.size.x/2,layerMask);
         foreach (var item in objects)
         {
             Debug.Log(item.name);
             item.gameObject.GetComponent<MeshRenderer>().material = notargetM;
         }
-        t.text = "3";
+      //  t.text = "3";
         int targetNum = 0;//最多三个目标
         foreach (var item in colliders)
         //if(item.gameObject.name!="bubble")
         {
-            t.text = "4";
+           // t.text = "4";
             if (targetNum < 3) {
                     targetNum++;
                     Debug.Log(item.gameObject.name);
@@ -333,7 +339,7 @@ public class Bubble : MonoBehaviour
             if(mark[select] == true){
 
                 if(recorder.GetComponent<singleSelect>().sampleType == 2){//select + manipulate
-                    choose = target[select];
+                   
                     selectingObject = true;
                     time = 0;
                     AddOutline(target[select],Color.blue);
@@ -353,6 +359,7 @@ public class Bubble : MonoBehaviour
                         finishNumber += 1;
                         if(finishNumber == needNumber)
                         {
+                            recorder.GetComponent<singleSelect>().writeFile("selectWrong:" + wrongTime);
                             recorder.GetComponent<singleSelect>().finishAll();
                         }
                     }
@@ -366,7 +373,7 @@ public class Bubble : MonoBehaviour
             }
             else{
                 selectingObject = false;
-                choose = null;
+               // choose = null;
             }
             
         }

@@ -101,12 +101,12 @@ public class BareHandVVIR : MonoBehaviour
 
             UpdateUserFov();//右手A
 }
-            /* 此时有目标物体被选中*/
+            /* 此时有目标物体被选中
             if (bubble.GetComponent<Bubble>().selectingObject){
                 targetObject = bubble.GetComponent<Bubble>().choose;
                 TranslateObjectBySyncMapping();
             }
-  
+  */
         }
 
         /// <summary>
