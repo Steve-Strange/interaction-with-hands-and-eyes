@@ -9,6 +9,7 @@ public class autoGenerate : MonoBehaviour
     private List<GameObject> allObjects = new List<GameObject>();
     public List<GameObject> targets  = new List<GameObject>();
     public GameObject father;
+    public int targetNumber = 6;
     void Start()
     {
         FindChild(father);
@@ -35,6 +36,7 @@ public class autoGenerate : MonoBehaviour
         //����forѭ�� ��ȡ�����µ�ȫ��������
         for (int c = 0; c < child.transform.childCount; c++)
         {
+            child.transform.GetChild(c).GetComponent<Renderer>().material.color = Color.blue;//初始化
             allObjects.Add(child.transform.GetChild(c).gameObject);
         }
     }

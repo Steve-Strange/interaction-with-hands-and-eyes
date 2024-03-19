@@ -5,7 +5,7 @@ using UnityEngine.XR;
 using TMPro;
 using System.Linq;
 
-public class EyeTrackingManager : MonoBehaviour
+public class EyeTrackingManagerSelectOnly : MonoBehaviour
 {   
     public Transform Origin;
     public GameObject Models;
@@ -125,8 +125,8 @@ public class EyeTrackingManager : MonoBehaviour
 
     void BlinkSelect(){
         blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
-        if(!clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
-            clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
+        if(!clickSelect.GetComponent<clickSelectSelectOnly>().FinalObjects.GetComponent<FinalObjectsSelectOnly>().finalObj.Contains(blinkSelectedObject))
+            clickSelect.GetComponent<clickSelectSelectOnly>().FinalObjects.GetComponent<FinalObjectsSelectOnly>().AddFinalObj(blinkSelectedObject);
         if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){
             SightCone.GetComponent<SightCone>().selectedObjects.Remove(blinkSelectedObject);
         }
