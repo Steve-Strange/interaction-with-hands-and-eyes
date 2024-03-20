@@ -308,8 +308,8 @@ public class Bubble : MonoBehaviour
            // t.text = "4";
             if (targetNum < 3) {
                     targetNum++;
-                    AddOutline(item.gameObject, Color.blue);
-                    item.GetComponent<Outline>().OutlineWidth = 1f;
+                    AddOutline(item.gameObject, Color.yellow);
+                    item.GetComponent<Outline>().OutlineWidth = 2f;
                     for(int i = targetNum-1; i <= 2; i++) { 
                     target[i] = item.gameObject;
                     }
@@ -392,6 +392,7 @@ public class Bubble : MonoBehaviour
                             if (round == 2)
                             {   
                                recorder.GetComponent<singleSelect>().finishAll();
+                               autoGenerate.SetActive(false);   
                             }
                             
                         }
