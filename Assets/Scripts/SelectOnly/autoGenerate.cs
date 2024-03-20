@@ -8,6 +8,8 @@ public class autoGenerate : MonoBehaviour
     //to randomly make six bubble turn green;
     private List<GameObject> allObjects = new List<GameObject>();
     public List<GameObject> targets  = new List<GameObject>();
+    public Dictionary<GameObject, Quaternion> rotations = new Dictionary<GameObject, Quaternion>();
+    public Dictionary<GameObject, Vector3> poses = new Dictionary<GameObject, Vector3>();
     public GameObject father;
     public int targetNumber = 5;
     void Start()
@@ -18,12 +20,16 @@ public class autoGenerate : MonoBehaviour
         {
             allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
             targets.Add(allObjects[testArray[i]]);
+            rotations[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.rotation;
+            poses[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.position;
         }
 
     }
     public void reGenerate()
     {
         targets.Clear();
+        rotations.Clear();
+        poses.Clear();  
         var testArray = GetRandomSequence(allObjects.Count, targetNumber);
         for (int i = 0;i < targetNumber; i++)
         {

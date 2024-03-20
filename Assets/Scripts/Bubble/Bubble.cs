@@ -389,7 +389,7 @@ public class Bubble : MonoBehaviour
                             round += 1;
                             autoGenerate.GetComponent<autoGenerate>().reGenerate();
                             recorder.GetComponent<singleSelect>().writeFile("round" + round +"end");
-                            if (round == 2)
+                            if (round == 5)
                             {   
                                recorder.GetComponent<singleSelect>().finishAll();
                                autoGenerate.SetActive(false);   

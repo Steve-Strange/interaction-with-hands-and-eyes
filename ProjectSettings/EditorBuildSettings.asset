@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/EyeTracking 2.unity
     guid: 1a99be3005497d24a8c8397f55305411
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SelectOnly/SelectCompare-bubble.unity
     guid: c12a5edad6b33ef40b556a89e820b7bf
   - enabled: 0
@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/EyeTracking.unity
     guid: 9ac16f17ce0e9914d9d7a39980cf4a16
+  - enabled: 1
+    path: Assets/Scenes/SelectOnly/SelectCompare-ours.unity
+    guid: 987171a1b692f7742ba72a41344c871b
+  - enabled: 0
+    path: Assets/Scenes/SelectOnly/Museum-Ours 1.unity
+    guid: 25493d90863f2c74eb51abedd716d1e3
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 911a72a2498320e458cf8cf731a00095, type: 2}
