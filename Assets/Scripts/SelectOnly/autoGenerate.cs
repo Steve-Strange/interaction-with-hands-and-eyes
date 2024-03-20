@@ -9,12 +9,12 @@ public class autoGenerate : MonoBehaviour
     private List<GameObject> allObjects = new List<GameObject>();
     public List<GameObject> targets  = new List<GameObject>();
     public GameObject father;
-    public int targetNumber = 6;
+    public int targetNumber = 5;
     void Start()
     {
         FindChild(father);
-        var testArray = GetRandomSequence(allObjects.Count,6);
-        for (int i = 0;i < 6;i++)
+        var testArray = GetRandomSequence(allObjects.Count, targetNumber);
+        for (int i = 0;i < targetNumber; i++)
         {
             allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
             targets.Add(allObjects[testArray[i]]);
@@ -24,8 +24,8 @@ public class autoGenerate : MonoBehaviour
     public void reGenerate()
     {
         targets.Clear();
-        var testArray = GetRandomSequence(allObjects.Count,6);
-        for (int i = 0;i < 6;i++)
+        var testArray = GetRandomSequence(allObjects.Count, targetNumber);
+        for (int i = 0;i < targetNumber; i++)
         {
             allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
             targets.Add(allObjects[testArray[i]]);
