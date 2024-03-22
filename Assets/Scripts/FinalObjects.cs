@@ -25,7 +25,6 @@ public class FinalObjects : MonoBehaviour
 
     public void AddFinalObj(GameObject obj)
     {
-        
         obj.tag = "FinalObject";
         finalObjQ[obj] = obj.transform.rotation;
         obj.GetComponent<Outline>().OutlineColor = Color.clear;

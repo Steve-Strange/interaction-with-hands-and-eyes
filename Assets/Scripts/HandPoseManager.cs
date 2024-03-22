@@ -146,7 +146,7 @@ public class HandPoseManager : MonoBehaviour
                 obj.Key.GetComponent<Outline>().OutlineColor = Color.clear;
                 objScale[obj.Key] = obj.Key.transform.localScale;
                 float objMaxScale = Mathf.Max(obj.Key.transform.GetComponent<Renderer>().bounds.size.x, obj.Key.transform.GetComponent<Renderer>().bounds.size.y, obj.Key.transform.GetComponent<Renderer>().bounds.size.z);
-                obj.Key.transform.localScale = new Vector3(0.1f / objMaxScale, 0.1f / objMaxScale, 0.01f / objMaxScale);
+                obj.Key.transform.localScale = new Vector3(0.1f * obj.Key.transform.GetComponent<Renderer>().bounds.size.x , 0.1f * obj.Key.transform.GetComponent<Renderer>().bounds.size.y, 0.1f * obj.Key.transform.GetComponent<Renderer>().bounds.size.z) / objMaxScale;
                 obj.Key.transform.localEulerAngles = new Vector3(0, 0, 0);
                 obj.Key.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, - SecondSelectionBG.transform.localScale.y/2, -SecondSelectionBG.transform.localScale.x/2) + 
@@ -256,39 +256,8 @@ public class HandPoseManager : MonoBehaviour
         thumbHoldState = true;
         thumbHoldTimer += Time.deltaTime;
         if(thumbHoldTimer > 0.4f && !finishFlag){
-            if(phase == 0){
-                FinalObjects.SetActive(true);
-                TimeRecorder.SetActive(false);
-                StartSelect.SetActive(false);
-                clickSelect.SetActive(false);
-                SightCone.SetActive(false);
-                EyeTrackingManager.SetActive(false);
-                onPalmPoseExitDelay();
-                SecondSelectionBG.SetActive(false);
-                foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
-                {
-                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
-                }
-                phase = 1;
-                //collide.GetComponent<collide>().enabled = true;
-                //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
-                frameManager.SetActive(true);
-                AgentObject.SetActive(false);
-                RubbishBin.SetActive(true);
-                collide.GetComponent<collide>().getFinalObject();
-            }
-            else if(phase == 1){
-                phase = 2;
-                AgentObject.SetActive(true);
-                FinalObjects.SetActive(false);
-                TimeRecorder.SetActive(true);
-                collide.GetComponent<collide>().anchorChoose();
-                frameManager.SetActive(false);
-                collide.GetComponent<collide>().enabled = false;
-                RubbishBin.SetActive(false);
-                ConnectorManager.GetComponent<ConnectorManager>().reverse();
-                
-            }
+            phase++;
+            ChangePhase(phase);
             thumbHoldTimer = 0;
             finishFlag = true;
         }
@@ -296,6 +265,45 @@ public class HandPoseManager : MonoBehaviour
 
     public void OnFinishPoseEnd(){
         thumbHoldState = false;
+    }
+
+    public void ChangePhase(int currentPhase){
+        if(currentPhase == 1){
+            FinalObjects.SetActive(true);
+            TimeRecorder.SetActive(false);
+            StartSelect.SetActive(false);
+            clickSelect.SetActive(false);
+            SightCone.SetActive(false);
+            EyeTrackingManager.SetActive(false);
+            onPalmPoseExitDelay();
+            SecondSelectionBG.SetActive(false);
+            foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
+            {
+                obj.GetComponent<Outline>().OutlineColor = Color.clear;
+            }
+            //collide.GetComponent<collide>().enabled = true;
+            //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
+            frameManager.SetActive(true);
+            AgentObject.SetActive(false);
+            RubbishBin.SetActive(true);
+            collide.GetComponent<collide>().getFinalObject();
+        }
+        else if(currentPhase == 2){
+            AgentObject.SetActive(true);
+            FinalObjects.SetActive(false);
+            TimeRecorder.SetActive(true);
+            collide.GetComponent<collide>().anchorChoose();
+            frameManager.SetActive(false);
+            collide.GetComponent<collide>().enabled = false;
+            RubbishBin.SetActive(false);
+            ConnectorManager.GetComponent<ConnectorManager>().reverse();
+        }
+        else if(currentPhase == 3){
+            phase = 0;
+            StartSelect.SetActive(true);
+            clickSelect.SetActive(true);
+            SightCone.SetActive(true);
+        }
     }
 
 }
