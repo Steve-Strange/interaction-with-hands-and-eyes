@@ -140,7 +140,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
                 obj.Key.transform.localEulerAngles = new Vector3(0, 0, 0);
                 obj.Key.transform.position = SecondSelectionBG.transform.position +
                     new Vector3(-SecondSelectionBG.transform.localScale.z / 2, -SecondSelectionBG.transform.localScale.y / 2, -SecondSelectionBG.transform.localScale.x / 2) +
-                    new Vector3(0.1f * (2 * (i % columnNum) + 1), +0.1f * (2 * (i / columnNum) + 1), -0.02f);
+                    new Vector3(0.1f * (2 * (i % columnNum) + 1), + 0.1f * (2 * (i / columnNum) + 1), -0.02f);
                 i++;
             }
 
