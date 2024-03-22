@@ -28,7 +28,7 @@ public class HandPoseManager : MonoBehaviour
     private GameObject EyeTrackingManager;
     //public TMP_Text Phase;
 
-    // public TMP_InputField Log;
+    public TMP_InputField log;
     public GameObject AgentObject;
     public GameObject RubbishBin;
 
@@ -44,7 +44,6 @@ public class HandPoseManager : MonoBehaviour
 
     private float maxAngel = 50f;
     private float minAngel = 10f;
-    public bool SelectionStatus = true;
 
     private Dictionary<GameObject, float> sorted15ObjectWeights = new Dictionary<GameObject, float>();
     private Dictionary<GameObject, float> sortedRemainObjectWeights = new Dictionary<GameObject, float>();
@@ -58,6 +57,8 @@ public class HandPoseManager : MonoBehaviour
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
+    private Transform Objects;
+    bool initFlag = false;
 
     void Start()
     {
@@ -76,19 +77,32 @@ public class HandPoseManager : MonoBehaviour
         objScale.Add(GameObject.Find("frame/8"), new Vector3(0, 0, 0));
         // StartSelect = GameObject.Find("HandPoses/HandPoseGenerator/StartSelect");
         // clickSelect = GameObject.Find("clickSelect");
+
+        Objects = GameObject.Find("Objects").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(phase == 0){
-            selectionTime += Time.deltaTime;
+        if(!initFlag){
+            initFlag = true;
+            foreach (Transform obj in Objects)
+            {
+                if(obj.CompareTag("Target")) {
+                    originalTransform[obj.gameObject] = new TransformData(obj.position, obj.rotation, obj.localScale);
+                    objScale[obj.gameObject] = obj.localScale;
+                }
+            }
+            if(phase == 0){
+                selectionTime += Time.deltaTime;
+            }
+            log.text += originalTransform.Count;
         }
         
         // Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
         if(!PalmPoseState){
             delayTimer += Time.deltaTime;
-            if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)
+            if (delayTimer > delayTime && SecondSelectionState && phase == 0)
             {
                 onPalmPoseExitDelay();
             }
@@ -107,11 +121,10 @@ public class HandPoseManager : MonoBehaviour
         PalmPoseState = true;
         delayTimer = 0.0f;
 
-        if(!SecondSelectionState && SelectionStatus){
+        if(!SecondSelectionState && phase == 0){
             // selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
             int i = 0;
             SecondSelectionBG.SetActive(true);
-
 
             List<GameObject> keysToModify = new List<GameObject>();
 
@@ -142,11 +155,10 @@ public class HandPoseManager : MonoBehaviour
             foreach (var obj in sorted15ObjectWeights)
             {
                 if(obj.Key == EyeTrackingManager.GetComponent<EyeTrackingManager>().blinkSelectedObject || FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)) continue;
-                originalTransform[obj.Key] = new TransformData(obj.Key.transform.position, obj.Key.transform.rotation, obj.Key.transform.localScale);
+                
                 obj.Key.GetComponent<Outline>().OutlineColor = Color.clear;
-                objScale[obj.Key] = obj.Key.transform.localScale;
                 float objMaxScale = Mathf.Max(obj.Key.transform.GetComponent<Renderer>().bounds.size.x, obj.Key.transform.GetComponent<Renderer>().bounds.size.y, obj.Key.transform.GetComponent<Renderer>().bounds.size.z);
-                obj.Key.transform.localScale = new Vector3(0.1f * obj.Key.transform.GetComponent<Renderer>().bounds.size.x , 0.1f * obj.Key.transform.GetComponent<Renderer>().bounds.size.y, 0.1f * obj.Key.transform.GetComponent<Renderer>().bounds.size.z) / objMaxScale;
+                obj.Key.transform.localScale = new Vector3(0.1f / objMaxScale, 0.1f / objMaxScale, 0.01f / objMaxScale);
                 obj.Key.transform.localEulerAngles = new Vector3(0, 0, 0);
                 obj.Key.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, - SecondSelectionBG.transform.localScale.y/2, -SecondSelectionBG.transform.localScale.x/2) + 
@@ -162,7 +174,7 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseUpdate()
     {
-        if(!SecondSelectionState && SelectionStatus) return;
+        if(!SecondSelectionState && phase == 0) return;
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if(wristRotation > 180f){
             wristRotation -= 360f;
@@ -268,41 +280,47 @@ public class HandPoseManager : MonoBehaviour
     }
 
     public void ChangePhase(int currentPhase){
-        if(currentPhase == 1){
-            FinalObjects.SetActive(true);
-            TimeRecorder.SetActive(false);
-            StartSelect.SetActive(false);
-            clickSelect.SetActive(false);
-            SightCone.SetActive(false);
-            EyeTrackingManager.SetActive(false);
-            onPalmPoseExitDelay();
-            SecondSelectionBG.SetActive(false);
-            foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
-            {
-                obj.GetComponent<Outline>().OutlineColor = Color.clear;
-            }
-            //collide.GetComponent<collide>().enabled = true;
-            //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
-            frameManager.SetActive(true);
-            AgentObject.SetActive(false);
-            RubbishBin.SetActive(true);
-            collide.GetComponent<collide>().getFinalObject();
-        }
-        else if(currentPhase == 2){
-            AgentObject.SetActive(true);
-            FinalObjects.SetActive(false);
-            TimeRecorder.SetActive(true);
-            collide.GetComponent<collide>().anchorChoose();
-            frameManager.SetActive(false);
-            collide.GetComponent<collide>().enabled = false;
-            RubbishBin.SetActive(false);
-            ConnectorManager.GetComponent<ConnectorManager>().reverse();
-        }
-        else if(currentPhase == 3){
-            phase = 0;
-            StartSelect.SetActive(true);
-            clickSelect.SetActive(true);
-            SightCone.SetActive(true);
+        switch (currentPhase)
+        {
+            case 1:
+                if(phase != currentPhase) phase = currentPhase;
+                FinalObjects.SetActive(true);
+                TimeRecorder.SetActive(false);
+                StartSelect.SetActive(false);
+                clickSelect.SetActive(false);
+                SightCone.SetActive(false);
+                EyeTrackingManager.SetActive(false);
+                onPalmPoseExitDelay();
+                SecondSelectionBG.SetActive(false);
+                foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
+                {
+                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
+                }
+                //collide.GetComponent<collide>().enabled = true;
+                //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
+                frameManager.SetActive(true);
+                AgentObject.SetActive(false);
+                RubbishBin.SetActive(true);
+                collide.GetComponent<collide>().getFinalObject();
+                break;
+            case 2:
+                AgentObject.SetActive(true);
+                FinalObjects.SetActive(false);
+                TimeRecorder.SetActive(true);
+                collide.GetComponent<collide>().anchorChoose();
+                frameManager.SetActive(false);
+                collide.GetComponent<collide>().enabled = false;
+                RubbishBin.SetActive(false);
+                ConnectorManager.GetComponent<ConnectorManager>().reverse();
+                break;
+            case 3:
+                phase = 0;
+                StartSelect.SetActive(true);
+                clickSelect.SetActive(true);
+                SightCone.SetActive(true);
+                break;
+            default:
+                break;
         }
     }
 

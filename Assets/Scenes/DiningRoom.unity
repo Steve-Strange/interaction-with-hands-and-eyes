@@ -152,7 +152,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2140,7 +2140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightMaterial: {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
   selectedObjects: []
-  Log: {fileID: 1388404494}
 --- !u!108 &460114677
 Light:
   m_ObjectHideFlags: 0
@@ -4225,6 +4224,7 @@ MonoBehaviour:
   - {fileID: 0}
   emptyObjects: []
   AgentObject: {fileID: 1497610007}
+  TimeRecorder: {fileID: 0}
 --- !u!4 &720730934
 Transform:
   m_ObjectHideFlags: 0
@@ -5246,15 +5246,16 @@ MonoBehaviour:
   frameManager: {fileID: 2041322023}
   selectedRow: []
   emptyBlock: {fileID: 0}
-  Log: {fileID: 2076590167}
+  log: {fileID: 0}
   AgentObject: {fileID: 1497610007}
   RubbishBin: {fileID: 77010072}
   SecondSelectionState: 0
   PalmPoseState: 0
-  SelectionStatus: 1
   StartSelect: {fileID: 603724970}
   clickSelect: {fileID: 1122181639}
+  TimeRecorder: {fileID: 0}
   phase: 0
+  selectionTime: 0
 --- !u!4 &905170317
 Transform:
   m_ObjectHideFlags: 0
@@ -8712,7 +8713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frame: {fileID: 1669435886}
-  log: {fileID: 478068277}
   FinalObjects: {fileID: 531466915}
   Agent: {fileID: 1497610007}
 --- !u!114 &1375942326
@@ -9704,10 +9704,12 @@ MonoBehaviour:
   leftIndex: {fileID: 633314600}
   pinchObject: {fileID: 1375942323}
   pinchStatus: 0
-  log: {fileID: 1388404494}
+  movingStatus: 0
   MovingObject: []
   AutoAdjustStatus: 0
   FinishedObjects: []
+  ObjectsOnFrame: []
+  ProcessRecorder: {fileID: 0}
 --- !u!54 &1497610011
 Rigidbody:
   m_ObjectHideFlags: 0

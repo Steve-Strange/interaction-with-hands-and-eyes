@@ -33,8 +33,11 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/manipulateOnly/Museum-Ours.unity
-    guid: e78f8b3869fbdad4ca61d12474dcad43
+    guid: f5854a50db2e0124c96da20952dac105
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 911a72a2498320e458cf8cf731a00095, type: 2}
