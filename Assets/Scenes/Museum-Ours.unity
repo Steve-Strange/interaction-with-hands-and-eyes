@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43506935, g: 0.4821967, b: 0.5631283, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2803,7 +2803,7 @@ GameObject:
   - component: {fileID: 167072228}
   - component: {fileID: 167072227}
   m_Layer: 0
-  m_Name: TimeRocorder
+  m_Name: TimeRecorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50394,17 +50394,16 @@ MonoBehaviour:
   frameManager: {fileID: 767324611}
   selectedRow: []
   emptyBlock: {fileID: 0}
-  log: {fileID: 0}
   AgentObject: {fileID: 334294917}
   RubbishBin: {fileID: 1787407334}
   SecondSelectionState: 0
   PalmPoseState: 0
-  SelectionStatus: 1
   StartSelect: {fileID: 1058655291}
   clickSelect: {fileID: 835930927}
   TimeRecorder: {fileID: 167072226}
   phase: 0
   selectionTime: 0
+  objectsWithTargets: []
 --- !u!4 &1990413507
 Transform:
   m_ObjectHideFlags: 0

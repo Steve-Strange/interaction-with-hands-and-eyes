@@ -10,13 +10,12 @@ public class SkipSelection : MonoBehaviour
 {
 
     GameObject HandPoseManager;
-    public Transform Objects;
+    private Transform Objects;
     public TMP_InputField log;
     bool initFlag;
     // Start is called before the first frame update
     void Start()
     {
-        Objects = GameObject.Find("Objects").transform;
         HandPoseManager = GameObject.Find("HandPoseManager");
     }
 
@@ -25,15 +24,12 @@ public class SkipSelection : MonoBehaviour
     {
         if(!initFlag)
         {
-            foreach (Transform obj in Objects)
+            foreach (var obj in HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets)
             {
-                if(obj.gameObject.CompareTag("Target") && GameObject.Find(obj.name + " (1)"))
-                {
-                    log.text += obj.name + " ";
-                    gameObject.GetComponent<FinalObjects>().AddFinalObj(obj.gameObject);
-                }
+                gameObject.GetComponent<FinalObjects>().AddFinalObj(obj);
             }
             log.text += gameObject.GetComponent<FinalObjects>().finalObj.Count;
+            HandPoseManager.GetComponent<HandPoseManager>().phase = 1;
             HandPoseManager.GetComponent<HandPoseManager>().ChangePhase(1);
             log.text += HandPoseManager.GetComponent<HandPoseManager>().phase;
             initFlag = true;

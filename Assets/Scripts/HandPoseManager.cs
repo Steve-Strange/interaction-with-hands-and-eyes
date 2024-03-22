@@ -28,7 +28,7 @@ public class HandPoseManager : MonoBehaviour
     private GameObject EyeTrackingManager;
     //public TMP_Text Phase;
 
-    public TMP_InputField log;
+    // public TMP_InputField log;
     public GameObject AgentObject;
     public GameObject RubbishBin;
 
@@ -59,6 +59,7 @@ public class HandPoseManager : MonoBehaviour
     public float selectionTime;
     private Transform Objects;
     bool initFlag = false;
+    public List<GameObject> objectsWithTargets = new List<GameObject>();
 
     void Start()
     {
@@ -91,18 +92,22 @@ public class HandPoseManager : MonoBehaviour
                 if(obj.CompareTag("Target")) {
                     originalTransform[obj.gameObject] = new TransformData(obj.position, obj.rotation, obj.localScale);
                     objScale[obj.gameObject] = obj.localScale;
+                    if(GameObject.Find("Objects/" + obj.name + " (1)"))
+                    {
+                        objectsWithTargets.Add(obj.gameObject);
+                    }
                 }
             }
             if(phase == 0){
                 selectionTime += Time.deltaTime;
             }
-            log.text += originalTransform.Count;
+            // log.text += originalTransform.Count;
         }
         
         // Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
-        if(!PalmPoseState){
+        if(!PalmPoseState && phase == 0){
             delayTimer += Time.deltaTime;
-            if (delayTimer > delayTime && SecondSelectionState && phase == 0)
+            if (delayTimer > delayTime && SecondSelectionState)
             {
                 onPalmPoseExitDelay();
             }
@@ -283,7 +288,6 @@ public class HandPoseManager : MonoBehaviour
         switch (currentPhase)
         {
             case 1:
-                if(phase != currentPhase) phase = currentPhase;
                 FinalObjects.SetActive(true);
                 TimeRecorder.SetActive(false);
                 StartSelect.SetActive(false);
