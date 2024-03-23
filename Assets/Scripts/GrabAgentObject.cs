@@ -136,14 +136,6 @@ public class GrabAgentObject : MonoBehaviour
         }
         else
         {
-            foreach (var obj in ObjectsOnFrame)
-            {
-                if (obj != MovingObject[0])
-                {
-                    TargetObjects[obj].SetActive(true);
-                    obj.SetActive(true);
-                }
-            }
 
             if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                 (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
@@ -156,6 +148,15 @@ public class GrabAgentObject : MonoBehaviour
                 //         obj.transform.rotation = MovingObject[0].transform.rotation;
                 //     }
                 // }
+
+                foreach (var obj in ObjectsOnFrame)
+                {
+                    if (obj != MovingObject[0])
+                    {
+                        TargetObjects[obj].SetActive(true);
+                        obj.SetActive(true);
+                    }
+                }
                 MovingObject.RemoveAt(0);
                 AutoAdjustStatus = true;
             }

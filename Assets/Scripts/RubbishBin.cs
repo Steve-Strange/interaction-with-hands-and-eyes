@@ -32,7 +32,13 @@ public class RubbishBin : MonoBehaviour
         if(collision.gameObject.name == "pinch" && Pinch.GetComponent<pinch>().ispinch == true && releaseFlag == false){
             releaseFlag = true;
         
-            if(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0){
+            RemoveFinalObject();
+        }
+        
+    }
+
+    public void RemoveFinalObject(){
+        if(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0){
                 GameObject deleteObj = FinalObjects.GetComponent<FinalObjects>().finalObj[0];
                 FinalObjects.GetComponent<FinalObjects>().finalObj.RemoveAt(0);
                 FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
@@ -44,9 +50,6 @@ public class RubbishBin : MonoBehaviour
                     deleteObj.transform.localScale = transformData.Scale;
                 }
             }
-        }
-        
     }
-        
 }
 

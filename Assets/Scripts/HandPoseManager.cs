@@ -326,7 +326,15 @@ public class HandPoseManager : MonoBehaviour
                 EyeTrackingManager.SetActive(true);
                 FinalObjects.SetActive(true);
                 AgentObject.SetActive(false);
-                
+                while(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0)
+                {
+                    RubbishBin.GetComponent<RubbishBin>().RemoveFinalObject();
+                }
+                foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().newObjects)
+                {
+                    obj.SetActive(false);
+                }
+
                 break;
             default:
                 break;

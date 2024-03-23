@@ -27,6 +27,7 @@ public class ConnectorManager : MonoBehaviour
     public GameObject TimeRecorder;
 
     private Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
+    public List<GameObject> newObjects = new List<GameObject>();
 
     // public TMP_InputField log;
 
@@ -125,6 +126,7 @@ public class ConnectorManager : MonoBehaviour
             GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
             newObj.tag = "AgentObject";
             newObj.name = obj.name + " Agent";
+            newObjects.Add(newObj);
             Objects.Remove(newObj);
         }
         GameObject frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
