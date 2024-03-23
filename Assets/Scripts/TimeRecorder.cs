@@ -13,6 +13,7 @@ public class TimeRecorder : MonoBehaviour
     public List<GameObject> CompleteObjects = new List<GameObject>();
     public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
 
+    public GameObject frame;
     // public TMP_InputField log;
     public GameObject pinchObject;
     public float MovingTime;
@@ -45,6 +46,10 @@ public class TimeRecorder : MonoBehaviour
     {
         
         if(CompleteObjects.Count == agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count){
+
+            frame.GetComponent<frame>().line.positionCount = 0;
+
+
             // log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
             // "coarseMovingTime: " + coarseMovingTime + "\n" + 
             // "MovingTime: " + MovingTime + "\n";

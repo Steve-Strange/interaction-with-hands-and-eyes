@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 public class frame : MonoBehaviour
 {
-    private LineRenderer line;
+    public LineRenderer line;
     public GameObject connectorManager;
     public GameObject[] cor;//透明物体，其位置用于标记顶点；
     public GameObject collideObject;
@@ -79,7 +79,7 @@ public class frame : MonoBehaviour
 
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
-            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count/4f);
+            number = Mathf.CeilToInt((collideObject.GetComponent<collide>().finalObj.Count-4)/4f) + 1;//todo 改其他边的计算方式
             if(number == 0)
                 number = 1;
             rectheight = (objSize + gap) * number;
@@ -128,27 +128,33 @@ public class frame : MonoBehaviour
     }
     void decideEachPosition()//change the frame size from number
     {
-       if(Frame == "rect"){
+        int Min = 2;
+        int Max = 8;
+       if(Frame == "rect"){//todo 改其他的
+            Max = 2 * number;
             var X = (rectCorner[1]-rectCorner[0]).normalized;
             var Y = (rectCorner[3]- rectCorner[0]).normalized;
             rectPosition.Clear();
-            for(int i = 1 ; i<= number-1 ;i++)
+            for(int j = Min;j<=Max;j++)
             {
-                rectPosition.Add(rectCorner[0] + (gap + objSize) * i * X);
+                float temp  = rectheight * 1.0f / (j * 1.0f);
+                for (int i = 1; i <= j - 1; i++)
+                {
+                    rectPosition.Add(rectCorner[0] + temp * i * X);
+                }
+                for (int i = 1; i <= j - 1; i++)
+                {
+                    rectPosition.Add(rectCorner[3] + temp * i * X);
+                }
+                for (int i = 1; i <= j - 1; i++)
+                {
+                    rectPosition.Add(rectCorner[0] + temp * i * Y);
+                }
+                for (int i = 1; i <= j - 1; i++)
+                {
+                    rectPosition.Add(rectCorner[1] + temp * i * Y);
+                }
             }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                rectPosition.Add(rectCorner[3] + (gap + objSize) * i * X);
-            }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                rectPosition.Add(rectCorner[0] + (gap + objSize) * i * Y);
-            }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                rectPosition.Add(rectCorner[1] + (gap + objSize) * i * Y);
-            }
-
         }
        else if(Frame == "circle"){
             circlePosition.Clear();

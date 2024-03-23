@@ -25,6 +25,7 @@ public class ConnectorManager : MonoBehaviour
     public GameObject AgentObject;
     private Quaternion FrameRotation;
     public GameObject TimeRecorder;
+    public GameObject frameAgent;
 
     private Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public List<GameObject> newObjects = new List<GameObject>();
@@ -129,7 +130,7 @@ public class ConnectorManager : MonoBehaviour
             newObjects.Add(newObj);
             Objects.Remove(newObj);
         }
-        GameObject frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
+        frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
         frameAgent.name = "frameAgent";
         frameAgent.GetComponent<frame>().enabled = false;
 

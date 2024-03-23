@@ -12,6 +12,7 @@ using System.Diagnostics;
 
 public class HandPoseManager : MonoBehaviour
 {   public GameObject FinalObjects;
+    public GameObject Pinch;
     public GameObject HandRightWrist;
     private GameObject SightCone;
     public GameObject SecondSelectionBG;
@@ -290,6 +291,7 @@ public class HandPoseManager : MonoBehaviour
         switch (currentPhase)
         {
             case 1:
+                collide.GetComponent<collide>().enabled = true;
                 TimeRecorder.SetActive(false);
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
@@ -334,7 +336,7 @@ public class HandPoseManager : MonoBehaviour
                 {
                     obj.SetActive(false);
                 }
-
+                ConnectorManager.GetComponent<ConnectorManager>().frameAgent.SetActive(false);
                 break;
             default:
                 break;

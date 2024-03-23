@@ -1,6 +1,4 @@
 
-using System.Threading;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,11 +14,12 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
-    // public TMPro.TMP_Text T;
+    public TMPro.TMP_Text t;
 
-    // public TMPro.TMP_Text t;
-    // public TMPro.TMP_Text t2;
-
+    public TMPro.TMP_Text t2;
+    public TMPro.TMP_Text t3;
+    public TMPro.TMP_Text t4;
+    public TMPro.TMP_Text t5;
     public GameObject frame;
     public string frameMark;//the mark of frame
     public string type;
@@ -359,8 +358,13 @@ public class collide : MonoBehaviour
                 positionLast = finalObj[0].transform.position;
             }
         }
+        t.text = handPoseManager.GetComponent<HandPoseManager>().phase.ToString();
+        t2.text = label.ToString();
+        t3.text = p.ispinch.ToString();
+        t4.text = now.name;
+        t5.text = finalObj[0].name;
       //  t2.text = m_logEntries[m_logEntries.Count-1];
-        if(handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0])
+        if (handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0])
         {
             label = 0;
             settleDown();
