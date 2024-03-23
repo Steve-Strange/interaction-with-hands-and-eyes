@@ -30,8 +30,12 @@ public class FinalObjects : MonoBehaviour
         obj.GetComponent<Outline>().OutlineColor = Color.clear;
         obj.transform.parent = transform;
         obj.transform.localEulerAngles = new Vector3(0, 0, 0);
-        obj.transform.localScale = new Vector3(finalScale / transform.localScale.x, finalScale / transform.localScale.y, finalScale / transform.localScale.z);
-        obj.transform.localPosition = new Vector3(obj.transform.localScale.x * 2 * finalObj.Count - transform.localScale.x/2 , 0, - 2 * obj.transform.localScale.z);
+
+        float objMaxScale = Mathf.Max(obj.transform.GetComponent<Renderer>().bounds.size.x, obj.transform.GetComponent<Renderer>().bounds.size.y, obj.transform.GetComponent<Renderer>().bounds.size.z);
+                
+        obj.transform.localScale = new Vector3(0.1f * obj.transform.localScale.x, 0.1f * obj.transform.localScale.y, 0.01f * obj.transform.localScale.z) / objMaxScale;
+        // obj.transform.localScale = new Vector3(obj.transform.GetComponent<Renderer>().bounds.size.x / transform.localScale.x, obj.transform.GetComponent<Renderer>().bounds.size.y / transform.localScale.y, obj.transform.GetComponent<Renderer>().bounds.size.z / transform.localScale.z) * finalScale / objMaxScale;
+        obj.transform.localPosition = new Vector3(0.05f * 2 * finalObj.Count - transform.localScale.x/2 , 0, - 2 * 0.05f);
         if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(obj)) SightCone.GetComponent<SightCone>().selectedObjects.Remove(obj);
         SightCone.GetComponent<SightCone>().objectWeights[obj] = -1;
         
