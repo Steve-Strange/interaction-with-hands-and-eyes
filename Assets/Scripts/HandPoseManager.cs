@@ -165,11 +165,11 @@ public class HandPoseManager : MonoBehaviour
 
                 float objMaxScale = Mathf.Max(obj.Key.transform.GetComponent<Renderer>().bounds.size.x, obj.Key.transform.GetComponent<Renderer>().bounds.size.y, obj.Key.transform.GetComponent<Renderer>().bounds.size.z);
                 
-                obj.Key.transform.localScale = new Vector3(0.1f * obj.Key.transform.localScale.x, 0.1f * obj.Key.transform.localScale.y, 0.01f * obj.Key.transform.localScale.z) / objMaxScale;
+                obj.Key.transform.localScale = new Vector3(0.1f * obj.Key.transform.localScale.x, 0.1f * obj.Key.transform.localScale.y, 0.1f * obj.Key.transform.localScale.z) / objMaxScale;
                 obj.Key.transform.localEulerAngles = new Vector3(0, 0, 0);
                 obj.Key.transform.position = SecondSelectionBG.transform.position + 
                     new Vector3(- SecondSelectionBG.transform.localScale.z/2, - SecondSelectionBG.transform.localScale.y/2, -SecondSelectionBG.transform.localScale.x/2) + 
-                    new Vector3(0.1f * (2 * (i%columnNum) + 1) , + 0.1f * (2 * (i/columnNum) + 1), - 0.02f);
+                    new Vector3(0.1f * (2 * (i%columnNum) + 1) , + 0.1f * (2 * (i/columnNum) + 1), - 0.1f);
                 i++;
             }
 
@@ -290,7 +290,6 @@ public class HandPoseManager : MonoBehaviour
         switch (currentPhase)
         {
             case 1:
-                FinalObjects.SetActive(true);
                 TimeRecorder.SetActive(false);
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
@@ -324,6 +323,10 @@ public class HandPoseManager : MonoBehaviour
                 StartSelect.SetActive(true);
                 clickSelect.SetActive(true);
                 SightCone.SetActive(true);
+                EyeTrackingManager.SetActive(true);
+                FinalObjects.SetActive(true);
+                AgentObject.SetActive(false);
+                
                 break;
             default:
                 break;
