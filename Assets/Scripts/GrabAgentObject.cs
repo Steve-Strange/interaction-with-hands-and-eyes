@@ -32,7 +32,7 @@ public class GrabAgentObject : MonoBehaviour
     public List<GameObject> ObjectsOnFrame = new List<GameObject>();
     public GameObject ProcessRecorder;
 
-    bool initFlag = false;
+    public bool initFlag = false;
 
     void Start()
     {
@@ -44,6 +44,7 @@ public class GrabAgentObject : MonoBehaviour
 
     void Update()
     {
+        if(MovingObject.Count > 0) MovingObject[0].GetComponent<Outline>().outlineColor = Color.green;
         grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
         if (!initFlag)
         {

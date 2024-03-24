@@ -96,7 +96,7 @@ public class EyeTrackingManager : MonoBehaviour
 
     void GazeTargetControl(Vector3 origin,Vector3 vector)
     {
-        int layerMask = 1;
+        int layerMask = 1 << 0 | 1 << 7;
         if(Physics.SphereCast(origin, 0.12f, vector, out hitInfo, 50f, layerMask)){
             if(hitInfo.collider.gameObject.tag == "Target")
             {

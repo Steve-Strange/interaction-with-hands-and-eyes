@@ -36,7 +36,7 @@ public class SightCone : MonoBehaviour
 
     }
 
-    IEnumerator UpdateObjectWeights()
+    public IEnumerator UpdateObjectWeights()
     {
         while (true)
         {

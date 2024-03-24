@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectOnly/SelectCompare-ours.unity
     guid: 987171a1b692f7742ba72a41344c871b
   - enabled: 0
-    path: Assets/Scenes/manipulateOnly/Museum-Ours.unity
+    path: Assets/Scenes/manipulateOnly/Museum-Ours-manipulateOnly.unity
     guid: f5854a50db2e0124c96da20952dac105
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}

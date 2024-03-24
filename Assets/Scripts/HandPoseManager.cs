@@ -12,7 +12,6 @@ using System.Diagnostics;
 
 public class HandPoseManager : MonoBehaviour
 {   public GameObject FinalObjects;
-    public GameObject Pinch;
     public GameObject HandRightWrist;
     private GameObject SightCone;
     public GameObject SecondSelectionBG;
@@ -29,7 +28,7 @@ public class HandPoseManager : MonoBehaviour
     private GameObject EyeTrackingManager;
     //public TMP_Text Phase;
 
-    // public TMP_InputField log;
+    public TMP_InputField log;
     public GameObject AgentObject;
     public GameObject RubbishBin;
 
@@ -59,7 +58,7 @@ public class HandPoseManager : MonoBehaviour
     bool finishFlag = false;
     public float selectionTime;
     private Transform Objects;
-    bool initFlag = false;
+    public bool initFlag = false;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
 
     void Start()
@@ -291,7 +290,7 @@ public class HandPoseManager : MonoBehaviour
         switch (currentPhase)
         {
             case 1:
-                collide.GetComponent<collide>().enabled = true;
+                collide.GetComponent<collide>().enabled = true; 
                 TimeRecorder.SetActive(false);
                 StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
@@ -316,11 +315,20 @@ public class HandPoseManager : MonoBehaviour
                 TimeRecorder.SetActive(true);
                 collide.GetComponent<collide>().anchorChoose();
                 frameManager.SetActive(false);
-                collide.GetComponent<collide>().enabled = false;
                 RubbishBin.SetActive(false);
-                ConnectorManager.GetComponent<ConnectorManager>().reverse();
+                ConnectorManager.GetComponent<ConnectorManager>().reverse();  //bug
+                collide.GetComponent<collide>().enabled = false;
+                log.text += "here4\n";
                 break;
             case 3:
+                log.text += "here5?\n";
+                foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().newObjects)
+                {
+                    obj.SetActive(false);
+                }
+                ConnectorManager.GetComponent<ConnectorManager>().newObjects.Clear();
+                ConnectorManager.GetComponent<ConnectorManager>().frameAgent.SetActive(false);
+                collide.GetComponent<collide>().onFrame.Clear();
                 phase = 0;
                 StartSelect.SetActive(true);
                 clickSelect.SetActive(true);
@@ -328,15 +336,14 @@ public class HandPoseManager : MonoBehaviour
                 EyeTrackingManager.SetActive(true);
                 FinalObjects.SetActive(true);
                 AgentObject.SetActive(false);
+                initFlag = false;
+                AgentObject.GetComponent<GrabAgentObject>().initFlag = false;
+                SightCone.GetComponent<SightCone>().objectWeights.Clear();
                 while(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0)
                 {
                     RubbishBin.GetComponent<RubbishBin>().RemoveFinalObject();
                 }
-                foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().newObjects)
-                {
-                    obj.SetActive(false);
-                }
-                ConnectorManager.GetComponent<ConnectorManager>().frameAgent.SetActive(false);
+                StartCoroutine(SightCone.GetComponent<SightCone>().UpdateObjectWeights());
                 break;
             default:
                 break;

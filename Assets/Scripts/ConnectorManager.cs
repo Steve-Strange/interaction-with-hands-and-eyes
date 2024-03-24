@@ -110,11 +110,11 @@ public class ConnectorManager : MonoBehaviour
     public void reverse()
     {
         Objects = new List<GameObject>(collide.GetComponent<collide>().onFrame);
-        foreach (var item in Objects)
+        foreach (var obj in Objects)
         {
-            TimeRecorder.GetComponent<TimeRecorder>().MovingObjectStatus.Add(item, 0);
+            TimeRecorder.GetComponent<TimeRecorder>().MovingObjectStatus.Add(obj, 0);
+            obj.GetComponent<Outline>().outlineColor = Color.clear;
         }
-        
 
         emptyObjects.Clear();
         var cor = frame.GetComponent<frame>().cor;

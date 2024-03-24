@@ -27,7 +27,6 @@ public class FinalObjects : MonoBehaviour
         obj.tag = "FinalObject";
         finalObjQ[obj] = obj.transform.rotation;
         obj.GetComponent<Outline>().OutlineColor = Color.clear;
-
         
         float objMaxScale = Mathf.Max(obj.transform.GetComponent<Renderer>().bounds.size.x, obj.transform.GetComponent<Renderer>().bounds.size.y, obj.transform.GetComponent<Renderer>().bounds.size.z);
         float finalScale = 0.05f / objMaxScale;
@@ -42,6 +41,7 @@ public class FinalObjects : MonoBehaviour
         SightCone.GetComponent<SightCone>().objectWeights[obj] = -1;
         
         finalObj.Add(obj);
+        finalObj[0].GetComponent<Outline>().OutlineColor = Color.green;
     }
     
     public void RearrangeFinalObj()
@@ -49,6 +49,8 @@ public class FinalObjects : MonoBehaviour
         for(int i = 0; i < finalObj.Count; i++)
         {
             finalObj[i].transform.localPosition = new Vector3(0.1f * i - 0.35f, 0, - finalObj[i].transform.localScale.z);
+            if(i == 0) finalObj[i].GetComponent<Outline>().OutlineColor = Color.green;
+            else finalObj[i].GetComponent<Outline>().OutlineColor = Color.clear;
         }
     }
 }
