@@ -11,6 +11,7 @@ public class Bubble : MonoBehaviour
     public GameObject grabAgentObject;
     private List<GameObject> objects =  new List<GameObject>();
     public GameObject temp;
+
     public GameObject Objects;
     LineRenderer l;
     public GameObject palm;
@@ -215,18 +216,18 @@ public class Bubble : MonoBehaviour
         {
             init = false;
             Debug.Log(hitInfo.collider.gameObject.name);
-            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.2)
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 1)
             {
                 bubbleOrigin = hitInfo.collider.gameObject.transform.position;
                 palmOrigin = palm.transform.position;
                 transform.position = bubbleOrigin;
             }
           
-        }else if (Physics.Raycast(ray1, out hitInfo, int.MaxValue, layerMask))// && init)
+        }/*else if (Physics.Raycast(ray1, out hitInfo, int.MaxValue, layerMask))// && init)
         {
             init = false;
             Debug.Log(hitInfo.collider.gameObject.name);
-            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.2)
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 1)
             {
                 bubbleOrigin = hitInfo.collider.gameObject.transform.position;
                 palmOrigin = palm.transform.position;
@@ -237,7 +238,7 @@ public class Bubble : MonoBehaviour
         {
             init = false;
             Debug.Log(hitInfo.collider.gameObject.name);
-            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.2)
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 1)
             {
                 bubbleOrigin = hitInfo.collider.gameObject.transform.position;
                 palmOrigin = palm.transform.position;
@@ -248,7 +249,7 @@ public class Bubble : MonoBehaviour
         {
             init = false;
             Debug.Log(hitInfo.collider.gameObject.name);
-            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.2)
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 1)
             {
                 bubbleOrigin = hitInfo.collider.gameObject.transform.position;
                 palmOrigin = palm.transform.position;
@@ -259,18 +260,18 @@ public class Bubble : MonoBehaviour
         {
             init = false;
             Debug.Log(hitInfo.collider.gameObject.name);
-            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 0.2)
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 1)
             {
                 bubbleOrigin = hitInfo.collider.gameObject.transform.position;
                 palmOrigin = palm.transform.position;
                 transform.position = bubbleOrigin;
             }
           
-        }
+        }*/
     }
         public void follow()
     {
-        transform.position = palm.transform.position - palmOrigin + bubbleOrigin;
+        transform.position = 3 * (palm.transform.position - palmOrigin) + bubbleOrigin;
     }
     private int time = 0;
     public void UpdateLine()
@@ -371,7 +372,7 @@ public class Bubble : MonoBehaviour
                     recorder.GetComponent<singleSelect>().selectOneObject();
                     killTheBubble();
                 }
-                else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
+              /**/  else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
                 {
                    // t.text = "right";
                     if (autoGenerate.GetComponent<autoGenerate>().targets.Contains((target[select])))//选中的是需要的物体
@@ -388,7 +389,8 @@ public class Bubble : MonoBehaviour
                             recorder.GetComponent<singleSelect>().writeFile("selectWrong:" + wrongTime);
                             round += 1;
                             autoGenerate.GetComponent<autoGenerate>().reGenerate();
-                            recorder.GetComponent<singleSelect>().writeFile("round" + round +"end");
+                            recorder.GetComponent<singleSelect>().writeFile("round" + round +"end!");
+                            recorder.GetComponent<singleSelect>().writeFile("-----------------------------");
                             if (round == 5)
                             {   
                                recorder.GetComponent<singleSelect>().finishAll();
