@@ -10,7 +10,7 @@ public class Bubble : MonoBehaviour
     public GameObject autoGenerate; 
     public GameObject grabAgentObject;
     private List<GameObject> objects =  new List<GameObject>();
-    public GameObject temp;
+  //  public GameObject temp;
 
     public GameObject Objects;
     LineRenderer l;
@@ -31,9 +31,9 @@ public class Bubble : MonoBehaviour
     float radius; 
     int layerMask;
     int i, j;
-    public TMP_Text t;
-    public TMP_Text t2;
-    public TMP_Text t3;
+   // public TMP_Text t;
+   // public TMP_Text t2;
+   // public TMP_Text t3;
     private GameObject[] target = new GameObject[3];
     private float[] d = new float[5];
     private float[] ad = new float[5];
@@ -51,7 +51,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private List<MeshRenderer> _meshRenderers;
 
     private void Awake(){
-        transform.position = temp.transform.position;
+      //  transform.position = temp.transform.position;
         round = 0;
         layerMask = 1 << 7;   
         objects = new List<GameObject>();
@@ -142,12 +142,16 @@ public class Bubble : MonoBehaviour
     }
 
     void Start()
-    {
+    {   
+        if(recorder.GetComponent<singleSelect>().sampleType == 1)
+        {//仅操纵，根本就不出现这个脚本
+            gameObject.SetActive(false);
+        }
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
         time = 0;
         l = GetComponent<LineRenderer>();
-        l.startWidth = 0.005f;
-        l.endWidth = 0.005f;
+        l.startWidth = 0.01f;
+        l.endWidth = 0.01f;
         int mark = 0;
         foreach (var item in Lines)
         {
@@ -155,6 +159,7 @@ public class Bubble : MonoBehaviour
           line[mark-1].startWidth = 0.005f;
           line[mark-1].endWidth = 0.005f;
         }
+
     }
     // Update is called once per frame
     void killTheBubble(){
@@ -170,8 +175,8 @@ public class Bubble : MonoBehaviour
     }
     public void awakeTheBubble()
     {
-        l.startWidth = 0.005f;
-        l.endWidth = 0.005f;
+        l.startWidth = 0.01f;
+        l.endWidth = 0.01f;
         foreach (var item in line)
         {
             item.startWidth = 0.005f;
@@ -185,13 +190,15 @@ public class Bubble : MonoBehaviour
     {
         l.SetPosition(0, palm.transform.position);
         l.SetPosition(1, -palm.transform.up* 100);
+      //  l.startWidth = 0.01f;
+     //   l.endWidth = 0.01f;
         //l.SetPosition(0, palm.transform.position + 0.05f * Vector3.up);todo在手掌心周围多加一点范围
         //l.SetPosition(1, -palm.transform.up* 100 + 0.05f * Vector3.up);
         // 
-      //  if (init) { //
-      //      transform.position = objects[0].transform.position; 
-       //     init = false;
-      //  }
+        //  if (init) { //
+        //      transform.position = objects[0].transform.position; 
+        //     init = false;
+        //  }
         decideCenter();
         follow();
         changeRadius();
@@ -206,17 +213,17 @@ public class Bubble : MonoBehaviour
     public void decideCenter()
     {
         Ray ray = new Ray(palm.transform.position, -palm.transform.up);//手掌心向前发出射线
-        Ray ray1 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
-        Ray ray2 = new Ray(palm.transform.position - 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
-        Ray ray3 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
-        Ray ray4 = new Ray(palm.transform.position - 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+         // Ray ray1 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        //Ray ray2 = new Ray(palm.transform.position - 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        //Ray ray3 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
+        ///Ray ray4 = new Ray(palm.transform.position - 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
         RaycastHit hitInfo;
         //声明一个RaycastHit结构体，存储碰撞信息
         if (Physics.Raycast(ray, out hitInfo, int.MaxValue, layerMask) )//&& init)
         {
             init = false;
             Debug.Log(hitInfo.collider.gameObject.name);
-            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 1)
+            if ((hitInfo.collider.gameObject.transform.position - bubbleOrigin).magnitude > 2)
             {
                 bubbleOrigin = hitInfo.collider.gameObject.transform.position;
                 palmOrigin = palm.transform.position;
@@ -271,7 +278,7 @@ public class Bubble : MonoBehaviour
     }
         public void follow()
     {
-        transform.position = 3 * (palm.transform.position - palmOrigin) + bubbleOrigin;
+        transform.position = 4 * (palm.transform.position - palmOrigin) + bubbleOrigin;
     }
     private int time = 0;
     public void UpdateLine()
@@ -346,9 +353,9 @@ public class Bubble : MonoBehaviour
             {
                 mark[3] = true;
             }      
-            t.text = mark[1].ToString();
-            t2.text = mark[2].ToString();
-            t3.text = mark[3].ToString();
+            //t.text = mark[1].ToString();
+            //t2.text = mark[2].ToString();
+           // t3.text = mark[3].ToString();
             float max = -1;
             int select = 0;
             for (int i = 1; i <= 3; i++){
@@ -371,8 +378,7 @@ public class Bubble : MonoBehaviour
                     recorder.GetComponent<singleSelect>().writeFile("selectObject:" + target[select].name);
                     recorder.GetComponent<singleSelect>().selectOneObject();
                     killTheBubble();
-                }
-              /**/  else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
+                }else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
                 {
                    // t.text = "right";
                     if (autoGenerate.GetComponent<autoGenerate>().targets.Contains((target[select])))//选中的是需要的物体
@@ -405,6 +411,9 @@ public class Bubble : MonoBehaviour
                         AddOutline(target[select],Color.red);
                     }
                     selectingObject = false;
+                }else if(recorder.GetComponent<singleSelect>().sampleType == 1)//manipulate_only
+                {
+
                 }
             }
             else{

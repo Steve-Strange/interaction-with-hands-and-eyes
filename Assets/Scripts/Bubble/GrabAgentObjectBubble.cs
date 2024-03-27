@@ -33,16 +33,28 @@ public class GrabAgentObjectBubble : MonoBehaviour
     private Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
 
     void Start()
-    {
+    {   
+        
+        
         originalPosition = transform.localPosition;
         TargetObjects = new Dictionary<GameObject, GameObject>();
         FindChild(targets);
         allNumber = TargetObjects.Count;
-        if(recorder.GetComponent<singleSelect>().sampleType == 1){
+        if(recorder.GetComponent<singleSelect>().sampleType == 0)//仅选择
+        {
+            gameObject.SetActive(false);
+        }else if(recorder.GetComponent<singleSelect>().sampleType == 1)
+        {
+
             MovingObject.Add(manipulateObjects[0]);
             manipulateObjects.RemoveAt(0);
             allNumber = manipulateObjects.Count;
+
+        }else if(recorder.GetComponent<singleSelect>().sampleType == 2)
+        {
+            gameObject.SetActive(false);
         }
+
     }
     void Update()
     {
@@ -184,7 +196,12 @@ public class GrabAgentObjectBubble : MonoBehaviour
         //����forѭ�� ��ȡ�����µ�ȫ��������
         for (int c = 0; c < child.transform.childCount; c++)
         {
-            TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)"); ;
+            if(child.transform.GetChild(c).transform.childCount == 0)
+            {
+                TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");
+                manipulateObjects.Add(child.transform.GetChild(c).gameObject);
+            }
+             
         }
     }
 }

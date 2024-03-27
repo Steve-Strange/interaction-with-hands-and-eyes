@@ -166,7 +166,8 @@ public class GrabAgentObjectBareHand : MonoBehaviour
         //����forѭ�� ��ȡ�����µ�ȫ��������
         for (int c = 0; c < child.transform.childCount; c++)
         {
-            TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)"); ;
+            TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)"); 
+
         }
     }
 }

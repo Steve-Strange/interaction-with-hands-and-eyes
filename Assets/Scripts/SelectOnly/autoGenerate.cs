@@ -14,6 +14,14 @@ public class autoGenerate : MonoBehaviour
     public int targetNumber = 5;
     void Start()
     {
+        if(GameObject.Find("recorder").GetComponent<singleSelect>().sampleType !=0)
+        {
+            gameObject.SetActive(false);
+
+        }
+        else
+        {
+
         FindChild(father);
         var testArray = GetRandomSequence(allObjects.Count, targetNumber);
         for (int i = 0;i < targetNumber; i++)
@@ -23,6 +31,10 @@ public class autoGenerate : MonoBehaviour
             rotations[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.rotation;
             poses[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.position;
         }
+
+
+        }
+        
 
     }
     public void reGenerate()
