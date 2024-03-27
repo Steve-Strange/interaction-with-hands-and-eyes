@@ -38,6 +38,7 @@ public class GrabAgentObjectBareHand : MonoBehaviour
         TargetObjects = new Dictionary<GameObject, GameObject>();
         FindChild(targets);
         allNumber = TargetObjects.Count;
+        MovingObject = new List<GameObject>();
         if(recorder.GetComponent<singleSelect>().sampleType == 1){
             MovingObject.Add(manipulateObjects[0]);
             manipulateObjects.RemoveAt(0);

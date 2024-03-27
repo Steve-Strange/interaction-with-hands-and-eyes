@@ -84,7 +84,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                     
                     MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                     MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
-                    
+                    bubble.SetActive(true);
                     bubble.GetComponent<Bubble>().selectingObject = false;
 
                     MovingObject.RemoveAt(0);
@@ -193,13 +193,16 @@ public class GrabAgentObjectBubble : MonoBehaviour
     }
     void FindChild(GameObject child)
     {
+        
         //����forѭ�� ��ȡ�����µ�ȫ��������
         for (int c = 0; c < child.transform.childCount; c++)
         {
-            if(child.transform.GetChild(c).transform.childCount == 0)
+         
+            if (child.transform.GetChild(c).transform.childCount == 0)
             {
                 TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");
-                manipulateObjects.Add(child.transform.GetChild(c).gameObject);
+                Debug.Log(TargetObjects[child.transform.GetChild(c).gameObject].name);
+               // manipulateObjects.Add(child.transform.GetChild(c).gameObject);
             }
              
         }

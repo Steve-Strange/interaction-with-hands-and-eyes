@@ -9,10 +9,8 @@ public class Bubble : MonoBehaviour
     public GameObject recorder;
     public GameObject autoGenerate; 
     public GameObject grabAgentObject;
-    private List<GameObject> objects =  new List<GameObject>();
-  //  public GameObject temp;
-
     public GameObject Objects;
+    public List<GameObject> objects =  new List<GameObject>();
     LineRenderer l;
     public GameObject palm;
     private Vector3 palmOrigin;
@@ -31,7 +29,7 @@ public class Bubble : MonoBehaviour
     float radius; 
     int layerMask;
     int i, j;
-   // public TMP_Text t;
+    public TMP_Text t;
    // public TMP_Text t2;
    // public TMP_Text t3;
     private GameObject[] target = new GameObject[3];
@@ -42,10 +40,6 @@ public class Bubble : MonoBehaviour
     public bool selectingObject;//当前是否有选中物体
     private int finishNumber;
     private int needNumber;
-    [SerializeField] private Material _material;
-    [SerializeField] private Material defaultMaterial;
-    public Material targetM;
-    public Material notargetM;
     int round;
 
     [SerializeField] private List<MeshRenderer> _meshRenderers;
@@ -55,7 +49,10 @@ public class Bubble : MonoBehaviour
         round = 0;
         layerMask = 1 << 7;   
         objects = new List<GameObject>();
-        FindChilds(Objects);
+        //在仅操纵和移动的场景下
+        FindChilds(GameObject.Find("manipulate"));
+        FindChilds(GameObject.Find("others"));
+        //FindChilds(Objects);在仅选择下
         finishNumber = 0;
         selectingObject = false;
         needNumber = autoGenerate.GetComponent<autoGenerate>().targetNumber;
@@ -65,12 +62,13 @@ public class Bubble : MonoBehaviour
     {
         for (int c = 0; c < OBJ.transform.childCount; c++)
         {
-            if (OBJ.transform.GetChild(c).gameObject.transform.childCount == 0)
+  
                 objects.Add(OBJ.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
            // else
                // FindChilds(Objects.transform.GetChild(c).gameObject);
         }
     }
+    private string m_logEntries = "";
     public void changeRadius()
     {
       //  t.text = "101";
@@ -85,7 +83,7 @@ public class Bubble : MonoBehaviour
         {
        //     t.text = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices.Length.ToString();
             var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices;//Vector3[]
-       //     t.text = "131";
+               // Debug.Log(vertices.Length);       //     t.text = "131";
             foreach (var v in vertices)
             {
             //    t.text = "141";
@@ -136,17 +134,32 @@ public class Bubble : MonoBehaviour
         {
             radius = IntD[j];
         }//两者间更小的那个
+      
         var size = transform.GetComponent<Renderer>().bounds.size;//现在球的size
-        radius = 2 * radius * transform.localScale.x / size.x;
+      //  radius = 2 * radius * transform.localScale.x / size.x;  
+        Debug.Log(radius);
         transform.localScale = new Vector3(radius, radius, radius);
     }
 
     void Start()
-    {   
-        if(recorder.GetComponent<singleSelect>().sampleType == 1)
+    {
+
+        Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>
+        {
+            if (type == LogType.Exception || type == LogType.Error)
+            {
+         
+                m_logEntries += (string.Format("{0}\n{1}", condition, stackTrace));
+            }
+        };
+
+
+
+        if (recorder.GetComponent<singleSelect>().sampleType == 1)
         {//仅操纵，根本就不出现这个脚本
             gameObject.SetActive(false);
         }
+        selectingObject = false;
         InvokeRepeating("RepeatedMethod", 1f, 0.6f);
         time = 0;
         l = GetComponent<LineRenderer>();
@@ -170,7 +183,9 @@ public class Bubble : MonoBehaviour
             item.startWidth = 0f;
             item.endWidth = 0f;
         }//线段可视化关掉
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        t.text = "guandiao";
+        gameObject.SetActive(false);
+        //gameObject.GetComponent<MeshRenderer>().enabled = false;
         //球关掉
     }
     public void awakeTheBubble()
@@ -188,6 +203,7 @@ public class Bubble : MonoBehaviour
     bool init = true;
     void Update()
     {
+        t.text = m_logEntries.ToString();
         l.SetPosition(0, palm.transform.position);
         l.SetPosition(1, -palm.transform.up* 100);
       //  l.startWidth = 0.01f;
@@ -199,15 +215,15 @@ public class Bubble : MonoBehaviour
         //      transform.position = objects[0].transform.position; 
         //     init = false;
         //  }
-        decideCenter();
-        follow();
-        changeRadius();
-        //检测出所有包含在这个sphere中的物体
-        UpdataTarget();
-        UpdateLine();//更新画线，需要更新了target之后
+
         if(!selectingObject)
-        {
-            ChooseObject();
+        {         decideCenter();
+                  follow();
+                  changeRadius();
+                   //检测出所有包含在这个sphere中的物体
+                   UpdataTarget();
+                    UpdateLine();//更新画线，需要更新了target之后
+                    ChooseObject();
         }
     }
     public void decideCenter()
@@ -369,15 +385,22 @@ public class Bubble : MonoBehaviour
             if(mark[select] == true){
                 select -= 1;
                 if(recorder.GetComponent<singleSelect>().sampleType == 2){//select + manipulate
-                   
+
+                  //  t.text = "2";
                     selectingObject = true;
                     time = 0;
+                  //  t.text = "3";
                     AddOutline(target[select],Color.blue);
+                  //  t.text = "4";
                     grabAgentObject.SetActive(true);
-                    grabAgentObject.GetComponent<GrabAgentObjectBareHand>().MovingObject.Add(target[select]);
+                 //   t.text = target[select].name;
+                    grabAgentObject.GetComponent<GrabAgentObjectBubble>().MovingObject.Add(target[select]);
+                  //  t.text = "6";
                     recorder.GetComponent<singleSelect>().writeFile("selectObject:" + target[select].name);
+                  //  t.text = "7";
                     recorder.GetComponent<singleSelect>().selectOneObject();
-                    killTheBubble();
+                  //  t.text = "8";
+                    killTheBubble();  
                 }else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
                 {
                    // t.text = "right";
