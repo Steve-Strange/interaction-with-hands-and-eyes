@@ -85,6 +85,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                     MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                     MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
                     bubble.SetActive(true);
+                    bubble.GetComponent<Bubble>().awakeTheBubble();
                     bubble.GetComponent<Bubble>().selectingObject = false;
 
                     MovingObject.RemoveAt(0);

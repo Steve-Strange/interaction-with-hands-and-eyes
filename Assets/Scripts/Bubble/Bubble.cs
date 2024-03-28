@@ -50,9 +50,16 @@ public class Bubble : MonoBehaviour
         layerMask = 1 << 7;   
         objects = new List<GameObject>();
         //在仅操纵和移动的场景下
+        if(recorder.GetComponent<singleSelect>().sampleType !=0 )
+        {
         FindChilds(GameObject.Find("manipulate"));
         FindChilds(GameObject.Find("others"));
-        //FindChilds(Objects);在仅选择下
+        }else
+        {
+        FindChilds(Objects);//在仅选择下
+        }
+      
+        //
         finishNumber = 0;
         selectingObject = false;
         needNumber = autoGenerate.GetComponent<autoGenerate>().targetNumber;

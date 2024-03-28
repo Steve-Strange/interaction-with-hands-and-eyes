@@ -39560,7 +39560,7 @@ MonoBehaviour:
   recorder: {fileID: 1035733919}
   autoGenerate: {fileID: 19888443}
   grabAgentObject: {fileID: 1398386137}
-  Objects: {fileID: 0}
+  Objects: {fileID: 515127545}
   objects: []
   palm: {fileID: 1215878211}
   index: {fileID: 1215878224}
