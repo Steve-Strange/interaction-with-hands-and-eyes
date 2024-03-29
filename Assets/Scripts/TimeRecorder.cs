@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Threading;
 
 public class TimeRecorder : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class TimeRecorder : MonoBehaviour
     private bool finishStatus = false;
     public string userName;
     private GameObject MovingRecorder;
+    private float stayInTimer = 0f;
 
 
     void Start()
@@ -74,22 +76,31 @@ public class TimeRecorder : MonoBehaviour
             // log.text += "distance: " + Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) + "rotation: " + RotationGap(obj, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj]) + "\n";
             if(!CompleteObjects.Contains(obj)){
                 if (Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) < 
-                    (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f
-                    && MovingObjectStatus[obj] == 0){
-                        MovingObjectStatus[obj] = 1;
-                        obj.GetComponent<Outline>().OutlineColor = Color.yellow;
-                        obj.GetComponent<Outline>().OutlineWidth = 4f;
-                }
-                if (Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) < 
                     (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(obj, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj]) < 30f){
                         MovingObjectStatus[obj] = 2;
                         obj.GetComponent<Outline>().OutlineColor = Color.red;
                         obj.GetComponent<Outline>().OutlineWidth = 6f;
                 }
+                else if (Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) < 
+                    (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f){
+                        MovingObjectStatus[obj] = 1;
+                        obj.GetComponent<Outline>().OutlineColor = Color.yellow;
+                        obj.GetComponent<Outline>().OutlineWidth = 4f;
+                }
+                else {
+                    MovingObjectStatus[obj] = 0;
+                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
+                }
             }
 
-            if(MovingObjectStatus[obj]==2 && !agentObject.GetComponent<GrabAgentObject>().movingStatus){
+            if(MovingObjectStatus[obj]==2) {
+                stayInTimer += Time.deltaTime;
+            }
+            else{
+                stayInTimer = 0f;
+            }
+            if(stayInTimer > 0.3f && !agentObject.GetComponent<GrabAgentObject>().movingStatus){
                 if(!CompleteObjects.Contains(obj)) CompleteObjects.Add(obj);
                 obj.transform.position = agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position;
                 obj.transform.rotation = agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.rotation;

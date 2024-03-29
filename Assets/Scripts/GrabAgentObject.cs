@@ -137,29 +137,29 @@ public class GrabAgentObject : MonoBehaviour
         }
         else
         {
-
             if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                 (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                 RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
-                if(!FinishedObjects.Contains(MovingObject[0])) FinishedObjects.Add(MovingObject[0]);
-                // MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-                // if(FinishedObjects.Count <= 3 && ProcessRecorder.GetComponent<ProcessRecorder>().CompleteObjects.Count <= 3){
-                //     foreach (var obj in ObjectsOnFrame)
-                //     {
-                //         obj.transform.rotation = MovingObject[0].transform.rotation;
-                //     }
-                // }
 
-                foreach (var obj in ObjectsOnFrame)
-                {
-                    if (obj != MovingObject[0])
+                    if(!FinishedObjects.Contains(MovingObject[0])) FinishedObjects.Add(MovingObject[0]);
+                    // MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                    // if(FinishedObjects.Count <= 3 && ProcessRecorder.GetComponent<ProcessRecorder>().CompleteObjects.Count <= 3){
+                    //     foreach (var obj in ObjectsOnFrame)
+                    //     {
+                    //         obj.transform.rotation = MovingObject[0].transform.rotation;
+                    //     }
+                    // }
+
+                    foreach (var obj in ObjectsOnFrame)
                     {
-                        TargetObjects[obj].SetActive(true);
-                        obj.SetActive(true);
+                        if (obj != MovingObject[0])
+                        {
+                            TargetObjects[obj].SetActive(true);
+                            obj.SetActive(true);
+                        }
                     }
-                }
-                MovingObject.RemoveAt(0);
-                AutoAdjustStatus = true;
+                    MovingObject.RemoveAt(0);
+                    AutoAdjustStatus = true;
             }
         }
 
