@@ -69,12 +69,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                 
                 var obj = MovingObject[0];
                 var targetPosition = TargetObjects[obj].transform.position;
-                if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f)
-                {
-                    recorder.GetComponent<singleSelect>().finishCoarseOneObject();
-                    AddOutline(MovingObject[0], Color.yellow);
-                    obj.GetComponent<Outline>().OutlineWidth = 4f;
-                }
+
                 if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){
 
@@ -121,6 +116,12 @@ public class GrabAgentObjectBubble : MonoBehaviour
                         }
                         
                     }
+                }else if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f)
+                {
+                    MovingStatus = 1;
+                    recorder.GetComponent<singleSelect>().finishCoarseOneObject();
+                    AddOutline(MovingObject[0], Color.yellow);
+                    obj.GetComponent<Outline>().OutlineWidth = 4f;
                 }else{
                     MovingStatus = 0;
                     obj.GetComponent<Outline>().OutlineColor = Color.clear;
