@@ -75,6 +75,7 @@ public class TimeRecorder : MonoBehaviour
             if(!MovingObjectStatus.ContainsKey(obj)) MovingObjectStatus.Add(obj, 0);
             // log.text += "distance: " + Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) + "rotation: " + RotationGap(obj, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj]) + "\n";
             if(!CompleteObjects.Contains(obj)){
+
                 if (Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) < 
                     (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(obj, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj]) < 30f){
@@ -92,6 +93,8 @@ public class TimeRecorder : MonoBehaviour
                     MovingObjectStatus[obj] = 0;
                     obj.GetComponent<Outline>().OutlineColor = Color.clear;
                 }
+
+
             }
 
             if(MovingObjectStatus[obj]==2) {
