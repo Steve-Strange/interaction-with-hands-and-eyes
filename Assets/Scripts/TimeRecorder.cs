@@ -90,7 +90,7 @@ public class TimeRecorder : MonoBehaviour
                 }
                 else {
                     MovingObjectStatus[obj] = 0;
-                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
+                    obj.GetComponent<Outline>().OutlineColor = Color.white;
                 }
 
 

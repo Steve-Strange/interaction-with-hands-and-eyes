@@ -14,9 +14,9 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
-    // public TMPro.TMP_Text t;
-    // public TMPro.TMP_Text t2;
-    // public TMPro.TMP_Text t3;
+    public TMPro.TMP_Text t;
+    public TMPro.TMP_Text t2;
+    public TMPro.TMP_Text t1;
     // public TMPro.TMP_Text t4;
     // public TMPro.TMP_Text t5;
     public GameObject frame;
@@ -71,16 +71,16 @@ public class collide : MonoBehaviour
     int label = 0;
 
     private void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.name == "Edge")
-        {
-            now = finalObj[0];
-            label = 0;
-            ContactPoint contact = collision.contacts[0];
-            if (p.ispinch & finalObj.Count != 0)
-            {
+        if (collision.gameObject.name == "Edge"){
+            ContactPoint contact = collision.contacts[0];                
+                
+                
+            if (now == null && p.ispinch && finalObj.Count != 0){  //没有正在操纵的物体并且pinch并且finalobj还有     
+                now = finalObj[0];
                 now.transform.position = contact.point;
                 now.transform.parent = null;
                 now.transform.rotation = finalObjQ[now];
+                label = 0;
             }
         }
     }
@@ -88,15 +88,15 @@ public class collide : MonoBehaviour
         if (collision.gameObject.name == "Edge")
         {
             ContactPoint contact = collision.contacts[0];
-            if (p.ispinch & finalObj.Count != 0)
+            if (now != null && p.ispinch && finalObj.Count != 0)
             {
-                now.transform.position = contact.point;
+                now.transform.position = contact.point; 
+                now.GetComponent<Outline>().OutlineColor = Color.white;//在上面移动就会是白色的
                 now.transform.parent = null;
                 now.transform.rotation = finalObjQ[now];
                 label = 1;
-            }
-            now.GetComponent<Outline>().OutlineColor = Color.clear;
-            if (frame.GetComponent<frame>().Frame == "rect"){
+            
+                if (frame.GetComponent<frame>().Frame == "rect"){
 
                 rectPosition = frame.GetComponent<frame>().rectPosition;//line
                 for (int i = 0; i < rectPosition.Count; i++)
@@ -114,12 +114,12 @@ public class collide : MonoBehaviour
                     }
 
             }
-            if (frame.GetComponent<frame>().Frame == "circle"){
+                if (frame.GetComponent<frame>().Frame == "circle"){
 
                 circlePosition = frame.GetComponent<frame>().circlePosition;
                 for(int i = 0; i < circlePosition.Count; i++)
                 {
-                     if ((now.transform.position - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                     if ((now.transform.position - circlePosition[i]).magnitude < 0.02){//在等分点上的变成红色
                         now.GetComponent<Outline>().OutlineColor = Color.red;
                     }
 
@@ -129,7 +129,7 @@ public class collide : MonoBehaviour
                 now.transform.position = temp.normalized * frame.GetComponent<frame>().R + frame.GetComponent<frame>().center;
 
             }
-            if (frame.GetComponent<frame>().Frame == "tri"){
+                if (frame.GetComponent<frame>().Frame == "tri"){
                 triPosition = frame.GetComponent<frame>().triPosition;//line
                 for(int i = 0; i < triPosition.Count; i++)
                 {
@@ -145,7 +145,7 @@ public class collide : MonoBehaviour
                         now.GetComponent<Outline>().OutlineColor = Color.blue;
                     }
             }
-            if (frame.GetComponent<frame>().Frame == "pen"){
+                if (frame.GetComponent<frame>().Frame == "pen"){
                 penPosition = frame.GetComponent<frame>().penPosition;//line
                 for(int i = 0; i < penPosition.Count; i++)
                 {
@@ -161,8 +161,7 @@ public class collide : MonoBehaviour
                         now.GetComponent<Outline>().OutlineColor = Color.blue;
                     }
             }
-
-            if (frame.GetComponent<frame>().Frame == "para"){
+                if (frame.GetComponent<frame>().Frame == "para"){
                 paraPosition = frame.GetComponent<frame>().paraPosition;//line
                 for(int i = 0; i < paraPosition.Count; i++)
                 {
@@ -177,7 +176,7 @@ public class collide : MonoBehaviour
                         now.GetComponent<Outline>().OutlineColor = Color.blue;
                     }
             }
-            if (frame.GetComponent<frame>().Frame == "cube"){//要能确定新的长宽高
+                if (frame.GetComponent<frame>().Frame == "cube"){//要能确定新的长宽高
                 cubePosition = frame.GetComponent<frame>().cubePosition;//line
                 for(int i = 0; i < cubePosition.Count; i++)
                 {
@@ -192,19 +191,20 @@ public class collide : MonoBehaviour
                         now.GetComponent<Outline>().OutlineColor = Color.blue;
                     }
             }
+            }
         }
     }
     private void settleDown()
     {
-        finalObj[0].GetComponent<Outline>().OutlineColor = Color.clear;
-        finalObj[0].transform.rotation = finalObjQ[now];
+        now.GetComponent<Outline>().OutlineColor = Color.clear;//触发了这个就只有三个下场
+        now.transform.rotation = finalObjQ[now];
         if (frame.GetComponent<frame>().Frame == "rect")//解决空指针出错的问题
         {
             rectPosition = frame.GetComponent<frame>().rectPosition;//line
             for (int i = 0; i < rectPosition.Count; i++)
             {
-                if ((finalObj[0].transform.position - rectPosition[i]).magnitude < 0.02 || (positionLast - rectPosition[i]).magnitude < 0.02){
-                    finalObj[0].transform.position = rectPosition[i];
+                if ((now.transform.position - rectPosition[i]).magnitude < 0.02 || (positionLast - rectPosition[i]).magnitude < 0.02){
+                    now.transform.position = rectPosition[i];
                     now.GetComponent<Outline>().OutlineColor = Color.red;
                 }
                 else{
@@ -215,35 +215,31 @@ public class collide : MonoBehaviour
 
             rectCorner = frame.GetComponent<frame>().rectCorner;//line
             for (int i = 0; i <= 3; i++)
-                if ((finalObj[0].transform.position - rectCorner[i]).magnitude < 0.02 || (positionLast - rectCorner[i]).magnitude < 0.02)
+                if ((now.transform.position - rectCorner[i]).magnitude < 0.02 || (positionLast - rectCorner[i]).magnitude < 0.02)
                 {//有资格当anchor的变成蓝色
-                    finalObj[0].transform.position = rectCorner[i];
-                    rect[i] = finalObj[0];
+                    now.transform.position = rectCorner[i];
+                    rect[i] = now;
                     rectMark[i] = 1;
-                    finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
+                    now.GetComponent<Outline>().OutlineColor = Color.blue;
                 }
         }
-
         if (frame.GetComponent<frame>().Frame == "circle")
         {
-
                 circlePosition = frame.GetComponent<frame>().circlePosition;
                 for(int i = 0; i < circlePosition.Count; i++)
                 {
-                     if ((finalObj[0].transform.position - circlePosition[i]).magnitude < 0.02 || (positionLast - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
-                        finalObj[0].GetComponent<Outline>().OutlineColor = Color.red;
-                        finalObj[0].transform.position = rectPosition[i];
-                         if (mark < 3)
-            {
-                circle[mark] = finalObj[0];
-                finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
-            }
-
+                     if ((now.transform.position - circlePosition[i]).magnitude < 0.02 || (positionLast - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                        t.text = "yes";
+                        AddOutline(now, Color.red);
+                        now.transform.position = rectPosition[i];
                     }
-
+                }                        
+                if (mark < 3){
+                    t.text = mark.ToString();
+                    circle[mark] = now;
+                    AddOutline(now, Color.blue);
+                    mark++;     
                 }
-                mark++;
-
         }
         if (frame.GetComponent<frame>().Frame == "tri")
         {
@@ -336,10 +332,18 @@ public class collide : MonoBehaviour
                     finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                 }
         }
+        now = null;
         onFrame.Add(finalObj[0]);
         finalObj.RemoveAt(0);
         label = 0;
-
+    }
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+        }
+        target.GetComponent<Outline>().OutlineColor = color;
     }
     //todo 记录前0.1？秒的位置，同样比较
     public void getFinalObject()
@@ -351,6 +355,7 @@ public class collide : MonoBehaviour
     private List<string> m_logEntries = new List<string>();
     private void Update()
     {
+        t1.text = label.ToString();    
         timeMark +=1;
         if(timeMark > gap)
         {   
@@ -370,6 +375,7 @@ public class collide : MonoBehaviour
         {
             label = 0;
             settleDown();
+            now = null;
             FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
             label = 0;
         }
@@ -400,8 +406,6 @@ public class collide : MonoBehaviour
         pen = new GameObject[8];
         cube = new GameObject[8];
     }
-
-
     public void anchorChoose()
     {
         anchor.Clear();
@@ -459,7 +463,9 @@ public class collide : MonoBehaviour
             }
         }
         if (frame.GetComponent<frame>().Frame == "circle"){
-
+            t.text = circle[0].name;
+            t1.text = circle[1].name;
+            t2.text = circle[2].name;
             anchor.Add(circle[0]);
 
             anchor.Add(circle[1]);
@@ -666,8 +672,5 @@ public class collide : MonoBehaviour
 
     }
     // Update is called once per frame
-
-
-
 
 }

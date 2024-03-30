@@ -68,6 +68,8 @@ public class GrabAgentObjectBubble : MonoBehaviour
 
                 
                 var obj = MovingObject[0];
+                AddOutline(obj, Color.white);
+                obj.GetComponent<Outline>().OutlineWidth = 4f;
                 var targetPosition = TargetObjects[obj].transform.position;
 
                 if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
@@ -124,7 +126,8 @@ public class GrabAgentObjectBubble : MonoBehaviour
                     obj.GetComponent<Outline>().OutlineWidth = 4f;
                 }else{
                     MovingStatus = 0;
-                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
+                    AddOutline(obj, Color.white);
+                    obj.GetComponent<Outline>().OutlineWidth = 4f;
                 }
                 if(MovingStatus == 2){
                     stayInTimer += Time.deltaTime;

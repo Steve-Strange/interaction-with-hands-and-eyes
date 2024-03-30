@@ -49,7 +49,7 @@ public class FinalObjects : MonoBehaviour
         for(int i = 0; i < finalObj.Count; i++)
         {
             finalObj[i].transform.localPosition = new Vector3(0.1f * i - 0.35f, 0, - finalObj[i].transform.localScale.z / 2);
-            if(i == 0) finalObj[i].GetComponent<Outline>().OutlineColor = Color.green;
+            if(i == 0) finalObj[i].GetComponent<Outline>().OutlineColor = Color.green;//第一个颜色变绿
             else finalObj[i].GetComponent<Outline>().OutlineColor = Color.clear;
         }
     }

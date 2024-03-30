@@ -64,7 +64,7 @@ public class frame : MonoBehaviour
     float pi = 3.1415926F;
     float gap;
     float objSize;
-    void resize()//change the frame size from number
+    void resize()//change the frame size due to number
     {
         float averageSize = 0f;
         foreach (var obj in collideObject.GetComponent<collide>().finalObj)
@@ -79,39 +79,40 @@ public class frame : MonoBehaviour
 
         //大小应该和尺寸以及数量有关
        if(Frame == "rect"){
+            //number 表示每个边上的object + gap数量
             number = Mathf.CeilToInt((collideObject.GetComponent<collide>().finalObj.Count-4)/4f) + 1;//todo 改其他边的计算方式
-            if(number == 0)
+            if(number <= 0)
                 number = 1;
             rectheight = (objSize + gap) * number;
             rectlenth =  (objSize + gap) * number;
        }else if(Frame == "circle"){
-            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count/4f);
+            number = collideObject.GetComponent<collide>().finalObj.Count;
             if(number == 0)
                 number = 1;
-            R = collideObject.GetComponent<collide>().finalObj.Count * (objSize + gap)/(2*pi);
+            R = number * (objSize + gap)/(2*pi);
        }else if(Frame == "tri"){
-            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 3f);
+            number = Mathf.CeilToInt((collideObject.GetComponent<collide>().finalObj.Count-3) / 3f) + 1;
             if(number == 0)
                 number = 1;
             triedge = (objSize + gap) * number;
        }else if(Frame == "para")
        {
-            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 4f);
-            if(number == 0)
+            number = Mathf.CeilToInt((collideObject.GetComponent<collide>().finalObj.Count - 4) / 4f) + 1;
+            if (number == 0)
                 number = 1;
             paraheight = (objSize + gap) * number;
             paralenth = (objSize + gap) * number;
         }
         else if(Frame == "pen")
         {
-            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+            number = Mathf.CeilToInt((collideObject.GetComponent<collide>().finalObj.Count -5)/ 5f) + 1;
             if(number == 0)
                 number = 1;
             penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 
         }
         else if(Frame == "cube")
         {
-            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 12f);
+            number = Mathf.CeilToInt((collideObject.GetComponent<collide>().finalObj.Count - 12) / 12f) + 1;
             if(number == 0)
                 number = 1;
             cubeheight = (objSize + gap) * number;
@@ -120,7 +121,7 @@ public class frame : MonoBehaviour
             
         }else if(Frame == "star")
         {
-            number = Mathf.CeilToInt(collideObject.GetComponent<collide>().finalObj.Count / 5f);
+            number = Mathf.CeilToInt((collideObject.GetComponent<collide>().finalObj.Count - 5) / 5f) + 1;
             if(number == 0)
                 number = 1;
             penedge = (objSize + gap) * number / (2 *  Mathf.Cos((54) * Mathf.Deg2Rad) ); 
@@ -129,9 +130,8 @@ public class frame : MonoBehaviour
     void decideEachPosition()//change the frame size from number
     {
         int Min = 2;
-        int Max = 8;
+        int Max = 2 * number;
        if(Frame == "rect"){//todo 改其他的
-            Max = 2 * number;
             var X = (rectCorner[1]-rectCorner[0]).normalized;
             var Y = (rectCorner[3]- rectCorner[0]).normalized;
             rectPosition.Clear();
@@ -156,14 +156,17 @@ public class frame : MonoBehaviour
                 }
             }
         }
-       else if(Frame == "circle"){
+       else if(Frame == "circle"){//已改
             circlePosition.Clear();
-            for (int i = 0; i < number ; i++){
-                float x = R * Mathf.Cos((360f / number * i) * Mathf.Deg2Rad); //确定x坐标
-                float z = R * Mathf.Sin((360f / number * i) * Mathf.Deg2Rad); //确定z坐标
-                Vector3 now = center + right * x + forward * z;
-                circlePosition.Add(now);
+            for (int j = Min; j <= Max; j++){
+                for (int i = 0; i < j ; i++){
+                    float x = R * Mathf.Cos((360f / number * i) * Mathf.Deg2Rad); //确定x坐标
+                    float z = R * Mathf.Sin((360f / number * i) * Mathf.Deg2Rad); //确定z坐标
+                    Vector3 now = center + right * x + forward * z;
+                    circlePosition.Add(now);
+                }
             }
+
        }else if(Frame == "tri"){
 
             var X = (triCorner[1]-triCorner[0]).normalized;
@@ -339,6 +342,8 @@ public class frame : MonoBehaviour
         Vector3 last = new Vector3(0, 0, 0);
         Vector3 now;
 
+        decideEachPosition();
+
         for (int i = 0; i <= N ; i++)
         {
             float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
@@ -376,11 +381,13 @@ public class frame : MonoBehaviour
         rectCorner[2] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) + right * ( triedge /2);
 
 
-        for(int i=0;i<=2;i++){
+        for(int i=0;i<=2;i++){//拿来画的虚拟物体
             cor[i].transform.position = rectCorner[i];
         }
 
-        for(int i = 0;i<=2;i++){
+        decideEachPosition();
+
+        for (int i = 0;i<=2;i++){
             line.SetPosition(i,rectCorner[i]);
             if(i!=2){
                 addColliderToLine(rectCorner[i],rectCorner[i+1]);
@@ -424,6 +431,13 @@ public class frame : MonoBehaviour
 
 
         for (int i = 0; i <= 4; i++)
+        {//拿来画的虚拟物体
+            cor[i].transform.position = penCorner[i];
+        }
+
+        decideEachPosition();
+
+        for (int i = 0; i <= 4; i++)
         {
             line.SetPosition(i, penCorner[i]);
             if (i != 4){
@@ -434,7 +448,7 @@ public class frame : MonoBehaviour
             }
         }
     }
-/*
+
     public void createStar()
 {
 
@@ -459,21 +473,27 @@ public class frame : MonoBehaviour
         forward = Vector3.Cross(right, up).normalized;
 
         line.positionCount = 5;
+        for (int i = 0; i <= 4; i++)
+        {//拿来画的虚拟物体
+            cor[i].transform.position = starCorner[i];
+        }
+
+        decideEachPosition();
 
 
-line.SetPosition(0, penCorner[4]);
-line.SetPosition(1, penCorner[1]);
-line.SetPosition(2, penCorner[3]);
-line.SetPosition(3, penCorner[0]);
-line.SetPosition(4, penCorner[2]);
-addColliderToLine(penCorner[4], penCorner[1]);
-addColliderToLine(penCorner[1], penCorner[3]);
-addColliderToLine(penCorner[3], penCorner[0]);
-addColliderToLine(penCorner[0], penCorner[2]);
-addColliderToLine(penCorner[2], penCorner[4]);
+        line.SetPosition(0, starCorner[4]);
+        line.SetPosition(1, starCorner[1]);
+        line.SetPosition(2, starCorner[3]);
+        line.SetPosition(3, starCorner[0]);
+        line.SetPosition(4, starCorner[2]);
+        addColliderToLine(starCorner[4], starCorner[1]);
+        addColliderToLine(starCorner[1], starCorner[3]);
+        addColliderToLine(starCorner[3], starCorner[0]);
+        addColliderToLine(starCorner[0], starCorner[2]);
+        addColliderToLine(starCorner[2], starCorner[4]);
 
 }
-*/
+/**/
 
     public void createPara()
     {
@@ -750,23 +770,6 @@ addColliderToLine(penCorner[2], penCorner[4]);
             x = (n - l * y - m * z) / k;
         return new float[] { x, y, z };
     }
-
-    private void resizeColliderToline(BoxCollider col, Vector3 startPos,Vector3 endPos)
-    {
-        float lineLength = Vector3.Distance(startPos, endPos); // length of line
-        col.size = new Vector3(lineLength, 0.0001f, 0.0001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
-        Vector3 midPoint = (startPos + endPos) / 2;
-        col.transform.position = midPoint; // setting position of collider object
-        // Following lines calculate the angle between startPos and endPos
-        float angle = (Mathf.Abs(startPos.y - endPos.y) / Mathf.Abs(startPos.x - endPos.x));
-        if ((startPos.y < endPos.y && startPos.x > endPos.x) || (endPos.y < startPos.y && endPos.x > startPos.x))
-        {
-            angle *= -1;
-        }
-        angle = Mathf.Rad2Deg * Mathf.Atan(angle);
-        col.transform.Rotate(0, 0, angle);
-
-    }
     private void addColliderToLine(Vector3 startPos,Vector3 endPos)
     {
 
@@ -786,8 +789,7 @@ addColliderToLine(penCorner[2], penCorner[4]);
 
         col.transform.Rotate(0, angle,0);
     }
-    void clear()
-    {
+    void clear(){
         for (int i = 0; i <= 7; i++)
         {
             collideObject.GetComponent<collide>().rectMark[i] = 0;
@@ -806,36 +808,4 @@ addColliderToLine(penCorner[2], penCorner[4]);
         line.endColor = Color.black;
         line.material = lineMaterial;
     }
-    /*public void redoPara(string type)//两个锚点，动其中一个的时候另一个不动
-  {
-      List<GameObject> anchor = collideObject.GetComponent<collide>().anchor;
-
-              // get the original plane by previous points
-      Vector3 f = ((paraCorner[0]-paraCorner[1])).normalized;
-      Vector3 m = ((paraCorner[0]-paraCorner[3])).normalized;
-      if(type == "1")// 左上，右下
-      {
-          paraCorner[0] = anchor[0].transform.position;
-          paraCorner[2] = anchor[1].transform.position;
-          Vector3 temp = rectCorner[0]-rectCorner[2];
-          rectheight = Vector3.Dot(temp , m);
-          rectlenth = Vector3.Dot(temp, f);
-          rectCorner[1] = rectCorner[0] - f * rectlenth;
-          rectCorner[2] = rectCorner[0] - m * rectheight;
-
-          for(int i = 0;i<=3;i++){
-          line.SetPosition(i,rectCorner[i]);
-          if(i!=3){
-              resizeColliderToline(collider[i],rectCorner[i],rectCorner[i+1]);
-          }
-          else{
-              resizeColliderToline(collider[i],rectCorner[3],rectCorner[0]);
-          }
-      }
-
-
-      }
-
-
-  }*/
 }

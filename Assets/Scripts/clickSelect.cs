@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
-using static UnityEngine.ParticleSystem;
 
 public class clickSelect : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class clickSelect : MonoBehaviour
     private float[] angleLast = new float[5];
     private float[] gap = new float[5];
     public RaycastHit thumb, index, middle, ring, little;
-   // public TMP_Text  T2, T3, T4, T5, T6;
+     public TMP_Text  T2, T3, T4, T5, T6;
     // public TMP_InputField log;
     private GameObject SightCone;
 
@@ -110,6 +108,7 @@ public class clickSelect : MonoBehaviour
         if (time > 30)
             time = 22;
         bool[] mark = new bool[5];
+
         if (time>20&&HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
         {        
             d[0] = culculate(thumb1, thumb2, thumb3);//0.96-0.6   
@@ -120,7 +119,7 @@ public class clickSelect : MonoBehaviour
             mark[1] = false;
             mark[2] = false;
 
-            if (d[0]-angleLast[0] > 0.10)
+            if (d[0]-angleLast[0] > 0.05 || angleLast[0]- d[0] >0.05)
             {
                 mark[0] = true;
             }
