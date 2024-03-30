@@ -1874,7 +1874,7 @@ MonoBehaviour:
   AutoAdjustStatus: 0
   FinishedObjects: []
   ObjectsOnFrame: []
-  ProcessRecorder: {fileID: 709150168}
+  TimeRecorder: {fileID: 709150168}
   initFlag: 0
 --- !u!65 &224216727
 BoxCollider:
@@ -14681,7 +14681,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin: {fileID: 1189928074}
-  Models: {fileID: 41487556}
   combineEyeGazeVectorInWorldSpace: {x: 0, y: 0, z: 0}
   combineEyeGazeOriginInWorldSpace: {x: 0, y: 0, z: 0}
   HandPoseManager: {fileID: 0}

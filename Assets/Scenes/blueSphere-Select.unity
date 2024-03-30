@@ -354,7 +354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin: {fileID: 495389580}
-  Models: {fileID: 0}
   combineEyeGazeVectorInWorldSpace: {x: 0, y: 0, z: 0}
   combineEyeGazeOriginInWorldSpace: {x: 0, y: 0, z: 0}
   HandPoseManager: {fileID: 0}
@@ -36660,7 +36659,8 @@ MonoBehaviour:
   AutoAdjustStatus: 0
   FinishedObjects: []
   ObjectsOnFrame: []
-  ProcessRecorder: {fileID: 1763803120}
+  TimeRecorder: {fileID: 1763803120}
+  initFlag: 0
 --- !u!54 &1337636862
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38924,6 +38924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21ddafe8140aad4db113db3c767f6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  line: {fileID: 0}
   connectorManager: {fileID: 1832258188}
   cor:
   - {fileID: 2032431106}
@@ -44596,6 +44597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentObject: {fileID: 1337636859}
   CompleteObjects: []
+  frame: {fileID: 0}
   pinchObject: {fileID: 1543932216}
   MovingTime: 0
   coarseMovingTime: 0
@@ -45653,6 +45655,8 @@ MonoBehaviour:
   emptyObjects: []
   AgentObject: {fileID: 1337636859}
   TimeRecorder: {fileID: 1763803120}
+  frameAgent: {fileID: 0}
+  newObjects: []
 --- !u!4 &1832258190
 Transform:
   m_ObjectHideFlags: 0
@@ -48424,16 +48428,18 @@ MonoBehaviour:
   frameManager: {fileID: 1364980153}
   selectedRow: []
   emptyBlock: {fileID: 0}
+  log: {fileID: 0}
   AgentObject: {fileID: 1337636859}
   RubbishBin: {fileID: 932775551}
   SecondSelectionState: 0
   PalmPoseState: 0
-  SelectionStatus: 1
   StartSelect: {fileID: 718596113}
   clickSelect: {fileID: 494076473}
   TimeRecorder: {fileID: 1763803120}
   phase: 0
   selectionTime: 0
+  initFlag: 0
+  objectsWithTargets: []
 --- !u!4 &1974733850
 Transform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ using System.Linq;
 public class EyeTrackingManager : MonoBehaviour
 {   
     public Transform Origin;
-    public GameObject Models;
     
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;

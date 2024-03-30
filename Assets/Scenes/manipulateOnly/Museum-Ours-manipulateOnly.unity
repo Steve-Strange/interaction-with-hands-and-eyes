@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentObject: {fileID: 1286828427}
   CompleteObjects: []
-  frame: {fileID: 0}
+  frame: {fileID: 1006200306}
   pinchObject: {fileID: 2019285869}
   MovingTime: 0
   coarseMovingTime: 0
@@ -6317,13 +6317,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FinalObjects: {fileID: 2069222032}
-  Pinch: {fileID: 0}
   HandRightWrist: {fileID: 9081037}
   SecondSelectionBG: {fileID: 1272397740}
   collide: {fileID: 2019285869}
   frameManager: {fileID: 544807498}
   selectedRow: []
   emptyBlock: {fileID: 0}
+  log: {fileID: 0}
   AgentObject: {fileID: 1286828427}
   RubbishBin: {fileID: 123647641}
   SecondSelectionState: 0
@@ -6333,6 +6333,7 @@ MonoBehaviour:
   TimeRecorder: {fileID: 27203894}
   phase: 0
   selectionTime: 0
+  initFlag: 0
   objectsWithTargets: []
 --- !u!4 &117218556
 Transform:
@@ -58361,7 +58362,8 @@ MonoBehaviour:
   AutoAdjustStatus: 0
   FinishedObjects: []
   ObjectsOnFrame: []
-  ProcessRecorder: {fileID: 27203894}
+  TimeRecorder: {fileID: 27203894}
+  initFlag: 0
 --- !u!54 &1286828430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75245,7 +75247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin: {fileID: 2030654783}
-  Models: {fileID: 0}
   combineEyeGazeVectorInWorldSpace: {x: 0, y: 0, z: 0}
   combineEyeGazeOriginInWorldSpace: {x: 0, y: 0, z: 0}
   HandPoseManager: {fileID: 117218554}

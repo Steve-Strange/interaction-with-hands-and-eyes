@@ -27,7 +27,6 @@ public class TimeRecorder : MonoBehaviour
     private bool finishStatus = false;
     public string userName;
     private GameObject MovingRecorder;
-    private float stayInTimer = 0f;
 
 
     void Start()
@@ -97,13 +96,7 @@ public class TimeRecorder : MonoBehaviour
 
             }
 
-            if(MovingObjectStatus[obj]==2) {
-                stayInTimer += Time.deltaTime;
-            }
-            else{
-                stayInTimer = 0f;
-            }
-            if(stayInTimer > 0.3f && !agentObject.GetComponent<GrabAgentObject>().movingStatus){
+            if(MovingObjectStatus[obj] == 2 && !agentObject.GetComponent<GrabAgentObject>().movingStatus){
                 if(!CompleteObjects.Contains(obj)) CompleteObjects.Add(obj);
                 obj.transform.position = agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position;
                 obj.transform.rotation = agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.rotation;

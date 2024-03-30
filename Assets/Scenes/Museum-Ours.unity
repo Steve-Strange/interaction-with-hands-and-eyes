@@ -19999,7 +19999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216362411}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.11, z: 0.755}
+  m_LocalPosition: {x: 0, y: 0.9970001, z: 0.755}
   m_LocalScale: {x: 0.05000004, y: 1, z: 0.60000026}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26515,7 +26515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentObject: {fileID: 1699111459}
   CompleteObjects: []
-  frame: {fileID: 0}
+  frame: {fileID: 1405283944}
   pinchObject: {fileID: 1799208749}
   MovingTime: 0
   coarseMovingTime: 0
@@ -43416,7 +43416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin: {fileID: 896295325}
-  Models: {fileID: 0}
   combineEyeGazeVectorInWorldSpace: {x: 0, y: 0, z: 0}
   combineEyeGazeOriginInWorldSpace: {x: 0, y: 0, z: 0}
   HandPoseManager: {fileID: 1288998950}
@@ -53774,7 +53773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1b920d3be6f07414796533cd72297fd2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.885
+      value: -0.722
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1b920d3be6f07414796533cd72297fd2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68359,7 +68358,7 @@ MonoBehaviour:
   AutoAdjustStatus: 0
   FinishedObjects: []
   ObjectsOnFrame: []
-  ProcessRecorder: {fileID: 638920578}
+  TimeRecorder: {fileID: 638920578}
   initFlag: 0
 --- !u!54 &1699111462
 Rigidbody:
@@ -68435,7 +68434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699111459}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.029, y: 1.323, z: -0.139}
+  m_LocalPosition: {x: 0.029, y: 1.21, z: -0.139}
   m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_ConstrainProportionsScale: 0
   m_Children:
