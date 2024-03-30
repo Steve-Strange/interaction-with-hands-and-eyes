@@ -1420,6 +1420,10 @@ PrefabInstance:
       value: KnifeAndFork5
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_TagString
       value: Target
       objectReference: {fileID: 0}
@@ -4162,6 +4166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnifeAndFork (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
 --- !u!4 &456668139 stripped
@@ -5290,6 +5298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnifeAndFork1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
 --- !u!4 &543986414 stripped
@@ -5465,6 +5477,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_Name
       value: KnifeAndFork6 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
@@ -6060,6 +6076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnifeAndFork5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
 --- !u!4 &613183751 stripped
@@ -6258,6 +6278,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_Name
       value: KnifeAndFork (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
@@ -9563,6 +9587,7 @@ MonoBehaviour:
   AutoAdjustStatus: 0
   FinishedObjects: []
   ObjectsOnFrame: []
+  ProcessRecorder: {fileID: 0}
   TimeRecorder: {fileID: 24020925}
   initFlag: 0
 --- !u!54 &909533879
@@ -11529,6 +11554,10 @@ PrefabInstance:
       value: KnifeAndFork3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_TagString
       value: Target
       objectReference: {fileID: 0}
@@ -12168,6 +12197,10 @@ PrefabInstance:
       value: KnifeAndFork4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_TagString
       value: Target
       objectReference: {fileID: 0}
@@ -12533,6 +12566,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_Name
       value: KnifeAndFork3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
@@ -13565,6 +13602,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_Name
       value: KnifeAndFork1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_TagString
@@ -15396,6 +15437,10 @@ PrefabInstance:
       value: KnifeAndFork6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_TagString
       value: Target
       objectReference: {fileID: 0}
@@ -16610,6 +16655,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_Name
       value: KnifeAndFork2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
@@ -18161,6 +18210,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_Name
       value: KnifeAndFork2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_TagString
@@ -19838,6 +19891,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
       propertyPath: m_Name
       value: KnifeAndFork4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70c876f18814bc54c806e4e663baa534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c876f18814bc54c806e4e663baa534, type: 3}

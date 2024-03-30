@@ -24,7 +24,6 @@ public class GrabAgentObject : MonoBehaviour
     public List<GameObject> MovingObject = new List<GameObject>();
     // private GameObject originalParent;
     private float movingScale;
-    private GameObject ConnectorManager;
     public bool AutoAdjustStatus = false;
 
     public List<GameObject> FinishedObjects = new List<GameObject>();
@@ -40,7 +39,6 @@ public class GrabAgentObject : MonoBehaviour
     {
         // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
-        ConnectorManager = GameObject.Find("ConnectorManager");
         TargetObjects = new Dictionary<GameObject, GameObject>();
     }
 
@@ -50,6 +48,9 @@ public class GrabAgentObject : MonoBehaviour
         grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
         if (!initFlag)
         {
+            FinishedObjects.Clear();
+            ObjectsOnFrame.Clear();
+
             foreach (var obj in pinchObject.GetComponent<collide>().onFrame)
             {
                 TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
