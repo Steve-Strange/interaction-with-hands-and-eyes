@@ -9,14 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/DiningRoom.unity
     guid: 9345c6aee7ca4294abf0c02897ae4beb
   - enabled: 0
-    path: Assets/Scenes/EyeTracking 2.unity
-    guid: 1a99be3005497d24a8c8397f55305411
-  - enabled: 0
     path: Assets/Scenes/SelectOnly/SelectCompare-bubble.unity
     guid: c12a5edad6b33ef40b556a89e820b7bf
-  - enabled: 0
-    path: Assets/Scenes/SimpleHand.unity
-    guid: 128db1a25718b24429586a4992fbb448
   - enabled: 0
     path: Assets/Scenes/Museum-Ours.unity
     guid: 004a2af36b69afb4d8efb029a80f61d3
@@ -33,11 +27,8 @@ EditorBuildSettings:
     path: Assets/Scenes/manipulateOnly/Museum-Ours-manipulateOnly.unity
     guid: f5854a50db2e0124c96da20952dac105
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/Scenes/DiningRoom 1.unity
-    guid: ab9714a83cc617c45bec742e649d1d22
+    guid: 3bebbe4fbf2fe754a885ba24101b8b5d
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 911a72a2498320e458cf8cf731a00095, type: 2}
