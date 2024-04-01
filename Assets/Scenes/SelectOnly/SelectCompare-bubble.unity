@@ -5890,6 +5890,7 @@ MonoBehaviour:
   autoGenerate: {fileID: 468613407}
   grabAgentObject: {fileID: 1956108915}
   Objects: {fileID: 468613407}
+  objects: []
   palm: {fileID: 1352125979}
   index: {fileID: 609441111}
   middle: {fileID: 1459077576}
@@ -5908,13 +5909,7 @@ MonoBehaviour:
   - {fileID: 1469456141}
   - {fileID: 1765288310}
   t: {fileID: 958168086}
-  t2: {fileID: 1099134333}
-  t3: {fileID: 472230277}
   selectingObject: 0
-  _material: {fileID: 2100000, guid: debe1ab76b09fd149af5e4afecfddc0a, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: 217626e41cf88d54c9a3e3cd615ca17a, type: 2}
-  targetM: {fileID: 2100000, guid: ac7527b7b721249428f9683d7180ed3e, type: 2}
-  notargetM: {fileID: 2100000, guid: 6cdae9654097b144a9e8cbe8f68b7184, type: 2}
   _meshRenderers: []
 --- !u!135 &676955753
 SphereCollider:
@@ -12828,7 +12823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673893173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3199997, y: 28.37, z: 49.708}
+  m_LocalPosition: {x: -0.93, y: 28.79, z: 49.708}
   m_LocalScale: {x: 0.55275, y: 0.55275, z: 0.55275}
   m_ConstrainProportionsScale: 1
   m_Children: []

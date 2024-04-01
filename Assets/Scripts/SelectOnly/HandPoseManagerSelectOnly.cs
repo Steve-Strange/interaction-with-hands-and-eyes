@@ -44,7 +44,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     private float minAngel = 10f;
     public bool SelectionStatus = true;
 
-    private Dictionary<GameObject, float> sorted15ObjectWeights = new Dictionary<GameObject, float>();
+    public Dictionary<GameObject, float> sorted15ObjectWeights = new Dictionary<GameObject, float>();
     private Dictionary<GameObject, float> sortedRemainObjectWeights = new Dictionary<GameObject, float>();
 
     public GameObject StartSelect;

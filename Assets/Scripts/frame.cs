@@ -277,6 +277,7 @@ public class frame : MonoBehaviour
 
     public void creatRect(){
         Frame = "rect";
+        LineSetProperties(line);
         clear();
         resize();
        //  Debug.Log(rectheight);
@@ -319,6 +320,7 @@ public class frame : MonoBehaviour
     public void createCircle()
     {
         Frame = "circle";
+        LineSetProperties(line);
         clear();
         resize();
         dis = 0.4f;
@@ -358,7 +360,7 @@ public class frame : MonoBehaviour
     public void createTri()
     {
         dis = 0.4f;
-
+        LineSetProperties(line);
         Frame = "tri";
         clear();
         resize();
@@ -401,7 +403,7 @@ public class frame : MonoBehaviour
     public void createPentagon()
     {
         dis = 0.4f;
-
+        LineSetProperties(line);
         //triangle original
         penedge = 0.3f;//不是边而是顶点到中心距离
 
@@ -451,7 +453,7 @@ public class frame : MonoBehaviour
 
     public void createStar()
 {
-
+        LineSetProperties(line);
         dis = 0.4f;
 
         staredge = 0.3f;//不是边而是顶点到中心距离
@@ -471,6 +473,12 @@ public class frame : MonoBehaviour
         center = head.transform.position + forward * dis - up * 0.2f;
 
         forward = Vector3.Cross(right, up).normalized;
+
+        starCorner[0] = center + forward * staredge;
+        starCorner[1] = center + forward * staredge * Mathf.Cos((72) * Mathf.Deg2Rad) + right * staredge * Mathf.Sin((72) * Mathf.Deg2Rad);
+        starCorner[2] = center - forward * staredge / 2 / Mathf.Cos((36) * Mathf.Deg2Rad) + right * staredge * Mathf.Sin((36) * Mathf.Deg2Rad);
+        starCorner[3] = center - forward * staredge / 2 / Mathf.Cos((36) * Mathf.Deg2Rad) - right * staredge * Mathf.Sin((36) * Mathf.Deg2Rad);
+        starCorner[4] = center + forward * staredge * Mathf.Cos((72) * Mathf.Deg2Rad) - right * staredge * Mathf.Sin((72) * Mathf.Deg2Rad);
 
         line.positionCount = 5;
         for (int i = 0; i <= 4; i++)
@@ -498,7 +506,7 @@ public class frame : MonoBehaviour
     public void createPara()
     {
         dis = 0.4f;
-
+        LineSetProperties(line);
         //pingxing
         angle = 45;
 
@@ -549,7 +557,7 @@ public class frame : MonoBehaviour
     public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
     {
         dis = 0.6f;
-
+        LineSetProperties(line);
         //cube
         cubelenth = 0.1f;
         cubeheight = 0.1f;

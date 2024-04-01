@@ -14,16 +14,9 @@ public class clickSelectSelectOnly : MonoBehaviour
     private float[] d = new float[5];
     private float[] ad = new float[5];
     private float[] angleLast = new float[5];
-    private float[] gap = new float[5];
     public RaycastHit thumb, index, middle, ring, little;
-    // public TMP_Text  T2, T3, T4, T5, T6;
-    // public TMP_InputField log;
+    public TMP_Text  T2, T3, T4, T5, T6;
     private GameObject SightCone;
-
-    //private float angle, angle1, angle2, angle3, angle4, angleLast;
-    //private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
-
-
     public GameObject FinalObjects;
     void Start()
     {
@@ -62,15 +55,16 @@ public class clickSelectSelectOnly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
-       
+        //T2.text = ;
+        selectedRow = HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().selectedRow;
+        T2.text = "w";
         time += 1;
         if (time > 30)
             time = 22;
         bool[] mark = new bool[5];
-        if (time > 20 && HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
+        if (time > 20 && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().PalmPoseState)
         {
+            T2.text = "3";
             d[0] = culculate(thumb1, thumb2, thumb3);//0.96-0.6   
             d[1] = culculate(index1, index2, index3);
             d[2] = culculate(middle1, middle2, middle3);
@@ -79,7 +73,7 @@ public class clickSelectSelectOnly : MonoBehaviour
             mark[1] = false;
             mark[2] = false;
 
-            if (d[0] - angleLast[0] > 0.10)
+            if (d[0] - angleLast[0] > 0.05 || angleLast[0] - d[0] > 0.05)
             {
                 mark[0] = true;
             }
@@ -92,9 +86,8 @@ public class clickSelectSelectOnly : MonoBehaviour
             {
                 mark[2] = true;
             }
-            {
 
-                float max = -1;
+            float max = -1;
                 int select = -1;
                 for (int i = 0; i <= 2; i++)
                 {
@@ -105,21 +98,13 @@ public class clickSelectSelectOnly : MonoBehaviour
                     }
 
                 }
+                T2.text = select.ToString();
                 if (!FinalObjects.GetComponent<FinalObjectsSelectOnly>().finalObj.Contains(selectedRow[select]) && mark[select] && selectedRow[select] != HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().emptyBlock)
                 {
                     FinalObjects.GetComponent<FinalObjectsSelectOnly>().AddFinalObj(selectedRow[select]);
                     SightCone.GetComponent<SightConeSelectOnly>().objectWeights.Remove(selectedRow[select]);
                     time = 0;
                 }
-            }
-
-
-
-
-
-
         }
-
-
     }
 }
