@@ -14,16 +14,13 @@ public class FinalObjectsSelectOnly : MonoBehaviour
     public TMP_Text T2, T3, T4, T5, T6;
     int wrong;
     int right;
-    int all;
-    int round = 0;
-    // Start is called before the first frame update
+    public int all;
+
     void Start()
     {
         SightCone = GameObject.Find("SightCone");
-        all = autoGenerate.GetComponent<autoGenerate>().targetNumber;
         wrong = 0;
         right = 0;
-        round = 0;
     }
     private void Update()
     {
@@ -40,7 +37,7 @@ public class FinalObjectsSelectOnly : MonoBehaviour
             recorder.GetComponent<singleSelect>().selectOneObject();
             obj.GetComponent<Renderer>().material.color = Color.blue;
             autoGenerate.GetComponent <autoGenerate>().genOne();//生成一个新的目标物体
-            if(right == 15)//已经选中了15个
+            if(right == all)//已经选中了15个
             {
             
                /* foreach (var item in autoGenerate.GetComponent<autoGenerate>().targets)

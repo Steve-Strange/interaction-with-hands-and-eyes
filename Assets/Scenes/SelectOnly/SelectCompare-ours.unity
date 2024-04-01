@@ -6078,6 +6078,7 @@ MonoBehaviour:
   T4: {fileID: 0}
   T5: {fileID: 0}
   T6: {fileID: 0}
+  all: 30
 --- !u!1 &865985456
 GameObject:
   m_ObjectHideFlags: 0
@@ -10571,6 +10572,7 @@ MonoBehaviour:
   line_6: {fileID: 1369225851}
   lineMaterial: {fileID: 2100000, guid: f8e8bfc8eeb914158a079e7c2498dddd, type: 2}
   number: 0
+  objSize: 0
   center: {x: 0, y: 0, z: 0}
   rectPosition: []
   circlePosition: []
