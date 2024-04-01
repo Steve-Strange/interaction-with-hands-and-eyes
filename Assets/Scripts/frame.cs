@@ -63,7 +63,7 @@ public class frame : MonoBehaviour
 
     float pi = 3.1415926F;
     float gap;
-    float objSize;
+    public float objSize;
     void resize()//change the frame size due to number
     {
         float averageSize = 0f;

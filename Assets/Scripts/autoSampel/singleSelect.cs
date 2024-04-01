@@ -67,12 +67,19 @@ public class singleSelect : MonoBehaviour
         logs += a  + "\n";
     }
     public void selectOneObject()//��ÿ��ѡ���ʱ�����
-    {   
-        var temp = timer - beginSelectTime;
-        selectTime += temp;
-        beginManipulateTime = timer;
-        logs += "thisSelectionTime:     " + temp + "\n\n";
-        logs += "allSelectionTime:      " + selectTime + "\n\n";
+    {
+        var gap = timer - beginSelectTime;
+        if (sampleType == 0)
+        {//仅选择
+            beginSelectTime = timer;
+        }
+        else
+        {
+            beginManipulateTime = timer;
+        }
+
+        logs += "thisSelectionTime:     " + gap + "\n\n";
+        logs += "allSelectionTime:      " + timer + "\n\n";
     }
     public void finishOneObject()//��ÿ�β���ʱ�����
     {

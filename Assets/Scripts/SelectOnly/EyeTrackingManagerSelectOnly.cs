@@ -100,7 +100,7 @@ public class EyeTrackingManagerSelectOnly : MonoBehaviour
 
     void GazeTargetControl(Vector3 origin, Vector3 vector)
     {
-        int layerMask = 1;
+        int layerMask = 1 << 7;
         if (Physics.SphereCast(origin, 0.12f, vector, out hitInfo, 50f, layerMask))
         {
             if (hitInfo.collider.gameObject.tag == "Target")
@@ -120,7 +120,7 @@ public class EyeTrackingManagerSelectOnly : MonoBehaviour
 
                     }
                     eyeSelectedObject = hitInfo.collider.gameObject;
-                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
+                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.green;
                 }
             }
 
@@ -132,8 +132,9 @@ public class EyeTrackingManagerSelectOnly : MonoBehaviour
     void BlinkSelect()
     {
         blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
-        if (!clickSelect.GetComponent<clickSelectSelectOnly>().FinalObjects.GetComponent<FinalObjectsSelectOnly>().finalObj.Contains(blinkSelectedObject))
-            clickSelect.GetComponent<clickSelectSelectOnly>().FinalObjects.GetComponent<FinalObjectsSelectOnly>().AddFinalObj(blinkSelectedObject);
+
+        clickSelect.GetComponent<clickSelectSelectOnly>().FinalObjects.GetComponent<FinalObjectsSelectOnly>().AddFinalObj(blinkSelectedObject);
+
         if (SightCone.GetComponent<SightConeSelectOnly>().selectedObjects.Contains(blinkSelectedObject))
         {
             SightCone.GetComponent<SightConeSelectOnly>().selectedObjects.Remove(blinkSelectedObject);

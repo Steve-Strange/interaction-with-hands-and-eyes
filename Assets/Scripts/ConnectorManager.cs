@@ -175,11 +175,13 @@ public class ConnectorManager : MonoBehaviour
         }
 
         frameCenter = frame.GetComponent<frame>().center + Vector3.forward * 2 ;//新的中心
+        var temp = frame.GetComponent<frame>().objSize;
+        float  scale = 10f * temp;//小框架变成大框架之后放大的倍数
         foreach (var obj in Objects){
             if(!obj.CompareTag("AgentObject"))
             {
                 vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
-                obj.transform.position = frameCenter + 10 * vectorToCenter[obj];
+                obj.transform.position = frameCenter + scale * vectorToCenter[obj]; 
                 obj.transform.parent = null;
                 obj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().objScale[obj];
                 vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
