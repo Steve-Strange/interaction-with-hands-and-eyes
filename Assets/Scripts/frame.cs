@@ -173,20 +173,22 @@ public class frame : MonoBehaviour
             var Y = (triCorner[2]-triCorner[1]).normalized;
             var Z = (triCorner[2]-triCorner[0]).normalized;
             triPosition.Clear();
-            for(int i = 1 ; i<= number-1 ;i++)
+            for (int j = Min; j <= Max; j++)
             {
-                triPosition.Add(triCorner[0] + (gap + objSize) * i * X);
+                float temp = triedge * 1.0f / (j * 1.0f);
+                for (int i = 1 ; i<= j-1 ;i++)
+                {
+                    triPosition.Add(triCorner[0] + temp * i * X);
+                }
+                for (int i = 1 ; i<= j-1 ;i++)
+                {
+                    triPosition.Add(triCorner[1] + temp * i * Y);
+                }
+                for (int i = 1 ; i<= j -1 ;i++)
+                {
+                    triPosition.Add(triCorner[0] + temp * i * Z);
+                }
             }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                triPosition.Add(triCorner[1] + (gap + objSize) * i * Y);
-            }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                triPosition.Add(triCorner[0] + (gap + objSize) * i * Z);
-            }
-
-
        }else if(Frame == "para")
        {
 
@@ -277,7 +279,7 @@ public class frame : MonoBehaviour
 
     public void creatRect(){
         Frame = "rect";
-        LineSetProperties(line);
+        setLines();
         clear();
         resize();
        //  Debug.Log(rectheight);
@@ -320,7 +322,7 @@ public class frame : MonoBehaviour
     public void createCircle()
     {
         Frame = "circle";
-        LineSetProperties(line);
+        setLines();
         clear();
         resize();
         dis = 0.4f;
@@ -358,13 +360,15 @@ public class frame : MonoBehaviour
         }
     }
     public void createTri()
-    {
-        dis = 0.4f;
-        LineSetProperties(line);
+    { 
         Frame = "tri";
+        
+        setLines();
+       
         clear();
         resize();
-        rectCorner = new Vector3[3];
+        dis = 0.4f;
+        triCorner = new Vector3[3];
 
         forward = head.transform.forward.normalized;
         // right = new Vector3(head.transform.right.normalized.x, 0, head.transform.right.normalized.z).normalized;
@@ -378,24 +382,24 @@ public class frame : MonoBehaviour
 
         line.positionCount = 3;
 
-        rectCorner[0] = center + forward * (float)(triedge / Math.Sqrt(3));
-        rectCorner[1] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) - right * ( triedge /2);
-        rectCorner[2] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) + right * ( triedge /2);
+        triCorner[0] = center + forward * (float)(triedge / Math.Sqrt(3));
+        triCorner[1] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) - right * ( triedge /2);
+        triCorner[2] = center - forward * (float)(triedge / Math.Sqrt(3) / 2) + right * ( triedge /2);
 
 
         for(int i=0;i<=2;i++){//拿来画的虚拟物体
-            cor[i].transform.position = rectCorner[i];
+            cor[i].transform.position = triCorner[i];
         }
 
         decideEachPosition();
 
         for (int i = 0;i<=2;i++){
-            line.SetPosition(i,rectCorner[i]);
+            line.SetPosition(i,triCorner[i]);
             if(i!=2){
-                addColliderToLine(rectCorner[i],rectCorner[i+1]);
+                addColliderToLine(triCorner[i],triCorner[i+1]);
             }
             else{
-                addColliderToLine(rectCorner[2],rectCorner[0]);
+                addColliderToLine(triCorner[2],triCorner[0]);
             }
         }
 
@@ -403,7 +407,7 @@ public class frame : MonoBehaviour
     public void createPentagon()
     {
         dis = 0.4f;
-        LineSetProperties(line);
+        setLines();
         //triangle original
         penedge = 0.3f;//不是边而是顶点到中心距离
 
@@ -453,7 +457,7 @@ public class frame : MonoBehaviour
 
     public void createStar()
 {
-        LineSetProperties(line);
+        setLines();
         dis = 0.4f;
 
         staredge = 0.3f;//不是边而是顶点到中心距离
@@ -506,7 +510,7 @@ public class frame : MonoBehaviour
     public void createPara()
     {
         dis = 0.4f;
-        LineSetProperties(line);
+        setLines();
         //pingxing
         angle = 45;
 
@@ -557,7 +561,7 @@ public class frame : MonoBehaviour
     public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
     {
         dis = 0.6f;
-        LineSetProperties(line);
+        setLines();
         //cube
         cubelenth = 0.1f;
         cubeheight = 0.1f;
@@ -638,7 +642,8 @@ public class frame : MonoBehaviour
     public void updateFrame()
     {
         var anchor = collideObject.GetComponent<collide>().anchor;
-        if(Frame == "rect"){//根据透明物体来画
+        setLines();
+        if (Frame == "rect"){//根据透明物体来画
             redoRect();}
         else if(Frame == "circle"){//用三个锚点画
             redoCircle(anchor);}
@@ -651,6 +656,7 @@ public class frame : MonoBehaviour
 
     }
     public void redoRect(){
+        setLines();
         line.positionCount = 4;
         for (int i = 0; i <= 3; i++){
             line.SetPosition(i, cor[i].transform.position);
@@ -658,7 +664,7 @@ public class frame : MonoBehaviour
     }
     public void redoCircle(List<GameObject> anchor)
     {
-
+        setLines();
         Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
 
         float R = (anchor[0].transform.position - center).magnitude;
@@ -684,28 +690,32 @@ public class frame : MonoBehaviour
     }
     public void redoTri()
     {
-            line.positionCount = 3;
+        setLines();
+        line.positionCount = 3;
             for(int i = 0;i<=2;i++){
             line.SetPosition(i,cor[i].transform.position);
         }
     }
     public void redoPen()
     {
-            line.positionCount = 5;
+        setLines();
+        line.positionCount = 5;
             for(int i = 0;i<=5;i++){
             line.SetPosition(i,cor[i].transform.position);
         }
     }
     public void redoStar()
     {
-            line.positionCount = 5;
+        setLines();
+        line.positionCount = 5;
             for(int i = 0;i<=5;i++){
             line.SetPosition(i,cor[i].transform.position);
         }
     }
     public void redoPara()
     {
-            line.positionCount = 4;
+        setLines();
+        line.positionCount = 4;
             for(int i = 0;i<=3;i++){
             line.SetPosition(i,cor[i].transform.position);
         }
@@ -808,10 +818,18 @@ public class frame : MonoBehaviour
             collideObject.GetComponent<collide>().cubeMark[i] = 0;
         }
     }
+    public void setLines()
+    {
+        LineSetProperties(line);
+        LineSetProperties(line2);
+        LineSetProperties(line3);
+        LineSetProperties(line4);
+        LineSetProperties(line5);
+    }
     public void LineSetProperties(LineRenderer line)
     {
-        line.startWidth = 0.02f;
-        line.endWidth = 0.02f;
+        line.startWidth = 0.01f;
+        line.endWidth = 0.01f;
         line.startColor = Color.black;
         line.endColor = Color.black;
         line.material = lineMaterial;

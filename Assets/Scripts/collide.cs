@@ -14,10 +14,10 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
-    public TMPro.TMP_Text t;
+   // public TMPro.TMP_Text t;
     
-    public TMPro.TMP_Text t1;
-    public TMPro.TMP_Text t2;
+   // public TMPro.TMP_Text t1;
+   // public TMPro.TMP_Text t2;
     // public TMPro.TMP_Text t4;
     // public TMPro.TMP_Text t5;
     public GameObject frame;
@@ -225,9 +225,9 @@ public class collide : MonoBehaviour
                 }
         }
         if (frame.GetComponent<frame>().Frame == "circle"){
-                t2.text = "1";
+              //  t2.text = "1";
                 circlePosition = frame.GetComponent<frame>().circlePosition;
-                t2.text = "2";
+             //   t2.text = "2";
             for (int i = 0; i < circlePosition.Count; i++){
 
                      if ((now.transform.position - circlePosition[i]).magnitude < 0.02 || (positionLast - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -235,14 +235,14 @@ public class collide : MonoBehaviour
                         now.transform.position = circlePosition[i];
                     }
                 }
-            t2.text = "3";
+        //    t2.text = "3";
             if (mark < 3){
-            t2.text = "4";
+          //  t2.text = "4";
                 circle[mark] = now;
                     AddOutline(now, Color.blue);
                     mark++;     
                 }
-            t2.text = "5";
+         //   t2.text = "5";
         }
         if (frame.GetComponent<frame>().Frame == "tri")
         {
@@ -335,11 +335,11 @@ public class collide : MonoBehaviour
                     finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                 }
         }
-        t2.text = "6";
+        //t2.text = "6";
        
         onFrame.Add(now); 
         now = null;
-        t2.text = "7";
+       // t2.text = "7";
         finalObj.RemoveAt(0);
         label = 0;
     }
@@ -361,9 +361,9 @@ public class collide : MonoBehaviour
     private List<string> m_logEntries = new List<string>();
     private void Update()
     {
-        t.text = label.ToString();
-        t1.text = (!p.ispinch).ToString();
-        t2.text = (now == finalObj[0]).ToString();
+        //t.text = label.ToString();
+       // t1.text = (!p.ispinch).ToString();
+       // t2.text = (now == finalObj[0]).ToString();
         timeMark +=1;
         if(timeMark > gap)
         {   
@@ -380,7 +380,7 @@ public class collide : MonoBehaviour
         // t5.text = finalObj[0].name;
         //  t2.text = m_logEntries[m_logEntries.Count-1];
         if (handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0]){
-            t2.text = "settle";
+           // t2.text = "settle";
             settleDown();
             FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
         }
@@ -481,12 +481,15 @@ public class collide : MonoBehaviour
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[2]);
         }
         if (frame.GetComponent<frame>().Frame == "tri"){
-                anchor.Add(tri[0]);
-                anchor.Add(tri[1]);
-                anchor.Add(tri[2]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[0]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[1]);
-                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[3]);
+            anchor.Add(tri[0]);
+
+            anchor.Add(tri[1]);
+
+            anchor.Add(tri[2]);
+
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[0]);
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[1]);
+            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(tri[2]);
         }
 
         if (frame.GetComponent<frame>().Frame == "para"){

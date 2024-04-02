@@ -20002,7 +20002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216362411}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.9970001, z: 0.755}
+  m_LocalPosition: {x: 0, y: 1.089, z: 0.755}
   m_LocalScale: {x: 0.05000004, y: 1, z: 0.60000026}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25223,6 +25223,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   emptyObjects: []
+  t1: {fileID: 732902815}
   AgentObject: {fileID: 1699111459}
   TimeRecorder: {fileID: 638920578}
   frameAgent: {fileID: 0}
@@ -45171,7 +45172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984862231}
   m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0.133, y: -0.128, z: 0.453}
+  m_LocalPosition: {x: 0.07, y: -0.128, z: 0.453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45467,6 +45468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 756928931}
     m_Modifications:
+    - target: {fileID: 104978575, guid: e664d688bb65af54a9146781a2b6f500, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3029536390279617180, guid: e664d688bb65af54a9146781a2b6f500, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -52584,7 +52589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1135928809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53005,6 +53010,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 756928931}
     m_Modifications:
+    - target: {fileID: 210728838, guid: 6abc76b40b133154a91d14528cc20ba5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8795879930519852934, guid: 6abc76b40b133154a91d14528cc20ba5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -61431,6 +61440,7 @@ MonoBehaviour:
   frameManager: {fileID: 1836657376}
   selectedRow: []
   emptyBlock: {fileID: 0}
+  Phase: {fileID: 1185474256}
   log: {fileID: 1882536896}
   AgentObject: {fileID: 1699111459}
   RubbishBin: {fileID: 191157288}
@@ -70597,7 +70607,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.000022888184, y: 35}
   m_SizeDelta: {x: 0.000045776, y: -69.9}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -71063,9 +71073,6 @@ MonoBehaviour:
   thumb: {fileID: 992781236}
   index: {fileID: 992781232}
   ispinch: 0
-  t: {fileID: 732902815}
-  t1: {fileID: 1185474256}
-  t2: {fileID: 993200974}
   frame: {fileID: 1405283944}
   frameMark: 
   type: 
