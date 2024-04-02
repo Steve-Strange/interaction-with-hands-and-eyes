@@ -19,6 +19,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject collide;
     public GameObject frameManager;
     private GameObject frame;
+
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
@@ -26,7 +27,7 @@ public class HandPoseManager : MonoBehaviour
     public Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
     
     private GameObject EyeTrackingManager;
-    //public TMP_Text Phase;
+    public TMP_Text Phase;
 
     public TMP_InputField log;
     public GameObject AgentObject;
@@ -178,7 +179,7 @@ public class HandPoseManager : MonoBehaviour
         SecondSelectionState = true;
 
     }
-
+   // public List<GameObject> targets = new List<GameObject>();
     public void onPalmPoseUpdate()
     {
         if(!SecondSelectionState && phase == 0) return;
@@ -205,6 +206,9 @@ public class HandPoseManager : MonoBehaviour
             if(i/columnNum == currentRow){
                 if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(obj.Key)){
                     obj.Key.GetComponent<Outline>().OutlineColor = Color.yellow;
+                    if(objectsWithTargets.Contains(obj.Key)){
+                        obj.Key.GetComponent<Outline>().OutlineColor = Color.red;
+                    }
                     obj.Key.GetComponent<Outline>().OutlineWidth = 5f;
                     selectedRow.Add(obj.Key);
                 }
@@ -287,6 +291,7 @@ public class HandPoseManager : MonoBehaviour
     }
 
     public void ChangePhase(int currentPhase){
+        Phase.text = currentPhase.ToString();
         switch (currentPhase)
         {
             case 1:
@@ -309,7 +314,8 @@ public class HandPoseManager : MonoBehaviour
                 RubbishBin.SetActive(true);
                 collide.GetComponent<collide>().getFinalObject();
                 break;
-            case 2:
+            case 2://放大，开始移动
+                Phase.text = "11";
                 AgentObject.SetActive(true);
                 FinalObjects.SetActive(false);
                 TimeRecorder.SetActive(true);
