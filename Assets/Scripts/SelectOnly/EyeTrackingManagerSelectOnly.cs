@@ -100,7 +100,11 @@ public class EyeTrackingManagerSelectOnly : MonoBehaviour
 
     void GazeTargetControl(Vector3 origin, Vector3 vector)
     {
+<<<<<<< Updated upstream
         int layerMask = 1 << 7;
+=======
+        int layerMask = 1 << 0 | 1 << 7;
+>>>>>>> Stashed changes
         if (Physics.SphereCast(origin, 0.12f, vector, out hitInfo, 50f, layerMask))
         {
             if (hitInfo.collider.gameObject.tag == "Target")
