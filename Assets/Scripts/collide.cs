@@ -371,13 +371,9 @@ public class collide : MonoBehaviour
         // t4.text = now.name;
         // t5.text = finalObj[0].name;
         //  t2.text = m_logEntries[m_logEntries.Count-1];
-        if (handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0])
-        {
-            label = 0;
+        if (handPoseManager.GetComponent<HandPoseManager>().phase == 1 && label == 1 && !p.ispinch && now == finalObj[0]){
             settleDown();
-            now = null;
             FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
-            label = 0;
         }
         // t.text = FinalObjects.GetComponent<FinalObjects>().finalObj.Count.ToString();
     }
