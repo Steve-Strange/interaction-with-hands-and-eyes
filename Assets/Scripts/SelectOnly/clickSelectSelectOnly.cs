@@ -73,16 +73,16 @@ public class clickSelectSelectOnly : MonoBehaviour
             mark[1] = false;
             mark[2] = false;
 
-            if (d[0] - angleLast[0] > 0.05 || angleLast[0] - d[0] > 0.05)
+            if (d[0] - angleLast[0] > 0.04 || angleLast[0] - d[0] > 0.04)
             {
                 mark[0] = true;
             }
-            if (d[1] - angleLast[1] > 0.25)//0.99-0.7(С��0.7)
+            if (d[1] - angleLast[1] > 0.20)//0.99-0.7(С��0.7)
             {
                 mark[1] = true;
             }
 
-            if (d[2] - angleLast[2] > 0.3)//С��0.7
+            if (d[2] - angleLast[2] > 0.25)//С��0.7
             {
                 mark[2] = true;
             }

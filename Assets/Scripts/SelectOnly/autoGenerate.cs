@@ -12,7 +12,7 @@ public class autoGenerate : MonoBehaviour
     public Dictionary<GameObject, Vector3> poses = new Dictionary<GameObject, Vector3>();
     public GameObject father;
     public GameObject handPoseManagerSelectOnly;
-    public int targetNumber = 5;
+    public int targetNumber = 15;
     void Start()
     {
         if(GameObject.Find("recorder").GetComponent<singleSelect>().sampleType !=0)
@@ -38,10 +38,18 @@ public class autoGenerate : MonoBehaviour
         
 
     }
+    public void genOneBubble()
+    {
+        var testArray = GetRandomSequence(allObjects.Count, 1);
+        allObjects[testArray[0]].GetComponent<Renderer>().material.color = Color.green;
+        targets.Add(allObjects[testArray[0]]);
+    }
     public void genOne(){//直接用number替换对应坑位，每次不remove了
-    //每次有一个物体被选择就调用这个
-        
-        while (true)
+                         //每次有一个物体被选择就调用这个
+        var testArray = GetRandomSequence(allObjects.Count, 1);
+        allObjects[testArray[0]].GetComponent<Renderer>().material.color = Color.green;
+        targets.Add(allObjects[testArray[0]]);
+        /*while (true)
         {
             var testArray = GetRandomSequence(allObjects.Count, 1);
             if (!handPoseManagerSelectOnly.GetComponent<HandPoseManagerSelectOnly>().sorted15ObjectWeights.ContainsKey(allObjects[testArray[0]]))
@@ -52,7 +60,7 @@ public class autoGenerate : MonoBehaviour
             } 
 
 
-        }
+        }*/
 
     }
     public void reGenerate()

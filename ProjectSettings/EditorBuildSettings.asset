@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/EyeTracking.unity
     guid: 9ac16f17ce0e9914d9d7a39980cf4a16
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SelectOnly/SelectCompare-ours.unity
     guid: 987171a1b692f7742ba72a41344c871b
   - enabled: 0

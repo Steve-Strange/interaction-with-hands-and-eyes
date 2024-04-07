@@ -6,11 +6,8 @@ public class FinalObjectsSelectOnly : MonoBehaviour
 {
     public GameObject autoGenerate;
     public GameObject recorder;
-    private GameObject SightCone;
-    // private GameObject SightCone;
     public List<GameObject> finalObj = new List<GameObject>();
     public Dictionary<GameObject, Quaternion> finalObjQ = new Dictionary<GameObject, Quaternion>();
-    // private float finalScale = 0.05f;
     public TMP_Text T2, T3, T4, T5, T6;
     int wrong;
     int right;
@@ -18,14 +15,12 @@ public class FinalObjectsSelectOnly : MonoBehaviour
 
     void Start()
     {
-        SightCone = GameObject.Find("SightCone");
         wrong = 0;
         right = 0;
     }
     private void Update()
     {
-        
-        T2.text = right.ToString(); 
+       
     }
 
     public void AddFinalObj(GameObject obj)//除了最后的逻辑之外，其他都一样
@@ -39,16 +34,6 @@ public class FinalObjectsSelectOnly : MonoBehaviour
             autoGenerate.GetComponent <autoGenerate>().genOne();//生成一个新的目标物体
             if(right == all)//已经选中了15个
             {
-            
-               /* foreach (var item in autoGenerate.GetComponent<autoGenerate>().targets)
-                {
-                 
-                    item.transform.rotation = autoGenerate.GetComponent<autoGenerate>().rotations[item];
-                    item.transform.position = autoGenerate.GetComponent<autoGenerate>().poses[item];
-                }
-                autoGenerate.GetComponent<autoGenerate>().reGenerate();
-                if (round == 5)
-                {}*/
                     recorder.GetComponent<singleSelect>().writeFile("wrong" + wrong);
                     recorder.GetComponent<singleSelect>().finishAll();
                     autoGenerate.SetActive(false);

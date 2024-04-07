@@ -11,7 +11,7 @@ public class singleSelect : MonoBehaviour
     public int sampleType;
     public GameObject[] targetGameobject;//�����е���Ҫ��������Ŀ������
     // Start is called before the first frame update
-    private float timer = 0;
+    public float timer = 0;
     private float selectTime = 0;//ĿǰΪֹ����ѡ��ʱ��
     private float manipulateTime = 0;//ĿǰΪֹ���ܲ���ʱ��
     private float coarseManipulateTime = 0;

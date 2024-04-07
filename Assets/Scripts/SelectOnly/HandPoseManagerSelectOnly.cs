@@ -16,7 +16,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     public GameObject HandRightWrist;
     private GameObject SightCone;
     public GameObject SecondSelectionBG;
-
+    public GameObject recorder;
     public GameObject collide;
 
     public List<GameObject> selectedRow = new List<GameObject>();
@@ -31,12 +31,18 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     // public TMP_InputField Log;
 
 
+<<<<<<< Updated upstream
     private float delayPalmExitTime = 0.6f;
     private float delayThumbHoldTimer = 0.4f;
     private float delayThumbExitTimer = 0.4f;
     private float delayTimer = 0.0f;
     float thumbHoldTimer = 0;
     float thumbExitTimer = 0;
+=======
+    private float delayTime = 0.6f; // 延迟时间，单位为秒
+    private float delayTimer = 0.0f; // 计时器
+
+>>>>>>> Stashed changes
     public bool SecondSelectionState = false;
     public bool PalmPoseState = false;
 
@@ -47,6 +53,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     private float minAngel = 10f;
     public bool SelectionStatus = true;
 
+    public GameObject[] demoObjects;
     public Dictionary<GameObject, float> sorted15ObjectWeights = new Dictionary<GameObject, float>();
     private Dictionary<GameObject, float> sortedRemainObjectWeights = new Dictionary<GameObject, float>();
 
@@ -93,6 +100,8 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
 
     public void onPalmPoseStart()
     {
+        //手成掌，待选框出现，此时无延迟
+        recorder.GetComponent<singleSelect>().writeFile("onPalmPoseStart:" + recorder.GetComponent<singleSelect>().timer.ToString() + "\n");
         PalmPoseState = true;
         delayTimer = 0.0f;
 
@@ -118,6 +127,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
             {
                 SightCone.GetComponent<SightConeSelectOnly>().objectWeights[key] += sortedRemainObjectWeights[key] / 2;
             }
+           
 
             sorted15ObjectWeights = SightCone.GetComponent<SightConeSelectOnly>().objectWeights.OrderByDescending(kv => kv.Value).Take(15).ToDictionary(kv => kv.Key, kv => kv.Value);
             sortedRemainObjectWeights = SightCone.GetComponent<SightConeSelectOnly>().objectWeights.OrderByDescending(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value);
@@ -210,11 +220,14 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
 
     public void onPalmPoseExit()
     {
+        recorder.GetComponent<singleSelect>().writeFile("onPalmPoseExit:  " + recorder.GetComponent<singleSelect>().timer.ToString()+ "\n");
         PalmPoseState = false;
     }
 
     public void onPalmPoseExitDelay()
     {
+        //待选框消失
+        recorder.GetComponent<singleSelect>().writeFile("onSecondSelectionBGDisappear:  " + recorder.GetComponent<singleSelect>().timer.ToString()+"\n");
         foreach (var obj in sorted15ObjectWeights)
         {
             if (originalTransform.TryGetValue(obj.Key, out TransformData transformData) &&
