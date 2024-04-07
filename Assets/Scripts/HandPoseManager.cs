@@ -34,8 +34,12 @@ public class HandPoseManager : MonoBehaviour
     public GameObject RubbishBin;
 
 
-    private float delayTime = 1f; // 延迟时间，单位为秒
-    private float delayTimer = 0.0f; // 计时器
+    private float delayPalmExitTime = 0.6f;
+    private float delayThumbHoldTimer = 0.4f;
+    private float delayThumbExitTimer = 0.4f;
+    private float delayTimer = 0.0f;
+    float thumbHoldTimer = 0;
+    float thumbExitTimer = 0;
 
     public bool SecondSelectionState = false;
     public bool PalmPoseState = false;
@@ -53,8 +57,6 @@ public class HandPoseManager : MonoBehaviour
     public GameObject clickSelect;
     public GameObject TimeRecorder;
     public int phase = 0;
-    float thumbHoldTimer = 0;
-    float thumbExitTimer = 0;
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
@@ -108,14 +110,14 @@ public class HandPoseManager : MonoBehaviour
         // Log.text = "rowNum: " + rowNum.ToString() + "\n" + "sorted15ObjectWeights: " + sorted15ObjectWeights.Count.ToString() + "currentRow: " + selectedRow.ToString() + "\n";
         if(!PalmPoseState && phase == 0){
             delayTimer += Time.deltaTime;
-            if (delayTimer > delayTime && SecondSelectionState)
+            if (delayTimer > delayPalmExitTime && SecondSelectionState)
             {
                 onPalmPoseExitDelay();
             }
         }
         if(!thumbHoldState){
             thumbExitTimer += Time.deltaTime;
-            if(thumbExitTimer > delayTime){
+            if(thumbExitTimer > delayThumbExitTimer){
                 finishFlag = false;
                 thumbHoldTimer = 0;
             }
@@ -278,7 +280,7 @@ public class HandPoseManager : MonoBehaviour
         thumbExitTimer = 0;
         thumbHoldState = true;
         thumbHoldTimer += Time.deltaTime;
-        if(thumbHoldTimer > 0.4f && !finishFlag){
+        if(thumbHoldTimer > delayThumbHoldTimer && !finishFlag){
             phase++;
             ChangePhase(phase);
             thumbHoldTimer = 0;

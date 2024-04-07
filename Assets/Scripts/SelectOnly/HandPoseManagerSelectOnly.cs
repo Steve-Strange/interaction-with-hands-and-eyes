@@ -31,9 +31,12 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     // public TMP_InputField Log;
 
 
-    private float delayTime = 1f; // 延迟时间，单位为秒
-    private float delayTimer = 0.0f; // 计时器
-
+    private float delayPalmExitTime = 0.6f;
+    private float delayThumbHoldTimer = 0.4f;
+    private float delayThumbExitTimer = 0.4f;
+    private float delayTimer = 0.0f;
+    float thumbHoldTimer = 0;
+    float thumbExitTimer = 0;
     public bool SecondSelectionState = false;
     public bool PalmPoseState = false;
 
@@ -50,8 +53,6 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     public GameObject StartSelect;
     public GameObject clickSelect;
     public int phase = 0;
-    float thumbHoldTimer = 0;
-    float thumbExitTimer = 0;
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
@@ -74,7 +75,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         if (!PalmPoseState)
         {
             delayTimer += Time.deltaTime;
-            if (delayTimer > delayTime && SecondSelectionState && SelectionStatus)
+            if (delayTimer > delayPalmExitTime && SecondSelectionState && SelectionStatus)
             {
                 onPalmPoseExitDelay();
             }
@@ -82,7 +83,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         if (!thumbHoldState)
         {
             thumbExitTimer += Time.deltaTime;
-            if (thumbExitTimer > delayTime)
+            if (thumbExitTimer > delayThumbExitTimer)
             {
                 finishFlag = false;
                 thumbHoldTimer = 0;
