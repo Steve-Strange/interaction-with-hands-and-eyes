@@ -34,9 +34,9 @@ public class FinalObjectsSelectOnly : MonoBehaviour
             autoGenerate.GetComponent <autoGenerate>().genOne();//生成一个新的目标物体
             if(right == all)//已经选中了15个
             {
-                    recorder.GetComponent<singleSelect>().writeFile("wrong" + wrong);
-                    recorder.GetComponent<singleSelect>().finishAll();
-                    autoGenerate.SetActive(false);
+                recorder.GetComponent<singleSelect>().writeFile("wrong" + wrong);
+                recorder.GetComponent<singleSelect>().finishAll();
+                autoGenerate.SetActive(false);
             }
         }else
         {
