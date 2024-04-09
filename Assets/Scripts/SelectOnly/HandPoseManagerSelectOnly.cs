@@ -57,9 +57,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
-
-    public float selectCurrentRowTime;
-    private int lastCurrentRow = 0;
+    public int currentRow;
 
     void Start()
     {
@@ -170,12 +168,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         }
         wristRotation = -wristRotation;
 
-        int currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
-        if(lastCurrentRow != currentRow){
-            lastCurrentRow = currentRow;
-            selectCurrentRowTime = Time.time;
-        }
-
+        currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
 
         if (wristRotation < minAngel) currentRow = 0;
         if (wristRotation > maxAngel) currentRow = rowNum - 1;

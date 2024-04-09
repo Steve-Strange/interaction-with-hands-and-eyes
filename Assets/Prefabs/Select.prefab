@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8225591851826647323}
-  - component: {fileID: 8225591851826647320}
   m_Layer: 0
   m_Name: Select
   m_TagString: Untagged
@@ -32,37 +31,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8225591851826647320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8225591851826647325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302a9f8da144c0448a84bf010d3c538a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: {fileID: 0}
-  thumb0: {fileID: 0}
-  thumb1: {fileID: 0}
-  thumb2: {fileID: 0}
-  thumb3: {fileID: 0}
-  index0: {fileID: 0}
-  index1: {fileID: 0}
-  index2: {fileID: 0}
-  index3: {fileID: 0}
-  index4: {fileID: 0}
-  middle0: {fileID: 0}
-  middle1: {fileID: 0}
-  middle2: {fileID: 0}
-  middle3: {fileID: 0}
-  ring0: {fileID: 0}
-  ring1: {fileID: 0}
-  ring2: {fileID: 0}
-  ring3: {fileID: 0}
-  little0: {fileID: 0}
-  little1: {fileID: 0}
-  little2: {fileID: 0}
-  little3: {fileID: 0}

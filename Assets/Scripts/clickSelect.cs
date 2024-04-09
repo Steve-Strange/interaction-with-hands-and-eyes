@@ -35,7 +35,7 @@ public class clickSelect : MonoBehaviour
     {
         float d = culculate(thumb1, thumb2, thumb3);
         
-        { angleLast[0] = d; }
+        angleLast[0] = d;
         if (-d > 0.95f)
             ad[0] = d;
 
@@ -47,7 +47,7 @@ public class clickSelect : MonoBehaviour
 
         d = culculate(middle1, middle2, middle3);
        
-            angleLast[2] = d;
+        angleLast[2] = d;
         if (-d> 0.95f)
             ad[2] = d;
     }
@@ -123,12 +123,12 @@ public class clickSelect : MonoBehaviour
             {
                 mark[0] = true;
             }
-            if (  d[1]- angleLast[1]> 0.25)//0.99-0.7(С��0.7)
+            if (d[1]- angleLast[1]> 0.25)//0.99-0.7(С��0.7)
             {
                 mark[1] = true;
-             }
+            }
         
-            if ( d[2]- angleLast[2] > 0.3)//С��0.7
+            if (d[2]- angleLast[2] > 0.3)//С��0.7
             {
                 mark[2] = true;
             }            

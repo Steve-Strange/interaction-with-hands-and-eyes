@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
@@ -8,103 +9,81 @@ using static UnityEngine.ParticleSystem;
 public class clickSelectSelectOnly : MonoBehaviour
 {
     private List<GameObject> selectedRow = new List<GameObject>();
-    public GameObject HandPoseManager, hand, thumb0, thumb1, thumb2, thumb3,
-        index0, index1, index2, index3, index4,
-        middle0, middle1, middle2, middle3;
-    private float[] d = new float[5];
-    private float[] ad = new float[5];
+    public GameObject Palm;
+    public GameObject HandPoseManager, thumb0, thumb3,
+        index0, index3,
+        middle0, middle3;
+
+    private float[] angle = new float[5];
     private float[] angleLast = new float[5];
+    private float[] gap = new float[5];
+    private bool[] mark = new bool[5];
     public RaycastHit thumb, index, middle, ring, little;
-    public TMP_Text  T2, T3, T4, T5, T6;
+    public TMP_InputField log;
+    // public TMP_Text  T2, T3, T4, T5, T6;
     private GameObject SightCone;
     public GameObject FinalObjects;
+
+    float timer = 0;
+    public float clickPause = 0.1f;
     void Start()
     {
-        InvokeRepeating("RepeatedMethod", 1f, 0.6f);
+        StartCoroutine(GetFingerAngle());
         SightCone = GameObject.Find("SightCone");
     }
-    private void RepeatedMethod()
+
+    private IEnumerator GetFingerAngle()
     {
-        float d = culculate(thumb1, thumb2, thumb3);
+        while (true)
+        {
+            // 这里写你要每隔0.1秒执行一次的代码
+            angle[0] = Vector3.Angle(Palm.transform.up, thumb0.transform.position - thumb3.transform.position);
+            angle[1] = Vector3.Angle(Palm.transform.up, index0.transform.position - index3.transform.position);
+            angle[2] = Vector3.Angle(Palm.transform.up, middle0.transform.position - middle3.transform.position);
 
-        { angleLast[0] = d; }
-        if (-d > 0.95f)
-            ad[0] = d;
+            gap[0] = angleLast[0] - angle[0];
+            gap[1] = angleLast[1] - angle[1];
+            gap[2] = angleLast[2] - angle[2];
 
-        d = culculate(index1, index2, index3);
+            // log.text = "Thumb: " + gap[0] + "\nIndex: " + gap[1] + "\nMiddle: " + gap[2];
 
-        angleLast[1] = d;
-        if (-d > 0.95f)
-            ad[1] = d;
+            angleLast[0] = angle[0];
+            angleLast[1] = angle[1];
+            angleLast[2] = angle[2];
 
-        d = culculate(middle1, middle2, middle3);
+            if(gap[0]<-9) mark[0] = true;
+            else mark[0] = false;
+            if(gap[1]<-13) mark[1] = true;
+            else mark[1] = false;
+            if(gap[2]<-13) mark[2] = true;
+            else mark[2] = false;
 
-        angleLast[2] = d;
-        if (-d > 0.95f)
-            ad[2] = d;
+            // 等待0.1秒
+            yield return new WaitForSeconds(0.05f);
+        }
     }
-    private float culculate(GameObject one, GameObject two, GameObject three)//����н�
-    {
-        var first = one.transform.position - two.transform.position;
-        var second = three.transform.position - two.transform.position;
-        float angle = Vector3.Dot(first, second) / (first.magnitude * second.magnitude);
-        return angle;
-    }
-    int time = 0;
 
     // Update is called once per frame
     void Update()
     {
-        //T2.text = ;
+        timer += Time.deltaTime;
+        log.text = mark[0] + " " + mark[1] + " " + mark[2];
         selectedRow = HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().selectedRow;
-        T2.text = "w";
-        time += 1;
-        if (time > 30)
-            time = 22;
-        bool[] mark = new bool[5];
-        if (time > 20 && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().PalmPoseState)
+
+        if (timer > clickPause && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().PalmPoseState)
         {
-            T2.text = "3";
-            d[0] = culculate(thumb1, thumb2, thumb3);//0.96-0.6   
-            d[1] = culculate(index1, index2, index3);
-            d[2] = culculate(middle1, middle2, middle3);
-
-            mark[0] = false;
-            mark[1] = false;
-            mark[2] = false;
-
-            if (d[0] - angleLast[0] > 0.04 || angleLast[0] - d[0] > 0.04)
+            for (int i = 0; i < 3; i++)
             {
-                mark[0] = true;
-            }
-            if (d[1] - angleLast[1] > 0.20)//0.99-0.7(С��0.7)
-            {
-                mark[1] = true;
-            }
-
-            if (d[2] - angleLast[2] > 0.25)//С��0.7
-            {
-                mark[2] = true;
-            }
-
-            float max = -1;
-                int select = -1;
-                for (int i = 0; i <= 2; i++)
-                {
-                    if (d[i] - angleLast[i] > max)
+                if(mark[i]){
+                    if (!FinalObjects.GetComponent<FinalObjectsSelectOnly>().finalObj.Contains(selectedRow[i]) && mark[i] && selectedRow[i] != HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().emptyBlock)
                     {
-                        max = d[i] - angleLast[i];
-                        select = i;
+                        FinalObjects.GetComponent<FinalObjectsSelectOnly>().AddFinalObj(selectedRow[i]);
+                        SightCone.GetComponent<SightConeSelectOnly>().objectWeights.Remove(selectedRow[i]);
+                        timer = 0;
                     }
-
                 }
-                T2.text = select.ToString();
-                if (!FinalObjects.GetComponent<FinalObjectsSelectOnly>().finalObj.Contains(selectedRow[select]) && mark[select] && selectedRow[select] != HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().emptyBlock)
-                {
-                    FinalObjects.GetComponent<FinalObjectsSelectOnly>().AddFinalObj(selectedRow[select]);
-                    SightCone.GetComponent<SightConeSelectOnly>().objectWeights.Remove(selectedRow[select]);
-                    time = 0;
-                }
+            }
+            
         }
     }
 }

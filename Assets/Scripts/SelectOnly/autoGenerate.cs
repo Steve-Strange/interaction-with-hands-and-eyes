@@ -22,17 +22,15 @@ public class autoGenerate : MonoBehaviour
         }
         else
         {
-
-        FindChild(father);
-        var testArray = GetRandomSequence(allObjects.Count, targetNumber);
-        for (int i = 0;i < targetNumber; i++)
-        {
-            allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
-            targets.Add(allObjects[testArray[i]]);
-            rotations[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.rotation;
-            poses[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.position;
-        }
-
+            FindChild(father);
+            var testArray = GetRandomSequence(allObjects.Count, targetNumber);
+            for (int i = 0;i < targetNumber; i++)
+            {
+                allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
+                targets.Add(allObjects[testArray[i]]);
+                rotations[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.rotation;
+                poses[allObjects[testArray[i]]] = allObjects[testArray[i]].transform.position;
+            }
 
         }
         
