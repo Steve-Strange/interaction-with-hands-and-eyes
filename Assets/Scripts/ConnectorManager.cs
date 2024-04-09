@@ -110,34 +110,31 @@ public class ConnectorManager : MonoBehaviour
     public void reverse()
     {
 
-        frame.GetComponent <frame>().setLines();//设置粗细
+        //frame.GetComponent <frame>().setLines();//设置粗细
 
-        Objects = new List<GameObject>(collide.GetComponent<collide>().onFrame);
+        Objects = new List<GameObject>(collide.GetComponent<collide>().onFrame);//所有在框上的物体，不包括透明物体
 
-        foreach (var obj in Objects)
-        {
+        foreach (var obj in Objects){
             TimeRecorder.GetComponent<TimeRecorder>().MovingObjectStatus.Add(obj, 0);
             obj.GetComponent<Outline>().outlineColor = Color.clear;
         }
 
-        emptyObjects.Clear();
-       
-        var cor = frame.GetComponent<frame>().cor;
+
 
         frameScale = new Vector3(1, 1, 1);//初始化
 
-        foreach (var obj in Objects)
-        {
+        foreach (var obj in Objects){
             obj.transform.parent = null;
             GameObject newObj = Instantiate(obj, obj.transform.position, obj.transform.rotation);
             newObj.tag = "AgentObject";
             newObj.name = obj.name + " Agent";
             newObjects.Add(newObj);
-            Objects.Remove(newObj);
-        } 
+            //Objects.Remove(newObj);
+        }//复制为了展示的物体
 
-
-
+        //开始处理透明物体
+        emptyObjects.Clear();
+        var cor = frame.GetComponent<frame>().cor;//得到所有的透明物体
         if(frame.GetComponent<frame>().Frame == "rect")
         {
             for(int i = 0; i <= 3; i++)
@@ -186,6 +183,7 @@ public class ConnectorManager : MonoBehaviour
         //在原地复制一个
         frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
         frameAgent.name = "frameAgent";
+        frameAgent.GetComponent<frame>().DestroyColliders();//把复制体边上的collider也消掉
         frameAgent.GetComponent<frame>().enabled = false;
 
         foreach (var obj in Objects){

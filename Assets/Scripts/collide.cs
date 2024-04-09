@@ -67,7 +67,7 @@ public class collide : MonoBehaviour
     public int[] cubeMark = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
     private GameObject now;
-
+    public bool first = true;
     public GameObject temp;
     int label = 0;
 
@@ -197,6 +197,12 @@ public class collide : MonoBehaviour
     }
     private void settleDown()
     {
+        if(first)
+        {
+            first = false;
+            frameManager.SetActive(false);
+        }
+
         now.GetComponent<Outline>().OutlineColor = Color.clear;//触发了这个就只有三个下场
         now.transform.rotation = finalObjQ[now];
         if (frame.GetComponent<frame>().Frame == "rect")//解决空指针出错的问题
