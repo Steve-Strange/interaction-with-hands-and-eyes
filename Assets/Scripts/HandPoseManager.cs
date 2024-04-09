@@ -80,7 +80,7 @@ public class HandPoseManager : MonoBehaviour
             }
         };
 
-        T.text = m_logEntries;
+       
 
 
         // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
@@ -105,7 +105,8 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!initFlag){
+        T.text = m_logEntries;
+        if (!initFlag){
             initFlag = true;
             foreach (Transform obj in Objects)
             {
@@ -344,10 +345,11 @@ public class HandPoseManager : MonoBehaviour
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();  //bug
                 collide.GetComponent<collide>().enabled = false;
                 break;
-            case 3:
+            case 3://移动完->选择状态
                 foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().newObjects)
                 {
-                    obj.SetActive(false);
+                    //obj.SetActive(false);
+                    Destroy(obj);//摧毁为了展示放在身前的复制物体
                 }
                 ConnectorManager.GetComponent<ConnectorManager>().newObjects.Clear();
                 ConnectorManager.GetComponent<ConnectorManager>().frameAgent.SetActive(false);

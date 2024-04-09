@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/DiningRoom.unity
     guid: 9345c6aee7ca4294abf0c02897ae4beb
   - enabled: 0
@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Garden.unity
     guid: be4817ce41725864fbe868105307da6d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SelectOnly/SelectCompare-ours.unity
     guid: 462adb5a4dd81de48b0a56803fef29fc
   - enabled: 0

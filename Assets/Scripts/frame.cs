@@ -276,8 +276,13 @@ public class frame : MonoBehaviour
     public List<Vector3> cubePosition = new List<Vector3>();
     public List<Vector3> paraPosition = new List<Vector3>();
     public void creatRect(){
+        //每次选择都当作重新开始，第一次放东西之后，框消失
+        DestroyColliders();
+        collideObject.GetComponent<collide>().first = true;
+
         Frame = "rect";
-        setLines();
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         clear();
         resize();
        //  Debug.Log(rectheight);
@@ -319,8 +324,11 @@ public class frame : MonoBehaviour
     }
     public void createCircle()
     {
+        DestroyColliders();
+        collideObject.GetComponent<collide>().first = true;
         Frame = "circle";
-        setLines();
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         clear();
         resize();
         dis = 0.4f;
@@ -358,11 +366,12 @@ public class frame : MonoBehaviour
         }
     }
     public void createTri()
-    { 
+    {
+        DestroyColliders();
+        collideObject.GetComponent<collide>().first = true;
         Frame = "tri";
-        
-        setLines();
-       
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         clear();
         resize();
         dis = 0.4f;
@@ -404,8 +413,11 @@ public class frame : MonoBehaviour
     }
     public void createPentagon()
     {
+        DestroyColliders();
+        collideObject.GetComponent<collide>().first = true;
         dis = 0.4f;
-        setLines();
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         //triangle original
         penedge = 0.3f;//不是边而是顶点到中心距离
 
@@ -455,7 +467,10 @@ public class frame : MonoBehaviour
 
     public void createStar()
 {
-        setLines();
+        DestroyColliders();
+        collideObject.GetComponent<collide>().first = true;
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         dis = 0.4f;
 
         staredge = 0.3f;//不是边而是顶点到中心距离
@@ -504,11 +519,13 @@ public class frame : MonoBehaviour
 
 }
 /**/
-
     public void createPara()
     {
+        DestroyColliders();
+        collideObject.GetComponent<collide>().first = true;
         dis = 0.4f;
-        setLines();
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         //pingxing
         angle = 45;
 
@@ -558,8 +575,12 @@ public class frame : MonoBehaviour
 
     public void createCube()// cant draw a cube at one time?->cube render manage more lineRender
     {
+
+        DestroyColliders();
+        collideObject.GetComponent<collide>().first = true;
         dis = 0.6f;
-        setLines();
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         //cube
         cubelenth = 0.1f;
         cubeheight = 0.1f;
@@ -638,6 +659,8 @@ public class frame : MonoBehaviour
     }
 
     public void updateFrame(){
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         var anchor = collideObject.GetComponent<collide>().anchor;
         setLines();
         if (Frame == "rect"){//根据透明物体来画
@@ -650,9 +673,11 @@ public class frame : MonoBehaviour
             redoPen();}
         else if(Frame == "para"){
             redoPara();}
+        gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
+        gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
     }
     public void redoRect(){
-        setLines();
+        //setLines();
         line.positionCount = 4;
         for (int i = 0; i <= 3; i++){
             line.SetPosition(i, cor[i].transform.position);
@@ -660,7 +685,7 @@ public class frame : MonoBehaviour
     }
     public void redoCircle(List<GameObject> anchor)
     {
-        setLines();
+        //setLines();
         Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
 
         float R = (anchor[0].transform.position - center).magnitude;
@@ -717,15 +742,18 @@ public class frame : MonoBehaviour
         }
     }
 
-    public void DestroyColliders()
-    {
-
+    public void DestroyColliders(){
 
         var cols = GameObject.FindGameObjectsWithTag("cols");
+        if(cols != null)
+        {
         foreach(var col in cols)
         {
             Destroy(col.gameObject);
         }
+
+        }
+
 
     }
 
@@ -801,7 +829,7 @@ public class frame : MonoBehaviour
         col.tag = "cols";
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
-        col.size = new Vector3(lineLength, 0.001f, 0.001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        col.size = new Vector3(lineLength, 0.005f, 0.005f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startPos + endPos) / 2;
         col.transform.position = midPoint; // setting position of collider object
         // Following lines calculate the angle between startPos and endPos
