@@ -30,7 +30,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
 
     // public TMP_InputField Log;
 
-    private float delayPalmExitTime = 0.6f;
+    private float delayPalmExitTime = 0.5f;
     private float delayThumbHoldTimer = 0.4f;
     private float delayThumbExitTimer = 0.4f;
     private float delayTimer = 0.0f;
@@ -57,7 +57,6 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
-    public int currentRow;
 
     void Start()
     {
@@ -168,7 +167,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         }
         wristRotation = -wristRotation;
 
-        currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
+        int currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
 
         if (wristRotation < minAngel) currentRow = 0;
         if (wristRotation > maxAngel) currentRow = rowNum - 1;

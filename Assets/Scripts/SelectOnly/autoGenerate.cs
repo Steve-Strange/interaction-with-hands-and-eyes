@@ -12,7 +12,7 @@ public class autoGenerate : MonoBehaviour
     public Dictionary<GameObject, Vector3> poses = new Dictionary<GameObject, Vector3>();
     public GameObject father;
     public GameObject handPoseManagerSelectOnly;
-    public int targetNumber = 15;
+    public int targetNumber = 20;//每次的目标物体
     void Start()
     {
         if(GameObject.Find("recorder").GetComponent<singleSelect>().sampleType !=0)
@@ -63,12 +63,19 @@ public class autoGenerate : MonoBehaviour
         targets.Clear();
         rotations.Clear();
         poses.Clear();
+        foreach (var item in allObjects){
+            item.SetActive(true);
+            AddOutline(item, Color.clear);
+            item.GetComponent<Renderer>().material.color = Color.blue;
+        }//恢复最原始的状态
+
         var testArray = GetRandomSequence(allObjects.Count, targetNumber);
         for (int i = 0;i < targetNumber; i++)
         {
             allObjects[testArray[i]].GetComponent<Renderer>().material.color = Color.green;
             targets.Add(allObjects[testArray[i]]);
         }
+
     }
     void FindChild(GameObject child)
     {
@@ -105,5 +112,14 @@ public class autoGenerate : MonoBehaviour
             end--;
         }
         return output;
+    }
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+
+        }
+        target.GetComponent<Outline>().OutlineColor = color;
     }
 }

@@ -19,7 +19,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject collide;
     public GameObject frameManager;
     private GameObject frame;
-
+    public TMP_Text T;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
@@ -61,8 +61,28 @@ public class HandPoseManager : MonoBehaviour
     public bool initFlag = false;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
 
+    private string m_logEntries ;
+
+    private bool m_IsVisible = false;
+
+    private Rect m_WindowRect = new Rect(0, 0, Screen.width, Screen.height);
+
+    private Vector2 m_scrollPositionText = Vector2.zero;
+
     void Start()
     {
+        Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>
+        {
+            if (type == LogType.Exception || type == LogType.Error)
+            {
+             
+                m_logEntries+=string.Format("{0}\n{1}", condition, stackTrace);
+            }
+        };
+
+        T.text = m_logEntries;
+
+
         // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
@@ -315,6 +335,7 @@ public class HandPoseManager : MonoBehaviour
                 break;
             case 2://放大，开始移动
                 AgentObject.SetActive(true);
+                frame.GetComponent<frame>().DestroyColliders();//把碰撞箱全部消除防止误触
                 FinalObjects.SetActive(false);
                 TimeRecorder.SetActive(true);
                 collide.GetComponent<collide>().anchorChoose();

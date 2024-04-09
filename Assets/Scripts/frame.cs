@@ -275,8 +275,6 @@ public class frame : MonoBehaviour
     public List<Vector3> starPosition = new List<Vector3>();
     public List<Vector3> cubePosition = new List<Vector3>();
     public List<Vector3> paraPosition = new List<Vector3>();
-
-
     public void creatRect(){
         Frame = "rect";
         setLines();
@@ -639,8 +637,7 @@ public class frame : MonoBehaviour
         addColliderToLine(cubeCorner[3], cubeCorner[7]);
     }
 
-    public void updateFrame()
-    {
+    public void updateFrame(){
         var anchor = collideObject.GetComponent<collide>().anchor;
         setLines();
         if (Frame == "rect"){//根据透明物体来画
@@ -653,7 +650,6 @@ public class frame : MonoBehaviour
             redoPen();}
         else if(Frame == "para"){
             redoPara();}
-
     }
     public void redoRect(){
         setLines();
@@ -721,7 +717,17 @@ public class frame : MonoBehaviour
         }
     }
 
+    public void DestroyColliders()
+    {
 
+
+        var cols = GameObject.FindGameObjectsWithTag("cols");
+        foreach(var col in cols)
+        {
+            Destroy(col.gameObject);
+        }
+
+    }
 
 
 
@@ -792,6 +798,7 @@ public class frame : MonoBehaviour
     {
 
         BoxCollider col = new GameObject("Edge").AddComponent<BoxCollider>();
+        col.tag = "cols";
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
         col.size = new Vector3(lineLength, 0.001f, 0.001f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement

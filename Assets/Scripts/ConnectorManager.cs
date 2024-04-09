@@ -136,10 +136,7 @@ public class ConnectorManager : MonoBehaviour
             Objects.Remove(newObj);
         } 
 
-        //在原地复制一个
-        frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
-        frameAgent.name = "frameAgent";
-        frameAgent.GetComponent<frame>().enabled = false;
+
 
         if(frame.GetComponent<frame>().Frame == "rect")
         {
@@ -184,7 +181,13 @@ public class ConnectorManager : MonoBehaviour
 
         frameCenter = frame.GetComponent<frame>().center + Vector3.forward * 2 ;//新的中心
         var temp = frame.GetComponent<frame>().objSize;
-        float  scale = 200f * temp;//小框架变成大框架之后放大的倍数
+        float  scale = 200f * temp;//小框架变成大框架之后放大的倍数        
+
+        //在原地复制一个
+        frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
+        frameAgent.name = "frameAgent";
+        frameAgent.GetComponent<frame>().enabled = false;
+
         foreach (var obj in Objects){
             if(!obj.CompareTag("AgentObject"))
             {
@@ -196,9 +199,9 @@ public class ConnectorManager : MonoBehaviour
             }
         }//放置物体,恢复原来大小
         
-
         frame.GetComponent<frame>().updateFrame();//更新框
-
+        frame.GetComponent<LineRenderer>().endWidth = 0.01f;
+        frame.GetComponent<LineRenderer>().startWidth = 0.01f;
         originalOffset1 = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[1].transform.position;
         originalOffset2 = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[2].transform.position;
 

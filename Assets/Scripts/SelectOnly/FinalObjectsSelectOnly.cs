@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+
 public class FinalObjectsSelectOnly : MonoBehaviour
 {
     public GameObject autoGenerate;
@@ -11,12 +13,13 @@ public class FinalObjectsSelectOnly : MonoBehaviour
     public TMP_Text T2, T3, T4, T5, T6;
     int wrong;
     int right;
-    public int all;
+    int round = 0;
 
     void Start()
     {
         wrong = 0;
         right = 0;
+        round = 0;
     }
     private void Update()
     {
@@ -25,30 +28,34 @@ public class FinalObjectsSelectOnly : MonoBehaviour
 
     public void AddFinalObj(GameObject obj)//除了最后的逻辑之外，其他都一样
     {
-        if (autoGenerate.GetComponent<autoGenerate>().targets.Contains(obj))//有
+        if (autoGenerate.GetComponent<autoGenerate>().targets.Contains(obj))//是我的目标物体
         {
-            autoGenerate.GetComponent<autoGenerate>().targets.Remove(obj);//点了之后下次再点会算错误
+        
             right += 1;
             recorder.GetComponent<singleSelect>().selectOneObject();
-            obj.GetComponent<Renderer>().material.color = Color.blue;
-            autoGenerate.GetComponent <autoGenerate>().genOne();//生成一个新的目标物体
-            if(right == all)//已经选中了15个
+            obj.SetActive(false);
+            if(right == autoGenerate.GetComponent<autoGenerate>().targetNumber)//已经选中了20个
             {
-                recorder.GetComponent<singleSelect>().writeFile("wrong" + wrong);
-                recorder.GetComponent<singleSelect>().finishAll();
-                autoGenerate.SetActive(false);
-            }
-        }else
-        {
+                round ++;
+                right = 0;
+                if(round == 2){
+                    recorder.GetComponent<singleSelect>().writeFile("wrong" + wrong);
+                    recorder.GetComponent<singleSelect>().finishAll();
+                    autoGenerate.SetActive(false);
+                }
+                autoGenerate.GetComponent<autoGenerate>().reGenerate();
+            }   
+        }else{
+            obj.SetActive(false);
+            obj.GetComponent<Outline>().OutlineColor = Color.red;//标红表示点错了
             wrong++;
             recorder.GetComponent<singleSelect>().writeFile("you wrong");
         }
 
-        obj.tag = "FinalObject";
-        obj.SetActive(false);
-        // finalObjQ[obj] = obj.transform.rotation;
-        obj.GetComponent<Outline>().OutlineColor = Color.clear;
+        //obj.tag = "FinalObject";
         
+        //obj.GetComponent<Outline>().OutlineColor = Color.clear;
+             // finalObjQ[obj] = obj.transform.rotation;
         // float objMaxScale = Mathf.Max(obj.transform.GetComponent<Renderer>().bounds.size.x, obj.transform.GetComponent<Renderer>().bounds.size.y, obj.transform.GetComponent<Renderer>().bounds.size.z);
         // float finalScale = 0.05f / objMaxScale;
 

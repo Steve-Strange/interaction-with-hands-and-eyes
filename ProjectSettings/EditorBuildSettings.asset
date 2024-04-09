@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DiningRoom.unity
     guid: 9345c6aee7ca4294abf0c02897ae4beb
   - enabled: 0
@@ -32,15 +32,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Garden.unity
     guid: be4817ce41725864fbe868105307da6d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SelectOnly/SelectCompare-ours.unity
     guid: 462adb5a4dd81de48b0a56803fef29fc
   - enabled: 0
     path: Assets/Scenes/DiningRoom 1.unity
     guid: 3bebbe4fbf2fe754a885ba24101b8b5d
   - enabled: 0
-    path: Assets/Scenes/Museum-Ours 1.unity
-    guid: d562f630de0964d4a81c5f0ec9d9220b
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 78f97a908d9c5364fa88c76f702c6e08, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 911a72a2498320e458cf8cf731a00095, type: 2}
