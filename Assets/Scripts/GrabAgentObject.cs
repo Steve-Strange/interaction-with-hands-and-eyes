@@ -29,8 +29,8 @@ public class GrabAgentObject : MonoBehaviour
     public List<GameObject> FinishedObjects = new List<GameObject>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public List<GameObject> ObjectsOnFrame = new List<GameObject>();
-    public GameObject ProcessRecorder;
-    public GameObject TimeRecorder;
+    // public GameObject ProcessRecorder;
+    // public GameObject TimeRecorder;
     
 
     public bool initFlag = false;

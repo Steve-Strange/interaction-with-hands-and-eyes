@@ -8,8 +8,6 @@ using System.Linq;
 public class EyeTrackingManagerSelectOnly : MonoBehaviour
 {
     public Transform Origin;
-    public GameObject Models;
-
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;
     private Matrix4x4 headPoseMatrix;
@@ -25,14 +23,8 @@ public class EyeTrackingManagerSelectOnly : MonoBehaviour
 
     private GameObject SightCone;
     //private float coneAngle = 10f; // 圆锥的角度
-
-    public GameObject HandPoseManager;
-    public Material highlightMaterial;
+    private GameObject HandPoseManager;
     public GameObject eyeSelectedObject;
-    public Material originalMaterial;
-
-    public GameObject FinalObjects;
-
     private Queue<GameObject> eyeSelectedObjectBuffer = new Queue<GameObject>();
     private int maxBufferSize = 10; // 队列的最大大小
 
@@ -120,7 +112,7 @@ public class EyeTrackingManagerSelectOnly : MonoBehaviour
 
                     }
                     eyeSelectedObject = hitInfo.collider.gameObject;
-                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.green;
+                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
                 }
             }
 

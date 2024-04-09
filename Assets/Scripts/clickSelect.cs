@@ -6,163 +6,79 @@ using UnityEngine;
 public class clickSelect : MonoBehaviour
 {
     private List<GameObject> selectedRow = new List<GameObject>();
-    public GameObject HandPoseManager, hand, thumb0, thumb1, thumb2, thumb3,
-        index0, index1, index2, index3, index4,
-        middle0, middle1, middle2, middle3;
-    private float[] d = new float[5];
-    private float[] ad = new float[5];
+    public GameObject Palm;
+    public GameObject HandPoseManager, thumb0, thumb3,
+        index0, index3,
+        middle0, middle3;
+
+    private float[] angle = new float[5];
     private float[] angleLast = new float[5];
     private float[] gap = new float[5];
+    private bool[] mark = new bool[5];
     public RaycastHit thumb, index, middle, ring, little;
-     public TMP_Text  T2, T3, T4, T5, T6;
     // public TMP_InputField log;
+    // public TMP_Text  T2, T3, T4, T5, T6;
     private GameObject SightCone;
-
-    //private float angle, angle1, angle2, angle3, angle4, angleLast;
-    //private float angleLast1 = 1, angleLast2, angleLast3, angleLast4;
-
-
     public GameObject FinalObjects;
+
+    float timer = 0;
+    public float clickPause = 0.1f;
     void Start()
     {
-     
-        InvokeRepeating("RepeatedMethod", 1f, 0.6f);
-      
-        //StartCoroutine("UpdateVelocity");
+        StartCoroutine(GetFingerAngle());
         SightCone = GameObject.Find("SightCone");
     }
-    private void RepeatedMethod()
+    public IEnumerator GetFingerAngle()
     {
-        float d = culculate(thumb1, thumb2, thumb3);
-        
-        angleLast[0] = d;
-        if (-d > 0.95f)
-            ad[0] = d;
-
-        d = culculate(index1, index2, index3);
-        
-        angleLast[1] = d;
-        if (-d > 0.95f)
-        ad[1] = d;
-
-        d = culculate(middle1, middle2, middle3);
-       
-        angleLast[2] = d;
-        if (-d> 0.95f)
-            ad[2] = d;
-    }
-    private float culculate(GameObject one,GameObject two,GameObject three)//����н�
-    {
-        var first = one.transform.position - two.transform.position;
-        var second = three.transform.position - two.transform.position;
-        float angle = Vector3.Dot(first,second)/(first.magnitude*second.magnitude);
-        return angle;
-    }
-    int time = 0;
-    Vector3 v;
-    Vector3 lastV;
-    IEnumerator UpdateVelocity()
-    {
-        Vector3 lastPosition = thumb1.transform.position;
-        Vector3 newPositon;
-
-
         while (true)
         {
-            yield return 0;
-            //����ٶ�
-            newPositon = thumb1.transform.position;
-            v = (newPositon - lastPosition) / 0.02f;//һ֡��0.02s�������������0.02f
-            lastPosition = newPositon;
-          
+            // 这里写你要每隔0.1秒执行一次的代码
+            angle[0] = Vector3.Angle(Palm.transform.up, thumb0.transform.position - thumb3.transform.position);
+            angle[1] = Vector3.Angle(Palm.transform.up, index0.transform.position - index3.transform.position);
+            angle[2] = Vector3.Angle(Palm.transform.up, middle0.transform.position - middle3.transform.position);
+
+            gap[0] = angleLast[0] - angle[0];
+            gap[1] = angleLast[1] - angle[1];
+            gap[2] = angleLast[2] - angle[2];
+
+            // log.text = "Thumb: " + gap[0] + "\nIndex: " + gap[1] + "\nMiddle: " + gap[2];
+
+            angleLast[0] = angle[0];
+            angleLast[1] = angle[1];
+            angleLast[2] = angle[2];
+
+            if(gap[0]<-9) mark[0] = true;
+            else mark[0] = false;
+            if(gap[1]<-13) mark[1] = true;
+            else mark[1] = false;
+            if(gap[2]<-13) mark[2] = true;
+            else mark[2] = false;
+
+            // 等待0.1秒
+            yield return new WaitForSeconds(0.05f);
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         
+        timer += Time.deltaTime;
+        // log.text = mark[0] + " " + mark[1] + " " + mark[2];
         selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
-        // log.text = string.Join(",", FinalObjects.GetComponent<FinalObjects>().finalObj);
 
-        /*if(selectedRow[0])
-            T2.text = selectedRow[0].name;
-        if (selectedRow[1])
-            T3.text = selectedRow[1].name;
-        if (selectedRow[2])
-            T4.text = selectedRow[2].name;
-        if (selectedRow[3])
-            T5.text = selectedRow[3].name;
-        if (selectedRow[4])
-            T6.text = selectedRow[4].name;
-
-        T.text = culculate(index1, index2, index3).ToString();
-        T2.text = culculate(middle1, middle2, middle3).ToString();
-        T3.text = culculate(ring1, ring2, ring3).ToString();
-        T4.text = culculate(little1, little2, little3).ToString();        T.text = (d[0] - angleLast[0]).ToString();
-            T2.text = (d[1] - angleLast[1]).ToString();
-            T3.text = (d[2] - angleLast[2]).ToString();
-            T4.text = (d[3] - angleLast[3]).ToString();
-            T5.text = (d[4] - angleLast[4]).ToString();*/
-        time += 1;
-        if (time > 30)
-            time = 22;
-        bool[] mark = new bool[5];
-
-        if (time>20&&HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
-        {        
-            d[0] = culculate(thumb1, thumb2, thumb3);//0.96-0.6   
-            d[1] = culculate(index1, index2, index3);
-            d[2] = culculate(middle1, middle2, middle3);
-            
-            mark[0] = false;
-            mark[1] = false;
-            mark[2] = false;
-
-            if (d[0]-angleLast[0] > 0.05 || angleLast[0]- d[0] >0.05)
+        if (timer > clickPause && HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
+        {
+            for (int i = 0; i < 3; i++)
             {
-                mark[0] = true;
-            }
-            if (d[1]- angleLast[1]> 0.25)//0.99-0.7(С��0.7)
-            {
-                mark[1] = true;
-            }
-        
-            if (d[2]- angleLast[2] > 0.3)//С��0.7
-            {
-                mark[2] = true;
-            }            
-            //if (! (mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true || 
-            //    mark[0]== true && mark[1] == true && mark[2] == true && mark[3] == true && mark[4] == true ||
-            //    mark[1] == true && mark[2] == true && mark[3]|| d[2] - angleLast[2]>0.45 && d[1] - angleLast[1] > 0.45 ||
-            //    d[0] - angleLast[0] > 0.45 && d[1] - angleLast[1] > 0.45 || d[2] - angleLast[2] > 0.45 && d[0] - angleLast[0] > 0.45))//��ֹ��ȭͷ
-            {
-                
-                float max = -1;
-                int select = -1;
-                for (int i=0;i<=2;i++)
-                {
-                    if(d[i]-angleLast[i]>max)
+                if(mark[i]){
+                    if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[i]) && mark[i] && selectedRow[i] != HandPoseManager.GetComponent<HandPoseManager>().emptyBlock)
                     {
-                        max = d[i] - angleLast[i];
-                        select = i;
+                        FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[i]);
+                        SightCone.GetComponent<SightCone>().objectWeights.Remove(selectedRow[i]);
+                        timer = 0;
                     }
-
-                } 
-                if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[select]) && mark[select] && selectedRow[select] != HandPoseManager.GetComponent<HandPoseManager>().emptyBlock)
-                {
-                    FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[select]);
-                    SightCone.GetComponent<SightCone>().objectWeights.Remove(selectedRow[select]);
-                    // selectedRow[select] = null;
-                    time = 0;
                 }
             }
-
-
-
-
-
-
+            
         }
     
       

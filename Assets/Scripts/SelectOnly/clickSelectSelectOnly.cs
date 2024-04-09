@@ -19,7 +19,7 @@ public class clickSelectSelectOnly : MonoBehaviour
     private float[] gap = new float[5];
     private bool[] mark = new bool[5];
     public RaycastHit thumb, index, middle, ring, little;
-    public TMP_InputField log;
+    // public TMP_InputField log;
     // public TMP_Text  T2, T3, T4, T5, T6;
     private GameObject SightCone;
     public GameObject FinalObjects;
@@ -67,7 +67,7 @@ public class clickSelectSelectOnly : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        log.text = mark[0] + " " + mark[1] + " " + mark[2];
+        // log.text = mark[0] + " " + mark[1] + " " + mark[2];
         selectedRow = HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().selectedRow;
 
         if (timer > clickPause && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().PalmPoseState)

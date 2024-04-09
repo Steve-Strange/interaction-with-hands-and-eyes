@@ -20,7 +20,7 @@ public class ConnectorManager : MonoBehaviour
     public Dictionary<GameObject, Vector3> vectorToCenter = new Dictionary<GameObject, Vector3>();
 
     // public TMP_Text T;
-    public TMP_Text t1;
+    // public TMP_Text t1;
     // public TMP_Text t2;
     public GameObject AgentObject;
     private Quaternion FrameRotation;
@@ -109,17 +109,17 @@ public class ConnectorManager : MonoBehaviour
     }
     public void reverse()
     {
-        t1.text = "0";
+
         frame.GetComponent <frame>().setLines();//设置粗细
-        t1.text = "1";
+
         Objects = new List<GameObject>(collide.GetComponent<collide>().onFrame);
-        t1.text = "2";
+
         foreach (var obj in Objects)
         {
             TimeRecorder.GetComponent<TimeRecorder>().MovingObjectStatus.Add(obj, 0);
             obj.GetComponent<Outline>().outlineColor = Color.clear;
         }
-        t1.text = "3";
+
         emptyObjects.Clear();
        
         var cor = frame.GetComponent<frame>().cor;
@@ -135,7 +135,7 @@ public class ConnectorManager : MonoBehaviour
             newObjects.Add(newObj);
             Objects.Remove(newObj);
         } 
-        t1.text = "4";
+
         //在原地复制一个
         frameAgent = Instantiate(frame, frame.transform.position, frame.transform.rotation);
         frameAgent.name = "frameAgent";

@@ -8,8 +8,6 @@ using System.Linq;
 public class EyeTrackingManager : MonoBehaviour
 {
     public Transform Origin;
-    public GameObject Models;
-
     private Vector3 combineEyeGazeVector;
     private Vector3 combineEyeGazeOrigin;
     private Matrix4x4 headPoseMatrix;
@@ -25,14 +23,8 @@ public class EyeTrackingManager : MonoBehaviour
 
     private GameObject SightCone;
     //private float coneAngle = 10f; // 圆锥的角度
-
-    public GameObject HandPoseManager;
-    public Material highlightMaterial;
+    private GameObject HandPoseManager;
     public GameObject eyeSelectedObject;
-    public Material originalMaterial;
-
-    public GameObject FinalObjects;
-
     private Queue<GameObject> eyeSelectedObjectBuffer = new Queue<GameObject>();
     private int maxBufferSize = 10; // 队列的最大大小
 
@@ -40,6 +32,7 @@ public class EyeTrackingManager : MonoBehaviour
     private float closeEyesTime = 0f;
     public bool isEyesOpen = true;
     private GameObject clickSelect;
+    // public TMP_InputField log;
 
 
     public void AddOutline(GameObject target, Color color)
@@ -74,15 +67,17 @@ public class EyeTrackingManager : MonoBehaviour
 
         SightCone.transform.position = combineEyeGazeOriginInWorldSpace;
         SightCone.transform.rotation = Quaternion.LookRotation(combineEyeGazeVectorInWorldSpace, Vector3.up);
+        // log.text = "origin: " + combineEyeGazeOriginInWorldSpace + "\n" + "vector: " + combineEyeGazeVectorInWorldSpace + "\n";
+        // log.text += !HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState + " " + PXR_EyeTracking.GetLeftEyeGazeOpenness(out leftEyeOpenness) + " " + PXR_EyeTracking.GetRightEyeGazeOpenness(out rightEyeOpenness) + "\n";
 
-        if (!HandPoseManager.GetComponent<HandPoseManagerSelectOnly>().SecondSelectionState &&
+        if (!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState &&
             PXR_EyeTracking.GetLeftEyeGazeOpenness(out leftEyeOpenness) &&
             PXR_EyeTracking.GetRightEyeGazeOpenness(out rightEyeOpenness))
         {
             isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
             if (isEyesOpen)
             {
-                if (closeEyesTime > 0.32f) BlinkSelect();
+                if (closeEyesTime > 0.25f) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
                 eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
                 if (eyeSelectedObjectBuffer.Count > maxBufferSize)
@@ -103,13 +98,14 @@ public class EyeTrackingManager : MonoBehaviour
         int layerMask = 1 << 0 | 1 << 7;
         if (Physics.SphereCast(origin, 0.12f, vector, out hitInfo, 50f, layerMask))
         {
+            // log.text += "\n" + "hitInfo: " + hitInfo.collider.gameObject.name;
             if (hitInfo.collider.gameObject.tag == "Target")
             {
                 if (eyeSelectedObject != hitInfo.collider.gameObject)
                 {
                     if (eyeSelectedObject)
                     {
-                        if (SightCone.GetComponent<SightConeSelectOnly>().selectedObjects.Contains(eyeSelectedObject))
+                        if (SightCone.GetComponent<SightCone>().selectedObjects.Contains(eyeSelectedObject))
                         {
                             eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.red;
                         }
@@ -120,7 +116,7 @@ public class EyeTrackingManager : MonoBehaviour
 
                     }
                     eyeSelectedObject = hitInfo.collider.gameObject;
-                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.green;
+                    eyeSelectedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
                 }
             }
 

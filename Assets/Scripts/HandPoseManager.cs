@@ -27,9 +27,6 @@ public class HandPoseManager : MonoBehaviour
     public Dictionary<GameObject, TransformData> originalTransform = new Dictionary<GameObject, TransformData>();
     
     private GameObject EyeTrackingManager;
-    public TMP_Text Phase;
-
-    public TMP_InputField log;
     public GameObject AgentObject;
     public GameObject RubbishBin;
 
@@ -293,7 +290,7 @@ public class HandPoseManager : MonoBehaviour
     }
 
     public void ChangePhase(int currentPhase){
-        Phase.text = currentPhase.ToString();
+
         switch (currentPhase)
         {
             case 1:
@@ -317,7 +314,6 @@ public class HandPoseManager : MonoBehaviour
                 collide.GetComponent<collide>().getFinalObject();
                 break;
             case 2://放大，开始移动
-                Phase.text = "11";
                 AgentObject.SetActive(true);
                 FinalObjects.SetActive(false);
                 TimeRecorder.SetActive(true);
@@ -326,10 +322,8 @@ public class HandPoseManager : MonoBehaviour
                 RubbishBin.SetActive(false);
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();  //bug
                 collide.GetComponent<collide>().enabled = false;
-                log.text += "here4\n";
                 break;
             case 3:
-                log.text += "here5?\n";
                 foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().newObjects)
                 {
                     obj.SetActive(false);
@@ -340,6 +334,7 @@ public class HandPoseManager : MonoBehaviour
                 phase = 0;
                 StartSelect.SetActive(true);
                 clickSelect.SetActive(true);
+                StartCoroutine(clickSelect.GetComponent<clickSelect>().GetFingerAngle());
                 SightCone.SetActive(true);
                 EyeTrackingManager.SetActive(true);
                 FinalObjects.SetActive(true);

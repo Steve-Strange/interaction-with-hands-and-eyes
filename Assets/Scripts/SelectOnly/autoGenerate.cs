@@ -34,7 +34,6 @@ public class autoGenerate : MonoBehaviour
 
         }
         
-
     }
     public void genOneBubble()
     {
@@ -56,8 +55,6 @@ public class autoGenerate : MonoBehaviour
                 targets.Add(allObjects[testArray[0]]);
                 break;
             } 
-
-
         }*/
 
     }
