@@ -19,7 +19,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject collide;
     public GameObject frameManager;
     private GameObject frame;
-    public TMP_Text T;
+    // public TMP_Text T;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
@@ -61,7 +61,7 @@ public class HandPoseManager : MonoBehaviour
     public bool initFlag = false;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
 
-    private string m_logEntries ;
+    private string m_logEntries;
 
     private bool m_IsVisible = false;
 
@@ -71,18 +71,15 @@ public class HandPoseManager : MonoBehaviour
 
     void Start()
     {
-        Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>
-        {
-            if (type == LogType.Exception || type == LogType.Error)
-            {
+        // Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>
+        // {
+        //     if (type == LogType.Exception || type == LogType.Error)
+        //     {
              
-                m_logEntries+=string.Format("{0}\n{1}", condition, stackTrace);
-            }
-        };
-
-       
-
-
+        //         m_logEntries+=string.Format("{0}\n{1}", condition, stackTrace);
+        //     }
+        // };
+        
         // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
@@ -105,7 +102,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        T.text = m_logEntries;
+        // T.text = m_logEntries;
         if (!initFlag){
             initFlag = true;
             foreach (Transform obj in Objects)

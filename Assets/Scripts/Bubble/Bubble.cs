@@ -29,7 +29,7 @@ public class Bubble : MonoBehaviour
     float radius; 
     int layerMask;
     int i, j;
-    public TMP_Text t;
+    // public TMP_Text t;
    // public TMP_Text t2;
    // public TMP_Text t3;
     private GameObject[] target = new GameObject[3];
@@ -190,7 +190,7 @@ public class Bubble : MonoBehaviour
             item.startWidth = 0f;
             item.endWidth = 0f;
         }//线段可视化关掉
-        t.text = "guandiao";
+        // t.text = "guandiao";
         gameObject.SetActive(false);
         //gameObject.GetComponent<MeshRenderer>().enabled = false;
         //球关掉
@@ -210,7 +210,7 @@ public class Bubble : MonoBehaviour
     bool init = true;
     void Update()
     {
-        t.text = m_logEntries.ToString();
+        // t.text = m_logEntries.ToString();
         l.SetPosition(0, palm.transform.position);
         l.SetPosition(1, -palm.transform.up* 100);
       //  l.startWidth = 0.01f;

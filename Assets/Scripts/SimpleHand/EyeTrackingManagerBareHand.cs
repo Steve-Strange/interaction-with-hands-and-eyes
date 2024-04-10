@@ -9,7 +9,7 @@ public class EyeTrackingManagerBareHand : MonoBehaviour
 {   
     public Transform Origin;
     public GameObject rayVisualizer;
-    public TMP_Text t;
+    // public TMP_Text t;
     public GameObject singelSelect;
     // public TMP_Text t2;
 
@@ -77,7 +77,7 @@ public class EyeTrackingManagerBareHand : MonoBehaviour
         if(rayVisualizer.GetComponent<RayVisualizer>().target!=null & mark == 0)
         {
             rayVisualizer.GetComponent<RayVisualizer>().setLine(0f);
-            t.text = rayVisualizer.GetComponent<RayVisualizer>().target.name;
+            // t.text = rayVisualizer.GetComponent<RayVisualizer>().target.name;
             singelSelect.GetComponent<singleSelect>().writeFile("selectObject:" + rayVisualizer.GetComponent<RayVisualizer>().target.name);
             mark = 1;
             singelSelect.GetComponent<singleSelect>().selectOneObject();

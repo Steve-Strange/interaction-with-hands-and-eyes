@@ -32,7 +32,7 @@ public class FinalObjects : MonoBehaviour
         float finalScale = 0.05f / objMaxScale;
 
         obj.transform.parent = transform;
-        obj.transform.transform.rotation = Quaternion.Euler(0, 0, 0);
+        obj.transform.transform.localEulerAngles = - transform.localEulerAngles;
 
         // obj.transform.localScale = new Vector3(0.1f * obj.transform.localScale.x, 0.1f * obj.transform.localScale.y, 0.01f * obj.transform.localScale.z) / objMaxScale;
         obj.transform.localScale = new Vector3(obj.transform.localScale.x, obj.transform.localScale.y, obj.transform.localScale.z) * finalScale;

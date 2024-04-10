@@ -19,9 +19,9 @@ public class singleSelect : MonoBehaviour
     public float beginSelectTime;//��ʼѡ���ʱ��
     public float beginManipulateTime;//��ʼ���ݵ�ʱ��
     public float beginFineManipulateTime;//��ʼ��ϸ���ݵ�ʱ��
-    public TMP_Text t;
-    public TMP_Text t2;
-    public TMP_Text t3;
+    // public TMP_Text t;
+    // public TMP_Text t2;
+    // public TMP_Text t3;
     private string folderPath;
     private string filePath;
     private string fileName;
