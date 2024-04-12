@@ -14,7 +14,7 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
-   // public TMPro.TMP_Text t;
+    public TMPro.TMP_Text t;
     
    // public TMPro.TMP_Text t1;
    // public TMPro.TMP_Text t2;
@@ -195,7 +195,7 @@ public class collide : MonoBehaviour
             }
         }
     }
-    private void settleDown()
+    private void settleDown()//每放一个，就加一个在onFrame上
     {
         if(first)
         {
@@ -231,9 +231,7 @@ public class collide : MonoBehaviour
                 }
         }
         if (frame.GetComponent<frame>().Frame == "circle"){
-              //  t2.text = "1";
                 circlePosition = frame.GetComponent<frame>().circlePosition;
-             //   t2.text = "2";
             for (int i = 0; i < circlePosition.Count; i++){
 
                      if ((now.transform.position - circlePosition[i]).magnitude < 0.02 || (positionLast - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
@@ -241,14 +239,11 @@ public class collide : MonoBehaviour
                         now.transform.position = circlePosition[i];
                     }
                 }
-        //    t2.text = "3";
             if (mark < 3){
-          //  t2.text = "4";
                 circle[mark] = now;
                     AddOutline(now, Color.blue);
                     mark++;     
                 }
-         //   t2.text = "5";
         }
         if (frame.GetComponent<frame>().Frame == "tri")
         {
@@ -341,11 +336,8 @@ public class collide : MonoBehaviour
                     finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                 }
         }
-        //t2.text = "6";
-       
         onFrame.Add(now); 
         now = null;
-       // t2.text = "7";
         finalObj.RemoveAt(0);
         label = 0;
     }
@@ -367,6 +359,12 @@ public class collide : MonoBehaviour
     private List<string> m_logEntries = new List<string>();
     private void Update()
     {
+      //  t.text = anchor.Count.ToString();
+      //  if(anchor.Count > 0)
+      //  {
+         //   t.text = anchor[0].transform.position.ToString()+"    "+anchor[1].transform.position.ToString() + anchor[2].transform.position.ToString();
+//
+        //}
         //t.text = label.ToString();
        // t1.text = (!p.ispinch).ToString();
        // t2.text = (now == finalObj[0]).ToString();
@@ -417,19 +415,13 @@ public class collide : MonoBehaviour
         pen = new GameObject[8];
         cube = new GameObject[8];
     }
-    public void anchorChoose()
-    {
-        anchor.Clear();
+    public void anchorChoose(){
+        anchor.Clear();//清除anchor数组
         foreach (var item in onFrame){
             item.GetComponent<Outline>().outlineColor = Color.clear;
         }
-        GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Clear();
+        GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Clear();//清空移动的数组
         if (frame.GetComponent<frame>().Frame == "rect"){
-            /*GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(onFrame[0]);
-            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(onFrame[1]);//!!!改这里
-
-            anchor.Add(onFrame[0]);
-            anchor.Add(onFrame[1]);*/
             if(rectMark[0]==1 && rectMark[2]==1){
                 if(rectMark[1] == 1)
                 {
@@ -474,14 +466,9 @@ public class collide : MonoBehaviour
             }
         }
         if (frame.GetComponent<frame>().Frame == "circle"){
-
-
             anchor.Add(circle[0]);
-
             anchor.Add(circle[1]);
-
             anchor.Add(circle[2]);
-
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[0]);
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[1]);
             GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(circle[2]);
@@ -547,14 +534,14 @@ public class collide : MonoBehaviour
             for (int z = 0; z <= 4; z++)
             for (int i = 0;i<=4;i++)
             for(int j = 0;j<=4;j++)
-            if(i!=j&&penMark[i]==1 && penMark[j]==1&k==0 && penMark[z] == 1)
+            if(i!=j&&penMark[i]==1 && penMark[j]==1&k==0 && penMark[z] == 1 && i!=z && j!=z)
             {
                 anchor.Add(pen[i]);
                 anchor.Add(pen[j]);
-                            anchor.Add(pen[z]);
-                            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[i]);
+                anchor.Add(pen[z]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[i]);
                 GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[j]);
-                            GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[z]);
+                GrabAgent.GetComponent<GrabAgentObject>().MovingObject.Add(pen[z]);
                             k =1;
             }
         }

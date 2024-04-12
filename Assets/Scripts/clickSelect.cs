@@ -17,7 +17,7 @@ public class clickSelect : MonoBehaviour
     private bool[] mark = new bool[5];
     public RaycastHit thumb, index, middle, ring, little;
     // public TMP_InputField log;
-    // public TMP_Text  T2, T3, T4, T5, T6;
+    public TMP_Text t;
     private GameObject SightCone;
     public GameObject FinalObjects;
 
@@ -47,12 +47,12 @@ public class clickSelect : MonoBehaviour
             angleLast[1] = angle[1];
             angleLast[2] = angle[2];
 
-            if(gap[0]<-9) mark[0] = true;
-            else mark[0] = false;
-            if(gap[1]<-13) mark[1] = true;
-            else mark[1] = false;
-            if(gap[2]<-13) mark[2] = true;
-            else mark[2] = false;
+            if (gap[0] < -9) { mark[0] = true; t.text = "1"; }
+            else { mark[0] = false; t.text = "oo"; }
+            if (gap[1] < -13) { mark[1] = true; t.text = "2"; }
+            else { mark[1] = false; t.text = "oo"; }
+            if (gap[2] < -13) { mark[2] = true; t.text = "3"; }
+            else { mark[0] = false; t.text = "oo"; }
 
             // 等待0.1秒
             yield return new WaitForSeconds(0.05f);
@@ -62,25 +62,30 @@ public class clickSelect : MonoBehaviour
     {
         
         timer += Time.deltaTime;
-        // log.text = mark[0] + " " + mark[1] + " " + mark[2];
-        selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
-
-        if (timer > clickPause && HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
+        if(HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
+            selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
+        else 
+            selectedRow = null;
+        t.text = "1";
+        if (selectedRow != null)
         {
-            for (int i = 0; i < 3; i++)
+            t.text = "2";
+            if (timer > clickPause && HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
             {
-                if(mark[i]){
-                    if (!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[i]) && mark[i] && selectedRow[i] != HandPoseManager.GetComponent<HandPoseManager>().emptyBlock)
-                    {
-                        FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[i]);
-                        SightCone.GetComponent<SightCone>().objectWeights.Remove(selectedRow[i]);
-                        timer = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    if(mark[i]){
+                        t.text = i.ToString();
+                        if (selectedRow[i]!=null && !FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedRow[i]) && mark[i] && selectedRow[i] != HandPoseManager.GetComponent<HandPoseManager>().emptyBlock)
+                        {
+                            FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[i]);
+                            SightCone.GetComponent<SightCone>().objectWeights.Remove(selectedRow[i]);
+                            timer = 0;
+                        }
                     }
                 }
-            }
             
+            }
         }
-    
-      
     }
 }

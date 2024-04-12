@@ -19,7 +19,8 @@ public class HandPoseManager : MonoBehaviour
     public GameObject collide;
     public GameObject frameManager;
     private GameObject frame;
-    // public TMP_Text T;
+    public TMP_Text T;
+    public TMP_Text T2;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
@@ -71,15 +72,13 @@ public class HandPoseManager : MonoBehaviour
 
     void Start()
     {
-        // Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>
-        // {
-        //     if (type == LogType.Exception || type == LogType.Error)
-        //     {
-             
-        //         m_logEntries+=string.Format("{0}\n{1}", condition, stackTrace);
-        //     }
-        // };
+        Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>{
+            if (type == LogType.Exception || type == LogType.Error){
+                m_logEntries =string.Format("{0}\n{1}", condition, stackTrace);
+            }
+        };
         
+     
         // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
@@ -102,7 +101,17 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // T.text = m_logEntries;
+        if(collide.GetComponent<collide>().anchor.Count > 0)
+          {
+            T.text = collide.GetComponent<collide>().anchor[0].transform.position.ToString()+"    "+collide.GetComponent<collide>().anchor[1].transform.position.ToString() + collide.GetComponent<collide>().anchor[2].transform.position.ToString();
+
+        }
+        else
+        {
+            T.text = "HAHAHHAHA";
+        }
+       // T.text = m_logEntries;
+       //2.text = phase.ToString();
         if (!initFlag){
             initFlag = true;
             foreach (Transform obj in Objects)
@@ -110,9 +119,8 @@ public class HandPoseManager : MonoBehaviour
                 if(obj.CompareTag("Target")) {
                     originalTransform[obj.gameObject] = new TransformData(obj.position, obj.rotation, obj.localScale);
                     objScale[obj.gameObject] = obj.localScale;
-                    if(GameObject.Find("Objects/" + obj.name + " (1)"))
-                    {
-                        objectsWithTargets.Add(obj.gameObject);
+                    if(GameObject.Find("Objects/" + obj.name + " (1)")){
+                        objectsWithTargets.Add(obj.gameObject);//目标物体
                     }
                 }
             }
@@ -336,7 +344,7 @@ public class HandPoseManager : MonoBehaviour
                 frame.GetComponent<frame>().DestroyColliders();//把碰撞箱全部消除防止误触
                 FinalObjects.SetActive(false);
                 TimeRecorder.SetActive(true);
-                collide.GetComponent<collide>().anchorChoose();
+                collide.GetComponent<collide>().anchorChoose();//选择锚点
                 frameManager.SetActive(false);
                 RubbishBin.SetActive(false);
                 ConnectorManager.GetComponent<ConnectorManager>().reverse();  //bug
@@ -351,6 +359,7 @@ public class HandPoseManager : MonoBehaviour
                 ConnectorManager.GetComponent<ConnectorManager>().newObjects.Clear();
                 ConnectorManager.GetComponent<ConnectorManager>().frameAgent.SetActive(false);
                 collide.GetComponent<collide>().onFrame.Clear();
+                collide.GetComponent<collide>().anchor.Clear();
                 phase = 0;
                 StartSelect.SetActive(true);
                 clickSelect.SetActive(true);

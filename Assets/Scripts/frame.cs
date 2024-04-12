@@ -9,7 +9,7 @@ public class frame : MonoBehaviour
     public GameObject connectorManager;
     public GameObject[] cor;//透明物体，其位置用于标记顶点；
     public GameObject collideObject;
-    // public TMP_Text t;
+    public TMP_Text t;
 
     private Vector3 forward;//第2阶段生成框那个瞬间所用的
     private Vector3 right;
@@ -659,6 +659,7 @@ public class frame : MonoBehaviour
     }
 
     public void updateFrame(){
+        gameObject.GetComponent<LineRenderer>().enabled = true;
         gameObject.GetComponent<LineRenderer>().endWidth = 0.01f;
         gameObject.GetComponent<LineRenderer>().startWidth = 0.01f;
         var anchor = collideObject.GetComponent<collide>().anchor;
@@ -686,9 +687,10 @@ public class frame : MonoBehaviour
     public void redoCircle(List<GameObject> anchor)
     {
         //setLines();
-        Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
+        Vector3 centerr = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
 
-        float R = (anchor[0].transform.position - center).magnitude;
+        t.text = centerr.ToString()+anchor[0].transform.name + ":    " + anchor[0].transform.position +" \n"+ anchor[1].transform.name+ ":    " + anchor[1].transform.position +" \n"+ anchor[2].transform.name+ ":    " + anchor[2].transform.position;
+        float R = (anchor[0].transform.position - centerr).magnitude;
 
 
         line.startWidth = 0.1f;
@@ -704,7 +706,7 @@ public class frame : MonoBehaviour
         {
             float x = R * Mathf.Cos((360f / N * i) * Mathf.Deg2Rad); //确定x坐标
             float z = R * Mathf.Sin((360f / N * i) * Mathf.Deg2Rad); //确定z坐标
-            now = center + right * x + forward * z;
+            now = centerr + right * x + forward * z;
             line.SetPosition(i, now);
         }
 
@@ -756,9 +758,6 @@ public class frame : MonoBehaviour
 
 
     }
-
-
-
 
     private Vector3 CalculateTriangleOutCircleCenter(Vector3 A, Vector3 B, Vector3 C)
     {
@@ -843,11 +842,12 @@ public class frame : MonoBehaviour
         col.transform.Rotate(0, angle,0);
     }
     void clear(){
+        collideObject.GetComponent<collide>().onFrame.Clear();//清除留在框上的物体
         for (int i = 0; i <= 7; i++)
         {
             collideObject.GetComponent<collide>().rectMark[i] = 0;
             collideObject.GetComponent<collide>().triMark[i] = 0;
-            // collideObject.GetComponent<collide>().circleMark[i] = 0;
+            //collideObject.GetComponent<collide>().circleMark[i] = 0;
             collideObject.GetComponent<collide>().paraMark[i] = 0;
             collideObject.GetComponent<collide>().penMark[i] = 0;
             collideObject.GetComponent<collide>().cubeMark[i] = 0;
@@ -868,5 +868,13 @@ public class frame : MonoBehaviour
         line.startColor = Color.black;
         line.endColor = Color.black;
         line.material = lineMaterial;
+    }
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+        }
+        target.GetComponent<Outline>().OutlineColor = color;
     }
 }

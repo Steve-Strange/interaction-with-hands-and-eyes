@@ -34,7 +34,7 @@ public class ConnectorManager : MonoBehaviour
 
     // private LineRenderer lineRenderer;
     // public Color lineColor = Color.red; // 设置默认颜色
-    // public float lineWidth = 0.1f; // 设置默认宽度
+    // public float  Width = 0.1f; // 设置默认宽度
     void Start()
     {
         emptyObjects = new List<GameObject>();
@@ -62,8 +62,9 @@ public class ConnectorManager : MonoBehaviour
                             vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].y * frameScale.y,
                             vectorToCenter[AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0]].z * frameScale.z);
             }
-            else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 3){
+            else if(AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Count == 3){//三个锚点都完成了
                 newOffset = Quaternion.Inverse(FrameRotation).normalized * (AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().FinishedObjects[2].transform.position);
+                //newOffset = Quaternion.Inverse(FrameRotation).normalized * new Vector3(1, 0, 1);
                 frameScale.x = originalOffset2.x == 0 ? 0 : Mathf.Abs(newOffset.x/originalOffset2.x);
                 frameScale.y = originalOffset2.y == 0 ? 0 : Mathf.Abs(newOffset.y/originalOffset2.y);
                 frameScale.z = originalOffset2.z == 0 ? 0 : Mathf.Abs(newOffset.z/originalOffset2.z);
@@ -85,7 +86,7 @@ public class ConnectorManager : MonoBehaviour
             // }
 
             foreach (var obj in Objects)
-            {
+                if (!AgentObject.GetComponent<GrabAgentObject>().FinishedObjects.Contains(obj)){
                 obj.transform.position = frameCenter + FrameRotation * new Vector3(vectorToCenter[obj].x * frameScale.x, vectorToCenter[obj].y * frameScale.y, vectorToCenter[obj].z * frameScale.z);
             }
 
@@ -101,10 +102,10 @@ public class ConnectorManager : MonoBehaviour
             //     }
             // }
 
-
+            frame.GetComponent<frame>().updateFrame();
             TargetObjects = AgentObject.GetComponent<GrabAgentObject>().TargetObjects;
             AgentObject.GetComponent<GrabAgentObject>().AutoAdjustStatus = false;
-            frame.GetComponent<frame>().updateFrame();
+         
         }
     }
     public void reverse()
@@ -129,7 +130,7 @@ public class ConnectorManager : MonoBehaviour
             newObj.tag = "AgentObject";
             newObj.name = obj.name + " Agent";
             newObjects.Add(newObj);
-            //Objects.Remove(newObj);
+            Objects.Remove(newObj);
         }//复制为了展示的物体
 
         //开始处理透明物体
@@ -189,15 +190,16 @@ public class ConnectorManager : MonoBehaviour
         foreach (var obj in Objects){
             if(!obj.CompareTag("AgentObject"))
             {
-                vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
+                vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息,每次生成新框会更新
                 obj.transform.position = frameCenter + 10 * vectorToCenter[obj]; //rodo 这个地方要改
                 obj.transform.parent = null;
                 obj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().objScale[obj];
-                vectorToCenter[obj] = obj.transform.position - frame.GetComponent<frame>().center;//小框上的信息
+                vectorToCenter[obj] = obj.transform.position - frameCenter;//小框上的信息
             }
         }//放置物体,恢复原来大小
         
         frame.GetComponent<frame>().updateFrame();//更新框
+        frame.GetComponent<LineRenderer>().enabled = true;
         frame.GetComponent<LineRenderer>().endWidth = 0.01f;
         frame.GetComponent<LineRenderer>().startWidth = 0.01f;
         originalOffset1 = AgentObject.GetComponent<GrabAgentObject>().MovingObject[0].transform.position - AgentObject.GetComponent<GrabAgentObject>().MovingObject[1].transform.position;
