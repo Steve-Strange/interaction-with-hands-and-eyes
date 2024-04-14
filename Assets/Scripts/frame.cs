@@ -129,13 +129,13 @@ public class frame : MonoBehaviour
     }
     void decideEachPosition()//change the frame size from number
     {
-        int Min = 2;
+       // int Min = 2;
         int Max = 2 * number;
        if(Frame == "rect"){//todo 改其他的
             var X = (rectCorner[1]-rectCorner[0]).normalized;
             var Y = (rectCorner[3]- rectCorner[0]).normalized;
             rectPosition.Clear();
-            for(int j = Min;j<=Max;j++)
+            for(int j = Max;j<=Max;j++)
             {
                 float temp  = rectheight * 1.0f / (j * 1.0f);
                 for (int i = 1; i <= j - 1; i++)
@@ -158,7 +158,7 @@ public class frame : MonoBehaviour
         }
        else if(Frame == "circle"){//已改
             circlePosition.Clear();
-            for (int j = Min; j <= Max; j++){
+            for (int j = Max; j <= Max; j++){
                 for (int i = 0; i < j ; i++){
                     float x = R * Mathf.Cos((360f / number * i) * Mathf.Deg2Rad); //确定x坐标
                     float z = R * Mathf.Sin((360f / number * i) * Mathf.Deg2Rad); //确定z坐标
@@ -173,7 +173,7 @@ public class frame : MonoBehaviour
             var Y = (triCorner[2]-triCorner[1]).normalized;
             var Z = (triCorner[2]-triCorner[0]).normalized;
             triPosition.Clear();
-            for (int j = Min; j <= Max; j++)
+            for (int j = Max; j <= Max; j++)
             {
                 float temp = triedge * 1.0f / (j * 1.0f);
                 for (int i = 1 ; i<= j-1 ;i++)
@@ -195,19 +195,19 @@ public class frame : MonoBehaviour
             var X = (paraCorner[1]-paraCorner[0]).normalized;
             var Y = (paraCorner[3]- paraCorner[0]).normalized;
             paraPosition.Clear();
-            for(int i = 1 ; i<= number-1 ;i++)
+            for(int i = 1 ; i<= Max-1 ;i++)
             {
                 paraPosition.Add(paraCorner[0] + (gap + objSize) * i * X);
             }
-            for (int i = 1 ; i<= number-1 ;i++)
+            for (int i = 1 ; i<= Max - 1 ;i++)
             {
                 paraPosition.Add(paraCorner[3] + (gap + objSize) * i * X);
             }
-            for (int i = 1 ; i<= number-1 ;i++)
+            for (int i = 1 ; i<= Max -1 ;i++)
             {
                 paraPosition.Add(paraCorner[0] + (gap + objSize) * i * Y);
             }
-            for (int i = 1 ; i<= number-1 ;i++)
+            for (int i = 1 ; i<= Max -1 ;i++)
             {
                 paraPosition.Add(paraCorner[1] + (gap + objSize) * i * Y);
             }
@@ -220,26 +220,30 @@ public class frame : MonoBehaviour
             var e4 = (penCorner[4]- penCorner[3]).normalized;
             var e5 = (penCorner[0]- penCorner[4]).normalized;
             penPosition.Clear();
-            for(int i = 1 ; i<= number-1 ;i++)
-            {
-                paraPosition.Add(penCorner[0] + (gap + objSize) * i * e1);
-            }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                paraPosition.Add(penCorner[1] + (gap + objSize) * i * e2);
-            }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                paraPosition.Add(penCorner[2] + (gap + objSize) * i * e3);
-            }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                paraPosition.Add(penCorner[3] + (gap + objSize) * i * e4);
-            }
-            for (int i = 1 ; i<= number-1 ;i++)
-            {
-                paraPosition.Add(penCorner[4] + (gap + objSize) * i * e5);
-            }
+                float temp = penedge * 1.0f / (Max * 1.0f);
+                for (int i = 1 ; i<= Max - 1 ;i++)
+                {
+                penPosition.Add(penCorner[0] + temp * i * e1);
+                }
+                for (int i = 1 ; i<= Max - 1 ;i++)
+                {
+                penPosition.Add(penCorner[1] + temp * i * e2);
+                }
+                for (int i = 1 ; i<= Max - 1 ;i++)
+                {
+                    penPosition.Add(penCorner[2] + temp * i * e3);
+                }
+                for (int i = 1 ; i<= Max - 1 ;i++)
+                {
+                    penPosition.Add(penCorner[3] + temp * i * e4);
+                }
+                for (int i = 1 ; i<= Max - 1;i++)
+                {
+                    penPosition.Add(penCorner[4] + temp * i * e5);
+                }
+            
+
+
 
        }else if(Frame == "cube")
        {
@@ -828,7 +832,7 @@ public class frame : MonoBehaviour
         col.tag = "cols";
         col.transform.parent = line.transform; // Collider is added as child object of line
         float lineLength = Vector3.Distance(startPos, endPos); // length of line
-        col.size = new Vector3(lineLength, 0.005f, 0.005f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        col.size = new Vector3(lineLength, 0.02f, 0.02f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startPos + endPos) / 2;
         col.transform.position = midPoint; // setting position of collider object
         // Following lines calculate the angle between startPos and endPos

@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class collide : MonoBehaviour
@@ -86,9 +87,19 @@ public class collide : MonoBehaviour
         }
     }
     private void OnCollisionStay(Collision collision){
+
         if (collision.gameObject.name == "Edge")
-        {
-            ContactPoint contact = collision.contacts[0];
+        {        
+
+            ContactPoint contact = collision.contacts[0];        
+            if (now == null && p.ispinch && finalObj.Count != 0)
+        {  //没有正在操纵的物体并且pinch并且finalobj还有     
+            now = finalObj[0];
+            now.transform.position = contact.point;
+            now.transform.parent = null;
+            now.transform.rotation = finalObjQ[now];
+            label = 0;
+        }
             if (now != null && p.ispinch && finalObj.Count != 0)
             {
                 now.transform.position = contact.point; 
@@ -195,8 +206,24 @@ public class collide : MonoBehaviour
             }
         }
     }
+    private bool check(Vector3 now)
+    {
+        float gapp = 0.01f;
+    
+        for(int i =0;i<gap;i++)
+        {
+            if((now - positionLasts[i]).magnitude < gapp)
+            {
+                return true;
+            }
+        }
+
+  
+        return false;
+    }
     private void settleDown()//每放一个，就加一个在onFrame上
     {
+
         if(first)
         {
             first = false;
@@ -210,7 +237,7 @@ public class collide : MonoBehaviour
             rectPosition = frame.GetComponent<frame>().rectPosition;//line
             for (int i = 0; i < rectPosition.Count; i++)
             {
-                if ((now.transform.position - rectPosition[i]).magnitude < 0.02 || (positionLast - rectPosition[i]).magnitude < 0.02){
+                if ((now.transform.position - rectPosition[i]).magnitude < 0.01 || (positionLast - rectPosition[i]).magnitude < 0.01 || check(rectPosition[i])){
                     now.transform.position = rectPosition[i];
                     now.GetComponent<Outline>().OutlineColor = Color.red;
                 }
@@ -222,7 +249,7 @@ public class collide : MonoBehaviour
 
             rectCorner = frame.GetComponent<frame>().rectCorner;//line
             for (int i = 0; i <= 3; i++)
-                if ((now.transform.position - rectCorner[i]).magnitude < 0.02 || (positionLast - rectCorner[i]).magnitude < 0.02)
+                if ((now.transform.position - rectCorner[i]).magnitude < 0.01 || (positionLast - rectCorner[i]).magnitude < 0.01 || check(rectCorner[i]))
                 {//有资格当anchor的变成蓝色
                     now.transform.position = rectCorner[i];
                     rect[i] = now;
@@ -234,7 +261,7 @@ public class collide : MonoBehaviour
                 circlePosition = frame.GetComponent<frame>().circlePosition;
             for (int i = 0; i < circlePosition.Count; i++){
 
-                     if ((now.transform.position - circlePosition[i]).magnitude < 0.02 || (positionLast - circlePosition[i]).magnitude < 0.02){//有资格当anchor的变成蓝色
+                     if ((now.transform.position - circlePosition[i]).magnitude < 0.01 || (positionLast - circlePosition[i]).magnitude < 0.01 || check(circlePosition[i])){//有资格当anchor的变成蓝色
                         AddOutline(now, Color.red);
                         now.transform.position = circlePosition[i];
                     }
@@ -250,7 +277,7 @@ public class collide : MonoBehaviour
              triPosition = frame.GetComponent<frame>(). triPosition;//line
             for (int i = 0; i <  triPosition.Count; i++)
             {
-                if ((finalObj[0].transform.position -  triPosition[i]).magnitude < 0.02 || (positionLast -  triPosition[i]).magnitude < 0.02){
+                if ((finalObj[0].transform.position -  triPosition[i]).magnitude < 0.01 || (positionLast -  triPosition[i]  ).magnitude < 0.01||check(triPosition[i])){
                     finalObj[0].transform.position =  triPosition[i];
                      now.GetComponent<Outline>().OutlineColor = Color.red;
                 }
@@ -260,7 +287,7 @@ public class collide : MonoBehaviour
 
             triCorner = frame.GetComponent<frame>().triCorner;
             for (int i = 0; i <= 2; i++)
-                if ((finalObj[0].transform.position - triCorner[i]).magnitude < 0.02 || (positionLast - triCorner[i]).magnitude < 0.02 )
+                if ((finalObj[0].transform.position - triCorner[i]).magnitude < 0.01 || (positionLast - triCorner[i]).magnitude < 0.01 || check(triCorner[i]))
                 {
                     finalObj[0].transform.position = triCorner[i];
                     tri[i] = finalObj[0];
@@ -273,7 +300,7 @@ public class collide : MonoBehaviour
             penPosition = frame.GetComponent<frame>().penPosition;//line
             for (int i = 0; i <  penPosition.Count; i++)
             {
-                if ((finalObj[0].transform.position -   penPosition[i]).magnitude < 0.02 || (positionLast -   penPosition[i]).magnitude < 0.02){
+                if ((finalObj[0].transform.position - penPosition[i]).magnitude < 0.01 || (positionLast - penPosition[i]).magnitude < 0.01 || check(penPosition[i])){
                     finalObj[0].transform.position =   penPosition[i];
                      now.GetComponent<Outline>().OutlineColor = Color.red;
                 }
@@ -283,7 +310,7 @@ public class collide : MonoBehaviour
             
             penCorner = frame.GetComponent<frame>().penCorner;
             for (int i = 0; i <= 4; i++)
-                if ((finalObj[0].transform.position - penCorner[i]).magnitude < 0.02 || (positionLast - penCorner[i]).magnitude < 0.02)
+                if ((finalObj[0].transform.position - penCorner[i]).magnitude < 0.01 || (positionLast - penCorner[i]).magnitude < 0.01 || check(penCorner[i]))
                 {
                     finalObj[0].transform.position = penCorner[i];
                     pen[i] = finalObj[0];
@@ -297,7 +324,7 @@ public class collide : MonoBehaviour
             paraPosition = frame.GetComponent<frame>().paraPosition;//line
             for (int i = 0; i < paraPosition.Count; i++)
             {
-                if ((finalObj[0].transform.position - paraPosition[i]).magnitude < 0.02 || (positionLast - paraPosition[i]).magnitude < 0.02){
+                if ((finalObj[0].transform.position - paraPosition[i]).magnitude < 0.01 || (positionLast - paraPosition[i]).magnitude < 0.01 || check(paraPosition[i])){
                     finalObj[0].transform.position =  paraPosition[i];
                      now.GetComponent<Outline>().OutlineColor = Color.red;
                 }
@@ -307,7 +334,7 @@ public class collide : MonoBehaviour
 
             paraCorner = frame.GetComponent<frame>().paraCorner;
             for (int i = 0; i <= 3; i++)
-                if ((finalObj[0].transform.position - paraCorner[i]).magnitude < 0.02 || (positionLast - paraCorner[i]).magnitude < 0.02)
+                if ((finalObj[0].transform.position - paraCorner[i]).magnitude < 0.01 || (positionLast - paraCorner[i]).magnitude < 0.01 || check(paraCorner[i]))
                 {
                     finalObj[0].transform.position = paraCorner[i];
                     para[i] = finalObj[0];
@@ -317,11 +344,11 @@ public class collide : MonoBehaviour
         }
         if (frame.GetComponent<frame>().Frame == "cube")
         {//要能确定新的长宽高
-
             cubePosition = frame.GetComponent<frame>().cubePosition;//line
             for (int i = 0; i < cubePosition.Count; i++)
             {
-                if ((finalObj[0].transform.position - cubePosition[i]).magnitude < 0.02 || (positionLast - cubePosition[i]).magnitude < 0.02  ){
+                if ((finalObj[0].transform.position - cubePosition[i]).magnitude < 0.01 || (positionLast - cubePosition[i]).magnitude < 0.01 || check(cubePosition[i]))
+                {
                     finalObj[0].transform.position =  cubePosition[i];
                      now.GetComponent<Outline>().OutlineColor = Color.red;
                 }
@@ -329,17 +356,17 @@ public class collide : MonoBehaviour
             }
             cubeCorner = frame.GetComponent<frame>().cubeCorner;
             for (int i = 0; i <= 7; i++)
-                if ((finalObj[0].transform.position - cubeCorner[i]).magnitude < 0.02 || (positionLast - cubeCorner[i]).magnitude < 0.02)
-                {
+                if ((finalObj[0].transform.position - cubeCorner[i]).magnitude < 0.01 || (positionLast - cubeCorner[i]).magnitude < 0.01 || check(cubeCorner[i])){
                     finalObj[0].transform.position = cubeCorner[i];
                     cube[i] = finalObj[0];
                     finalObj[0].GetComponent<Outline>().OutlineColor = Color.blue;
                 }
         }
+        finalObj[0].transform.position = new Vector3(finalObj[0].transform.position.x, frame.GetComponent<frame>().center.y, finalObj[0].gameObject.transform.localPosition.z);
         onFrame.Add(now); 
         now = null;
         finalObj.RemoveAt(0);
-        label = 0;
+        label = 0;  
     }
     public void AddOutline(GameObject target, Color color)
     {
@@ -357,6 +384,7 @@ public class collide : MonoBehaviour
         finalObjQ = FinalObjects.GetComponent<FinalObjects>().finalObjQ;
     }
     private List<string> m_logEntries = new List<string>();
+    private Vector3[] positionLasts = new Vector3[100];
     private void Update()
     {
       //  t.text = anchor.Count.ToString();
@@ -372,10 +400,12 @@ public class collide : MonoBehaviour
         if(timeMark > gap)
         {   
             timeMark = 0;
-            if(finalObj.Count > 0)
-            {
-                positionLast = finalObj[0].transform.position;
-            }
+        
+        }
+        if (finalObj.Count > 0)
+        {
+            positionLasts[timeMark] = finalObj[0].transform.position;
+            //positionLast = finalObj[0].transform.position;
         }
         // t.text = handPoseManager.GetComponent<HandPoseManager>().phase.ToString();
         // t2.text = label.ToString();
@@ -394,6 +424,7 @@ public class collide : MonoBehaviour
     private void Awake() {
         timeMark = 0;
         gap = (int)(1f /Time.deltaTime * 0.2f);
+        positionLasts = new Vector3[gap + 10];
     }
     private Vector3 positionLast;
     private int timeMark = 0;
