@@ -14,7 +14,7 @@ public class collide : MonoBehaviour
     public bool ispinch = false;
     private pinch p;
 
-    public TMPro.TMP_Text t;
+    // public TMPro.TMP_Text t;
     
    // public TMPro.TMP_Text t1;
    // public TMPro.TMP_Text t2;

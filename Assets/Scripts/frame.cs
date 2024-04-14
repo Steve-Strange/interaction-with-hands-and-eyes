@@ -9,7 +9,7 @@ public class frame : MonoBehaviour
     public GameObject connectorManager;
     public GameObject[] cor;//透明物体，其位置用于标记顶点；
     public GameObject collideObject;
-    public TMP_Text t;
+    // public TMP_Text t;
 
     private Vector3 forward;//第2阶段生成框那个瞬间所用的
     private Vector3 right;
@@ -689,7 +689,7 @@ public class frame : MonoBehaviour
         //setLines();
         Vector3 centerr = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
 
-        t.text = centerr.ToString()+anchor[0].transform.name + ":    " + anchor[0].transform.position +" \n"+ anchor[1].transform.name+ ":    " + anchor[1].transform.position +" \n"+ anchor[2].transform.name+ ":    " + anchor[2].transform.position;
+        // t.text = centerr.ToString()+anchor[0].transform.name + ":    " + anchor[0].transform.position +" \n"+ anchor[1].transform.name+ ":    " + anchor[1].transform.position +" \n"+ anchor[2].transform.name+ ":    " + anchor[2].transform.position;
         float R = (anchor[0].transform.position - centerr).magnitude;
 
 

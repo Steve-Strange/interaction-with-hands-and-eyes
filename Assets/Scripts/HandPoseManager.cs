@@ -19,8 +19,8 @@ public class HandPoseManager : MonoBehaviour
     public GameObject collide;
     public GameObject frameManager;
     private GameObject frame;
-    public TMP_Text T;
-    public TMP_Text T2;
+    // public TMP_Text T;
+    // public TMP_Text T2;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
@@ -103,12 +103,12 @@ public class HandPoseManager : MonoBehaviour
     {
         if(collide.GetComponent<collide>().anchor.Count > 0)
           {
-            T.text = collide.GetComponent<collide>().anchor[0].transform.position.ToString()+"    "+collide.GetComponent<collide>().anchor[1].transform.position.ToString() + collide.GetComponent<collide>().anchor[2].transform.position.ToString();
+            // T.text = collide.GetComponent<collide>().anchor[0].transform.position.ToString()+"    "+collide.GetComponent<collide>().anchor[1].transform.position.ToString() + collide.GetComponent<collide>().anchor[2].transform.position.ToString();
 
         }
         else
         {
-            T.text = "HAHAHHAHA";
+            // T.text = "HAHAHHAHA";
         }
        // T.text = m_logEntries;
        //2.text = phase.ToString();

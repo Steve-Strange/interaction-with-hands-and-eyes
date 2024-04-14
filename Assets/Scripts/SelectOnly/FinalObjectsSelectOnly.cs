@@ -10,7 +10,7 @@ public class FinalObjectsSelectOnly : MonoBehaviour
     public GameObject recorder;
     public List<GameObject> finalObj = new List<GameObject>();
     public Dictionary<GameObject, Quaternion> finalObjQ = new Dictionary<GameObject, Quaternion>();
-    public TMP_Text T2, T3, T4, T5, T6;
+    // public TMP_Text T2, T3, T4, T5, T6;
     int wrong;
     int right;
     int round = 0;

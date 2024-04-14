@@ -7,7 +7,7 @@ public class circle : MonoBehaviour
     // Start is called before the first frame update
     public LineRenderer line;
     public GameObject[] anchor;
-    public TMP_Text t;
+    // public TMP_Text t;
     void Start()
     {
         
@@ -22,7 +22,7 @@ public class circle : MonoBehaviour
        
         //setLines();
         Vector3 center = CalculateTriangleOutCircleCenter(anchor[0].transform.position, anchor[1].transform.position, anchor[2].transform.position);
-t.text = center.ToString() + anchor[0].transform.position.ToString() + "    " + anchor[1].transform.position.ToString() + anchor[2].transform.position.ToString(); ;
+        // t.text = center.ToString() + anchor[0].transform.position.ToString() + "    " + anchor[1].transform.position.ToString() + anchor[2].transform.position.ToString(); ;
         Debug.Log(center);
             float R = (anchor[0].transform.position - center).magnitude;
 
