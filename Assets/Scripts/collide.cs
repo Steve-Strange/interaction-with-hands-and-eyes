@@ -4,7 +4,7 @@ using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class collide : MonoBehaviour
-{
+{   
     public GameObject connectorManager;
     public GameObject GrabAgent;
     public GameObject pinch;
@@ -218,7 +218,6 @@ public class collide : MonoBehaviour
             }
         }
 
-  
         return false;
     }
     private void settleDown()//每放一个，就加一个在onFrame上

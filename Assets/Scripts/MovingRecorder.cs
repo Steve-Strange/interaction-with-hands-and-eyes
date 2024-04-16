@@ -42,7 +42,7 @@ public class MovingRecorder : MonoBehaviour
         RecordMovementAndRotation(head);
         RecordMovementAndRotation(leftHand);
         RecordMovementAndRotation(rightHand);
-                
+        
     }
 
     void RecordMovementAndRotation(GameObject obj)

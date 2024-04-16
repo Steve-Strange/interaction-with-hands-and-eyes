@@ -132,7 +132,7 @@ public class frame : MonoBehaviour
        // int Min = 2;
         int Max = 2 * number;
        if(Frame == "rect"){//todo 改其他的
-            var X = (rectCorner[1]-rectCorner[0]).normalized;
+            var X = (rectCorner[1]- rectCorner[0]).normalized;
             var Y = (rectCorner[3]- rectCorner[0]).normalized;
             rectPosition.Clear();
             for(int j = Max;j<=Max;j++)
@@ -304,7 +304,7 @@ public class frame : MonoBehaviour
 
 
         line.positionCount = 4;
-        rectCorner[0] = center + forward /2*rectheight-right/2*rectlenth;
+        rectCorner[0] = center + forward / 2*rectheight-right/2*rectlenth;
         rectCorner[1] = center + forward / 2*rectheight+right/2*rectlenth;
         rectCorner[2] = center - forward / 2*rectheight+right/2*rectlenth;
         rectCorner[3] = center - forward / 2*rectheight-right/2*rectlenth;

@@ -17,7 +17,6 @@ public class TimeRecorder : MonoBehaviour
     public GameObject frame;
     // public TMP_InputField log;
     public GameObject pinchObject;
-    public float MovingTime;
     public float coarseMovingTime;
     private GameObject HandPoseManager;
 
@@ -45,30 +44,35 @@ public class TimeRecorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(CompleteObjects.Count == agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count){
+        // log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n";
+        // log.text += "placingTime" + HandPoseManager.GetComponent<HandPoseManager>().placingTime + "\n" + 
+        //     "coarseMovingTime: " + coarseMovingTime + "\n" + 
+        //     "MovingTime: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n";
+
+        // log.text += "CompleteObjects: " + CompleteObjects.Count + "\n";
+        // log.text += "objectsWithTargets: " + HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count + "\n";
+        if(CompleteObjects.Count == HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count){
 
             frame.GetComponent<frame>().line.positionCount = 0;
-
-
-            // log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
-            // "coarseMovingTime: " + coarseMovingTime + "\n" + 
-            // "MovingTime: " + MovingTime + "\n";
             // log.text += "Finished!!!!!!!!!!!!";
             if(!finishStatus)
             {
                 File.WriteAllText(filePath, "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
-                                "Coarse Moving Time: " + coarseMovingTime + "\n" + "Moving Time: " + MovingTime + "\n" + MovingRecorder.GetComponent<MovingRecorder>().output
+                                    "Placing Time: " + HandPoseManager.GetComponent<HandPoseManager>().placingTime + "\n" +
+                                    "Coarse Moving Time: " + coarseMovingTime + "\n" + 
+                                    "Moving Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n" + 
+                                    MovingRecorder.GetComponent<MovingRecorder>().output
                                 );
+
                 finishStatus = true;
             }
         }
-        else{
-            // log.text = "CompleteObjects: " + CompleteObjects.Count + "\n";
-            // log.text += "agentObject.GetComponent<GrabAgentObject>().TargetObjects: " + agentObject.GetComponent<GrabAgentObject>().TargetObjects.Count + "\n";
-            // log.text += "FrameObjects: " + agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count + "\n";
-
-        }
+        // else{
+        //     log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n";
+        //     log.text += "CompleteObjects: " + CompleteObjects.Count + "\n";
+        //     log.text += "agentObject.GetComponent<GrabAgentObject>().TargetObjects: " + agentObject.GetComponent<GrabAgentObject>().TargetObjects.Count + "\n";
+        //     log.text += "FrameObjects: " + agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count + "\n";
+        // }
 
         foreach (var obj in agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame){
             if(!MovingObjectStatus.ContainsKey(obj)) MovingObjectStatus.Add(obj, 0);
@@ -109,8 +113,6 @@ public class TimeRecorder : MonoBehaviour
             if(MovingObjectStatus[agentObject.GetComponent<GrabAgentObject>().MovingObject[0]]==0) {
                 coarseMovingTime += Time.deltaTime;
             }
-            MovingTime += Time.deltaTime;
-            
         }
 
     }

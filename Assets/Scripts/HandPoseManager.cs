@@ -58,6 +58,8 @@ public class HandPoseManager : MonoBehaviour
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
+    public float placingTime;
+    public float movingTime;
     private Transform Objects;
     public bool initFlag = false;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
@@ -101,17 +103,18 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(collide.GetComponent<collide>().anchor.Count > 0)
-          {
-            // T.text = collide.GetComponent<collide>().anchor[0].transform.position.ToString()+"    "+collide.GetComponent<collide>().anchor[1].transform.position.ToString() + collide.GetComponent<collide>().anchor[2].transform.position.ToString();
+        if(phase == 0){
+            selectionTime += Time.deltaTime;
+        }
+        else if(phase == 1){
+            placingTime += Time.deltaTime;
+        }
+        else if(phase == 2){
+            movingTime += Time.deltaTime;
+        }
 
-        }
-        else
-        {
-            // T.text = "HAHAHHAHA";
-        }
-       // T.text = m_logEntries;
-       //2.text = phase.ToString();
+        // T.text = m_logEntries;
+        //2.text = phase.ToString();
         if (!initFlag){
             initFlag = true;
             foreach (Transform obj in Objects)
@@ -119,13 +122,10 @@ public class HandPoseManager : MonoBehaviour
                 if(obj.CompareTag("Target")) {
                     originalTransform[obj.gameObject] = new TransformData(obj.position, obj.rotation, obj.localScale);
                     objScale[obj.gameObject] = obj.localScale;
-                    if(GameObject.Find("Objects/" + obj.name + " (1)")){
+                    if(GameObject.Find("Objects/" + obj.name + " (1)") && objectsWithTargets.Contains(obj.gameObject) == false){
                         objectsWithTargets.Add(obj.gameObject);//目标物体
                     }
                 }
-            }
-            if(phase == 0){
-                selectionTime += Time.deltaTime;
             }
             // log.text += originalTransform.Count;
         }
@@ -341,9 +341,9 @@ public class HandPoseManager : MonoBehaviour
                 break;
             case 2://放大，开始移动
                 AgentObject.SetActive(true);
+                TimeRecorder.SetActive(true);
                 frame.GetComponent<frame>().DestroyColliders();//把碰撞箱全部消除防止误触
                 FinalObjects.SetActive(false);
-                TimeRecorder.SetActive(true);
                 collide.GetComponent<collide>().anchorChoose();//选择锚点
                 frameManager.SetActive(false);
                 RubbishBin.SetActive(false);
