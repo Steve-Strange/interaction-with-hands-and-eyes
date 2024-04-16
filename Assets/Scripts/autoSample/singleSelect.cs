@@ -87,20 +87,28 @@ public class singleSelect : MonoBehaviour
         manipulateTime += temp;
         var temp2 = timer - beginFineManipulateTime;
         fineManipulateTime += temp2;
-        beginSelectTime = timer;
+        if (sampleType != 1)
+        {
+            beginSelectTime = timer;
+        }
+        if (sampleType == 1)
+        {
+            beginManipulateTime = timer;
+        }
+
         var temp3 = temp - temp2;
-        coarseManipulateTime += temp3;
+        coarseManipulateTime = coarseManipulateTime + temp3;
 
         logs += "thisCoarseManipulateTime: " + temp3 + "\n";
         logs += "allCoarseManipulateTime: " + coarseManipulateTime + "\n";
         logs += "thisFineManipulateTime: " + temp2 + "\n";
         logs += "allFineManipulateTime: " + fineManipulateTime + "\n";
         logs += "thisManipulateTime: " + temp + "\n";
-        logs += "allManipulateTime: " + manipulateTime + "\n";
+        logs += "allManipulateTime: " + manipulateTime + "\n\n";
     }
     public void finishCoarseOneObject()//��ÿ�δֲ���ʱ�����
     {
-        coarseManipulateTime += timer - beginManipulateTime;
+        coarseManipulateTime += (timer - beginManipulateTime);
         beginFineManipulateTime = timer;
     }
 }
