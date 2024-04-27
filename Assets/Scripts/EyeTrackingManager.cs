@@ -4,6 +4,7 @@ using Unity.XR.PXR;
 using UnityEngine.XR;
 using TMPro;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class EyeTrackingManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EyeTrackingManager : MonoBehaviour
     private Vector3 combineEyeGazeOrigin;
     private Matrix4x4 headPoseMatrix;
     private Matrix4x4 originPoseMatrix;
+    public GameObject centerSphere;
 
     public Vector3 combineEyeGazeVectorInWorldSpace;
     public Vector3 combineEyeGazeOriginInWorldSpace;
@@ -26,13 +28,17 @@ public class EyeTrackingManager : MonoBehaviour
     private GameObject HandPoseManager;
     public GameObject eyeSelectedObject;
     private Queue<GameObject> eyeSelectedObjectBuffer = new Queue<GameObject>();
+    private Queue<Vector3> eyeTrackingPositionBuffer = new Queue<Vector3>();
     private int maxBufferSize = 10; // 队列的最大大小
 
     public GameObject blinkSelectedObject;
     private float closeEyesTime = 0f;
     public bool isEyesOpen = true;
     private GameObject clickSelect;
+
+    public GameObject FinalObjects;
     // public TMP_InputField log;
+    public GameObject GrabAgentObject;
 
 
     public void AddOutline(GameObject target, Color color)
@@ -56,7 +62,6 @@ public class EyeTrackingManager : MonoBehaviour
 
     void Update()
     {
-
         PXR_EyeTracking.GetHeadPosMatrix(out headPoseMatrix);
         PXR_EyeTracking.GetCombineEyeGazeVector(out combineEyeGazeVector);
         PXR_EyeTracking.GetCombineEyeGazePoint(out combineEyeGazeOrigin);
@@ -80,10 +85,13 @@ public class EyeTrackingManager : MonoBehaviour
                 if (closeEyesTime > 0.25f) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
                 eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
+                eyeTrackingPositionBuffer.Enqueue(centerSphere.transform.position);
                 if (eyeSelectedObjectBuffer.Count > maxBufferSize)
                 {
                     eyeSelectedObjectBuffer.Dequeue();
+                    eyeTrackingPositionBuffer.Dequeue();
                 }
+                // log.text = "eyeSelectedObjectBuffer: " + eyeTrackingPositionBuffer.ToArray()[0] + "\n";
                 closeEyesTime = 0;
             }
             else
@@ -95,9 +103,12 @@ public class EyeTrackingManager : MonoBehaviour
 
     void GazeTargetControl(Vector3 origin, Vector3 vector)
     {
-        int layerMask = 1 << 0 | 1 << 7;
-        if (Physics.SphereCast(origin, 0.12f, vector, out hitInfo, 50f, layerMask))
+        int layerMask = 1 << 0 | 1 << 7 | 1 << 8;
+        if (Physics.SphereCast(origin, 0.1f, vector, out hitInfo, 50f, layerMask))
         {
+            centerSphere.transform.position = hitInfo.point;
+            centerSphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f) * Vector3.Distance(combineEyeGazeOriginInWorldSpace, hitInfo.point) / 9;
+
             // log.text += "\n" + "hitInfo: " + hitInfo.collider.gameObject.name;
             if (hitInfo.collider.gameObject.tag == "Target")
             {
@@ -124,25 +135,44 @@ public class EyeTrackingManager : MonoBehaviour
 
     }
 
-
     void BlinkSelect(){
-        blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
-        if(!clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
-            clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
-        if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){
-            SightCone.GetComponent<SightCone>().selectedObjects.Remove(blinkSelectedObject);
+
+        if(HandPoseManager.GetComponent<HandPoseManager>().phase == 0){
+            blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
+            if(!clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
+                clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
+            if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){
+                SightCone.GetComponent<SightCone>().selectedObjects.Remove(blinkSelectedObject);
+            }
+
+            var sightCone = SightCone.GetComponent<SightCone>();
+
+            // 复制字典的键列表
+            List<GameObject> keys = sightCone.objectWeights.Keys.ToList();
+
+            foreach (var key in keys)
+            {
+                sightCone.objectWeights[key] = 0;
+            }
         }
+        else if(HandPoseManager.GetComponent<HandPoseManager>().phase == 1 && GrabAgentObject.GetComponent<GrabAgentObject>().MovingObject.Count == 0 && GrabAgentObject.GetComponent<GrabAgentObject>().movingStatus == false){
+            Vector3 finalEyeTrackingPosition = new Vector3(0, 0, 0);
+            for(int i = 0; i < maxBufferSize / 2; i++){
+                finalEyeTrackingPosition.x += eyeTrackingPositionBuffer.ToArray()[i].x / (maxBufferSize / 2);
+                finalEyeTrackingPosition.y += eyeTrackingPositionBuffer.ToArray()[i].y / (maxBufferSize / 2);
+                finalEyeTrackingPosition.z += eyeTrackingPositionBuffer.ToArray()[i].z / (maxBufferSize / 2);
+            }
 
-        var sightCone = SightCone.GetComponent<SightCone>();
+            GameObject currnetObj = FinalObjects.GetComponent<FinalObjects>().finalObj[0];
+            currnetObj.transform.position = finalEyeTrackingPosition;
+            currnetObj.transform.parent = null;
+            currnetObj.transform.localScale = HandPoseManager.GetComponent<HandPoseManager>().originalTransform[currnetObj].Scale;
+            currnetObj.transform.rotation = HandPoseManager.GetComponent<HandPoseManager>().originalTransform[currnetObj].Rotation;
 
-        // 复制字典的键列表
-        List<GameObject> keys = sightCone.objectWeights.Keys.ToList();
-
-        foreach (var key in keys)
-        {
-            sightCone.objectWeights[key] = 0;
+            FinalObjects.GetComponent<FinalObjects>().finalObj.RemoveAt(0);
+            FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
+            GrabAgentObject.GetComponent<GrabAgentObject>().MovingObject.Add(currnetObj);
         }
-
     }
 
     GameObject FindMostFrequentElement(Queue<GameObject> list)

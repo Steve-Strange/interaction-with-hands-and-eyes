@@ -28,40 +28,28 @@ public class GrabAgentObject : MonoBehaviour
 
     public List<GameObject> FinishedObjects = new List<GameObject>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
-    public List<GameObject> ObjectsOnFrame = new List<GameObject>();
-    // public GameObject ProcessRecorder;
-    // public GameObject TimeRecorder;
-    
-
     public bool initFlag = false;
 
     void Start()
     {
         // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
-        TargetObjects = new Dictionary<GameObject, GameObject>();
     }
 
     void Update()
     {
+        // log.text = "TargetObjects: " + TargetObjects.Count + "\n" + "MovingObjects: " + MovingObject.Count + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
+        // log.text += "Distance: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n";
+        if (!initFlag)
+        {
+            FinishedObjects.Clear();
+        }
+        
         if (MovingObject.Count > 0)
         {
-
             if (MovingObject.Count > 0)
                 MovingObject[0].GetComponent<Outline>().outlineColor = Color.green;
             grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
-            if (!initFlag)
-            {
-                FinishedObjects.Clear();
-                ObjectsOnFrame.Clear();
-
-                foreach (var obj in pinchObject.GetComponent<collide>().onFrame)
-                {
-                    TargetObjects[obj] = GameObject.Find(obj.name + " (1)");
-                    ObjectsOnFrame.Add(obj);
-                    initFlag = true;
-                }
-            }
 
             movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
             pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.014f;
@@ -81,24 +69,9 @@ public class GrabAgentObject : MonoBehaviour
                 else transform.rotation = Quaternion.identity;
 
             }
-            // log.text = "rotation gap: " + RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) + "\n" + "position gap: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n"; 
-            // log.text += "MovingObject: " + MovingObject[0].name + "\n" + "TargetObjects: " + TargetObjects[MovingObject[0]].name + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
-            // log.text += "onFrame.Count:" + pinchObject.GetComponent<collide>().onFrame.Count + "\n"; 
-
-            // log.text += "pinchStatus: " + pinchStatus + "\n" + "grabStatus: " + grabStatus + "\n" + "movingStatus: " + movingStatus;
 
             if (movingStatus)
             {
-                // MovingObject[0].GetComponent<Outline>().OutlineColor = Color.clear;  ???
-                foreach (var obj in ObjectsOnFrame)
-                {
-                    if (obj != MovingObject[0])
-                    {
-                        TargetObjects[obj].SetActive(false);
-                        obj.SetActive(false);
-                    }
-                }
-
                 // log.text += "\n" + "Moving...";
                 if (grabStatus == 1)
                 {
@@ -142,59 +115,37 @@ public class GrabAgentObject : MonoBehaviour
 
                 lastPosition = rightIndex.transform.position;
 
+                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                    RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
+                        MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
+                        MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
+                }
+                else if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f){
+                        MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
+                        MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
+                }
+                else {
+                    MovingObject[0].GetComponent<Outline>().OutlineColor = Color.white;
+                }
             }
             else
             {
-                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) <
+                if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                     (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-                    RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f)
-                {
-
-                    if (!FinishedObjects.Contains(MovingObject[0]))
+                    RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
+                        
+                        if (!FinishedObjects.Contains(MovingObject[0]))
                         FinishedObjects.Add(MovingObject[0]);
-                    MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-                    MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
-                    //if(FinishedObjects.Count <= 3 && ProcessRecorder.GetComponent<ProcessRecorder>().CompleteObjects.Count <= 3){
-                    //     foreach (var obj in ObjectsOnFrame)
-                    //     {
-                    //         obj.transform.rotation = MovingObject[0].transform.rotation;
-                    //     }
-                    // }
+                        MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                        MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
 
-                    foreach (var obj in ObjectsOnFrame)
-                    {
-                        if (obj != MovingObject[0] || !FinishedObjects.Contains(obj))
-                        {
-                            TargetObjects[obj].SetActive(true);
-                            obj.SetActive(true);
-                        }
-                    }
-                    MovingObject.RemoveAt(0);
-                    AutoAdjustStatus = true;
+                        MovingObject.RemoveAt(0);
+                        AutoAdjustStatus = true;
                 }
             }
 
-            // if (MovingObject.Count > 0)
-            // {
-            //     if(MovingObjectStatus[MovingObject[0]]==0) coarseMovingTime += Time.deltaTime;
-            //     else if(MovingObjectStatus[MovingObject[0]]==1 || MovingObjectStatus[MovingObject[0]]==2) accurateMovingTime += Time.deltaTime;
-
-            // if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
-            //     (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f
-            //     && MovingObjectStatus[MovingObject[0]] == 0){
-            //         MovingObjectStatus[MovingObject[0]] = 1;
-            //         MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
-            //         MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
-            // }
-            // if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
-            //     (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-            //     rotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
-            //         MovingObjectStatus[MovingObject[0]] = 2;
-            //         MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
-            //         MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
-
-            // }
-            // }
         }
     }
 

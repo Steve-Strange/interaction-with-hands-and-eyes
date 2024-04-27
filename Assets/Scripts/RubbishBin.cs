@@ -9,6 +9,7 @@ public class RubbishBin : MonoBehaviour
     public GameObject Pinch;
     private GameObject HandPoseManager;
     public GameObject FinalObjects;
+    public GameObject GrabAgentObject;
     private bool releaseFlag;
     void Start()
     {
@@ -38,18 +39,30 @@ public class RubbishBin : MonoBehaviour
     }
 
     public void RemoveFinalObject(){
-        if(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0){
-                GameObject deleteObj = FinalObjects.GetComponent<FinalObjects>().finalObj[0];
-                FinalObjects.GetComponent<FinalObjects>().finalObj.RemoveAt(0);
-                FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
-                if (HandPoseManager.GetComponent<HandPoseManager>().originalTransform.TryGetValue(deleteObj, out TransformData transformData))
-                {
-                    deleteObj.transform.parent = null;
-                    deleteObj.transform.position = transformData.Position;
-                    deleteObj.transform.rotation = transformData.Rotation;
-                    deleteObj.transform.localScale = transformData.Scale;
-                }
+        if(GrabAgentObject.GetComponent<GrabAgentObject>().MovingObject.Count > 0){
+            GameObject deleteObj = GrabAgentObject.GetComponent<GrabAgentObject>().MovingObject[0];
+            GrabAgentObject.GetComponent<GrabAgentObject>().MovingObject.RemoveAt(0);
+            if (HandPoseManager.GetComponent<HandPoseManager>().originalTransform.TryGetValue(deleteObj, out TransformData transformData))
+            {
+                deleteObj.transform.parent = null;
+                deleteObj.transform.position = transformData.Position;
+                deleteObj.transform.rotation = transformData.Rotation;
+                deleteObj.transform.localScale = transformData.Scale;
             }
+        }
+
+        if(FinalObjects.GetComponent<FinalObjects>().finalObj.Count > 0){
+            GameObject deleteObj = FinalObjects.GetComponent<FinalObjects>().finalObj[0];
+            FinalObjects.GetComponent<FinalObjects>().finalObj.RemoveAt(0);
+            FinalObjects.GetComponent<FinalObjects>().RearrangeFinalObj();
+            if (HandPoseManager.GetComponent<HandPoseManager>().originalTransform.TryGetValue(deleteObj, out TransformData transformData))
+            {
+                deleteObj.transform.parent = null;
+                deleteObj.transform.position = transformData.Position;
+                deleteObj.transform.rotation = transformData.Rotation;
+                deleteObj.transform.localScale = transformData.Scale;
+            }
+        }
     }
 }
 

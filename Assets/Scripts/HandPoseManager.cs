@@ -15,10 +15,6 @@ public class HandPoseManager : MonoBehaviour
     public GameObject HandRightWrist;
     private GameObject SightCone;
     public GameObject SecondSelectionBG;
-    private GameObject ConnectorManager;
-    public GameObject collide;
-    public GameObject frameManager;
-    private GameObject frame;
     // public TMP_Text T;
     // public TMP_Text T2;
     public List<GameObject> selectedRow = new List<GameObject>();
@@ -62,40 +58,14 @@ public class HandPoseManager : MonoBehaviour
     public float movingTime;
     private Transform Objects;
     public bool initFlag = false;
+    public TMP_InputField log;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
-
-    private string m_logEntries;
-
-    private bool m_IsVisible = false;
-
-    private Rect m_WindowRect = new Rect(0, 0, Screen.width, Screen.height);
-
-    private Vector2 m_scrollPositionText = Vector2.zero;
 
     void Start()
     {
-        Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>{
-            if (type == LogType.Exception || type == LogType.Error){
-                m_logEntries =string.Format("{0}\n{1}", condition, stackTrace);
-            }
-        };
-        
-     
-        // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
+
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
-        frame = GameObject.Find("frame");
-        ConnectorManager = GameObject.Find("ConnectorManager");
-        objScale.Add(GameObject.Find("frame/1"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/2"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/3"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/4"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/5"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/6"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/7"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/8"), new Vector3(0, 0, 0));
-        // StartSelect = GameObject.Find("HandPoses/HandPoseGenerator/StartSelect");
-        // clickSelect = GameObject.Find("clickSelect");
 
         Objects = GameObject.Find("Objects").transform;
     }
@@ -103,6 +73,9 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        log.text = "phase: " + phase.ToString() + "\n";
+        log.text += "timer:" + delayTimer.ToString() + "\n";
+        log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
         if(phase == 0){
             selectionTime += Time.deltaTime;
         }
@@ -121,9 +94,10 @@ public class HandPoseManager : MonoBehaviour
             {
                 if(obj.CompareTag("Target")) {
                     originalTransform[obj.gameObject] = new TransformData(obj.position, obj.rotation, obj.localScale);
-                    objScale[obj.gameObject] = obj.localScale;
                     if(GameObject.Find("Objects/" + obj.name + " (1)") && objectsWithTargets.Contains(obj.gameObject) == false){
-                        objectsWithTargets.Add(obj.gameObject);//目标物体
+                        objectsWithTargets.Add(obj.gameObject);
+                        AgentObject.GetComponent<GrabAgentObject>().TargetObjects[obj.gameObject] = GameObject.Find("Objects/" + obj.name + " (1)");
+
                     }
                 }
             }
@@ -149,11 +123,10 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseStart()
     {
-        PalmPoseState = true;
         delayTimer = 0.0f;
+        PalmPoseState = true;
 
         if(!SecondSelectionState && phase == 0){
-            // selectedObjectsFixed = SightCone.GetComponent<SightCone>().selectedObjects;
             int i = 0;
             SecondSelectionBG.SetActive(true);
 
@@ -207,7 +180,8 @@ public class HandPoseManager : MonoBehaviour
    // public List<GameObject> targets = new List<GameObject>();
     public void onPalmPoseUpdate()
     {
-        if(!SecondSelectionState && phase == 0) return;
+        delayTimer = 0.0f;
+        if(!SecondSelectionState || phase != 0) return;
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if(wristRotation > 180f){
             wristRotation -= 360f;
@@ -219,10 +193,6 @@ public class HandPoseManager : MonoBehaviour
         if(wristRotation < minAngel) currentRow = 0;
         if(wristRotation > maxAngel) currentRow = rowNum - 1;
 
-        // Log.text = "";
-        // Log.text +="wristRotation: " + wristRotation.ToString() + "\n";
-        // Log.text +="currentRow: " + currentRow.ToString() + "\n";
-        // Log.text +="rowNum: " + rowNum.ToString() + "\n";
         selectedRow.Clear();
 
         int i = 0;
@@ -246,16 +216,7 @@ public class HandPoseManager : MonoBehaviour
             }
             i++;
         }
-        // for(int i = 0; i < selectedObjectsFixed.Count; i++){
-        //     if(i/5 == currentRow){
-        //         if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedObjectsFixed[i]))
-        //             selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.yellow; 
-        //         selectedRow.Add(selectedObjectsFixed[i]);
-        //     }
-        //     else{
-        //         selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.clear; 
-        //     }
-        // }
+
     }
 
     public void onPalmPoseExit()
@@ -320,53 +281,18 @@ public class HandPoseManager : MonoBehaviour
         switch (currentPhase)
         {
             case 1:
-                collide.GetComponent<collide>().enabled = true; 
-                TimeRecorder.SetActive(false);
-                StartSelect.SetActive(false);
                 clickSelect.SetActive(false);
-                SightCone.SetActive(false);
-                EyeTrackingManager.SetActive(false);
-                onPalmPoseExitDelay();
-                SecondSelectionBG.SetActive(false);
-                foreach (var obj in SightCone.GetComponent<SightCone>().selectedObjects)
-                {
-                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
-                }
-                //collide.GetComponent<collide>().enabled = true;
-                //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
-                frameManager.SetActive(true);
-                AgentObject.SetActive(false);
-                RubbishBin.SetActive(true);
-                collide.GetComponent<collide>().getFinalObject();
-                break;
-            case 2://放大，开始移动
                 AgentObject.SetActive(true);
                 TimeRecorder.SetActive(true);
-                frame.GetComponent<frame>().DestroyColliders();//把碰撞箱全部消除防止误触
-                FinalObjects.SetActive(false);
-                collide.GetComponent<collide>().anchorChoose();//选择锚点
-                frameManager.SetActive(false);
-                RubbishBin.SetActive(false);
-                ConnectorManager.GetComponent<ConnectorManager>().reverse();  //bug
-                collide.GetComponent<collide>().enabled = false;
+                RubbishBin.SetActive(true);
+                SightCone.SetActive(false);
                 break;
-            case 3://移动完->选择状态
-                foreach (var obj in ConnectorManager.GetComponent<ConnectorManager>().newObjects)
-                {
-                    //obj.SetActive(false);
-                    Destroy(obj);//摧毁为了展示放在身前的复制物体
-                }
-                ConnectorManager.GetComponent<ConnectorManager>().newObjects.Clear();
-                ConnectorManager.GetComponent<ConnectorManager>().frameAgent.SetActive(false);
-                collide.GetComponent<collide>().onFrame.Clear();
-                collide.GetComponent<collide>().anchor.Clear();
+            case 2:
                 phase = 0;
                 StartSelect.SetActive(true);
                 clickSelect.SetActive(true);
                 StartCoroutine(clickSelect.GetComponent<clickSelect>().GetFingerAngle());
                 SightCone.SetActive(true);
-                EyeTrackingManager.SetActive(true);
-                FinalObjects.SetActive(true);
                 AgentObject.SetActive(false);
                 initFlag = false;
                 AgentObject.GetComponent<GrabAgentObject>().initFlag = false;

@@ -14,7 +14,6 @@ public class TimeRecorder : MonoBehaviour
     public List<GameObject> CompleteObjects = new List<GameObject>();
     public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
 
-    public GameObject frame;
     // public TMP_InputField log;
     public GameObject pinchObject;
     public float coarseMovingTime;
@@ -53,7 +52,6 @@ public class TimeRecorder : MonoBehaviour
         // log.text += "objectsWithTargets: " + HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count + "\n";
         if(CompleteObjects.Count == HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count){
 
-            frame.GetComponent<frame>().line.positionCount = 0;
             // log.text += "Finished!!!!!!!!!!!!";
             if(!finishStatus)
             {
@@ -67,46 +65,6 @@ public class TimeRecorder : MonoBehaviour
                 finishStatus = true;
             }
         }
-        // else{
-        //     log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n";
-        //     log.text += "CompleteObjects: " + CompleteObjects.Count + "\n";
-        //     log.text += "agentObject.GetComponent<GrabAgentObject>().TargetObjects: " + agentObject.GetComponent<GrabAgentObject>().TargetObjects.Count + "\n";
-        //     log.text += "FrameObjects: " + agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame.Count + "\n";
-        // }
-
-        foreach (var obj in agentObject.GetComponent<GrabAgentObject>().ObjectsOnFrame){
-            if(!MovingObjectStatus.ContainsKey(obj)) MovingObjectStatus.Add(obj, 0);
-            // log.text += "distance: " + Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) + "rotation: " + RotationGap(obj, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj]) + "\n";
-            if(!CompleteObjects.Contains(obj)){
-
-                if (Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) < 
-                    (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-                    RotationGap(obj, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj]) < 30f){
-                        MovingObjectStatus[obj] = 2;
-                        obj.GetComponent<Outline>().OutlineColor = Color.red;
-                        obj.GetComponent<Outline>().OutlineWidth = 6f;
-                }
-                else if (Vector3.Distance(obj.transform.position, agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position) < 
-                    (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f){
-                        MovingObjectStatus[obj] = 1;
-                        obj.GetComponent<Outline>().OutlineColor = Color.yellow;
-                        obj.GetComponent<Outline>().OutlineWidth = 4f;
-                }
-                else {
-                    MovingObjectStatus[obj] = 0;
-                    obj.GetComponent<Outline>().OutlineColor = Color.white;
-                }
-
-
-            }
-
-            if(MovingObjectStatus[obj] == 2 && !agentObject.GetComponent<GrabAgentObject>().movingStatus){
-                if(!CompleteObjects.Contains(obj)) CompleteObjects.Add(obj);
-                obj.transform.position = agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.position;
-                obj.transform.rotation = agentObject.GetComponent<GrabAgentObject>().TargetObjects[obj].transform.rotation;
-            }
-        }
-
         
         if (agentObject.GetComponent<GrabAgentObject>().MovingObject.Count > 0)
         {

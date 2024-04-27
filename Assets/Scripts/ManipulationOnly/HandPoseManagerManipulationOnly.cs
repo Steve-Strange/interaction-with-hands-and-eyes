@@ -12,10 +12,6 @@ using System.Diagnostics;
 
 public class HandPoseManagerManipulationOnly : MonoBehaviour
 {   public GameObject FinalObjects;
-    private GameObject ConnectorManager;
-    public GameObject collide;
-    public GameObject frameManager;
-    private GameObject frame;
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
     public Dictionary<GameObject, Vector3> objScale = new Dictionary<GameObject, Vector3>();
@@ -27,7 +23,6 @@ public class HandPoseManagerManipulationOnly : MonoBehaviour
     // public TMP_InputField log;
     public GameObject AgentObject;
     public GameObject RubbishBin;
-
 
     private float delayTime = 1f; // 延迟时间，单位为秒
     private float delayTimer = 0.0f; // 计时器
@@ -52,18 +47,6 @@ public class HandPoseManagerManipulationOnly : MonoBehaviour
     {
         // SecondSelectionBG = GameObject.Find("Objects/SecondSelectionBG");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
-        frame = GameObject.Find("frame");
-        ConnectorManager = GameObject.Find("ConnectorManager");
-        objScale.Add(GameObject.Find("frame/1"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/2"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/3"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/4"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/5"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/6"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/7"), new Vector3(0, 0, 0));
-        objScale.Add(GameObject.Find("frame/8"), new Vector3(0, 0, 0));
-        // StartSelect = GameObject.Find("HandPoses/HandPoseGenerator/StartSelect");
-        // clickSelect = GameObject.Find("clickSelect");
 
         Objects = GameObject.Find("Objects").transform;
     }
@@ -127,20 +110,14 @@ public class HandPoseManagerManipulationOnly : MonoBehaviour
                 EyeTrackingManager.SetActive(false);
                 //collide.GetComponent<collide>().enabled = true;
                 //collide.GetComponent<collide>().frame.GetComponent<frame>().creatRect();
-                frameManager.SetActive(true);
                 AgentObject.SetActive(false);
                 RubbishBin.SetActive(true);
-                collide.GetComponent<collide>().getFinalObject();
                 break;
             case 2:
                 AgentObject.SetActive(true);
                 FinalObjects.SetActive(false);
                 TimeRecorder.SetActive(true);
-                collide.GetComponent<collide>().anchorChoose();
-                frameManager.SetActive(false);
-                collide.GetComponent<collide>().enabled = false;
                 RubbishBin.SetActive(false);
-                ConnectorManager.GetComponent<ConnectorManager>().reverse();
                 break;
             case 3:
                 phase = 0;

@@ -65,7 +65,7 @@ public class clickSelect : MonoBehaviour
         // log.text = mark[0] + " " + mark[1] + " " + mark[2];
         selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
 
-        if (timer > clickPause && HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState)
+        if (timer > clickPause && HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && HandPoseManager.GetComponent<HandPoseManager>().PalmPoseState && HandPoseManager.GetComponent<HandPoseManager>().phase == 0)
         {
             for (int i = 0; i < 3; i++)
             {
