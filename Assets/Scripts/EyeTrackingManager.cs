@@ -110,7 +110,8 @@ public class EyeTrackingManager : MonoBehaviour
             centerSphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f) * Vector3.Distance(combineEyeGazeOriginInWorldSpace, hitInfo.point) / 9;
 
             // log.text += "\n" + "hitInfo: " + hitInfo.collider.gameObject.name;
-            if (hitInfo.collider.gameObject.tag == "Target")
+            
+            if (HandPoseManager.GetComponent<HandPoseManager>().phase == 0 && hitInfo.collider.gameObject.tag == "Target")
             {
                 if (eyeSelectedObject != hitInfo.collider.gameObject)
                 {

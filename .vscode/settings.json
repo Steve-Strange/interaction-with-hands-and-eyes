@@ -52,7 +52,7 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "interaction-with-hands-and-eyes-V2.sln",
+    "dotnet.defaultSolution": "interaction-with-hands-and-eyes.sln",
     "commentTranslate.multiLineMerge": true,
     "C_Cpp_Runner.cCompilerPath": "gcc",
     "C_Cpp_Runner.cppCompilerPath": "g++",

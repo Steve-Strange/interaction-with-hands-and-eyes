@@ -25541,6 +25541,7 @@ MonoBehaviour:
   index3: {fileID: 1396222579}
   middle0: {fileID: 1396222576}
   middle3: {fileID: 1396222578}
+  SightCone: {fileID: 694690244}
   FinalObjects: {fileID: 1448706620}
   clickPause: 0.1
 --- !u!4 &557356460
@@ -48934,7 +48935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1054329373
 Transform:
   m_ObjectHideFlags: 0
@@ -48964,7 +48965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pinch: {fileID: 1319298475}
   FinalObjects: {fileID: 1448706620}
-  GrabAgentObject: {fileID: 0}
+  GrabAgentObject: {fileID: 69162243}
 --- !u!65 &1054329375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65495,6 +65496,7 @@ MonoBehaviour:
   initFlag: 0
   log: {fileID: 1220399139}
   objectsWithTargets: []
+  StartSelectPose: {fileID: 1834328720}
 --- !u!4 &1700221526
 Transform:
   m_ObjectHideFlags: 0

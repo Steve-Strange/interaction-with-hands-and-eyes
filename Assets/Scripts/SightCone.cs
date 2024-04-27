@@ -68,39 +68,6 @@ public class SightCone : MonoBehaviour
         return distance;
     }
 
-
-    // IEnumerator UpdateObjectWeights()
-    // {
-    //     while (true)
-    //     {
-    //         yield return new WaitForSeconds(0.2f);
-    //         if(!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState 
-    //             && EyeTrackingManager.GetComponent<EyeTrackingManager>().isEyesOpen){
-    //             // 获取视线中心位置
-    //             foreach (GameObject obj in selectedObjects)
-    //             {
-    //                 // 计算物体到视线中心的距离
-    //                 float angle = IncludedAngleBetweenSightAndObject(obj.transform.position, transform.position, 
-    //                     EyeTrackingManager.GetComponent<EyeTrackingManager>().combineEyeGazeVectorInWorldSpace);
-                    
-    //                 objectWeights[obj] += 1/(angle / 2);
-    //                 if(obj.GetComponentInChildren<TextMeshPro>()){
-    //                     obj.GetComponentInChildren<TextMeshPro>().fontSize = 5;
-    //                     obj.GetComponentInChildren<TextMeshPro>().text = objectWeights[obj].ToShortString();
-    //                 }
-                    
-    //             }
-    //         }
-    //     }
-    // }
-
-    // float IncludedAngleBetweenSightAndObject(Vector3 point, Vector3 linePoint, Vector3 lineDirection)
-    // {
-    //     Vector3 pointToLinePoint = point - linePoint;
-    //     float distance = (pointToLinePoint - Vector3.Project(pointToLinePoint, lineDirection)).magnitude;
-    //     return Mathf.Atan(distance / Vector3.Project(pointToLinePoint, lineDirection).magnitude) * Mathf.Rad2Deg;
-    // }
-
     void OnTriggerEnter(Collider other)
     {
         if (!HandPoseManager.GetComponent<HandPoseManager>().SecondSelectionState && 

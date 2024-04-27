@@ -28,9 +28,9 @@ public class HandPoseManager : MonoBehaviour
     public GameObject RubbishBin;
 
 
-    private float delayPalmExitTime = 0.6f;
-    private float delayThumbHoldTimer = 0.4f;
-    private float delayThumbExitTimer = 0.4f;
+    private float delayPalmExitTime = 0.4f;
+    private float delayThumbHoldTimer = 0.3f;
+    private float delayThumbExitTimer = 0.3f;
     private float delayTimer = 0.0f;
     float thumbHoldTimer = 0;
     float thumbExitTimer = 0;
@@ -60,10 +60,10 @@ public class HandPoseManager : MonoBehaviour
     public bool initFlag = false;
     public TMP_InputField log;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
+    public GameObject StartSelectPose;
 
     void Start()
     {
-
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
 
@@ -264,7 +264,8 @@ public class HandPoseManager : MonoBehaviour
         thumbExitTimer = 0;
         thumbHoldState = true;
         thumbHoldTimer += Time.deltaTime;
-        if(thumbHoldTimer > delayThumbHoldTimer && !finishFlag){
+        if(SecondSelectionState && phase == 0) return;
+        else if(thumbHoldTimer > delayThumbHoldTimer && !finishFlag){
             phase++;
             ChangePhase(phase);
             thumbHoldTimer = 0;
@@ -281,14 +282,20 @@ public class HandPoseManager : MonoBehaviour
         switch (currentPhase)
         {
             case 1:
+                StartSelectPose.SetActive(false);
                 clickSelect.SetActive(false);
                 AgentObject.SetActive(true);
                 TimeRecorder.SetActive(true);
-                RubbishBin.SetActive(true);
                 SightCone.SetActive(false);
                 break;
             case 2:
                 phase = 0;
+                foreach (var obj in FinalObjects.GetComponent<FinalObjects>().finalObj)
+                {
+                    obj.GetComponent<Outline>().OutlineColor = Color.clear;
+                    obj.tag = "Target";
+                }
+                StartSelectPose.SetActive(true);
                 StartSelect.SetActive(true);
                 clickSelect.SetActive(true);
                 StartCoroutine(clickSelect.GetComponent<clickSelect>().GetFingerAngle());

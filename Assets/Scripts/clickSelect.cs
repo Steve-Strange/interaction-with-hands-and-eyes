@@ -18,15 +18,13 @@ public class clickSelect : MonoBehaviour
     public RaycastHit thumb, index, middle, ring, little;
     // public TMP_InputField log;
     // public TMP_Text  T2, T3, T4, T5, T6;
-    private GameObject SightCone;
+    public GameObject SightCone;
     public GameObject FinalObjects;
-
     float timer = 0;
     public float clickPause = 0.1f;
     void Start()
     {
         StartCoroutine(GetFingerAngle());
-        SightCone = GameObject.Find("SightCone");
     }
     public IEnumerator GetFingerAngle()
     {
