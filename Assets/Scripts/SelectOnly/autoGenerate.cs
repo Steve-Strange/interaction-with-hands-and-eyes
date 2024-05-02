@@ -12,7 +12,7 @@ public class autoGenerate : MonoBehaviour
     public Dictionary<GameObject, Vector3> poses = new Dictionary<GameObject, Vector3>();
     public GameObject father;
     public GameObject handPoseManagerSelectOnly;
-    public int targetNumber = 20;//每次的目标物体
+    public int targetNumber = 15;//每次的目标物体
     void Start()
     {
         if(GameObject.Find("recorder").GetComponent<singleSelect>().sampleType !=0)
