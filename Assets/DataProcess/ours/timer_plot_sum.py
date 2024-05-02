@@ -3,12 +3,14 @@ import numpy as np
 from collections import defaultdict
 import os
 
+width = 150
+height = 40
+
+fig, ax = plt.subplots(figsize=(width, height))
 
 def plot_timeline(data_dict, png_filename, event_typeToColor):
     # 定义颜色列表
     colors = ['r', 'g', 'b', 'y']
-    
-    fig, ax = plt.subplots(figsize=(120, 40))
 
     # 遍历每个事件类型
     finished_cnt = 0
@@ -21,7 +23,7 @@ def plot_timeline(data_dict, png_filename, event_typeToColor):
             finished_cnt += 1
 
     # 设置坐标轴标签和标题
-    ax.set_xlim(0, 40)
+    ax.set_xlim(0, 150)
     ax.set_ylim(0, 40)
     ax.tick_params(axis='both', which='both', labelsize=80)
     ax.set_xlabel('Time (s)', fontsize=100)
@@ -30,11 +32,11 @@ def plot_timeline(data_dict, png_filename, event_typeToColor):
 
     # 调整图片布局
     fig.tight_layout()
-    plt.savefig(f"{os.path.splitext(png_filename)[0]}.png")
 
 # 遍历当前文件夹下的所有 txt 文件
 for filename in os.listdir('.'):
     if filename.endswith('.txt'):
+        print(filename)
         data_dict = defaultdict(list)
         event_typeToColor = ["allSelectionTime", "onPalmPoseStart", "onPalmPoseExit", "onSecondSelectionBGDisappear"]
         # 尝试使用不同的编码方式读取文件
@@ -59,4 +61,4 @@ for filename in os.listdir('.'):
 
         plot_timeline(data_dict, filename, event_typeToColor)
         
-        
+plt.savefig(f"sum.png")

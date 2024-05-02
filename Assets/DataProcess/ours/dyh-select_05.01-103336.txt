@@ -1,0 +1,1377 @@
+onPalmPoseStart:3.640559
+
+onPalmPoseExit:  5.167742
+
+onSecondSelectionBGDisappear:  5.667841
+
+onPalmPoseStart:6.626257
+
+onPalmPoseExit:  7.01549
+
+onPalmPoseStart:7.37672
+
+onPalmPoseExit:  9.001862
+
+onSecondSelectionBGDisappear:  9.488167
+
+onPalmPoseStart:9.946474
+
+onPalmPoseExit:  11.72474
+
+onPalmPoseStart:11.89203
+
+onPalmPoseExit:  12.4055
+
+onPalmPoseStart:12.42015
+
+thisSelectionTime: 10.71051
+allSelectionTime: 13.71193
+onPalmPoseExit:  13.8227
+
+onPalmPoseStart:14.17033
+
+thisSelectionTime: 2.445194
+allSelectionTime: 16.15712
+onPalmPoseExit:  16.26884
+
+onPalmPoseStart:16.62932
+
+thisSelectionTime: 3.723501
+allSelectionTime: 19.88062
+onPalmPoseExit:  20.07494
+
+onPalmPoseStart:20.20013
+
+onPalmPoseExit:  20.78358
+
+onPalmPoseStart:21.14419
+
+onPalmPoseExit:  21.92218
+
+onPalmPoseStart:22.08867
+
+thisSelectionTime: 2.208044
+allSelectionTime: 22.08867
+onPalmPoseExit:  22.24182
+
+onPalmPoseStart:22.39443
+
+onPalmPoseExit:  22.92222
+
+onPalmPoseStart:23.15807
+
+onPalmPoseExit:  23.6722
+
+onSecondSelectionBGDisappear:  24.15844
+
+onPalmPoseStart:25.54698
+
+onPalmPoseExit:  27.03332
+
+onPalmPoseStart:27.18573
+
+onPalmPoseExit:  28.04704
+
+onPalmPoseStart:28.52005
+
+onPalmPoseExit:  28.82442
+
+onSecondSelectionBGDisappear:  29.32457
+
+onPalmPoseStart:29.56135
+
+onPalmPoseExit:  29.68605
+
+onSecondSelectionBGDisappear:  30.18609
+
+onPalmPoseStart:30.75578
+
+onPalmPoseExit:  30.82493
+
+onPalmPoseStart:30.93606
+
+onPalmPoseExit:  31.56113
+
+onPalmPoseStart:31.72772
+
+thisSelectionTime: 10.34755
+allSelectionTime: 32.43621
+onPalmPoseExit:  32.5752
+
+onSecondSelectionBGDisappear:  33.06181
+
+onPalmPoseStart:33.07568
+
+onPalmPoseExit:  33.6583
+
+onPalmPoseStart:33.78343
+
+onPalmPoseExit:  34.95044
+
+onSecondSelectionBGDisappear:  35.45044
+
+onPalmPoseStart:35.56149
+
+onPalmPoseExit:  38.33953
+
+onSecondSelectionBGDisappear:  38.82511
+
+onPalmPoseStart:38.89501
+
+onPalmPoseExit:  40.21428
+
+onSecondSelectionBGDisappear:  40.70059
+
+onPalmPoseStart:41.36708
+
+onPalmPoseExit:  41.56175
+
+onSecondSelectionBGDisappear:  42.06171
+
+onPalmPoseStart:42.32512
+
+onPalmPoseExit:  42.34077
+
+onPalmPoseStart:42.46408
+
+onPalmPoseExit:  42.47826
+
+onSecondSelectionBGDisappear:  42.97826
+
+onPalmPoseStart:43.39516
+
+onPalmPoseExit:  44.20081
+
+onSecondSelectionBGDisappear:  44.6866
+
+onPalmPoseStart:45.35407
+
+onPalmPoseExit:  46.04494
+
+onSecondSelectionBGDisappear:  46.53236
+
+onPalmPoseStart:46.67098
+
+onPalmPoseExit:  46.89355
+
+onSecondSelectionBGDisappear:  47.37983
+
+onPalmPoseStart:48.10311
+
+you wrong
+onPalmPoseExit:  48.24252
+
+onSecondSelectionBGDisappear:  48.72787
+
+onPalmPoseStart:50.42327
+
+onPalmPoseExit:  51.36697
+
+onPalmPoseStart:51.54743
+
+onPalmPoseExit:  51.82527
+
+onSecondSelectionBGDisappear:  52.3252
+
+onPalmPoseStart:55.86727
+
+onPalmPoseExit:  56.10334
+
+onSecondSelectionBGDisappear:  56.5899
+
+onPalmPoseStart:56.82561
+
+onPalmPoseExit:  56.84119
+
+onSecondSelectionBGDisappear:  57.33999
+
+onPalmPoseStart:57.70145
+
+onPalmPoseExit:  57.95164
+
+onSecondSelectionBGDisappear:  58.4367
+
+onPalmPoseStart:59.7981
+
+onPalmPoseExit:  60.10295
+
+onSecondSelectionBGDisappear:  60.59006
+
+onPalmPoseStart:61.31218
+
+onPalmPoseExit:  61.56212
+
+onSecondSelectionBGDisappear:  62.04779
+
+onPalmPoseStart:65.24322
+
+onPalmPoseExit:  66.18683
+
+onSecondSelectionBGDisappear:  66.68707
+
+onPalmPoseStart:68.32571
+
+onPalmPoseExit:  68.4788
+
+onPalmPoseStart:68.79825
+
+onPalmPoseExit:  69.048
+
+onPalmPoseStart:69.35384
+
+onPalmPoseExit:  74.13223
+
+onPalmPoseStart:74.34035
+
+onPalmPoseExit:  78.20135
+
+onPalmPoseStart:78.34034
+
+thisSelectionTime: 45.90413
+allSelectionTime: 78.34034
+onPalmPoseExit:  78.46471
+
+onPalmPoseStart:78.6036
+
+onPalmPoseExit:  79.13196
+
+onPalmPoseStart:79.39568
+
+onPalmPoseExit:  80.61816
+
+onSecondSelectionBGDisappear:  81.10414
+
+onPalmPoseStart:81.86786
+
+onPalmPoseExit:  82.59055
+
+onPalmPoseStart:83.06329
+
+onPalmPoseExit:  83.2431
+
+onPalmPoseStart:83.36877
+
+onPalmPoseExit:  84.257
+
+onPalmPoseStart:84.42344
+
+onPalmPoseExit:  84.74342
+
+onSecondSelectionBGDisappear:  85.24325
+
+onPalmPoseStart:85.31259
+
+onPalmPoseExit:  85.45202
+
+onSecondSelectionBGDisappear:  85.93777
+
+onPalmPoseStart:86.13252
+
+you wrong
+onPalmPoseExit:  87.07662
+
+onSecondSelectionBGDisappear:  87.57674
+
+onPalmPoseStart:87.81292
+
+onPalmPoseExit:  88.24347
+
+onSecondSelectionBGDisappear:  88.73003
+
+onPalmPoseStart:90.27158
+
+onPalmPoseExit:  90.99345
+
+onPalmPoseStart:91.42372
+
+onPalmPoseExit:  91.96534
+
+onSecondSelectionBGDisappear:  92.45208
+
+onPalmPoseStart:94.60487
+
+onPalmPoseExit:  98.86916
+
+onSecondSelectionBGDisappear:  99.3682
+
+onPalmPoseStart:100.3684
+
+onPalmPoseExit:  100.938
+
+onPalmPoseStart:101.2992
+
+onPalmPoseExit:  102.577
+
+onPalmPoseStart:102.7712
+
+onPalmPoseExit:  103.1885
+
+onPalmPoseStart:103.4653
+
+onPalmPoseExit:  103.8679
+
+onPalmPoseStart:104.2162
+
+thisSelectionTime: 26.11195
+allSelectionTime: 104.4523
+onPalmPoseExit:  104.7993
+
+onPalmPoseStart:104.9381
+
+onPalmPoseExit:  105.2024
+
+onSecondSelectionBGDisappear:  105.6987
+
+onPalmPoseStart:105.9492
+
+onPalmPoseExit:  106.3112
+
+onSecondSelectionBGDisappear:  106.8076
+
+onPalmPoseStart:106.8634
+
+onPalmPoseExit:  106.9883
+
+onPalmPoseStart:107.1969
+
+onPalmPoseExit:  107.4468
+
+onPalmPoseStart:107.8635
+
+onPalmPoseExit:  108.2245
+
+onPalmPoseStart:108.3773
+
+onPalmPoseExit:  108.6275
+
+onPalmPoseStart:109.1139
+
+onPalmPoseExit:  109.2247
+
+onPalmPoseStart:109.6142
+
+onPalmPoseExit:  110.4479
+
+onPalmPoseStart:110.6149
+
+onPalmPoseExit:  111.2542
+
+onPalmPoseStart:111.5458
+
+onPalmPoseExit:  112.7135
+
+onPalmPoseStart:112.8243
+
+onPalmPoseExit:  117.3403
+
+onSecondSelectionBGDisappear:  117.826
+
+onPalmPoseStart:118.2287
+
+onPalmPoseExit:  118.6315
+
+onSecondSelectionBGDisappear:  119.1176
+
+onPalmPoseStart:119.1601
+
+thisSelectionTime: 15.49909
+allSelectionTime: 119.9514
+onPalmPoseExit:  120.4649
+
+onPalmPoseStart:120.66
+
+you wrong
+onPalmPoseExit:  123.8132
+
+onSecondSelectionBGDisappear:  124.3131
+
+onPalmPoseStart:124.4942
+
+onPalmPoseExit:  124.6186
+
+onSecondSelectionBGDisappear:  125.1185
+
+onPalmPoseStart:125.4801
+
+you wrong
+onPalmPoseExit:  127.077
+
+onPalmPoseStart:127.2994
+
+onPalmPoseExit:  127.4657
+
+onPalmPoseStart:127.5772
+
+thisSelectionTime: 7.83416
+allSelectionTime: 127.7855
+onPalmPoseExit:  127.9105
+
+onPalmPoseStart:128.2581
+
+onPalmPoseExit:  130.531
+
+onPalmPoseStart:130.9057
+
+onPalmPoseExit:  131.3922
+
+onPalmPoseStart:131.6004
+
+thisSelectionTime: 3.939789
+allSelectionTime: 131.7253
+onPalmPoseExit:  131.8081
+
+onSecondSelectionBGDisappear:  132.2951
+
+onPalmPoseStart:132.3088
+
+thisSelectionTime: 2.057831
+allSelectionTime: 133.7832
+you wrong
+onPalmPoseExit:  135.4777
+
+onPalmPoseStart:135.8117
+
+thisSelectionTime: 2.222305
+allSelectionTime: 136.0055
+onPalmPoseExit:  136.1171
+
+onPalmPoseStart:136.6033
+
+onPalmPoseExit:  136.7668
+
+onPalmPoseStart:137.1974
+
+thisSelectionTime: 1.664841
+allSelectionTime: 137.6703
+onPalmPoseExit:  137.7251
+
+onPalmPoseStart:138.1561
+
+onPalmPoseExit:  139.128
+
+onPalmPoseStart:139.1422
+
+onPalmPoseExit:  139.3507
+
+onPalmPoseStart:139.6979
+
+onPalmPoseExit:  139.9203
+
+onSecondSelectionBGDisappear:  140.4065
+
+onPalmPoseStart:140.5039
+
+onPalmPoseExit:  140.9627
+
+onPalmPoseStart:141.0737
+
+onPalmPoseExit:  141.6299
+
+onPalmPoseStart:142.1032
+
+onPalmPoseExit:  142.2415
+
+onPalmPoseStart:142.3525
+
+onPalmPoseExit:  142.9226
+
+onPalmPoseStart:143.131
+
+onPalmPoseExit:  143.4511
+
+onPalmPoseStart:143.4642
+
+onPalmPoseExit:  144.2564
+
+onPalmPoseStart:144.3954
+
+you wrong
+onPalmPoseExit:  145.3127
+
+onPalmPoseStart:145.6454
+
+onPalmPoseExit:  145.7573
+
+onPalmPoseStart:146.2575
+
+onPalmPoseExit:  146.4646
+
+onSecondSelectionBGDisappear:  146.9516
+
+onPalmPoseStart:148.049
+
+onPalmPoseExit:  148.3683
+
+onPalmPoseStart:148.674
+
+onPalmPoseExit:  149.7298
+
+onPalmPoseStart:150.0217
+
+onPalmPoseExit:  150.2433
+
+onSecondSelectionBGDisappear:  150.73
+
+onPalmPoseStart:151.6327
+
+thisSelectionTime: 14.94841
+allSelectionTime: 152.6187
+onPalmPoseExit:  152.7027
+
+onSecondSelectionBGDisappear:  153.1882
+
+onPalmPoseStart:153.2029
+
+onPalmPoseExit:  154.9946
+
+onSecondSelectionBGDisappear:  155.4945
+
+onPalmPoseStart:158.3278
+
+onPalmPoseExit:  158.6753
+
+onSecondSelectionBGDisappear:  159.1753
+
+onPalmPoseStart:161.7449
+
+onPalmPoseExit:  162.8279
+
+onPalmPoseStart:162.9392
+
+onPalmPoseExit:  162.9532
+
+onSecondSelectionBGDisappear:  163.4396
+
+onPalmPoseStart:163.4816
+
+onPalmPoseExit:  163.828
+
+onSecondSelectionBGDisappear:  164.3281
+
+onPalmPoseStart:164.5643
+
+onPalmPoseExit:  165.0926
+
+onSecondSelectionBGDisappear:  165.5926
+
+onPalmPoseStart:167.0643
+
+onPalmPoseExit:  167.0798
+
+onPalmPoseStart:167.2729
+
+thisSelectionTime: 15.55704
+allSelectionTime: 168.1758
+onPalmPoseExit:  168.3148
+
+onPalmPoseStart:168.6203
+
+onPalmPoseExit:  169.7587
+
+onPalmPoseStart:170.0232
+
+onPalmPoseExit:  170.1477
+
+onSecondSelectionBGDisappear:  170.6344
+
+onPalmPoseStart:170.7317
+
+onPalmPoseExit:  170.7461
+
+onSecondSelectionBGDisappear:  171.2453
+
+onPalmPoseStart:173.3557
+
+onPalmPoseExit:  175.4816
+
+onPalmPoseStart:175.6616
+
+thisSelectionTime: 7.90213
+allSelectionTime: 176.0779
+onPalmPoseExit:  176.1611
+
+onPalmPoseStart:176.5779
+
+thisSelectionTime: 2.445099
+allSelectionTime: 178.523
+onPalmPoseExit:  181.5514
+
+onSecondSelectionBGDisappear:  182.0513
+
+onPalmPoseStart:184.9815
+
+onPalmPoseExit:  185.189
+
+onSecondSelectionBGDisappear:  185.6752
+
+onPalmPoseStart:186.9813
+
+onPalmPoseExit:  187.4678
+
+onSecondSelectionBGDisappear:  187.9679
+
+onPalmPoseStart:188.4682
+
+thisSelectionTime: 11.11197
+allSelectionTime: 189.6349
+onPalmPoseExit:  189.7039
+
+onPalmPoseStart:189.968
+
+onPalmPoseExit:  190.5233
+
+onSecondSelectionBGDisappear:  191.0102
+
+onPalmPoseStart:192.6757
+
+onPalmPoseExit:  193.7861
+
+onPalmPoseStart:194.2458
+
+onPalmPoseExit:  197.593
+
+onPalmPoseStart:197.8844
+
+onPalmPoseExit:  199.9543
+
+onPalmPoseStart:200.2458
+
+onPalmPoseExit:  200.3709
+
+onPalmPoseStart:200.6214
+
+onPalmPoseExit:  202.704
+
+onPalmPoseStart:202.7179
+
+onPalmPoseExit:  203.1213
+
+onPalmPoseStart:203.302
+
+onPalmPoseExit:  203.6216
+
+onPalmPoseStart:203.7598
+
+onPalmPoseExit:  203.9682
+
+onSecondSelectionBGDisappear:  204.4547
+
+onPalmPoseStart:207.579
+
+onPalmPoseExit:  208.1208
+
+onPalmPoseStart:208.1344
+
+onPalmPoseExit:  209.8427
+
+onSecondSelectionBGDisappear:  210.3282
+
+onPalmPoseStart:210.4538
+
+you wrong
+onPalmPoseExit:  210.5923
+
+onPalmPoseStart:210.8426
+
+onPalmPoseExit:  212.537
+
+onSecondSelectionBGDisappear:  213.0236
+
+onPalmPoseStart:216.1759
+
+onPalmPoseExit:  216.7594
+
+onPalmPoseStart:217.0797
+
+onPalmPoseExit:  217.2744
+
+onPalmPoseStart:217.6626
+
+thisSelectionTime: 28.72182
+allSelectionTime: 218.3568
+onPalmPoseExit:  220.7454
+
+onPalmPoseStart:220.8841
+
+onPalmPoseExit:  221.0649
+
+onPalmPoseStart:221.3151
+
+onPalmPoseExit:  221.4676
+
+onPalmPoseStart:221.4818
+
+thisSelectionTime: 3.166428
+allSelectionTime: 221.5232
+thisSelectionTime: 3.111847
+allSelectionTime: 224.635
+onPalmPoseExit:  225.5235
+
+onPalmPoseStart:225.5376
+
+thisSelectionTime: 1.277817
+allSelectionTime: 225.9129
+onPalmPoseExit:  226.2326
+
+onPalmPoseStart:226.3428
+
+onPalmPoseExit:  226.8297
+
+onSecondSelectionBGDisappear:  227.33
+
+onPalmPoseStart:227.6633
+
+onPalmPoseExit:  227.9264
+
+onSecondSelectionBGDisappear:  228.4129
+
+onPalmPoseStart:228.4413
+
+onPalmPoseExit:  230.2602
+
+onPalmPoseStart:230.3846
+
+onPalmPoseExit:  231.0519
+
+onPalmPoseStart:231.4132
+
+onPalmPoseExit:  231.7602
+
+onPalmPoseStart:232.1361
+
+thisSelectionTime: 6.444489
+allSelectionTime: 232.3573
+onPalmPoseExit:  232.4681
+
+onPalmPoseStart:232.8714
+
+onPalmPoseExit:  233.2041
+
+onSecondSelectionBGDisappear:  233.6912
+
+onPalmPoseStart:234.6632
+
+onPalmPoseExit:  234.6782
+
+onPalmPoseStart:234.816
+
+thisSelectionTime: 3.388931
+allSelectionTime: 235.7463
+onPalmPoseExit:  235.8021
+
+onPalmPoseStart:236.2045
+
+onPalmPoseExit:  236.8019
+
+onPalmPoseStart:236.9413
+
+onPalmPoseExit:  237.1072
+
+onSecondSelectionBGDisappear:  237.5938
+
+onPalmPoseStart:239.0659
+
+onPalmPoseExit:  239.7046
+
+onSecondSelectionBGDisappear:  240.2044
+
+onPalmPoseStart:243.3853
+
+onPalmPoseExit:  243.6075
+
+onPalmPoseStart:244.0237
+
+onPalmPoseExit:  246.9552
+
+onPalmPoseStart:247.1772
+
+onPalmPoseExit:  248.7882
+
+onPalmPoseStart:248.9686
+
+thisSelectionTime: 13.55635
+allSelectionTime: 249.3026
+onPalmPoseExit:  250.5384
+
+onPalmPoseStart:250.6913
+
+onPalmPoseExit:  251.6357
+
+onPalmPoseStart:251.8999
+
+onPalmPoseExit:  253.1498
+
+onPalmPoseStart:253.2884
+
+onPalmPoseExit:  254.4001
+
+onPalmPoseStart:254.7749
+
+onPalmPoseExit:  257.2044
+
+onPalmPoseStart:257.4414
+
+onPalmPoseExit:  258.8579
+
+onPalmPoseStart:259.053
+
+onPalmPoseExit:  260.3309
+
+onPalmPoseStart:260.4554
+
+onPalmPoseExit:  260.9137
+
+onPalmPoseStart:261.1356
+
+onPalmPoseExit:  261.5244
+
+onSecondSelectionBGDisappear:  262.011
+
+onPalmPoseStart:262.6229
+
+onPalmPoseExit:  262.8856
+
+onPalmPoseStart:263.2049
+
+thisSelectionTime: 14.38875
+allSelectionTime: 263.6914
+onPalmPoseExit:  264.8437
+
+onSecondSelectionBGDisappear:  265.3309
+
+onPalmPoseStart:265.3585
+
+you wrong
+onPalmPoseExit:  265.7051
+
+onPalmPoseStart:265.9272
+
+onPalmPoseExit:  266.3164
+
+onPalmPoseStart:266.4271
+
+onPalmPoseExit:  266.4416
+
+onPalmPoseStart:266.7333
+
+onPalmPoseExit:  267.4272
+
+onPalmPoseStart:267.7052
+
+onPalmPoseExit:  267.8437
+
+onSecondSelectionBGDisappear:  268.3427
+
+onPalmPoseStart:269.0202
+
+onPalmPoseExit:  269.6862
+
+onPalmPoseStart:270.0335
+
+onPalmPoseExit:  270.0471
+
+onPalmPoseStart:270.2278
+
+thisSelectionTime: 7.272797
+allSelectionTime: 270.9642
+onPalmPoseExit:  271.4096
+
+onPalmPoseStart:271.7404
+
+onPalmPoseExit:  271.8524
+
+onPalmPoseStart:272.0196
+
+thisSelectionTime: 1.277924
+allSelectionTime: 272.2421
+onPalmPoseExit:  272.3393
+
+onPalmPoseStart:272.5474
+
+onPalmPoseExit:  272.5632
+
+onPalmPoseStart:272.7283
+
+thisSelectionTime: 1.723907
+allSelectionTime: 273.966
+onPalmPoseExit:  274.7032
+
+onSecondSelectionBGDisappear:  275.2023
+
+onPalmPoseStart:275.3983
+
+onPalmPoseExit:  275.6481
+
+onPalmPoseStart:275.8706
+
+onPalmPoseExit:  276.2873
+
+onSecondSelectionBGDisappear:  276.7873
+
+onPalmPoseStart:276.8987
+
+onPalmPoseExit:  277.4264
+
+onPalmPoseStart:277.7325
+
+you wrong
+onPalmPoseExit:  277.9681
+
+onPalmPoseStart:278.3157
+
+onPalmPoseExit:  278.5799
+
+onPalmPoseStart:278.5934
+
+thisSelectionTime: 4.891357
+allSelectionTime: 278.8574
+onPalmPoseExit:  278.9547
+
+onPalmPoseStart:279.3022
+
+onPalmPoseExit:  279.8994
+
+onPalmPoseStart:280.0524
+
+onPalmPoseExit:  280.1912
+
+onPalmPoseStart:280.4413
+
+thisSelectionTime: 1.833771
+allSelectionTime: 280.6911
+onPalmPoseExit:  280.8163
+
+onPalmPoseStart:281.3024
+
+onPalmPoseExit:  281.7878
+
+onSecondSelectionBGDisappear:  282.2882
+
+onPalmPoseStart:283.4419
+
+onPalmPoseExit:  283.5663
+
+onSecondSelectionBGDisappear:  284.0658
+
+onPalmPoseStart:284.1779
+
+thisSelectionTime: 4.555664
+allSelectionTime: 285.2468
+onPalmPoseExit:  285.303
+
+onPalmPoseStart:285.5665
+
+onPalmPoseExit:  286.8444
+
+onPalmPoseStart:286.97
+
+onPalmPoseExit:  287.0811
+
+onPalmPoseStart:287.2757
+
+thisSelectionTime: 2.02887
+allSelectionTime: 287.2757
+onPalmPoseExit:  287.4426
+
+onPalmPoseStart:287.4561
+
+onPalmPoseExit:  287.6783
+
+onPalmPoseStart:287.9428
+
+onPalmPoseExit:  288.1781
+
+onSecondSelectionBGDisappear:  288.678
+
+onPalmPoseStart:288.7203
+
+you wrong
+onPalmPoseExit:  288.8728
+
+onSecondSelectionBGDisappear:  289.3591
+
+onPalmPoseStart:289.6647
+
+onPalmPoseExit:  289.6808
+
+onSecondSelectionBGDisappear:  290.1785
+
+onPalmPoseStart:291.2904
+
+onPalmPoseExit:  291.5261
+
+onSecondSelectionBGDisappear:  292.0261
+
+onPalmPoseStart:295.4992
+
+onPalmPoseExit:  296.0819
+
+onSecondSelectionBGDisappear:  296.568
+
+onPalmPoseStart:297.0964
+
+onPalmPoseExit:  297.3602
+
+onPalmPoseStart:297.8459
+
+onPalmPoseExit:  297.9851
+
+onSecondSelectionBGDisappear:  298.485
+
+onPalmPoseStart:299.402
+
+onPalmPoseExit:  300.5411
+
+onPalmPoseStart:300.7216
+
+onPalmPoseExit:  301.1236
+
+onPalmPoseStart:301.277
+
+onPalmPoseExit:  301.5131
+
+onPalmPoseStart:301.6937
+
+thisSelectionTime: 14.86237
+allSelectionTime: 302.138
+onPalmPoseExit:  303.6939
+
+onPalmPoseStart:303.972
+
+onPalmPoseExit:  304.8607
+
+onPalmPoseStart:305.2355
+
+thisSelectionTime: 3.500153
+allSelectionTime: 305.6382
+onPalmPoseExit:  307.3045
+
+onPalmPoseStart:307.4993
+
+onPalmPoseExit:  308.278
+
+onPalmPoseStart:308.6241
+
+onPalmPoseExit:  308.8328
+
+onPalmPoseStart:308.9442
+
+onPalmPoseExit:  309.1384
+
+onPalmPoseStart:309.4023
+
+onPalmPoseExit:  309.5833
+
+onSecondSelectionBGDisappear:  310.0829
+
+onPalmPoseStart:310.2355
+
+onPalmPoseExit:  310.3607
+
+onPalmPoseStart:310.7075
+
+onPalmPoseExit:  310.9025
+
+onPalmPoseStart:311.2912
+
+onPalmPoseExit:  311.5134
+
+onSecondSelectionBGDisappear:  311.9996
+
+onPalmPoseStart:312.3751
+
+onPalmPoseExit:  312.4162
+
+onPalmPoseStart:312.5415
+
+onPalmPoseExit:  313.3747
+
+onSecondSelectionBGDisappear:  313.8745
+
+onPalmPoseStart:315.2645
+
+onPalmPoseExit:  316.1383
+
+onPalmPoseStart:316.2639
+
+onPalmPoseExit:  316.7219
+
+onPalmPoseStart:316.8881
+
+onPalmPoseExit:  317.4997
+
+onSecondSelectionBGDisappear:  317.9994
+
+onPalmPoseStart:318.2223
+
+onPalmPoseExit:  318.7355
+
+onPalmPoseStart:318.9576
+
+thisSelectionTime: 14.11072
+allSelectionTime: 319.7489
+onPalmPoseExit:  319.8327
+
+onPalmPoseStart:320.0969
+
+onPalmPoseExit:  321.291
+
+onSecondSelectionBGDisappear:  321.777
+
+onPalmPoseStart:321.7924
+
+you wrong
+you wrong
+onPalmPoseExit:  322.3188
+
+onSecondSelectionBGDisappear:  322.8051
+
+onPalmPoseStart:323.1804
+
+onPalmPoseExit:  324.1524
+
+onSecondSelectionBGDisappear:  324.6525
+
+onPalmPoseStart:325.6944
+
+onPalmPoseExit:  325.7358
+
+onSecondSelectionBGDisappear:  326.2222
+
+onPalmPoseStart:326.3331
+
+you wrong
+onPalmPoseExit:  328.4026
+
+onSecondSelectionBGDisappear:  328.8885
+
+onPalmPoseStart:329.2082
+
+onPalmPoseExit:  330.1526
+
+onSecondSelectionBGDisappear:  330.6529
+
+onPalmPoseStart:332.568
+
+onPalmPoseExit:  332.7487
+
+onSecondSelectionBGDisappear:  333.2487
+
+onPalmPoseStart:334.3459
+
+thisSelectionTime: 17.55658
+allSelectionTime: 337.3055
+onPalmPoseExit:  337.4861
+
+onPalmPoseStart:337.6247
+
+onPalmPoseExit:  338.0564
+
+onPalmPoseStart:338.4727
+
+onPalmPoseExit:  339.2225
+
+onPalmPoseStart:339.4441
+
+onPalmPoseExit:  339.6392
+
+onSecondSelectionBGDisappear:  340.1248
+
+onPalmPoseStart:340.2777
+
+onPalmPoseExit:  340.2929
+
+onPalmPoseStart:340.4442
+
+onPalmPoseExit:  340.7778
+
+onSecondSelectionBGDisappear:  341.2669
+
+onPalmPoseStart:341.5693
+
+onPalmPoseExit:  342.2083
+
+onPalmPoseStart:342.5973
+
+thisSelectionTime: 5.945221
+allSelectionTime: 343.2507
+onPalmPoseExit:  343.348
+
+onPalmPoseStart:343.6389
+
+onPalmPoseExit:  344.4857
+
+onPalmPoseStart:344.6948
+
+onPalmPoseExit:  345.1391
+
+onSecondSelectionBGDisappear:  345.6394
+
+onPalmPoseStart:345.7082
+
+you wrong
+onPalmPoseExit:  346.3754
+
+onSecondSelectionBGDisappear:  346.8622
+
+onPalmPoseStart:348.18
+
+onPalmPoseExit:  348.4727
+
+onPalmPoseStart:348.4859
+
+onPalmPoseExit:  350.5977
+
+onPalmPoseStart:350.7083
+
+onPalmPoseExit:  351.0841
+
+onPalmPoseStart:351.4864
+
+onPalmPoseExit:  351.7507
+
+onSecondSelectionBGDisappear:  352.2511
+
+onPalmPoseStart:352.889
+
+onPalmPoseExit:  353.2924
+
+onPalmPoseStart:353.459
+
+onPalmPoseExit:  355.8059
+
+onSecondSelectionBGDisappear:  356.3059
+
+onPalmPoseStart:357.5551
+
+onPalmPoseExit:  357.6659
+
+onPalmPoseStart:357.68
+
+onPalmPoseExit:  359.5268
+
+onPalmPoseStart:359.5412
+
+thisSelectionTime: 16.66553
+allSelectionTime: 359.9162
+onPalmPoseExit:  360.0133
+
+onPalmPoseStart:360.2638
+
+onPalmPoseExit:  361.5134
+
+onSecondSelectionBGDisappear:  362.0135
+
+onPalmPoseStart:362.5548
+
+onPalmPoseExit:  362.8463
+
+onSecondSelectionBGDisappear:  363.3326
+
+onPalmPoseStart:364.4574
+
+onPalmPoseExit:  365.7084
+
+onSecondSelectionBGDisappear:  366.2076
+
+onPalmPoseStart:367.9164
+
+onPalmPoseExit:  368.1799
+
+onSecondSelectionBGDisappear:  368.6658
+
+onPalmPoseStart:368.8746
+
+onPalmPoseExit:  369.5418
+
+onSecondSelectionBGDisappear:  370.0411
+
+onPalmPoseStart:372.2775
+
+onPalmPoseExit:  373.625
+
+onPalmPoseStart:373.8475
+
+onPalmPoseExit:  374.0704
+
+onPalmPoseStart:374.2639
+
+onPalmPoseExit:  374.5703
+
+onPalmPoseStart:375.042
+
+onPalmPoseExit:  375.1949
+
+onPalmPoseStart:375.5143
+
+onPalmPoseExit:  375.9444
+
+onSecondSelectionBGDisappear:  376.4445
+
+onPalmPoseStart:376.9034
+
+onPalmPoseExit:  376.9181
+
+onPalmPoseStart:377.0272
+
+onPalmPoseExit:  378.4435
+
+onSecondSelectionBGDisappear:  378.9303
+
+onPalmPoseStart:380.305
+
+onPalmPoseExit:  380.5272
+
+onPalmPoseStart:380.8048
+
+you wrong
+you wrong
+onPalmPoseExit:  381.5135
+
+onSecondSelectionBGDisappear:  382
+
+onPalmPoseStart:384.0836
+
+onPalmPoseExit:  384.3048
+
+onPalmPoseStart:384.5273
+
+onPalmPoseExit:  385.3611
+
+onSecondSelectionBGDisappear:  385.8613
+
+onPalmPoseStart:388.3611
+
+you wrong
+onPalmPoseExit:  389.9415
+
+onSecondSelectionBGDisappear:  390.4276
+
+onPalmPoseStart:392.8613
+
+onPalmPoseExit:  394.4854
+
+onPalmPoseStart:394.9591
+
+onPalmPoseExit:  394.973
+
+onPalmPoseStart:395.2368
+
+onPalmPoseExit:  395.5699
+
+onSecondSelectionBGDisappear:  396.0693
+
+onPalmPoseStart:397.375
+
+you wrong
+onPalmPoseExit:  400.2636
+
+onPalmPoseStart:400.4168
+
+onPalmPoseExit:  401.5275
+
+onPalmPoseStart:401.6945
+
+thisSelectionTime: 42.11124
+allSelectionTime: 402.0275
+wrong18
