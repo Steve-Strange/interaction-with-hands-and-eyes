@@ -5850,16 +5850,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c3692051ab4204b913633b7989476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: wzt
+  userName: fjy
   sampleType: 0
   targetGameobject: []
   timer: 0
   beginSelectTime: 0
   beginManipulateTime: 0
   beginFineManipulateTime: 0
-  t: {fileID: 0}
-  t2: {fileID: 0}
-  t3: {fileID: 0}
 --- !u!4 &705790559
 Transform:
   m_ObjectHideFlags: 0
@@ -8015,11 +8012,6 @@ MonoBehaviour:
   autoGenerate: {fileID: 1285612817}
   recorder: {fileID: 705790557}
   finalObj: []
-  T2: {fileID: 739891424}
-  T3: {fileID: 0}
-  T4: {fileID: 0}
-  T5: {fileID: 0}
-  T6: {fileID: 0}
 --- !u!1 &865985456
 GameObject:
   m_ObjectHideFlags: 0
@@ -8918,6 +8910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pinch: {fileID: 1543932216}
   FinalObjects: {fileID: 847159414}
+  GrabAgentObject: {fileID: 0}
 --- !u!65 &932775554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12487,7 +12480,6 @@ MonoBehaviour:
   MovingObject: []
   AutoAdjustStatus: 0
   FinishedObjects: []
-  ObjectsOnFrame: []
   initFlag: 0
 --- !u!54 &1337636862
 Rigidbody:
@@ -13622,72 +13614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21ddafe8140aad4db113db3c767f6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 0}
-  connectorManager: {fileID: 1832258188}
-  cor:
-  - {fileID: 2032431106}
-  - {fileID: 803728084}
-  - {fileID: 1968377144}
-  - {fileID: 1966207564}
-  - {fileID: 1455430320}
-  - {fileID: 1578143681}
-  - {fileID: 1690078161}
-  - {fileID: 869400580}
-  collideObject: {fileID: 1543932216}
-  head: {fileID: 110044877}
-  Frame: 
-  rectCorner: []
-  triCorner:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  R: 0.1
-  circle:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  paraCorner:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  penCorner:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  starCorner:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  cubeCorner:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  line_2: {fileID: 1395355253}
-  line_3: {fileID: 136730137}
-  line_4: {fileID: 1012759691}
-  line_5: {fileID: 1370891769}
-  line_6: {fileID: 1369225851}
-  lineMaterial: {fileID: 2100000, guid: f8e8bfc8eeb914158a079e7c2498dddd, type: 2}
-  number: 0
-  objSize: 0
-  center: {x: 0, y: 0, z: 0}
-  rectPosition: []
-  circlePosition: []
-  triPosition: []
-  penPosition: []
-  starPosition: []
-  cubePosition: []
-  paraPosition: []
 --- !u!4 &1450408277
 Transform:
   m_ObjectHideFlags: 0
@@ -14933,9 +14859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4965f9f1b09d44cb622bdffdd985fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frame: {fileID: 1450408275}
-  FinalObjects: {fileID: 847159414}
-  Agent: {fileID: 1337636859}
 --- !u!114 &1543932218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14948,39 +14871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fe2fdad64e3be47b34e113c76bf6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorManager: {fileID: 1832258188}
-  GrabAgent: {fileID: 1337636859}
-  pinch: {fileID: 1543932216}
-  frameManager: {fileID: 1364980153}
-  handPoseManager: {fileID: 1974733848}
-  thumb: {fileID: 843537529}
-  index: {fileID: 843537525}
-  ispinch: 0
-  frame: {fileID: 1450408275}
-  frameMark: 
-  type: 
-  FinalObjects: {fileID: 847159414}
-  finalObj: []
-  anchor: []
-  onFrame: []
-  rect: []
-  rectMark: 0000000000000000000000000000000000000000000000000000000000000000
-  tri: []
-  triMark: 0000000000000000000000000000000000000000000000000000000000000000
-  circle: []
-  mark: 0
-  para: []
-  paraMark: 0000000000000000000000000000000000000000000000000000000000000000
-  pen: []
-  penMark: 0000000000000000000000000000000000000000000000000000000000000000
-  star:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  starMark: 0000000000000000000000000000000000000000000000000000000000000000
-  cube: []
-  cubeMark: 0000000000000000000000000000000000000000000000000000000000000000
-  temp: {fileID: 0}
 --- !u!114 &1543932219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17075,9 +16965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentObject: {fileID: 1337636859}
   CompleteObjects: []
-  frame: {fileID: 0}
   pinchObject: {fileID: 1543932216}
-  MovingTime: 0
   coarseMovingTime: 0
   userName: wzt
 --- !u!4 &1763803122
@@ -17401,20 +17289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286d544c90627314a849dba0f127b224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frame: {fileID: 1450408275}
-  collide: {fileID: 1543932216}
-  frameCenter: {x: 0, y: 0, z: 0}
-  frameScale: {x: 0, y: 0, z: 0}
-  Objects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  emptyObjects: []
-  AgentObject: {fileID: 1337636859}
-  TimeRecorder: {fileID: 1763803120}
-  frameAgent: {fileID: 0}
-  newObjects: []
 --- !u!4 &1832258190
 Transform:
   m_ObjectHideFlags: 0

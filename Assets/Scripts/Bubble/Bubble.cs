@@ -62,7 +62,7 @@ public class Bubble : MonoBehaviour
         //
         finishNumber = 0;
         selectingObject = false;
-        needNumber = 30;
+        needNumber = 20;
 
     }
     public void FindChilds(GameObject OBJ)
@@ -301,7 +301,7 @@ public class Bubble : MonoBehaviour
     }
         public void follow()
     {
-        transform.position = 4 * (palm.transform.position - palmOrigin) + bubbleOrigin;
+        transform.position = 8 * (palm.transform.position - palmOrigin) + bubbleOrigin;
     }
     private int time = 0;
     public void UpdateLine()
@@ -418,12 +418,18 @@ public class Bubble : MonoBehaviour
                         recorder.GetComponent<singleSelect>().selectOneObject();
                         autoGenerate.GetComponent<autoGenerate>().targets.Remove(target[select]);//防止多选
                         finishNumber += 1;
-                        autoGenerate.GetComponent<autoGenerate>().genOneBubble();
+                        
                         if(finishNumber == needNumber)
                         {
-                            recorder.GetComponent<singleSelect>().writeFile("selectWrong:" + wrongTime);
-                            recorder.GetComponent<singleSelect>().finishAll();
-                            autoGenerate.SetActive(false);   
+                            finishNumber = 0;
+                            autoGenerate.GetComponent<autoGenerate>().reGenerate();
+                            round += 1;
+                            if (round == 2){   
+                                recorder.GetComponent<singleSelect>().writeFile("selectWrong:" + wrongTime);
+                                recorder.GetComponent<singleSelect>().finishAll();
+                                autoGenerate.SetActive(false); 
+                            }
+                              
                         }
                     }
                     else

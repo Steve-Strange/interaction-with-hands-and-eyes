@@ -53,9 +53,9 @@ public class clickSelectSelectOnly : MonoBehaviour
 
             if(gap[0]<-9) mark[0] = true;
             else mark[0] = false;
-            if(gap[1]<-13) mark[1] = true;
+            if(gap[1]<-15) mark[1] = true;
             else mark[1] = false;
-            if(gap[2]<-13) mark[2] = true;
+            if(gap[2]<-15) mark[2] = true;
             else mark[2] = false;
 
             // 等待0.1秒

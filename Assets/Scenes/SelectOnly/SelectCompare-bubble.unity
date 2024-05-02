@@ -1086,15 +1086,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c3692051ab4204b913633b7989476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: dyh
+  userName: qym
   sampleType: 0
   targetGameobject: []
+  timer: 0
   beginSelectTime: 0
   beginManipulateTime: 0
   beginFineManipulateTime: 0
-  t: {fileID: 0}
-  t2: {fileID: 0}
-  t3: {fileID: 0}
 --- !u!4 &159938898
 Transform:
   m_ObjectHideFlags: 0
@@ -5594,7 +5592,6 @@ MonoBehaviour:
   - {fileID: 2128913015}
   - {fileID: 1469456141}
   - {fileID: 1765288310}
-  t: {fileID: 958168086}
   selectingObject: 0
   _meshRenderers: []
 --- !u!135 &676955753
