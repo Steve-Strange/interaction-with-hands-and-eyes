@@ -72,3 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Scenes/Museum0/LightingData.asset
 Assets/Scenes/Museum0/LightingData.asset.meta
+ProjectSettings/ProjectSettings.asset
