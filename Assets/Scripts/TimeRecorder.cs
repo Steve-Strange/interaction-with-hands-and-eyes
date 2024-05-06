@@ -34,7 +34,7 @@ public class TimeRecorder : MonoBehaviour
 
         // 获取外部存储器的路径
         folderPath = Application.persistentDataPath;
-        fileName = userName + "-" + System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
+        fileName = userName + "-" + System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
 
         // 设置文件路径和名称
         filePath = Path.Combine(folderPath, fileName);

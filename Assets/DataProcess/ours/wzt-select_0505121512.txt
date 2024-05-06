@@ -1,0 +1,134 @@
+onPalmPoseStart:1.730566
+
+thisSelectionTime: 2.758541
+allSelectionTime: 2.758541
+thisSelectionTime: 0.2491651
+allSelectionTime: 3.257585
+onPalmPoseExit:  3.410196
+
+onPalmPoseStart:3.425751
+
+thisSelectionTime: 0.3335166
+allSelectionTime: 3.591102
+onPalmPoseExit:  3.730541
+
+onPalmPoseStart:3.939373
+
+thisSelectionTime: 1.889953
+allSelectionTime: 5.481055
+onPalmPoseExit:  5.897054
+
+onSecondSelectionBGDisappear:  6.395641
+
+onPalmPoseStart:9.106739
+
+thisSelectionTime: 4.181639
+allSelectionTime: 9.662694
+onPalmPoseExit:  9.759079
+
+onPalmPoseStart:9.953382
+
+thisSelectionTime: 0.6100483
+allSelectionTime: 10.27274
+thisSelectionTime: 0.7779989
+allSelectionTime: 11.05074
+thisSelectionTime: 0
+allSelectionTime: 11.05074
+thisSelectionTime: 0
+allSelectionTime: 11.05074
+onPalmPoseExit:  11.16275
+
+onPalmPoseStart:11.35755
+
+thisSelectionTime: 0.6679344
+allSelectionTime: 11.71868
+onPalmPoseExit:  11.87183
+
+onPalmPoseStart:11.8861
+
+thisSelectionTime: 1.001112
+allSelectionTime: 12.71979
+onPalmPoseExit:  13.09431
+
+onSecondSelectionBGDisappear:  13.59445
+
+onPalmPoseStart:15.51186
+
+thisSelectionTime: 3.555811
+allSelectionTime: 16.2756
+thisSelectionTime: 0.1112881
+allSelectionTime: 16.38689
+onPalmPoseExit:  16.47049
+
+onPalmPoseStart:16.58142
+
+onPalmPoseExit:  16.69218
+
+onSecondSelectionBGDisappear:  17.17912
+
+onPalmPoseStart:19.99878
+
+thisSelectionTime: 4.556261
+allSelectionTime: 20.94315
+you wrong
+onPalmPoseExit:  21.10987
+
+onPalmPoseStart:21.26258
+
+thisSelectionTime: 0.6107483
+allSelectionTime: 21.5539
+thisSelectionTime: 1.167822
+allSelectionTime: 22.72172
+thisSelectionTime: 1.277706
+allSelectionTime: 23.99942
+thisSelectionTime: 0.778244
+allSelectionTime: 24.77767
+thisSelectionTime: 0
+allSelectionTime: 24.77767
+onPalmPoseExit:  24.97127
+
+onPalmPoseStart:25.09665
+
+thisSelectionTime: 0.7504025
+allSelectionTime: 25.52807
+thisSelectionTime: 0
+allSelectionTime: 25.52807
+onPalmPoseExit:  26.1379
+
+onSecondSelectionBGDisappear:  26.63551
+
+onPalmPoseStart:30.06811
+
+thisSelectionTime: 5.359539
+allSelectionTime: 30.88761
+thisSelectionTime: 0.111248
+allSelectionTime: 30.99886
+onPalmPoseExit:  31.60967
+
+onPalmPoseStart:31.62353
+
+thisSelectionTime: 0.8341599
+allSelectionTime: 31.83302
+thisSelectionTime: 0.7770329
+allSelectionTime: 32.61005
+onPalmPoseExit:  32.70692
+
+onPalmPoseStart:32.83203
+
+thisSelectionTime: 0.7190933
+allSelectionTime: 33.32914
+thisSelectionTime: 0.5025215
+allSelectionTime: 33.83167
+onPalmPoseExit:  34.17486
+
+onSecondSelectionBGDisappear:  34.66277
+
+onPalmPoseStart:36.42767
+
+thisSelectionTime: 3.388863
+allSelectionTime: 37.22053
+thisSelectionTime: 0.3890381
+allSelectionTime: 37.60957
+thisSelectionTime: 0.7219238
+allSelectionTime: 38.33149
+wrong1

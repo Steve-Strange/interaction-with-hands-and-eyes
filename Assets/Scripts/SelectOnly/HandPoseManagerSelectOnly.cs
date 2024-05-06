@@ -159,6 +159,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
 
     public void onPalmPoseUpdate()
     {
+        delayTimer = 0.0f;
         if (!SecondSelectionState && SelectionStatus) return;
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if (wristRotation > 180f)

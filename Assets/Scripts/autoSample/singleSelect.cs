@@ -33,11 +33,11 @@ public class singleSelect : MonoBehaviour
         // ��ȡ�ⲿ�洢����·��
         folderPath = Application.persistentDataPath;
         if(sampleType == 2){
-            fileName = userName + "-" + System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
+            fileName = userName + "-" + System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
         }else if(sampleType == 0){
-            fileName = userName + "-" +"select_"+ System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
+            fileName = userName + "-" +"select_"+ System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
         }else{
-            fileName = userName + "-" +"manipulate_"+ System.DateTime.Now.ToString("MM.dd-HH:mm:ss") + ".txt";
+            fileName = userName + "-" +"manipulate_"+ System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
         }
         // �����ļ�·��������
         filePath = Path.Combine(folderPath, fileName);
