@@ -27,6 +27,7 @@ public class GrabAgentObject : MonoBehaviour
     public bool AutoAdjustStatus = false;
 
     public List<GameObject> FinishedObjects = new List<GameObject>();
+    public List<Vector3> FinishedPositions = new List<Vector3>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public bool initFlag = false;
 
@@ -138,6 +139,8 @@ public class GrabAgentObject : MonoBehaviour
                         
                         if (!FinishedObjects.Contains(MovingObject[0]))
                         FinishedObjects.Add(MovingObject[0]);
+                        FinishedPositions.Add(MovingObject[0].transform.position);
+                        
                         MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                         MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
 
