@@ -6,23 +6,27 @@ using Unity.VisualScripting;
 [System.Serializable]
 public class LineStructure
 {
-    public Vector3 averagePosition;
-    public Vector3 lineVector;
+    public Vector3 point1;
+    public Vector3 point2;
     public List<GameObject> lineObjects;
 
-    public LineStructure(Vector3 averagePosition, Vector3 lineVector, List<GameObject> lineObjects)
+    public LineStructure(Vector3 point1, Vector3 point2, List<GameObject> lineObjects)
     {
-        this.averagePosition = averagePosition;
-        this.lineVector = lineVector;
+        this.point1 = point1;
+        this.point2 = point2;
         this.lineObjects = lineObjects;
     }
 
     public float PointDistanceToLine(GameObject obj)
     {
-        if(lineObjects.Contains(obj)) return 99999;
-        Vector3 pointOnLine = averagePosition + Vector3.Project(obj.transform.position - averagePosition, lineVector);
-        Debug.Log("distance: " + Vector3.Distance(obj.transform.position, pointOnLine));
-        return Vector3.Distance(obj.transform.position, pointOnLine);
+        if (lineObjects.Contains(obj)) return 99999;
+
+        Vector3 lineDirection = (point2 - point1).normalized;
+        Vector3 pointToLine = obj.transform.position - point1;
+
+        float distance = Vector3.Cross(pointToLine, lineDirection).magnitude;
+        Debug.Log("distance: " + distance);
+        return distance;
     }
 }
 
@@ -55,7 +59,7 @@ public class PointStructure : MonoBehaviour
         foreach (Transform child in parent.transform)
         {
             FinishedObjects.Add(child.gameObject);
-            FitLines(child.gameObject, 0.3f);
+            FitLines(child.gameObject, 4f);
         }
         
 
@@ -81,20 +85,21 @@ public class PointStructure : MonoBehaviour
                 GameObject edgeObj2 = new GameObject();
                 float distance1 = 0;
                 float distance2 = 0;
+                
 
                 foreach (var obj in line.lineObjects)
                 {
-                    if(Vector3.Dot(obj.transform.position - line.averagePosition, line.lineVector) > 0){
-                        if(Vector3.Distance(obj.transform.position, line.averagePosition) > distance1)
+                    if(Vector3.Dot(obj.transform.position - (line.point1 + line.point2)/2, line.point1-line.point2) > 0){
+                        if(Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2) > distance1)
                         {
-                            distance1 = Vector3.Distance(obj.transform.position, line.averagePosition);
+                            distance1 = Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2);
                             edgeObj1 = obj;
                         }
                     }
                     else{
-                        if(Vector3.Distance(obj.transform.position, line.averagePosition) > distance2)
+                        if(Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2) > distance2)
                         {
-                            distance2 = Vector3.Distance(obj.transform.position, line.averagePosition);
+                            distance2 = Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2);
                             edgeObj2 = obj;
                         }
                     }
@@ -157,44 +162,136 @@ public class PointStructure : MonoBehaviour
     private void FitLine(LineStructure line)
     {
         List<GameObject> lineObjects = line.lineObjects;
-        float sumX = 0, sumY = 0, sumZ = 0, sumXX = 0, sumXY = 0, sumXZ = 0;
         int n = lineObjects.Count;
 
-        // 计算平均位置
+        // 如果点数小于2,直接返回
+        if (n < 2)
+        {
+            Debug.LogWarning("Not enough points to fit a line.");
+            return;
+        }
+
+        // RANSAC参数
+        int maxIterations = 30; // 最大迭代次数
+        float threshold = 2f; // 距离阈值
+        int minInliers = (int)(n * 0.5f); // 最小内点数量
+
+        // 初始化最佳直线
+        Vector3 bestPoint1 = Vector3.zero;
+        Vector3 bestPoint2 = Vector3.zero;
+        int bestInliers = 0;
+
+        // RANSAC迭代
+        for (int iter = 0; iter < maxIterations; iter++)
+        {
+            // 随机选择两个点
+            int idx1 = UnityEngine.Random.Range(0, n);
+            int idx2 = (idx1 + UnityEngine.Random.Range(1, n)) % n;
+            Vector3 point1 = lineObjects[idx1].transform.position;
+            Vector3 point2 = lineObjects[idx2].transform.position;
+
+            // 计算当前直线
+            Vector3 lineDirection = point2 - point1;
+
+            int inliers = 0;
+            List<GameObject> inlierObjects = new List<GameObject>();
+
+            // 统计内点数量
+            foreach (var obj in lineObjects)
+            {
+                float distance = PointDistanceToLine(obj.transform.position, point1, lineDirection);
+                if (distance < threshold)
+                {
+                    inliers++;
+                    inlierObjects.Add(obj);
+                }
+            }
+
+            // 更新最佳直线
+            if (inliers > bestInliers)
+            {
+                bestInliers = inliers;
+                bestPoint1 = point1;
+                bestPoint2 = point2;
+                line.lineObjects = inlierObjects;
+            }
+
+            // 如果内点数量已经足够大,可以提前结束迭代
+            if (bestInliers >= minInliers)
+            {
+                break;
+            }
+        }
+
+        // 对最后的内点进行直线拟合
+        if (bestInliers >= minInliers)
+        {
+            FitLineWithLeastSquares(line);
+        }
+        else
+        {
+            Debug.LogWarning("No reliable line found.");
+        }
+    }
+
+    private void FitLineWithLeastSquares(LineStructure line)
+    {
+        List<GameObject> lineObjects = line.lineObjects;
+        Vector3 averagePosition = GetAveragePosition(lineObjects);
+
+        // 计算协方差矩阵
+        float covXX = 0, covXY = 0, covXZ = 0;
         foreach (var obj in lineObjects)
+        {
+            Vector3 position = obj.transform.position - averagePosition;
+            covXX += position.x * position.x;
+            covXY += position.x * position.y;
+            covXZ += position.x * position.z;
+        }
+
+        // 避免除以零
+        float detXX = covXX;
+        if (Mathf.Abs(detXX) < Mathf.Epsilon)
+        {
+            Debug.LogWarning("Determinant is too small, cannot fit line.");
+            return;
+        }
+
+        // 计算特征向量
+        float a = covXY / detXX;
+        float c = covXZ / detXX;
+        float b = -a / Mathf.Sqrt(a * a + 1 + c * c);
+
+        // 更新直线表示
+        line.point1 = averagePosition - new Vector3(b, a, c) * 10f;
+        line.point2 = averagePosition + new Vector3(b, a, c) * 10f;
+    }
+
+    private Vector3 GetAveragePosition(List<GameObject> objects)
+    {
+        float sumX = 0, sumY = 0, sumZ = 0;
+        foreach (var obj in objects)
         {
             Vector3 position = obj.transform.position;
             sumX += position.x;
             sumY += position.y;
             sumZ += position.z;
         }
-        line.averagePosition = new Vector3(sumX / n, sumY / n, sumZ / n);
+        return new Vector3(sumX / objects.Count, sumY / objects.Count, sumZ / objects.Count);
+    }
 
-        // 计算直线方向向量
-        foreach (var obj in lineObjects)
-        {
-            Vector3 position = obj.transform.position - line.averagePosition;
-            sumXX += position.x * position.x;
-            sumXY += position.x * position.y;
-            sumXZ += position.x * position.z;
-        }
+    private Vector3 ProjectPointOnLine(Vector3 point, Vector3 linePoint1, Vector3 linePoint2)
+    {
+        Vector3 lineDirection = (linePoint2 - linePoint1).normalized;
+        Vector3 pointToLine = point - linePoint1;
+        float t = Vector3.Dot(pointToLine, lineDirection);
+        return linePoint1 + lineDirection * t;
+    }
 
-        float divisor = n * sumXX - sumX * sumX;
-        if (Mathf.Abs(divisor) < 1e-10f)
-        {
-            // 如果除数接近于0,则将直线方向向量设置为Z轴
-            line.lineVector = Vector3.forward;
-        }
-        else
-        {
-            float a = (sumXX * sumY - sumX * sumXY) / divisor;
-            float b = (n * sumXY - sumX * sumY) / divisor;
-            float c = (sumXX * sumZ - sumX * sumXZ) / divisor;
-            line.lineVector = new Vector3(b, a, c).normalized;
-        }
-
-        Debug.Log("LINE: " + line.lineVector);
-        Debug.LogWarning("here");
+    private float PointDistanceToLine(Vector3 point, Vector3 linePoint, Vector3 lineDirection)
+    {
+        Vector3 pointToLine = point - linePoint;
+        return Vector3.Cross(lineDirection, pointToLine).magnitude / lineDirection.magnitude;
     }
         
     public GameObject CreateLineWithLineRenderer(LineStructure line)
@@ -214,29 +311,21 @@ public class PointStructure : MonoBehaviour
         lineRenderer.endWidth = width;
 
         // 找到直线上距离最远的两个点作为线条的起点和终点
-        float minDist = float.MaxValue;
-        float maxDist = float.MinValue;
         Vector3 minPoint = Vector3.zero;
         Vector3 maxPoint = Vector3.zero;
-
         foreach (var obj in line.lineObjects)
         {
-            Vector3 projectedPoint = line.averagePosition + Vector3.Project(obj.transform.position - line.averagePosition, line.lineVector);
+            Vector3 projectedPoint = ProjectPointOnLine(obj.transform.position, line.point1, line.point2);
             float dist = Vector3.Distance(obj.transform.position, projectedPoint);
-
-            if (dist < minDist)
+            if (minPoint == Vector3.zero || dist < Vector3.Distance(minPoint, projectedPoint))
             {
-                minDist = dist;
                 minPoint = obj.transform.position;
             }
-            if (dist > maxDist)
+            if (maxPoint == Vector3.zero || dist > Vector3.Distance(maxPoint, projectedPoint))
             {
-                maxDist = dist;
                 maxPoint = obj.transform.position;
             }
         }
-
-
 
         // 设置线条顶点
         lineRenderer.positionCount = 2;
