@@ -30,11 +30,13 @@ public class GrabAgentObject : MonoBehaviour
     public List<Vector3> FinishedPositions = new List<Vector3>();
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public bool initFlag = false;
+    public GameObject PointStructure;
 
     void Start()
     {
         // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
+        PointStructure = GameObject.Find("PointStructure");
     }
 
     void Update()
@@ -143,6 +145,8 @@ public class GrabAgentObject : MonoBehaviour
                         
                         MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                         MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
+                        PointStructure.GetComponent<PointStructure>().FinishedObjects.Add(MovingObject[0]);
+                        PointStructure.GetComponent<PointStructure>().FitLines(MovingObject[0]);
 
                         MovingObject.RemoveAt(0);
                         AutoAdjustStatus = true;

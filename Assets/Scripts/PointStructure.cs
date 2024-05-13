@@ -55,14 +55,22 @@ public class PointStructure : MonoBehaviour
 
 
     void Start(){
-        GameObject parent = GameObject.Find("FinishedObjects");
-        foreach (Transform child in parent.transform)
-        {
-            FinishedObjects.Add(child.gameObject);
-            FitLines(child.gameObject, 4f);
-        }
+        // GameObject parent = GameObject.Find("FinishedObjects");
+        // foreach (Transform child in parent.transform)
+        // {
+        //     FinishedObjects.Add(child.gameObject);
+
+        //     FitLines(child.gameObject, (child.gameObject.transform.GetComponent<Renderer>().bounds.size.x + child.gameObject.transform.GetComponent<Renderer>().bounds.size.y + child.gameObject.transform.GetComponent<Renderer>().bounds.size.z));
+        // }
         
 
+        // foreach (var line in lineRenderers)
+        // {
+        //     foreach (var obj in line.Key.lineObjects)
+        //     {
+        //         Debug.Log(line.Value.name + obj.name);
+        //     }
+        // }
     }
 
     void Update(){
@@ -70,16 +78,16 @@ public class PointStructure : MonoBehaviour
 
     }
 
-    public void FitLines(GameObject objects, float threshold)
+    public void FitLines(GameObject objects)
     {
+        float threshold = (objects.transform.GetComponent<Renderer>().bounds.size.x + objects.transform.GetComponent<Renderer>().bounds.size.y + objects.transform.GetComponent<Renderer>().bounds.size.z) / 2;
         Debug.Log("objects:" + objects.name);
         int flag = 0;
         foreach (var line in lineStructures)
         {
             if(line.PointDistanceToLine(objects) < threshold){
-                Debug.LogWarning("here0");
                 // line.averagePosition = (line.averagePosition * line.lineObjects.Count + objects.transform.position) / (line.lineObjects.Count + 1);
-                line.lineObjects.Add(objects);
+                if(!line.lineObjects.Contains(objects)) line.lineObjects.Add(objects);
                 FitLine(line);
                 GameObject edgeObj1 = new GameObject();
                 GameObject edgeObj2 = new GameObject();
@@ -104,7 +112,6 @@ public class PointStructure : MonoBehaviour
                         }
                     }
                 }
-                Debug.LogWarning("here1");
 
                 foreach (var obj in line.lineObjects)
                 {
@@ -114,43 +121,40 @@ public class PointStructure : MonoBehaviour
                 }
                 
                 
-                Debug.LogWarning("here2");
-                Debug.LogWarning(lineRenderers[line]);
                 if(lineRenderers[line] != null) {
-                    Debug.LogWarning("here");
+
                     Destroy(lineRenderers[line]);
                     CreateLineWithLineRenderer(line);
                 }
-                Debug.LogWarning("here3");
                 flag = 1;
                 break;
             }
         }
 
-        Debug.Log("flag:" + flag);
+        // Debug.Log("flag:" + flag);
         if(flag == 0){
             for(int i=0; i<FinishedObjects.Count; i++)
             {
                 GameObject finishedObj = FinishedObjects[i];
-                Debug.Log("finishedObj:" + finishedObj.name);
+                // Debug.Log("finishedObj:" + finishedObj.name);
                 Vector3 averagePosition = (objects.transform.position + finishedObj.transform.position) / 2;
                 LineStructure tempLine = new LineStructure(averagePosition, finishedObj.transform.position - objects.transform.position, new List<GameObject>(){objects, finishedObj});
                 for(int j=i+1; j<FinishedObjects.Count; j++)
                 {
                     GameObject finishedObj2 = FinishedObjects[j];
-                    Debug.Log("finishedObj2:" + finishedObj2.name);
+                    // Debug.Log("finishedObj2:" + finishedObj2.name);
                     if(tempLine.PointDistanceToLine(finishedObj2) < threshold){
                         // tempLine.averagePosition = (tempLine.averagePosition * tempLine.lineObjects.Count + finishedObj2.transform.position) / (tempLine.lineObjects.Count + 1);
-                        tempLine.lineObjects.Add(finishedObj2);
-                        Debug.Log("lineObjects.count:" + tempLine.lineObjects.Count);
+                        if(!tempLine.lineObjects.Contains(finishedObj2)) tempLine.lineObjects.Add(finishedObj2);
+                        // Debug.Log("lineObjects.count:" + tempLine.lineObjects.Count);
                         FitLine(tempLine);
                     }
                 }
 
-                Debug.Log("count:" + tempLine.lineObjects.Count);
+                // Debug.Log("count:" + tempLine.lineObjects.Count);
                 if(tempLine.lineObjects.Count >= 3){
                     lineStructures.Add(tempLine);
-                    Debug.Log("lineCount: " + lineStructures.Count);
+                    // Debug.Log("lineCount: " + lineStructures.Count);
                     CreateLineWithLineRenderer(tempLine);
                 }
             
@@ -167,7 +171,7 @@ public class PointStructure : MonoBehaviour
         // 如果点数小于2,直接返回
         if (n < 2)
         {
-            Debug.LogWarning("Not enough points to fit a line.");
+            // Debug.LogWarning("Not enough points to fit a line.");
             return;
         }
 
@@ -230,7 +234,7 @@ public class PointStructure : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No reliable line found.");
+            // Debug.LogWarning("No reliable line found.");
         }
     }
 
@@ -265,6 +269,7 @@ public class PointStructure : MonoBehaviour
         // 更新直线表示
         line.point1 = averagePosition - new Vector3(b, a, c) * 10f;
         line.point2 = averagePosition + new Vector3(b, a, c) * 10f;
+        
     }
 
     private Vector3 GetAveragePosition(List<GameObject> objects)
@@ -296,7 +301,13 @@ public class PointStructure : MonoBehaviour
         
     public GameObject CreateLineWithLineRenderer(LineStructure line)
     {
-        float width = 0.4f; // 你可以根据需要设置不同的宽度
+        float averageWidth = 0.0f;
+        foreach (var obj in line.lineObjects)
+        {
+            averageWidth += obj.transform.localScale.x + obj.transform.localScale.y + obj.transform.localScale.z;
+        }
+        averageWidth /= line.lineObjects.Count * 12;
+        float width = averageWidth; // 你可以根据需要设置不同的宽度
 
         GameObject lineObj = new GameObject("Line " + lineRenderers.Count);
         LineRenderer lineRenderer = lineObj.AddComponent<LineRenderer>();
@@ -336,8 +347,8 @@ public class PointStructure : MonoBehaviour
         lineObj.AddComponent<CapsuleCollider>();
         CapsuleCollider collider = lineObj.GetComponent<CapsuleCollider>();
         collider.center = Vector3.zero;
-        collider.radius = width * 1.5f;
-        collider.height = Vector3.Distance(minPoint, maxPoint);
+        collider.radius = width;
+        collider.height = Vector3.Distance(minPoint, maxPoint) * 7;
         collider.direction = 2; // 沿 Z 轴延伸
 
         // 设置线条位置和旋转

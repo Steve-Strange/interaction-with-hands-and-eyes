@@ -58,7 +58,7 @@ public class HandPoseManager : MonoBehaviour
     public float movingTime;
     private Transform Objects;
     public bool initFlag = false;
-    public TMP_InputField log;
+    // public TMP_InputField log;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
     public GameObject StartSelectPose;
 
@@ -73,9 +73,9 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        log.text = "phase: " + phase.ToString() + "\n";
-        log.text += "timer:" + delayTimer.ToString() + "\n";
-        log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
+        // log.text = "phase: " + phase.ToString() + "\n";
+        // log.text += "timer:" + delayTimer.ToString() + "\n";
+        // log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
         if(phase == 0){
             selectionTime += Time.deltaTime;
         }
