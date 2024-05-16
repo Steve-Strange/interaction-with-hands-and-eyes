@@ -58,7 +58,7 @@ public class HandPoseManager : MonoBehaviour
     public float movingTime;
     private Transform Objects;
     public bool initFlag = false;
-    public TMP_InputField log;
+    // public TMP_InputField log;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
     public GameObject StartSelectPose;
 
