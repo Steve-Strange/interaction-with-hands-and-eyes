@@ -18,7 +18,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     public GameObject SecondSelectionBG;
     public GameObject recorder;
     public GameObject collide;
-
+    //public TMP_Text T;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
@@ -43,8 +43,8 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     private int rowNum = 5;
     private int columnNum = 3;
 
-    private float maxAngel = 50f;
-    private float minAngel = 10f;
+    public float maxAngel = 50f;
+    public float minAngel = 10f;
     public bool SelectionStatus = true;
 
     public GameObject[] demoObjects;
@@ -103,7 +103,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         {
            
             int i = 0;
-            SecondSelectionBG.SetActive(true);
+            SecondSelectionBG.SetActive(true);//板子出现
 
 
             List<GameObject> keysToModify = new List<GameObject>();
@@ -156,28 +156,38 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         SecondSelectionState = true;
 
     }
+    public void decideTheMinAngleAndMaxAngle()
+    {
 
+
+
+    }
     public void onPalmPoseUpdate()
     {
         delayTimer = 0.0f;
-        if (!SecondSelectionState && SelectionStatus) return;
+        if (!SecondSelectionState || phase != 0) return;
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if (wristRotation > 180f)
         {
-            wristRotation -= 360f;
+            wristRotation = 360 - wristRotation;
         }
-        wristRotation = -wristRotation;
+        else
+        {
+            wristRotation = -wristRotation;
+        }
 
-        int currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
 
+        int currentRow;
+       // T.text = ((wristRotation - minAngel) / (maxAngel - minAngel)).ToString();
         if (wristRotation < minAngel) currentRow = 0;
-        if (wristRotation > maxAngel) currentRow = rowNum - 1;
+        else if (wristRotation > maxAngel) currentRow = rowNum - 1;
+        else
+        {
+            currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
+        }
 
-        // Log.text = "";
-        // Log.text +="wristRotation: " + wristRotation.ToString() + "\n";
-        // Log.text +="currentRow: " + currentRow.ToString() + "\n";
-        // Log.text +="rowNum: " + rowNum.ToString() + "\n";
         selectedRow.Clear();
+
 
         int i = 0;
         foreach (var obj in sorted15ObjectWeights)

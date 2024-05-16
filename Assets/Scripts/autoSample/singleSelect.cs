@@ -51,7 +51,7 @@ public class singleSelect : MonoBehaviour
        // t2.text = selectTime.ToString();
        // t3.text = manipulateTime.ToString();
         timer += Time.deltaTime;
-        if(timer > 3 && begin == true )//��ʼ����֮��ʼ��ʱ
+        if(timer > 5 && begin == true )//��ʼ����֮��ʼ��ʱ
         {
             beginSelectTime = timer;
             begin = false;

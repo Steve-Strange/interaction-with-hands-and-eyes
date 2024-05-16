@@ -15,7 +15,7 @@ public class HandPoseManager : MonoBehaviour
     public GameObject HandRightWrist;
     private GameObject SightCone;
     public GameObject SecondSelectionBG;
-    // public TMP_Text T;
+   
     // public TMP_Text T2;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
@@ -76,6 +76,7 @@ public class HandPoseManager : MonoBehaviour
         log.text = "phase: " + phase.ToString() + "\n";
         log.text += "timer:" + delayTimer.ToString() + "\n";
         log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
+    
         if(phase == 0){
             selectionTime += Time.deltaTime;
         }
@@ -184,14 +185,22 @@ public class HandPoseManager : MonoBehaviour
         if(!SecondSelectionState || phase != 0) return;
         float wristRotation = HandRightWrist.transform.rotation.eulerAngles.x;
         if(wristRotation > 180f){
-            wristRotation -= 360f;
+            wristRotation = 360 - wristRotation;
         }
-        wristRotation = - wristRotation;
-        
-        int currentRow = Mathf.RoundToInt((wristRotation - minAngel)/(maxAngel - minAngel) * rowNum);
+        else
+        {
+            wristRotation = - wristRotation;
+        }
 
-        if(wristRotation < minAngel) currentRow = 0;
-        if(wristRotation > maxAngel) currentRow = rowNum - 1;
+
+        int currentRow;
+    
+        if (wristRotation < minAngel) currentRow = 0;
+        else if(wristRotation > maxAngel) currentRow = rowNum - 1;
+        else
+        {
+            currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
+        }
 
         selectedRow.Clear();
 
