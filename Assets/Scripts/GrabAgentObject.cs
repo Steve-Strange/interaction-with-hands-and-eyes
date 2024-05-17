@@ -31,6 +31,8 @@ public class GrabAgentObject : MonoBehaviour
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public bool initFlag = false;
     public GameObject PointStructure;
+    public GameObject TimeRecorder;
+    public string ManipulateData;
 
     void Start()
     {
@@ -147,6 +149,9 @@ public class GrabAgentObject : MonoBehaviour
                         MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
                         PointStructure.GetComponent<PointStructure>().FinishedObjects.Add(MovingObject[0]);
                         PointStructure.GetComponent<PointStructure>().FitLines(MovingObject[0]);
+                        TimeRecorder.GetComponent<TimeRecorder>().CompleteObjects.Add(MovingObject[0]);
+                        // ManipulateData += "FinishedObjectCount " + FinishedObjects.Count + " " +  + "\n";
+                        
 
                         MovingObject.RemoveAt(0);
                         AutoAdjustStatus = true;

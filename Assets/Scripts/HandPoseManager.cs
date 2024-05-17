@@ -54,7 +54,6 @@ public class HandPoseManager : MonoBehaviour
     bool thumbHoldState = false;
     bool finishFlag = false;
     public float selectionTime;
-    public float placingTime;
     public float movingTime;
     private Transform Objects;
     public bool initFlag = false;
@@ -73,17 +72,14 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        log.text = "phase: " + phase.ToString() + "\n";
-        log.text += "timer:" + delayTimer.ToString() + "\n";
-        log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
+        // log.text = "phase: " + phase.ToString() + "\n";
+        // log.text += "timer:" + delayTimer.ToString() + "\n";
+        // log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
     
         if(phase == 0){
             selectionTime += Time.deltaTime;
         }
         else if(phase == 1){
-            placingTime += Time.deltaTime;
-        }
-        else if(phase == 2){
             movingTime += Time.deltaTime;
         }
 

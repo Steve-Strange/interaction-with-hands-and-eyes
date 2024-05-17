@@ -14,7 +14,7 @@ public class MovingRecorder : MonoBehaviour
     private Dictionary<GameObject, float> totalDistanceMoved = new Dictionary<GameObject, float>();
     private Dictionary<GameObject, float> totalAngleRotated = new Dictionary<GameObject, float>();
     // public TMP_InputField log;
-    public string output;
+    public string MovingData;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class MovingRecorder : MonoBehaviour
     {
         // log.text = "head: " + totalDistanceMoved[head] + "right:" + totalDistanceMoved[rightHand] + "left:" + totalDistanceMoved[leftHand] + "\n";
         // log.text += "head: " + totalAngleRotated[head] + "right:" + totalAngleRotated[rightHand] + "left:" + totalAngleRotated[leftHand];
-        output = "Moved Distance: \n" + "head: " + totalDistanceMoved[head] + "\n" + "right:" + totalDistanceMoved[rightHand] + "\n" + "left:" + totalDistanceMoved[leftHand] + "\n" + 
+        MovingData = "Moved Distance: \n" + "head: " + totalDistanceMoved[head] + "\n" + "right:" + totalDistanceMoved[rightHand] + "\n" + "left:" + totalDistanceMoved[leftHand] + "\n" + 
                  "Rotated Angle: \n" + "head: " + totalAngleRotated[head] + "\n" + "right:" + totalAngleRotated[rightHand] + "\n" + "left:" + totalAngleRotated[leftHand];
         RecordMovementAndRotation(head);
         RecordMovementAndRotation(leftHand);

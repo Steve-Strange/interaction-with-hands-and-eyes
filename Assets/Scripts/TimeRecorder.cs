@@ -56,10 +56,9 @@ public class TimeRecorder : MonoBehaviour
             if(!finishStatus)
             {
                 File.WriteAllText(filePath, "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
-                                    "Placing Time: " + HandPoseManager.GetComponent<HandPoseManager>().placingTime + "\n" +
                                     "Coarse Moving Time: " + coarseMovingTime + "\n" + 
                                     "Moving Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n" + 
-                                    MovingRecorder.GetComponent<MovingRecorder>().output
+                                    MovingRecorder.GetComponent<MovingRecorder>().MovingData
                                 );
 
                 finishStatus = true;
