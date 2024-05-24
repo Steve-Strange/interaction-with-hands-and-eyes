@@ -32,7 +32,8 @@ public class EyeTrackingManager : MonoBehaviour
     private int maxBufferSize = 10; // 队列的最大大小
 
     public GameObject blinkSelectedObject;
-    private float closeEyesTime = 0f;
+    private float closeEyesTimer = 0f;
+    private float closeEyesTime = 0.35f;
     public bool isEyesOpen = true;
     private GameObject clickSelect;
 
@@ -82,7 +83,7 @@ public class EyeTrackingManager : MonoBehaviour
             isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
             if (isEyesOpen)
             {
-                if (closeEyesTime > 0.25f) BlinkSelect();
+                if (closeEyesTimer > closeEyesTime) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
                 eyeSelectedObjectBuffer.Enqueue(eyeSelectedObject);
                 eyeTrackingPositionBuffer.Enqueue(centerSphere.transform.position);
@@ -92,11 +93,11 @@ public class EyeTrackingManager : MonoBehaviour
                     eyeTrackingPositionBuffer.Dequeue();
                 }
                 // log.text = "eyeSelectedObjectBuffer: " + eyeTrackingPositionBuffer.ToArray()[0] + "\n";
-                closeEyesTime = 0;
+                closeEyesTimer = 0;
             }
             else
             {
-                closeEyesTime += Time.deltaTime;
+                closeEyesTimer += Time.deltaTime;
             }
         }
     }
