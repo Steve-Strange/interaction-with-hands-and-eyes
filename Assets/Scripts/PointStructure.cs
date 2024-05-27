@@ -72,23 +72,23 @@ public class PointStructure : MonoBehaviour
 
 
     void Start(){
-        GameObject parent = GameObject.Find("FinishedObjects");
-        foreach (Transform child in parent.transform)
-        {
-            FinishedObjects.Add(child.gameObject);
+        // GameObject parent = GameObject.Find("FinishedObjects");
+        // foreach (Transform child in parent.transform)
+        // {
+        //     FinishedObjects.Add(child.gameObject);
 
-            FitLines(child.gameObject);
-            FitCircles(child.gameObject);
-        }
+        //     FitLines(child.gameObject);
+        //     FitCircles(child.gameObject);
+        // }
         
 
-        foreach (var line in lineRenderers)
-        {
-            foreach (var obj in line.Key.lineObjects)
-            {
-                Debug.Log(line.Value.name + obj.name);
-            }
-        }
+        // foreach (var line in lineRenderers)
+        // {
+        //     foreach (var obj in line.Key.lineObjects)
+        //     {
+        //         Debug.Log(line.Value.name + obj.name);
+        //     }
+        // }
 
     }
 
@@ -107,36 +107,6 @@ public class PointStructure : MonoBehaviour
                 // line.averagePosition = (line.averagePosition * line.lineObjects.Count + obj.transform.position) / (line.lineObjects.Count + 1);
                 if(!line.lineObjects.Contains(obj)) line.lineObjects.Add(obj);
                 FitLine(line);
-                // GameObject edgeObj1 = new GameObject();
-                // GameObject edgeObj2 = new GameObject();
-                // float distance1 = 0;
-                // float distance2 = 0;
-                
-                // foreach (var obj in line.lineObjects)
-                // {
-                //     if(Vector3.Dot(obj.transform.position - (line.point1 + line.point2)/2, line.point1-line.point2) > 0){
-                //         if(Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2) > distance1)
-                //         {
-                //             distance1 = Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2);
-                //             edgeObj1 = obj;
-                //         }
-                //     }
-                //     else{
-                //         if(Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2) > distance2)
-                //         {
-                //             distance2 = Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2);
-                //             edgeObj2 = obj;
-                //         }
-                //     }
-                // }
-
-                // foreach (var obj in line.lineObjects)
-                // {
-                //     if(obj != edgeObj1 && obj != edgeObj2){
-                //         FinishedObjects.Remove(obj);
-                //     }
-                // }
-                
                 
                 if(lineRenderers[line] != null) {
 
@@ -162,7 +132,6 @@ public class PointStructure : MonoBehaviour
         public Vector3 vector;
     };
 
-    
     private void CreateLine(GameObject rootObj)
     {
         List<VectorBatch> vectorBatches = new List<VectorBatch>();
@@ -241,7 +210,6 @@ public class PointStructure : MonoBehaviour
         }
 
     }
-
 
     private void FitLine(LineStructure line)
     {
@@ -445,25 +413,28 @@ public class PointStructure : MonoBehaviour
     public void FitCircles(GameObject obj)
     {
         float threshold = CalculateAverageSize(obj);
-        int flag = 0;
+        bool foundCircle = false;
 
-        foreach (CircleStructure circle in circleStructures)
+        foreach (var circle in circleStructures)
         {
             if (circle.PointDistanceToCircle(obj) < threshold)
             {
-                circle.circleObjects.Add(obj);
-                FitCircle(circle);
-                CreateCircleWithLineRenderer(circle);
-                flag = 1;
+                if (!circle.circleObjects.Contains(obj)) 
+                {
+                    circle.circleObjects.Add(obj);
+                    FinishedObjects.Remove(obj);
+                    FitCircleToPoints(circle);
+                }
+                foundCircle = true;
                 break;
             }
         }
 
-        if (flag == 0)
+        if (!foundCircle)
         {
+            Debug.Log(obj.name + " Create Circle");
             CreateCircle(obj);
         }
-        Debug.Log("flag:" + flag);
     }
 
     private void CreateCircle(GameObject rootObj)
@@ -484,8 +455,10 @@ public class PointStructure : MonoBehaviour
         distanceToRootObj.OrderBy(x => x.Value);
         int maxCount = Mathf.Min(distanceToRootObj.Count, 8);
         surroundingObjs = distanceToRootObj.Keys.Take(maxCount).ToList();
+        Debug.Log("surroundingObjs: " + surroundingObjs.Count);
 
         Dictionary<CircleStructure, float> circleBias = new Dictionary<CircleStructure, float>();
+        Debug.Log("circleBias: " + circleBias.Count);
 
         foreach (GameObject a in surroundingObjs)
         {
@@ -497,15 +470,15 @@ public class PointStructure : MonoBehaviour
                     {
                         if (c != a && c != b)
                         {
-
                             CircleStructure circle = new CircleStructure(0, Vector3.zero, Vector3.zero, new List<GameObject> { a, b, c });
-                            FitCircle(circle);
+                            FitCircleToPoints(circle);
                             circleBias[circle] = 0;
                         }
                     }
                 }
             }
         }
+        Debug.Log("circleBias: " + circleBias.Count);
 
         List<CircleStructure> circleKeys = new List<CircleStructure>(circleBias.Keys);
 
@@ -514,12 +487,14 @@ public class PointStructure : MonoBehaviour
         {
             foreach (GameObject obj in surroundingObjs)
             {
-                float bias = circle.PointDistanceToCircle(obj);
-                Debug.Log("bias: " + bias + " obj: " + circle.circleObjects.Count);
-                if (bias < threshold)
+                if (!circle.circleObjects.Contains(obj))
                 {
-                    circle.circleObjects.Add(obj);
-                    circleBias[circle] += bias;
+                    float bias = circle.PointDistanceToCircle(obj);
+                    if (bias < threshold)
+                    {
+                        circle.circleObjects.Add(obj);
+                        circleBias[circle] += bias;
+                    }
                 }
             }
         }
@@ -532,17 +507,19 @@ public class PointStructure : MonoBehaviour
         Debug.Log("here");
         if (sortedCircles.Count > 0)
         {
-            Debug.Log(sortedCircles[0].circleObjects.Count);
+            Debug.Log("circleObjects.count: " + sortedCircles[0].circleObjects.Count + "bias: " + circleBias[sortedCircles[0]]);
         }
 
         if (sortedCircles.Any() && sortedCircles[0].circleObjects.Count >= 4)
         {
             CircleStructure bestCircle = sortedCircles[0];
-            Debug.Log("here2");
+            foreach (var obj in bestCircle.circleObjects)
+            {
+                FinishedObjects.Remove(obj);
+            }
             CreateCircleWithLineRenderer(bestCircle);
-            Debug.Log("here3");
             circleStructures.Add(bestCircle);
-            Debug.Log("here4");
+
         }
     }
 
@@ -553,150 +530,137 @@ public class PointStructure : MonoBehaviour
         return (size.x + size.y + size.z) / 3f;
     }
 
-    private void FitCircle(CircleStructure circle)
+
+    public void FitCircleToPoints(CircleStructure circle)
     {
         List<GameObject> circleObjects = circle.circleObjects;
-        int n = circleObjects.Count;
-
-        // 如果点数小于3,无法拟合圆形
-        if (n < 3)
+        if (circleObjects == null || circleObjects.Count < 3)
         {
-            Debug.LogWarning("Not enough points to fit a circle.");
-            return;
+            throw new System.ArgumentException("At least 3 points are required to fit a circle.");
         }
 
-        // 初始化最佳圆形参数
-        Vector3 bestCenter = Vector3.zero;
-        float bestRadius = 0f;
-        Vector3 bestNormal = Vector3.zero;
-        float minError = float.MaxValue;
-
-        // 遍历所有可能的法线方向
-        for (int i = 0; i < 20; i++)
+        // Step 1: Calculate the centroid of the points
+        Vector3 centroid = Vector3.zero;
+        foreach (var obj in circleObjects)
         {
-            for (int j = 0; j < 20; j++)
-            {
-                float theta = i * Mathf.PI / 20;
-                float phi = j * Mathf.PI / 10;
-                Vector3 normal = new Vector3(Mathf.Sin(theta) * Mathf.Cos(phi), Mathf.Sin(theta) * Mathf.Sin(phi), Mathf.Cos(theta));
+            centroid += obj.transform.position;
+        }
+        centroid /= circleObjects.Count;
 
-                // 对于当前法线方向,拟合圆心和半径
-                Vector3 center;
-                float radius;
-                FitCircleFromPoints(circleObjects, normal, out center, out radius);
-
-                // 计算误差
-                float error = 0f;
-                foreach (var obj in circleObjects)
-                {
-                    float distance = PointDistanceToCircle(obj.transform.position, center, normal, radius);
-                    error += distance * distance;
-                }
-
-                // 更新最佳圆形参数
-                if (error < minError)
-                {
-                    minError = error;
-                    bestCenter = center;
-                    bestRadius = radius;
-                    bestNormal = normal;
-                }
-            }
+        // Step 2: Subtract the centroid from the points to remove translation
+        List<Vector3> centeredPoints = new List<Vector3>();
+        foreach (var obj in circleObjects)
+        {
+            centeredPoints.Add(obj.transform.position - centroid);
         }
 
+        // Step 3: Perform PCA to find the normal of the best-fit plane
+        Vector3 normal = CalculatePlaneNormal(centeredPoints);
 
-        circle.r = bestRadius;
-        circle.center = bestCenter;
-        circle.planeNormal = bestNormal;
+        // Step 4: Project points onto the plane and fit a circle
+        List<Vector2> projectedPoints = new List<Vector2>();
+        Quaternion rotation = Quaternion.FromToRotation(normal, Vector3.forward);
+        foreach (var point in centeredPoints)
+        {
+            Vector3 rotatedPoint = rotation * point;
+            projectedPoints.Add(new Vector2(rotatedPoint.x, rotatedPoint.y));
+        }
 
+        Vector2 circleCenter2D;
+        float radius;
+        FitCircle(projectedPoints, out circleCenter2D, out radius);
+
+        // Step 5: Transform the 2D circle center back to 3D space
+        Vector3 circleCenter3D = Quaternion.Inverse(rotation) * new Vector3(circleCenter2D.x, circleCenter2D.y, 0) + centroid;
+
+        circle.center = circleCenter3D;
+        circle.r = radius;
+        circle.planeNormal = normal;
+        return;
     }
 
-    private void FitCircleFromPoints(List<GameObject> circleObjects, Vector3 normal, out Vector3 center, out float radius)
+    private static Vector3 CalculatePlaneNormal(List<Vector3> points)
     {
-        int n = circleObjects.Count;
-        Vector3 sumPosition = Vector3.zero;
-
-        // 计算所有点的平均位置
-        foreach (var obj in circleObjects)
+        Vector3 mean = Vector3.zero;
+        foreach (var point in points)
         {
-            sumPosition += obj.transform.position;
+            mean += point;
         }
-        Vector3 averagePosition = sumPosition / n;
+        mean /= points.Count;
 
-        // 计算每个点到平均位置的投影向量
-        List<Vector3> projectedVectors = new List<Vector3>();
-        foreach (var obj in circleObjects)
-        {
-            Vector3 vectorToCenter = obj.transform.position - averagePosition;
-            float distanceToPlane = Vector3.Dot(vectorToCenter, normal);
-            Vector3 projectedVector = vectorToCenter - distanceToPlane * normal;
-            projectedVectors.Add(projectedVector);
-        }
+        float xx = 0, xy = 0, xz = 0;
+        float yy = 0, yz = 0, zz = 0;
 
-        // 计算协方差矩阵
-        float covXX = 0, covXY = 0, covXZ = 0, covYY = 0, covYZ = 0;
-        foreach (var vector in projectedVectors)
+        foreach (var point in points)
         {
-            covXX += vector.x * vector.x;
-            covXY += vector.x * vector.y;
-            covXZ += vector.x * vector.z;
-            covYY += vector.y * vector.y;
-            covYZ += vector.y * vector.z;
+            Vector3 diff = point - mean;
+            xx += diff.x * diff.x;
+            xy += diff.x * diff.y;
+            xz += diff.x * diff.z;
+            yy += diff.y * diff.y;
+            yz += diff.y * diff.z;
+            zz += diff.z * diff.z;
         }
 
-        // 计算特征向量和特征值
-        float m11 = covXX;
-        float m12 = covXY;
-        float m13 = covXZ;
-        float m22 = covYY;
-        float m23 = covYZ;
+        float detX = yy * zz - yz * yz;
+        float detY = xx * zz - xz * xz;
+        float detZ = xx * yy - xy * xy;
 
-        float a = m11;
-        float b = m12;
-        float c = m22;
-        float d = b * b - a * c;
+        float detMax = Mathf.Max(detX, detY, detZ);
 
-        Vector3 eigenvector1, eigenvector2;
-        float eigenvalue1, eigenvalue2;
-
-        if (d < 0)
+        if (detMax == detX)
         {
-            float q = -0.5f * (a + c);
-            eigenvalue1 = q + Mathf.Sqrt(d);
-            eigenvalue2 = q - Mathf.Sqrt(d);
-            eigenvector1 = new Vector3(1, 0, 0);
-            eigenvector2 = new Vector3(0, 1, 0);
+            return new Vector3(detX, xz * yz - xy * zz, xy * yz - xz * yy).normalized;
+        }
+        else if (detMax == detY)
+        {
+            return new Vector3(xz * yz - xy * zz, detY, xy * xz - yz * xx).normalized;
         }
         else
         {
-            float q = -0.5f * (a + c);
-            float r = Mathf.Sqrt(d);
-            eigenvalue1 = q + r;
-            eigenvalue2 = q - r;
-            eigenvector1 = new Vector3(r, q);
-            eigenvector2 = new Vector3(-b, a - eigenvalue1);
+            return new Vector3(xy * yz - xz * yy, xy * xz - yz * xx, detZ).normalized;
+        }
+    }
+
+    private static void FitCircle(List<Vector2> points, out Vector2 center, out float radius)
+    {
+        float xSum = 0, ySum = 0, xxSum = 0, yySum = 0, xySum = 0, xzSum = 0, yzSum = 0;
+
+        foreach (var point in points)
+        {
+            float x = point.x;
+            float y = point.y;
+            float z = x * x + y * y;
+            xSum += x;
+            ySum += y;
+            xxSum += x * x;
+            yySum += y * y;
+            xySum += x * y;
+            xzSum += x * z;
+            yzSum += y * z;
         }
 
-        // 选择特征值较大的特征向量作为拟合向量
-        Vector3 fittingVector = (eigenvalue1 > eigenvalue2) ? eigenvector1 : eigenvector2;
+        float n = points.Count;
+        float a = n * xxSum - xSum * xSum;
+        float b = n * xySum - xSum * ySum;
+        float c = n * yySum - ySum * ySum;
+        float d = 0.5f * (n * xzSum - xSum * (xxSum + yySum));
+        float e = 0.5f * (n * yzSum - ySum * (xxSum + yySum));
 
-        // 计算圆心和半径
-        center = averagePosition + fittingVector * (eigenvalue1 / (eigenvalue1 + eigenvalue2));
-        radius = Mathf.Sqrt(eigenvalue2 / (eigenvalue1 + eigenvalue2));
+        float denom = a * c - b * b;
+        if (Mathf.Abs(denom) < Mathf.Epsilon)
+        {
+            center = Vector2.zero;
+            radius = 0;
+            return;
+        }
+
+        float x0 = (d * c - b * e) / denom;
+        float y0 = (a * e - b * d) / denom;
+
+        center = new Vector2(x0, y0);
+        radius = Mathf.Sqrt((xxSum + yySum - 2 * (x0 * xSum + y0 * ySum) + n * (x0 * x0 + y0 * y0)) / n);
     }
-
-    private float PointDistanceToCircle(Vector3 pointPosition, Vector3 center, Vector3 planeNormal, float r)
-    {
-        Vector3 vectorToCenter = pointPosition - center;
-
-        float distanceToPlane = Vector3.Dot(vectorToCenter, planeNormal);
-        Vector3 projectedVector = vectorToCenter - distanceToPlane * planeNormal;
-
-        float projectedDistance = projectedVector.magnitude;
-
-        return Mathf.Sqrt((projectedDistance - r) * (projectedDistance - r) + distanceToPlane * distanceToPlane);
-    }
-
 
     public GameObject CreateCircleWithLineRenderer(CircleStructure circle)
     {
