@@ -1,0 +1,3 @@
+Selection Time: 29.58378
+Coarse Moving Time: 0
+Moving Time: 104.2356
