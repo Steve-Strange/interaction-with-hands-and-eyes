@@ -72,23 +72,23 @@ public class PointStructure : MonoBehaviour
 
 
     void Start(){
-        GameObject parent = GameObject.Find("FinishedObjects");
-        foreach (Transform child in parent.transform)
-        {
-            FinishedObjects.Add(child.gameObject);
+        // GameObject parent = GameObject.Find("FinishedObjects");
+        // foreach (Transform child in parent.transform)
+        // {
+        //     FinishedObjects.Add(child.gameObject);
 
-            FitLines(child.gameObject);
-            FitCircles(child.gameObject);
-        }
+        //     FitLines(child.gameObject);
+        //     FitCircles(child.gameObject);
+        // }
         
 
-        foreach (var line in lineRenderers)
-        {
-            foreach (var obj in line.Key.lineObjects)
-            {
-                Debug.Log(line.Value.name + obj.name);
-            }
-        }
+        // foreach (var line in lineRenderers)
+        // {
+        //     foreach (var obj in line.Key.lineObjects)
+        //     {
+        //         Debug.Log(line.Value.name + obj.name);
+        //     }
+        // }
 
     }
 
@@ -476,11 +476,9 @@ public class PointStructure : MonoBehaviour
 
         foreach (GameObject finishedObj in FinishedObjects)
         {
-            if (finishedObj != rootObj)
-            {
-                float distance = Vector3.Distance(finishedObj.transform.position, rootObj.transform.position);
-                distanceToRootObj[finishedObj] = distance;
-            }
+            float distance = Vector3.Distance(finishedObj.transform.position, rootObj.transform.position);
+            distanceToRootObj[finishedObj] = distance;
+
         }
 
         distanceToRootObj.OrderBy(x => x.Value);
@@ -516,11 +514,16 @@ public class PointStructure : MonoBehaviour
 
         foreach (CircleStructure circle in circleKeys)
         {
+            Debug.Log("circleObjects.count: " + circle.circleObjects.Count);
+            Debug.Log("surrondingObjs.count: " + surroundingObjs.Count);
             foreach (GameObject obj in surroundingObjs)
             {
+                Debug.Log("obj: " + obj.name);
                 if (!circle.circleObjects.Contains(obj))
                 {
+
                     float bias = circle.PointDistanceToCircle(obj);
+                    Debug.Log("bias: " + bias + "threshold: " + threshold);
                     if (bias < threshold)
                     {
                         circle.circleObjects.Add(obj);
