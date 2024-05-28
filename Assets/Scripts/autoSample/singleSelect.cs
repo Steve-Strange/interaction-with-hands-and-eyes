@@ -60,7 +60,9 @@ public class singleSelect : MonoBehaviour
     public void finishAll()
     {
         MovingRecorder.GetComponent<MovingRecorder>().finishAll();//记录动作的结束
+        writeFile("finish all");
         writeFile(MovingRecorder.GetComponent<MovingRecorder>().MovingData);//将动作的总移动写入当前的记录中
+        writeFile("all selection time:" + timer);
         File.WriteAllText(filePath, logs);
     }
    
@@ -77,7 +79,7 @@ public class singleSelect : MonoBehaviour
             beginManipulateTime = timer;
         }
 
-        logs += "thisSelectionTime:" + gap + "    ";
+        logs += "thisSelectionTime:" + gap + "\n";
         logs += "allSelectionTime:" + timer + "\n";
     }
     public void finishOneObject()//��ÿ�β���ʱ�����
@@ -98,11 +100,11 @@ public class singleSelect : MonoBehaviour
         var temp3 = temp - temp2;
         coarseManipulateTime = coarseManipulateTime + temp3;
 
-        logs += "thisCoarseManipulateTime:" + temp3 + "    ";
+        logs += "thisCoarseManipulateTime:" + temp3 + "\n";
         logs += "allCoarseManipulateTime:" + coarseManipulateTime + "\n";
-        logs += "thisFineManipulateTime:" + temp2 + "    ";
+        logs += "thisFineManipulateTime:" + temp2 + "\n";
         logs += "allFineManipulateTime:" + fineManipulateTime + "\n";
-        logs += "thisManipulateTime:" + temp + "    ";
+        logs += "thisManipulateTime:" + temp + "\n";
         logs += "allManipulateTime:" + manipulateTime + "\n";
         MovingRecorder.GetComponent<MovingRecorder>().restart();
     }

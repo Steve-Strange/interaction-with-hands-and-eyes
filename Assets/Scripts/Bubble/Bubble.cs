@@ -322,14 +322,12 @@ public class Bubble : MonoBehaviour
     public void UpdataTarget()
     {
         //得到所有在碰撞体内部的碰撞体
-       // t.text = "2";
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, transform.GetComponent<Renderer>().bounds.size.x/2,layerMask);
-     /**/   foreach (var item in objects)
+        foreach (var item in objects)
         {
             AddOutline(item.gameObject, Color.clear);
         }
-      //  t.text = "3";
         int targetNum = 0;//最多三个目标
         foreach (var item in colliders)
         {
@@ -386,29 +384,18 @@ public class Bubble : MonoBehaviour
             if(mark[select] == true){
                 select -= 1;
                 if(recorder.GetComponent<singleSelect>().sampleType == 2){//select + manipulate
-
-                  //  t.text = "2";
                     selectingObject = true;
                     time = 0;
-                  //  t.text = "3";
                     AddOutline(target[select],Color.blue);
-                  //  t.text = "4";
                     grabAgentObject.SetActive(true);
-                 //   t.text = target[select].name;
                     grabAgentObject.GetComponent<GrabAgentObjectBubble>().MovingObject.Add(target[select]);
-                  //  t.text = "6";
-                    recorder.GetComponent<singleSelect>().writeFile("selectObject:" + target[select].name);
-                  //  t.text = "7";
                     recorder.GetComponent<singleSelect>().selectOneObject();
-                  //  t.text = "8";
                     killTheBubble();  
                 }else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
                 {
-                   // t.text = "right";
                     if (autoGenerate.GetComponent<autoGenerate>().targets.Contains((target[select])))//选中的是需要的物体
                     {
                         target[select].GetComponent<Renderer>().material.color = Color.blue;//这个是随机颜色变绿，选中后颜色变回蓝色
-                        recorder.GetComponent<singleSelect>().writeFile("selectObject:" + target[select].name);
                         recorder.GetComponent<singleSelect>().selectOneObject();
                         autoGenerate.GetComponent<autoGenerate>().targets.Remove(target[select]);//防止多选
                         finishNumber += 1;
