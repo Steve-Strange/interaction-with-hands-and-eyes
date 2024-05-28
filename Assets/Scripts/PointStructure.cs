@@ -72,23 +72,23 @@ public class PointStructure : MonoBehaviour
 
 
     void Start(){
-        // GameObject parent = GameObject.Find("FinishedObjects");
-        // foreach (Transform child in parent.transform)
-        // {
-        //     FinishedObjects.Add(child.gameObject);
+        GameObject parent = GameObject.Find("FinishedObjects");
+        foreach (Transform child in parent.transform)
+        {
+            FinishedObjects.Add(child.gameObject);
 
-        //     FitLines(child.gameObject);
-        //     FitCircles(child.gameObject);
-        // }
+            FitLines(child.gameObject);
+            FitCircles(child.gameObject);
+        }
         
 
-        // foreach (var line in lineRenderers)
-        // {
-        //     foreach (var obj in line.Key.lineObjects)
-        //     {
-        //         Debug.Log(line.Value.name + obj.name);
-        //     }
-        // }
+        foreach (var line in lineRenderers)
+        {
+            foreach (var obj in line.Key.lineObjects)
+            {
+                Debug.Log(line.Value.name + obj.name);
+            }
+        }
 
     }
 
@@ -352,9 +352,9 @@ public class PointStructure : MonoBehaviour
         float averageWidth = 0.0f;
         foreach (var obj in line.lineObjects)
         {
-            averageWidth += obj.transform.localScale.x + obj.transform.localScale.y + obj.transform.localScale.z;
+            averageWidth += CalculateAverageSize(obj);
         }
-        averageWidth /= line.lineObjects.Count * 16;
+        averageWidth /= line.lineObjects.Count * 5;
         float width = averageWidth; // 你可以根据需要设置不同的宽度
 
         GameObject lineObj = new GameObject("Line " + lineRenderers.Count);
@@ -384,6 +384,7 @@ public class PointStructure : MonoBehaviour
             {
                 maxPoint = obj.transform.position;
             }
+
         }
 
         // 设置线条顶点
@@ -405,6 +406,36 @@ public class PointStructure : MonoBehaviour
 
         // 将线条对象存储到字典中
         lineRenderers[line] = lineObj;
+
+        GameObject edgeObj1 = new GameObject();
+        GameObject edgeObj2 = new GameObject();
+        float distance1 = 0;
+        float distance2 = 0;
+        
+        foreach (var obj in line.lineObjects)
+        {
+            if(Vector3.Dot(obj.transform.position - (line.point1 + line.point2)/2, line.point1-line.point2) > 0){
+                if(Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2) > distance1)
+                {
+                    distance1 = Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2);
+                    edgeObj1 = obj;
+                }
+            }
+            else{
+                if(Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2) > distance2)
+                {
+                    distance2 = Vector3.Distance(obj.transform.position, (line.point1 + line.point2)/2);
+                    edgeObj2 = obj;
+                }
+            }
+        }
+
+        foreach (var obj in line.lineObjects)
+        {
+            if(obj != edgeObj1 && obj != edgeObj2){
+                FinishedObjects.Remove(obj);
+            }
+        }
 
         return lineObj;
     }
@@ -662,18 +693,16 @@ public class PointStructure : MonoBehaviour
         radius = Mathf.Sqrt((xxSum + yySum - 2 * (x0 * xSum + y0 * ySum) + n * (x0 * x0 + y0 * y0)) / n);
     }
 
-    public GameObject CreateCircleWithLineRenderer(CircleStructure circle)
-    {
-
+    public GameObject CreateCircleWithLineRenderer(CircleStructure circle) {
         float r = circle.r;
         Vector3 center = circle.center;
         Vector3 planeNormal = circle.planeNormal;
+
         float averageWidth = 0.0f;
-        foreach (var obj in circle.circleObjects)
-        {
-            averageWidth += obj.transform.localScale.x + obj.transform.localScale.y + obj.transform.localScale.z;
+        foreach (var obj in circle.circleObjects) {
+            averageWidth += CalculateAverageSize(obj);
         }
-        averageWidth /= circle.circleObjects.Count * 16;
+        averageWidth /= circle.circleObjects.Count * 5;
         float width = averageWidth; // 你可以根据需要设置不同的宽度
 
         GameObject circleObj = new GameObject("Circle");
@@ -690,24 +719,30 @@ public class PointStructure : MonoBehaviour
 
         // 设置线条顶点
         int numVertices = 64; // 设置边数为64
+        int numCapsules = 32; // 设置胶囊体数量为32
         lineRenderer.positionCount = numVertices + 1;
 
-        // 计算顶点坐标
-        for (int i = 0; i <= numVertices; i++)
-        {
+        // 计算顶点坐标并添加胶囊体
+        for (int i = 0; i <= numVertices; i++) {
             float angle = i * 2 * Mathf.PI / numVertices;
             Vector3 offset = new Vector3(Mathf.Cos(angle) * r, Mathf.Sin(angle) * r, 0);
             Vector3 vertex = center + Quaternion.LookRotation(planeNormal) * offset;
             lineRenderer.SetPosition(i, vertex);
-        }
 
-        // 添加胶囊体碰撞体
-        circleObj.AddComponent<CapsuleCollider>();
-        CapsuleCollider collider = circleObj.GetComponent<CapsuleCollider>();
-        collider.center = Vector3.zero;
-        collider.radius = width;
-        collider.height = 2 * r; // 设置高度为圆的直径
-        collider.direction = 2; // 沿 Z 轴延伸
+            // 每numVertices/numCapsules个顶点添加一个胶囊体
+            if (i % (numVertices / numCapsules) == 0) {
+                GameObject capsuleObj = new GameObject("Capsule");
+                CapsuleCollider capsuleCollider = capsuleObj.AddComponent<CapsuleCollider>();
+                capsuleCollider.radius = width / 2f;
+                capsuleCollider.height = 2 * r * Mathf.PI / numCapsules;
+                capsuleCollider.direction = 1;
+
+                // 设置胶囊体的位置和旋转
+                capsuleObj.transform.position = vertex;
+                Vector3 tangent = Quaternion.LookRotation(planeNormal) * new Vector3(-Mathf.Sin(angle), Mathf.Cos(angle), 0);
+                capsuleObj.transform.rotation = Quaternion.LookRotation(planeNormal, tangent);
+            }
+        }
 
         // 设置线条位置和旋转
         circleObj.transform.position = center;
