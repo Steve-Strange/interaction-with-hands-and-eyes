@@ -910,7 +910,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 853822807}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &22741961
 MonoBehaviour:
@@ -10171,7 +10171,9 @@ MonoBehaviour:
   FinishedObjects: []
   FinishedPositions: []
   initFlag: 0
-  PointStructure: {fileID: 0}
+  PointStructure: {fileID: 1897749822}
+  TimeRecorder: {fileID: 1122950991}
+  ManipulateData: 
 --- !u!54 &354705643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20487,7 +20489,6 @@ MonoBehaviour:
   TimeRecorder: {fileID: 1122950991}
   phase: 0
   selectionTime: 0
-  placingTime: 0
   movingTime: 0
   initFlag: 0
   objectsWithTargets: []
@@ -42826,7 +42827,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 255675659}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1496642706
 MonoBehaviour:
@@ -54969,6 +54970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FinishedObjects: []
   lineStructures: []
+  circleStructures: []
   lineMaterial: {fileID: 239378781582670930, guid: 8e2ca8ab77b589143b2c7d4d63fe93c1, type: 3}
 --- !u!4 &1897749824
 Transform:
@@ -55720,10 +55722,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cfc9bfca72edb4aa1fb75869774439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userName: 
   head: {fileID: 1618922094}
   leftHand: {fileID: 255675663}
   rightHand: {fileID: 853822806}
-  output: 
+  emptyHead: {fileID: 0}
+  emptyRight: {fileID: 0}
+  emptyLeft: {fileID: 0}
+  MovingData: 
 --- !u!4 &1933645209
 Transform:
   m_ObjectHideFlags: 0

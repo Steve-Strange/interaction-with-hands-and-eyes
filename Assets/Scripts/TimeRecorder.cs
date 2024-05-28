@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class TimeRecorder : MonoBehaviour
 {
@@ -34,7 +34,7 @@ public class TimeRecorder : MonoBehaviour
 
         // 获取外部存储器的路径
         folderPath = Application.persistentDataPath;
-        fileName = userName + "-" + System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
+        fileName = userName + "-" + SceneManager.GetActiveScene().name + "-" + System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
 
         // 设置文件路径和名称
         filePath = Path.Combine(folderPath, fileName);
