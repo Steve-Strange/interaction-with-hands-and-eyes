@@ -5,12 +5,11 @@ using TMPro;
 using Unity.VisualScripting;
 
 public class FinalObjectsSelectOnly : MonoBehaviour
-{
+{//最终控制选择逻辑的地方
     public GameObject autoGenerate;
     public GameObject recorder;
     public List<GameObject> finalObj = new List<GameObject>();
     public Dictionary<GameObject, Quaternion> finalObjQ = new Dictionary<GameObject, Quaternion>();
-    // public TMP_Text T2, T3, T4, T5, T6;
     int wrong;
     int right;
     int round = 0;
@@ -39,7 +38,8 @@ public class FinalObjectsSelectOnly : MonoBehaviour
                 round ++;
                 right = 0;
                 if(round == 2){
-                    recorder.GetComponent<singleSelect>().writeFile("wrong" + wrong);
+                    recorder.GetComponent<singleSelect>().writeFile("precision:" + 30 * 1.0 / (wrong * 1.0 + 30) * 1.0);
+                    
                     recorder.GetComponent<singleSelect>().finishAll();
                     autoGenerate.SetActive(false);
                 }
@@ -47,27 +47,8 @@ public class FinalObjectsSelectOnly : MonoBehaviour
             }   
         }else{
             obj.SetActive(false);
-            obj.GetComponent<Outline>().OutlineColor = Color.red;//标红表示点错了
             wrong++;
-            recorder.GetComponent<singleSelect>().writeFile("you wrong");
         }
-
-        //obj.tag = "FinalObject";
-        
-        //obj.GetComponent<Outline>().OutlineColor = Color.clear;
-             // finalObjQ[obj] = obj.transform.rotation;
-        // float objMaxScale = Mathf.Max(obj.transform.GetComponent<Renderer>().bounds.size.x, obj.transform.GetComponent<Renderer>().bounds.size.y, obj.transform.GetComponent<Renderer>().bounds.size.z);
-        // float finalScale = 0.05f / objMaxScale;
-
-        //obj.transform.parent = transform;
-        //obj.transform.localEulerAngles = new Vector3(0, 0, 0);
-
-        // obj.transform.localScale = new Vector3(0.1f * obj.transform.localScale.x, 0.1f * obj.transform.localScale.y, 0.01f * obj.transform.localScale.z) / objMaxScale;
-        // obj.transform.localScale = new Vector3(obj.transform.localScale.x, obj.transform.localScale.y, obj.transform.localScale.z) * finalScale;
-        // obj.transform.localPosition = new Vector3(0.1f * finalObj.Count - 0.35f , 0, - obj.transform.localScale.z);
-        // if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(obj)) SightCone.GetComponent<SightCone>().selectedObjects.Remove(obj);
-        // SightCone.GetComponent<SightCone>().objectWeights[obj] = -1;
-        // finalObj.Add(obj);
     }
     
     public void RearrangeFinalObj()

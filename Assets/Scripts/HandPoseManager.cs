@@ -72,9 +72,9 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // log.text = "phase: " + phase.ToString() + "\n";
-        // log.text += "timer:" + delayTimer.ToString() + "\n";
-        // log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
+        //log.text = "phase: " + phase.ToString() + "\n";
+      //  log.text += "timer:" + delayTimer.ToString() + "\n";
+      //  log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
     
         if(phase == 0){
             selectionTime += Time.deltaTime;

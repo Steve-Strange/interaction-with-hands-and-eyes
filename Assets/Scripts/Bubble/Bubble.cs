@@ -29,9 +29,6 @@ public class Bubble : MonoBehaviour
     float radius; 
     int layerMask;
     int i, j;
-    // public TMP_Text t;
-   // public TMP_Text t2;
-   // public TMP_Text t3;
     private GameObject[] target = new GameObject[3];
     private float[] d = new float[5];
     private float[] ad = new float[5];
@@ -62,7 +59,7 @@ public class Bubble : MonoBehaviour
         //
         finishNumber = 0;
         selectingObject = false;
-        needNumber = 20;
+        needNumber = autoGenerate.GetComponent<autoGenerate>().targetNumber;
 
     }
     public void FindChilds(GameObject OBJ)
@@ -376,9 +373,6 @@ public class Bubble : MonoBehaviour
             {
                 mark[3] = true;
             }      
-            //t.text = mark[1].ToString();
-            //t2.text = mark[2].ToString();
-           // t3.text = mark[3].ToString();
             float max = -1;
             int select = 0;
             for (int i = 1; i <= 3; i++){
@@ -424,20 +418,19 @@ public class Bubble : MonoBehaviour
                             finishNumber = 0;
                             autoGenerate.GetComponent<autoGenerate>().reGenerate();
                             round += 1;
-                            if (round == 2){   
-                                recorder.GetComponent<singleSelect>().writeFile("selectWrong:" + wrongTime);
-                                recorder.GetComponent<singleSelect>().finishAll();
+                            if (round == 2){
+                                recorder.GetComponent<singleSelect>().writeFile("precision:"  + 30 * 1.0 / (wrongTime * 1.0 + 30) * 1.0);
+                                recorder.GetComponent<singleSelect>().finishAll();//这个时候将总体的位移和角度变化也都写入
                                 autoGenerate.SetActive(false); 
                             }
                               
                         }
                     }
-                    else
-                    {
+                    else{
                         wrongTime += 1;
-                        AddOutline(target[select],Color.red);
                     }
                     selectingObject = false;
+                    target[select].SetActive(false);
                 }else if(recorder.GetComponent<singleSelect>().sampleType == 1)//manipulate_only
                 {
 

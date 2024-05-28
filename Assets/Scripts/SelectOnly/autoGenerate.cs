@@ -11,7 +11,6 @@ public class autoGenerate : MonoBehaviour
     public Dictionary<GameObject, Quaternion> rotations = new Dictionary<GameObject, Quaternion>();
     public Dictionary<GameObject, Vector3> poses = new Dictionary<GameObject, Vector3>();
     public GameObject father;
-    public GameObject handPoseManagerSelectOnly;
     public int targetNumber = 15;//每次的目标物体
     void Start()
     {

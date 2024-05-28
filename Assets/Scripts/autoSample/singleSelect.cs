@@ -10,6 +10,7 @@ public class singleSelect : MonoBehaviour
     [SerializeField]
     public int sampleType;
     public GameObject[] targetGameobject;//�����е���Ҫ��������Ŀ������
+    public GameObject MovingRecorder;
     // Start is called before the first frame update
     public float timer = 0;
     private float selectTime = 0;//ĿǰΪֹ����ѡ��ʱ��
@@ -19,13 +20,11 @@ public class singleSelect : MonoBehaviour
     public float beginSelectTime;//��ʼѡ���ʱ��
     public float beginManipulateTime;//��ʼ���ݵ�ʱ��
     public float beginFineManipulateTime;//��ʼ��ϸ���ݵ�ʱ��
-    // public TMP_Text t;
-    // public TMP_Text t2;
-    // public TMP_Text t3;
     private string folderPath;
     private string filePath;
     private string fileName;
     private string logs;
+
     void Start()
     {
         logs = "";
@@ -47,39 +46,39 @@ public class singleSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // t.text = timer.ToString();
-       // t2.text = selectTime.ToString();
-       // t3.text = manipulateTime.ToString();
         timer += Time.deltaTime;
         if(timer > 5 && begin == true )//��ʼ����֮��ʼ��ʱ
         {
             beginSelectTime = timer;
             begin = false;
-
         }
-    }
-    public void finishAll()
-    {
-        File.WriteAllText(filePath, logs);
-    }
+    } 
     public void writeFile(string a)
     {
         logs += a + "\n";
     }
+    public void finishAll()
+    {
+        MovingRecorder.GetComponent<MovingRecorder>().finishAll();//记录动作的结束
+        writeFile(MovingRecorder.GetComponent<MovingRecorder>().MovingData);//将动作的总移动写入当前的记录中
+        File.WriteAllText(filePath, logs);
+    }
+   
     public void selectOneObject()//��ÿ��ѡ���ʱ�����
     {
         var gap = timer - beginSelectTime;
         if (sampleType == 0)
         {//仅选择
             beginSelectTime = timer;
+            MovingRecorder.GetComponent<MovingRecorder>().restart();
         }
         else
         {
             beginManipulateTime = timer;
         }
 
-        logs += "thisSelectionTime: " + gap + "\n";
-        logs += "allSelectionTime: " + timer + "\n";
+        logs += "thisSelectionTime:" + gap + "    ";
+        logs += "allSelectionTime:" + timer + "\n";
     }
     public void finishOneObject()//��ÿ�β���ʱ�����
     {
@@ -99,12 +98,13 @@ public class singleSelect : MonoBehaviour
         var temp3 = temp - temp2;
         coarseManipulateTime = coarseManipulateTime + temp3;
 
-        logs += "thisCoarseManipulateTime: " + temp3 + "\n";
-        logs += "allCoarseManipulateTime: " + coarseManipulateTime + "\n";
-        logs += "thisFineManipulateTime: " + temp2 + "\n";
-        logs += "allFineManipulateTime: " + fineManipulateTime + "\n";
-        logs += "thisManipulateTime: " + temp + "\n";
-        logs += "allManipulateTime: " + manipulateTime + "\n\n";
+        logs += "thisCoarseManipulateTime:" + temp3 + "    ";
+        logs += "allCoarseManipulateTime:" + coarseManipulateTime + "\n";
+        logs += "thisFineManipulateTime:" + temp2 + "    ";
+        logs += "allFineManipulateTime:" + fineManipulateTime + "\n";
+        logs += "thisManipulateTime:" + temp + "    ";
+        logs += "allManipulateTime:" + manipulateTime + "\n";
+        MovingRecorder.GetComponent<MovingRecorder>().restart();
     }
     public void finishCoarseOneObject()//��ÿ�δֲ���ʱ�����
     {

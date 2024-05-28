@@ -62,7 +62,7 @@ public class TimeRecorder : MonoBehaviour
                                 );
 
                 finishStatus = true;
-            }
+            } 
         }
         
         if (agentObject.GetComponent<GrabAgentObject>().MovingObject.Count > 0)
