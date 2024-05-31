@@ -107,7 +107,13 @@ public class EyeTrackingManager : MonoBehaviour
         int layerMask = 1 << 0 | 1 << 7 | 1 << 8;
         if (Physics.SphereCast(origin, 0.1f, vector, out hitInfo, 50f, layerMask))
         {
-            centerSphere.transform.position = hitInfo.point;
+            if(hitInfo.collider.gameObject.tag == "Structure") {
+                centerSphere.transform.position = hitInfo.point - 2 * (combineEyeGazeOriginInWorldSpace - hitInfo.point).normalized * hitInfo.collider.gameObject.GetComponent<CapsuleCollider>().radius;
+            }
+            else {
+                centerSphere.transform.position = hitInfo.point;
+            }
+            
             centerSphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f) * Vector3.Distance(combineEyeGazeOriginInWorldSpace, hitInfo.point) / 9;
 
             // log.text += "\n" + "hitInfo: " + hitInfo.collider.gameObject.name;

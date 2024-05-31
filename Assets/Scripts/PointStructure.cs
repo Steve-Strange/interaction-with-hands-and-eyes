@@ -358,6 +358,7 @@ public class PointStructure : MonoBehaviour
         float width = averageWidth; // 你可以根据需要设置不同的宽度
 
         GameObject lineObj = new GameObject("Line " + lineRenderers.Count);
+        lineObj.tag = "Structure";
         LineRenderer lineRenderer = lineObj.AddComponent<LineRenderer>();
 
         // 设置线条材质
@@ -709,6 +710,7 @@ public class PointStructure : MonoBehaviour
         float width = averageWidth; // 你可以根据需要设置不同的宽度
 
         GameObject circleObj = new GameObject("Circle");
+        circleObj.tag = "Structure";
         LineRenderer lineRenderer = circleObj.AddComponent<LineRenderer>();
 
         // 设置线条材质

@@ -16,6 +16,7 @@ TagManager:
   - ColliderY
   - ColliderZ
   - cols
+  - Structure
   layers:
   - Default
   - TransparentFX

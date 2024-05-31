@@ -140,6 +140,7 @@ public class GrabAgentObject : MonoBehaviour
                 if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                     (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
+                        transform.rotation = Quaternion.identity;
                         
                         if (!FinishedObjects.Contains(MovingObject[0]))
                         FinishedObjects.Add(MovingObject[0]);
@@ -153,8 +154,6 @@ public class GrabAgentObject : MonoBehaviour
                         TimeRecorder.GetComponent<TimeRecorder>().CompleteObjects.Add(MovingObject[0]);
                     // ManipulateData += "FinishedObjectCount " + FinishedObjects.Count + " " +  + "\n";
           
-                        
-
                         MovingObject.RemoveAt(0);
                         AutoAdjustStatus = true;
                 }
