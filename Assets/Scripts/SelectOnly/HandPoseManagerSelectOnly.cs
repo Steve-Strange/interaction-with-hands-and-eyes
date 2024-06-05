@@ -18,7 +18,7 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
     public GameObject SecondSelectionBG;
     public GameObject recorder;
     public GameObject collide;
-    //public TMP_Text T;
+    public TMP_Text T;
     public List<GameObject> selectedRow = new List<GameObject>();
     public GameObject emptyBlock;
     // private List<GameObject> selectedObjectsFixed = new List<GameObject>();
@@ -175,14 +175,18 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         {
             wristRotation = -wristRotation;
         }
-
+        if(minAngel < -25){
+            minAngel = -25;
+        }
+        if(maxAngel > 60) { 
+            maxAngel = 60;
+        }
 
         int currentRow;
-       // T.text = ((wristRotation - minAngel) / (maxAngel - minAngel)).ToString();
+        T.text = minAngel.ToString()+"     "+maxAngel.ToString()+"      "+ ((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum).ToString();
         if (wristRotation < minAngel) currentRow = 0;
         else if (wristRotation > maxAngel) currentRow = rowNum - 1;
-        else
-        {
+        else{
             currentRow = Mathf.RoundToInt((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum);
         }
 
@@ -211,16 +215,6 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
             }
             i++;
         }
-        // for(int i = 0; i < selectedObjectsFixed.Count; i++){
-        //     if(i/5 == currentRow){
-        //         if(!FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(selectedObjectsFixed[i]))
-        //             selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.yellow; 
-        //         selectedRow.Add(selectedObjectsFixed[i]);
-        //     }
-        //     else{
-        //         selectedObjectsFixed[i].GetComponent<Outline>().OutlineColor = Color.clear; 
-        //     }
-        // }
     }
 
     public void onPalmPoseExit()

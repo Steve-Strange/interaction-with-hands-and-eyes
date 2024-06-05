@@ -187,7 +187,14 @@ public class HandPoseManager : MonoBehaviour
         {
             wristRotation = - wristRotation;
         }
-
+        if (minAngel < -25)
+        {
+            minAngel = -25;
+        }
+        if (maxAngel > 60)
+        {
+            maxAngel = 60;
+        }
 
         int currentRow;
     

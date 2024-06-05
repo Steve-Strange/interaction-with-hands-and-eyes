@@ -28,14 +28,10 @@ public class autoAdaptManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // t1.text = maxWristAngle.ToString();
-      //  t2 .text = minWristAngle.ToString();
-      //  angle.text = HandRightWrist.transform.rotation.eulerAngles.x.ToString();
-        if (recorder.GetComponent<singleSelect>().timer > 6){
-           // beginTime.text = " ";
-            handPoseManager.GetComponent<HandPoseManagerSelectOnly>().minAngel = minWristAngles / minMark;
-            handPoseManager.GetComponent<HandPoseManagerSelectOnly>().maxAngel = maxWristAngles / maxMark;
-
+    
+        if (recorder.GetComponent<singleSelect>().timer > 0.01){//6){
+            handPoseManager.GetComponent<HandPoseManagerSelectOnly>().minAngel = -10;// minWristAngles / minMark;
+            handPoseManager.GetComponent<HandPoseManagerSelectOnly>().maxAngel = 60;// maxWristAngles / maxMark;
         }
         else if(recorder.GetComponent<singleSelect>().timer < 1)
         {
@@ -76,15 +72,6 @@ public class autoAdaptManager : MonoBehaviour
         else if(recorder.GetComponent<singleSelect>().timer > 1f && recorder.GetComponent<singleSelect>().timer < 3f)
         {
             mark += 1;
-            /*angleGap += 检测手指间的角度 
-            if(){
-               maxAngle = ;
-            }
-            else if ()
-                    {
-            minAngle = ;
-
-                    }*/
         }else if(recorder.GetComponent<singleSelect>().timer >= 3f)
         {
             changeBackboard();

@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c3692051ab4204b913633b7989476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: qym
+  userName: qym_bubble
   sampleType: 0
   targetGameobject: []
   MovingRecorder: {fileID: 159938896}
@@ -1163,8 +1163,7 @@ MonoBehaviour:
   emptyHead: {fileID: 57247166}
   emptyRight: {fileID: 496639087}
   emptyLeft: {fileID: 1538392790}
-  output: 
-  filePath: 
+  MovingData: 
 --- !u!1 &160500570
 GameObject:
   m_ObjectHideFlags: 0
@@ -5721,7 +5720,7 @@ MonoBehaviour:
   recorder: {fileID: 159938896}
   autoGenerate: {fileID: 1476500996}
   grabAgentObject: {fileID: 1956108915}
-  Objects: {fileID: 468613407}
+  Objects: {fileID: 1476500996}
   objects: []
   palm: {fileID: 1352125979}
   index: {fileID: 609441111}
@@ -9415,7 +9414,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1399970292}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1319422453
 MonoBehaviour:

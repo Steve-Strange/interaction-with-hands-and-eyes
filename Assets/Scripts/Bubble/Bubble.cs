@@ -224,8 +224,12 @@ public class Bubble : MonoBehaviour
         {         decideCenter();
                   follow();
                   changeRadius();
-                   //检测出所有包含在这个sphere中的物体
-                   UpdataTarget();
+            //检测出所有包含在这个sphere中的物体
+            foreach (var item in objects)
+            {
+                AddOutline(item.gameObject, Color.clear);
+            }
+            UpdataTarget();
                     UpdateLine();//更新画线，需要更新了target之后
                     ChooseObject();
         }
@@ -406,6 +410,7 @@ public class Bubble : MonoBehaviour
                             autoGenerate.GetComponent<autoGenerate>().reGenerate();
                             round += 1;
                             if (round == 2){
+                                recorder.GetComponent<singleSelect>().writeFile("finish all");
                                 recorder.GetComponent<singleSelect>().writeFile("precision:"  + 30 * 1.0 / (wrongTime * 1.0 + 30) * 1.0);
                                 recorder.GetComponent<singleSelect>().finishAll();//这个时候将总体的位移和角度变化也都写入
                                 autoGenerate.SetActive(false); 
