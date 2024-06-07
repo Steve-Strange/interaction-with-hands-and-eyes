@@ -72,23 +72,23 @@ public class PointStructure : MonoBehaviour
 
 
     void Start(){
-        // GameObject parent = GameObject.Find("FinishedObjects");
-        // foreach (Transform child in parent.transform)
-        // {
-        //     FinishedObjects.Add(child.gameObject);
+        GameObject parent = GameObject.Find("FinishedObjects");
+        foreach (Transform child in parent.transform)
+        {
+            FinishedObjects.Add(child.gameObject);
 
-        //     FitLines(child.gameObject);
-        //     FitCircles(child.gameObject);
-        // }
+            FitLines(child.gameObject);
+            FitCircles(child.gameObject);
+        }
         
 
-        // foreach (var line in lineRenderers)
-        // {
-        //     foreach (var obj in line.Key.lineObjects)
-        //     {
-        //         Debug.Log(line.Value.name + obj.name);
-        //     }
-        // }
+        foreach (var line in lineRenderers)
+        {
+            foreach (var obj in line.Key.lineObjects)
+            {
+                Debug.Log(line.Value.name + obj.name);
+            }
+        }
 
     }
 

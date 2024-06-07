@@ -108,7 +108,7 @@ public class EyeTrackingManager : MonoBehaviour
         if (Physics.SphereCast(origin, 0.1f, vector, out hitInfo, 50f, layerMask))
         {
             if(hitInfo.collider.gameObject.tag == "Structure") {
-                centerSphere.transform.position = hitInfo.point - 2 * (combineEyeGazeOriginInWorldSpace - hitInfo.point).normalized * hitInfo.collider.gameObject.GetComponent<CapsuleCollider>().radius;
+                centerSphere.transform.position = hitInfo.point - (combineEyeGazeOriginInWorldSpace - hitInfo.point).normalized * hitInfo.collider.gameObject.GetComponent<CapsuleCollider>().radius;
             }
             else {
                 centerSphere.transform.position = hitInfo.point;
