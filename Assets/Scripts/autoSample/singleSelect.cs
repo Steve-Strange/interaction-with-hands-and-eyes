@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class singleSelect : MonoBehaviour
 {
     [SerializeField]
@@ -32,11 +34,11 @@ public class singleSelect : MonoBehaviour
         // ��ȡ�ⲿ�洢����·��
         folderPath = Application.persistentDataPath;
         if(sampleType == 2){
-            fileName = userName + "-" + System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
+            fileName = userName + "-" + SceneManager.GetActiveScene().name + "-" + System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
         }else if(sampleType == 0){
-            fileName = userName + "-" +"select_"+ System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
+            fileName = userName + "-" + SceneManager.GetActiveScene().name + "-" + "select_"+ System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
         }else{
-            fileName = userName + "-" +"manipulate_"+ System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
+            fileName = userName + "-" + SceneManager.GetActiveScene().name + "-" + "manipulate_"+ System.DateTime.Now.ToString("MMddHHmmss") + ".txt";
         }
         // �����ļ�·��������
         filePath = Path.Combine(folderPath, fileName);

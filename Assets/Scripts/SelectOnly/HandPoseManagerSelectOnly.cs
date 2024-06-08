@@ -175,13 +175,15 @@ public class HandPoseManagerSelectOnly : MonoBehaviour
         {
             wristRotation = -wristRotation;
         }
-        if(minAngel < -25){
+
+        if (minAngel < -25){
             minAngel = -25;
         }
         if(maxAngel > 60) { 
             maxAngel = 60;
         }
-
+        minAngel = 0;
+        maxAngel = 50;
         int currentRow;
         T.text = minAngel.ToString()+"     "+maxAngel.ToString()+"      "+ ((wristRotation - minAngel) / (maxAngel - minAngel) * rowNum).ToString();
         if (wristRotation < minAngel) currentRow = 0;

@@ -33,8 +33,9 @@ public class FinalObjectsSelectOnly : MonoBehaviour
             right += 1;
             recorder.GetComponent<singleSelect>().selectOneObject();
             obj.SetActive(false);
-            if(right == autoGenerate.GetComponent<autoGenerate>().targetNumber)//已经选中了20个
+            if(right == 15)//已经选中了20个
             {
+                Debug.Log(round);
                 round ++;
                 right = 0;
                 if(round == 2){
