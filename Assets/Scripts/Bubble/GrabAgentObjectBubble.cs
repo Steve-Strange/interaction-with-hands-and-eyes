@@ -135,76 +135,96 @@ public class GrabAgentObjectBubble : MonoBehaviour
                 else{
                     stayInTimer = 0;
                 }
+        }
+        grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
 
-
-
-}
-        grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus; 
-      
         movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
         pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.014f;
 
 
-        if (pinchStatus && grabStatus!=0 && !movingStatus)
+
+        if (pinchStatus && grabStatus != 0 && !movingStatus)
         {
             lastPosition = rightIndex.transform.position;
             movingStatus = true;
         }
-
-        if ((!pinchStatus || grabStatus==0) && movingStatus)
+        if ((!pinchStatus || grabStatus == 0) && movingStatus)
         {
             movingStatus = false;
             transform.parent = null;
             transform.localPosition = originalPosition;
-            if(MovingObject.Count > 0) transform.rotation = MovingObject[0].transform.rotation;
-            else transform.rotation = Quaternion.identity;
-            
+            transform.rotation = Quaternion.identity;
         }
 
         if (movingStatus)
         {
-            if(grabStatus == 1){
+            // log.text += "\n" + "Moving...";
+            if (grabStatus == 1)
+            {
                 transform.position = rightIndex.transform.position;
                 transform.parent = rightIndex.transform;
-
-                // Calculate finger movement vector
+                // 计算手指移动向量
                 Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
-
-                // Use relative coordinates to synchronize position
+                // 使用相对坐标来同步位置
                 MovingObject[0].transform.position += deltaPosition * movingScale;
-
             }
             else
             {
                 float deltaRotation = Vector3.Angle(lastPosition - transform.position, rightIndex.transform.position - transform.position);
                 Vector3 crossProduct = Vector3.Cross(lastPosition - transform.position, rightIndex.transform.position - transform.position);
-                
+                Vector3 rotationAxis = Vector3.zero;
                 if (grabStatus == 2)
                 {
-                    float dotProduct = Vector3.Dot(crossProduct, Vector3.right);
-                    if (dotProduct < 0) deltaRotation = -deltaRotation;
-                    transform.RotateAround(transform.position, Vector3.right, deltaRotation);
+                    rotationAxis = Vector3.right;
                 }
                 else if (grabStatus == 3)
                 {
-                    float dotProduct = Vector3.Dot(crossProduct, Vector3.up);
-                    if (dotProduct < 0) deltaRotation = -deltaRotation;
-                    transform.RotateAround(transform.position, Vector3.up, deltaRotation);
+                    rotationAxis = Vector3.up;
                 }
                 else if (grabStatus == 4)
                 {
-                    float dotProduct = Vector3.Dot(crossProduct, Vector3.forward);
-                    if (dotProduct < 0) deltaRotation = -deltaRotation;
-                    transform.RotateAround(transform.position, Vector3.forward, deltaRotation);
+                    rotationAxis = Vector3.forward;
                 }
-                
-                MovingObject[0].transform.rotation = transform.rotation;
-
+                float dotProduct = Vector3.Dot(crossProduct, rotationAxis);
+                if (dotProduct < 0) deltaRotation = -deltaRotation;
+                // 旋转代理物体
+                transform.RotateAround(transform.position, rotationAxis, deltaRotation);
+                // 记录这次旋转的角度
+                Quaternion deltaRotationQuat = Quaternion.AngleAxis(deltaRotation, rotationAxis);
+                // 操纵的物体旋转
+                MovingObject[0].transform.rotation = deltaRotationQuat * MovingObject[0].transform.rotation;
             }
-
             lastPosition = rightIndex.transform.position;
-
+            if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
+                    MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
+                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
+            }
+            else if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f){
+                    MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
+                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
+            }
+            else {
+                MovingObject[0].GetComponent<Outline>().OutlineColor = Color.white;
+            }
         }
+        else
+        {
+            if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
+                    transform.rotation = Quaternion.identity;
+                    
+                    
+                    MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                    MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
+        
+                    MovingObject.RemoveAt(0);
+            }
+        }
+            
     }
     float RotationGap(GameObject obj1, GameObject obj2)
     {

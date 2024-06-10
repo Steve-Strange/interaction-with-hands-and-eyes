@@ -17,13 +17,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/City.unity
     guid: 8c69b5838e5b28347835666475b0167d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/select+manipulate/Museum-bubble-agent-also-can-manipulateOnly.unity
     guid: 163b3c4347ee05146b21c19dfd883574
   - enabled: 0
     path: Assets/Scenes/EyeTracking.unity
     guid: 9ac16f17ce0e9914d9d7a39980cf4a16
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/manipulateOnly/ManipulateOnly-Ours.unity
     guid: f5854a50db2e0124c96da20952dac105
   - enabled: 0
