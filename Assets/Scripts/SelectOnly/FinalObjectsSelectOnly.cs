@@ -41,7 +41,6 @@ public class FinalObjectsSelectOnly : MonoBehaviour
                 if(round == 2){
                     recorder.GetComponent<singleSelect>().writeFile("finish all");
                     recorder.GetComponent<singleSelect>().writeFile("precision:" + 30 * 1.0 / (wrong * 1.0 + 30) * 1.0);
-                    
                     recorder.GetComponent<singleSelect>().finishAll();
                     autoGenerate.SetActive(false);
                 }

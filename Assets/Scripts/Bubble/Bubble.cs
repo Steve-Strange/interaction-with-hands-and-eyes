@@ -9,7 +9,7 @@ public class Bubble : MonoBehaviour
     public GameObject recorder;
     public GameObject autoGenerate; 
     public GameObject grabAgentObject;
-    public GameObject Objects;
+    public GameObject ObjectsSelectOnly;
     public List<GameObject> objects =  new List<GameObject>();
     LineRenderer l;
     public GameObject palm;
@@ -53,7 +53,7 @@ public class Bubble : MonoBehaviour
        // FindChilds(GameObject.Find("others"));
         }else
         {
-        FindChilds(Objects);//在仅选择下
+        FindChilds(ObjectsSelectOnly);//在仅选择下
         }
       
         //
@@ -73,13 +73,11 @@ public class Bubble : MonoBehaviour
     private string m_logEntries = "";
     public void changeRadius()
     {
-      //  t.text = "101";
         for (int i = 0; i < 1000; i++)
         {
             IntD[i] = 1000000000000;
             ConD[i] = 0;
         }
-       // t.text = "111";
         for (int i = 0; i < objects.Count; i++)
             if(objects[i].GetComponent<MeshFilter>()!=null){
                 Debug.Log(objects[i].name);
@@ -99,7 +97,6 @@ public class Bubble : MonoBehaviour
                 }//物体所有点的最远
             }
         }
-     //   t.text = "12";
         float min = 1000000;
         int k = 0;
         for (int i = 0; i < objects.Count; i++)
@@ -110,7 +107,6 @@ public class Bubble : MonoBehaviour
                 k = i;
             }
         }
-       // t.text = "13";
         min = 1000000;
         int k2 = 0;
         for (int i = 0; i < objects.Count; i++)
@@ -124,7 +120,6 @@ public class Bubble : MonoBehaviour
         }
         i = k;
         j = k2;
-    //    t.text = "14";
         if (ConD[i] < IntD[j])
         {
             radius = ConD[i];
@@ -202,19 +197,9 @@ public class Bubble : MonoBehaviour
     bool init = true;
     void Update()
     {
-        // t.text = m_logEntries.ToString();
+     
         l.SetPosition(0, palm.transform.position);
         l.SetPosition(1, -palm.transform.up* 100);
-      //  l.startWidth = 0.01f;
-     //   l.endWidth = 0.01f;
-        //l.SetPosition(0, palm.transform.position + 0.05f * Vector3.up);todo在手掌心周围多加一点范围
-        //l.SetPosition(1, -palm.transform.up* 100 + 0.05f * Vector3.up);
-        // 
-        //  if (init) { //
-        //      transform.position = objects[0].transform.position; 
-        //     init = false;
-        //  }
-
         if(!selectingObject)
         {         decideCenter();
                   follow();
