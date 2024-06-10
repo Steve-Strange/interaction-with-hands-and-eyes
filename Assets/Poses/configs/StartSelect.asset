@@ -26,46 +26,12 @@ MonoBehaviour:
         curlConfigs:
           min: 90
           max: 180
-          width: 25
+          width: 40
         abductionConfigs:
           mid: 13
-          width: 24
+          width: 30
     index:
       handFinger: 1
-      flexion: 0
-      curl: 1
-      abduction: 1
-      fingerConfigs:
-        flexionConfigs:
-          min: 144
-          max: 180
-          width: 20
-        curlConfigs:
-          min: 107
-          max: 180
-          width: 25
-        abductionConfigs:
-          mid: 10
-          width: 18
-    middle:
-      handFinger: 2
-      flexion: 0
-      curl: 1
-      abduction: 1
-      fingerConfigs:
-        flexionConfigs:
-          min: 144
-          max: 180
-          width: 20
-        curlConfigs:
-          min: 107
-          max: 180
-          width: 25
-        abductionConfigs:
-          mid: 10
-          width: 18
-    ring:
-      handFinger: 3
       flexion: 0
       curl: 1
       abduction: 1
@@ -80,7 +46,41 @@ MonoBehaviour:
           width: 30
         abductionConfigs:
           mid: 10
-          width: 18
+          width: 24
+    middle:
+      handFinger: 2
+      flexion: 0
+      curl: 1
+      abduction: 1
+      fingerConfigs:
+        flexionConfigs:
+          min: 144
+          max: 180
+          width: 20
+        curlConfigs:
+          min: 107
+          max: 180
+          width: 30
+        abductionConfigs:
+          mid: 10
+          width: 24
+    ring:
+      handFinger: 3
+      flexion: 0
+      curl: 1
+      abduction: 1
+      fingerConfigs:
+        flexionConfigs:
+          min: 144
+          max: 180
+          width: 20
+        curlConfigs:
+          min: 107
+          max: 180
+          width: 40
+        abductionConfigs:
+          mid: 10
+          width: 24
     pinky:
       handFinger: 4
       flexion: 0

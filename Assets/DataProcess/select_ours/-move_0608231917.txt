@@ -1,0 +1,249 @@
+Moved Distance: 
+head: 3.245598
+right:1.880623
+left:1.591765
+Rotated Angle: 
+head: 415.2342
+right:97.71715
+left:101.4402
+Moved Distance: 
+head: 0.03553465
+right:0.01710503
+left:0.03212757
+Rotated Angle: 
+head: 4.183301
+right:19.28839
+left:15.71999
+Moved Distance: 
+head: 0.2511008
+right:0.2588815
+left:0.4543643
+Rotated Angle: 
+head: 28.66884
+right:46.97877
+left:125.0137
+Moved Distance: 
+head: 0.01137918
+right:0.03816471
+left:0.018951
+Rotated Angle: 
+head: 0
+right:16.1535
+left:4.507889
+Moved Distance: 
+head: 0.0008865013
+right:0.002993296
+left:0.002660064
+Rotated Angle: 
+head: 0
+right:1.094213
+left:1.231241
+Moved Distance: 
+head: 0.00548586
+right:0.03455515
+left:0.02991728
+Rotated Angle: 
+head: 0
+right:12.1102
+left:2.290382
+Moved Distance: 
+head: 0.0086623
+right:0.05408653
+left:0.03300731
+Rotated Angle: 
+head: 0
+right:7.981407
+left:0.7681841
+Moved Distance: 
+head: 0.005945657
+right:0.0518846
+left:0.03397826
+Rotated Angle: 
+head: 0
+right:9.567437
+left:2.887785
+Moved Distance: 
+head: 0.5068724
+right:1.322669
+left:0.6456628
+Rotated Angle: 
+head: 96.17545
+right:484.4487
+left:103.883
+Moved Distance: 
+head: 0.005005606
+right:0.06423362
+left:0.02733677
+Rotated Angle: 
+head: 0
+right:18.99197
+left:6.574709
+Moved Distance: 
+head: 0.003254292
+right:0.02888843
+left:0.01173922
+Rotated Angle: 
+head: 0
+right:8.787808
+left:1.597049
+Moved Distance: 
+head: 0.007581943
+right:0.1160504
+left:0.01883578
+Rotated Angle: 
+head: 0
+right:21.50823
+left:7.809592
+Moved Distance: 
+head: 0.00498028
+right:0.03707957
+left:0.02271224
+Rotated Angle: 
+head: 0
+right:8.446492
+left:2.043694
+Moved Distance: 
+head: 0
+right:0
+left:0
+Rotated Angle: 
+head: 0
+right:0
+left:0
+Moved Distance: 
+head: 0.1671266
+right:0.4532982
+left:0.4560986
+Rotated Angle: 
+head: 75.06805
+right:366.8609
+left:65.79148
+Moved Distance: 
+head: 0.007796114
+right:0.04720199
+left:0.03916224
+Rotated Angle: 
+head: 0
+right:13.41012
+left:2.975397
+Moved Distance: 
+head: 0.002510441
+right:0.02589837
+left:0.009989366
+Rotated Angle: 
+head: 0
+right:6.995292
+left:1.788762
+Moved Distance: 
+head: 0.00439254
+right:0.08585519
+left:0.02523004
+Rotated Angle: 
+head: 0
+right:14.35652
+left:8.989741
+Moved Distance: 
+head: 0.007687533
+right:0.1606169
+left:0.03294678
+Rotated Angle: 
+head: 0
+right:35.55439
+left:8.373118
+Moved Distance: 
+head: 0.133194
+right:0.4210338
+left:0.2041713
+Rotated Angle: 
+head: 52.47295
+right:281.0935
+left:62.00447
+Moved Distance: 
+head: 0.004589024
+right:0.06741869
+left:0.01817854
+Rotated Angle: 
+head: 0
+right:23.02784
+left:6.810563
+Moved Distance: 
+head: 0.006196534
+right:0.02700315
+left:0.02593783
+Rotated Angle: 
+head: 0
+right:19.25454
+left:6.011995
+Moved Distance: 
+head: 0
+right:0
+left:0
+Rotated Angle: 
+head: 0
+right:0
+left:0
+Moved Distance: 
+head: 0.001711077
+right:0.02450298
+left:0.006388664
+Rotated Angle: 
+head: 0
+right:4.008759
+left:2.191425
+Moved Distance: 
+head: 0.005695992
+right:0.04426474
+left:0.01980566
+Rotated Angle: 
+head: 0
+right:15.75016
+left:8.481414
+Moved Distance: 
+head: 0.006878483
+right:0.02979473
+left:0.04822627
+Rotated Angle: 
+head: 0
+right:18.11038
+left:9.958804
+Moved Distance: 
+head: 0.002432684
+right:0.008004135
+left:0.009244542
+Rotated Angle: 
+head: 0
+right:4.149896
+left:2.657411
+Moved Distance: 
+head: 0.1248962
+right:0.3935382
+left:0.1916184
+Rotated Angle: 
+head: 51.26975
+right:285.3997
+left:55.21952
+Moved Distance: 
+head: 0.003999376
+right:0.02470033
+left:0.04278348
+Rotated Angle: 
+head: 0
+right:17.55975
+left:1.707026
+Moved Distance: 
+head: 0.006659435
+right:0.06520119
+left:0.03736828
+Rotated Angle: 
+head: 0
+right:18.65845
+left:5.647562
+all distance and rotate angle
+Moved Distance: 
+head: 4.578053
+right:5.785548
+left:4.090207
+Rotated Angle: 
+head: 723.0725
+right:1877.264
+left:624.3761

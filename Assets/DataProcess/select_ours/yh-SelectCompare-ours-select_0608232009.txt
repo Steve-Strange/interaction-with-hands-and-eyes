@@ -1,0 +1,235 @@
+onPalmPoseStart:4.924746
+
+thisSelectionTime:3.012333
+allSelectionTime:8.013618
+thisSelectionTime:0.7781372
+allSelectionTime:8.791756
+onPalmPoseExit:  10.58461
+
+onSecondSelectionBGDisappear:  11.07092
+
+onPalmPoseStart:11.25095
+
+onPalmPoseExit:  11.52921
+
+onPalmPoseStart:11.73792
+
+onPalmPoseExit:  11.84884
+
+onSecondSelectionBGDisappear:  12.3351
+
+onPalmPoseStart:14.05772
+
+thisSelectionTime:7.337029
+allSelectionTime:16.12878
+thisSelectionTime:2.110203
+allSelectionTime:18.23899
+thisSelectionTime:0.7776375
+allSelectionTime:19.01662
+onPalmPoseExit:  24.37874
+
+onPalmPoseStart:24.60112
+
+onPalmPoseExit:  24.83582
+
+onPalmPoseStart:24.84987
+
+onPalmPoseExit:  25.44771
+
+onPalmPoseStart:25.58621
+
+thisSelectionTime:7.389082
+allSelectionTime:26.40571
+onPalmPoseExit:  28.65565
+
+onSecondSelectionBGDisappear:  29.15556
+
+onPalmPoseStart:30.22546
+
+thisSelectionTime:6.72191
+allSelectionTime:33.12762
+onPalmPoseExit:  33.43299
+
+onPalmPoseStart:33.794
+
+thisSelectionTime:1.278042
+allSelectionTime:34.40566
+onPalmPoseExit:  35.51626
+
+onSecondSelectionBGDisappear:  36.00338
+
+onPalmPoseStart:36.8226
+
+thisSelectionTime:4.944538
+allSelectionTime:39.3502
+onPalmPoseExit:  41.51642
+
+onPalmPoseStart:41.79401
+
+thisSelectionTime:4.389259
+allSelectionTime:43.73946
+thisSelectionTime:1.666058
+allSelectionTime:45.40551
+onPalmPoseExit:  45.85008
+
+onPalmPoseStart:45.96131
+
+thisSelectionTime:1.110725
+allSelectionTime:46.51624
+onPalmPoseExit:  47.71133
+
+onSecondSelectionBGDisappear:  48.19695
+
+onPalmPoseStart:51.72514
+
+onPalmPoseExit:  52.05862
+
+onPalmPoseStart:52.4196
+
+thisSelectionTime:7.445084
+allSelectionTime:53.96132
+onPalmPoseExit:  54.7667
+
+onPalmPoseStart:55.21183
+
+onPalmPoseExit:  55.41989
+
+onPalmPoseStart:55.5308
+
+thisSelectionTime:1.886753
+allSelectionTime:55.84808
+onPalmPoseExit:  57.86377
+
+onPalmPoseStart:58.03026
+
+thisSelectionTime:3.001446
+allSelectionTime:58.84952
+onPalmPoseExit:  60.62705
+
+onSecondSelectionBGDisappear:  61.12719
+
+onPalmPoseStart:61.25165
+
+thisSelectionTime:2.402126
+allSelectionTime:61.25165
+onPalmPoseExit:  61.2672
+
+onPalmPoseStart:61.51564
+
+thisSelectionTime:1.541939
+allSelectionTime:62.79359
+thisSelectionTime:1.611664
+allSelectionTime:64.40525
+onPalmPoseExit:  64.57132
+
+onPalmPoseStart:64.6963
+
+onPalmPoseExit:  65.33501
+
+onPalmPoseStart:65.34916
+
+thisSelectionTime:2.166046
+allSelectionTime:66.5713
+onPalmPoseExit:  66.66867
+
+onSecondSelectionBGDisappear:  67.15462
+
+onPalmPoseStart:67.21343
+
+onPalmPoseExit:  68.19639
+
+onPalmPoseStart:68.21072
+
+onPalmPoseExit:  68.43241
+
+onSecondSelectionBGDisappear:  68.93263
+
+onPalmPoseStart:69.08566
+
+thisSelectionTime:2.514366
+allSelectionTime:69.08566
+thisSelectionTime:3.207756
+allSelectionTime:72.29342
+thisSelectionTime:0.7221909
+allSelectionTime:73.01561
+thisSelectionTime:2.833382
+allSelectionTime:75.84899
+thisSelectionTime:1.166382
+allSelectionTime:77.01537
+onPalmPoseExit:  78.07156
+
+onSecondSelectionBGDisappear:  78.55753
+
+onPalmPoseStart:79.57133
+
+onPalmPoseExit:  80.58616
+
+onPalmPoseStart:81.002
+
+thisSelectionTime:5.389114
+allSelectionTime:82.40449
+onPalmPoseExit:  83.96018
+
+onSecondSelectionBGDisappear:  84.4463
+
+onPalmPoseStart:84.6544
+
+onPalmPoseExit:  84.66959
+
+onPalmPoseStart:84.9192
+
+thisSelectionTime:3.722122
+allSelectionTime:86.12661
+onPalmPoseExit:  86.27975
+
+onPalmPoseStart:86.40463
+
+onPalmPoseExit:  87.16828
+
+onSecondSelectionBGDisappear:  87.65442
+
+onPalmPoseStart:88.51498
+
+onPalmPoseExit:  89.75149
+
+onSecondSelectionBGDisappear:  90.23814
+
+onPalmPoseStart:93.64124
+
+thisSelectionTime:9.166496
+allSelectionTime:95.29311
+onPalmPoseExit:  95.43312
+
+onPalmPoseStart:95.57072
+
+thisSelectionTime:3.445435
+allSelectionTime:98.73854
+onPalmPoseExit:  98.91859
+
+onPalmPoseStart:99.04371
+
+onPalmPoseExit:  99.26553
+
+onPalmPoseStart:99.39043
+
+onPalmPoseExit:  100.6681
+
+onPalmPoseStart:100.682
+
+thisSelectionTime:2.05423
+allSelectionTime:100.7928
+onPalmPoseExit:  101.2238
+
+onPalmPoseStart:101.4187
+
+thisSelectionTime:2.000137
+allSelectionTime:102.7929
+finish all
+precision:0.857142857142857
+Moved Distance head:5.531931
+Moved Distance right:8.237341
+Moved Distance left:7.216398
+Rotated Angle head:816.0295
+Rotated Angle right:2884.558
+Rotated Angle left:1093.898
+all selection time:102.7929

@@ -1,0 +1,95 @@
+onPalmPoseStart:2.299564
+
+thisSelectionTime:2.408195
+allSelectionTime:2.408195
+thisSelectionTime:0.1017413
+allSelectionTime:2.509936
+thisSelectionTime:1.083924
+allSelectionTime:3.59386
+thisSelectionTime:0.7776663
+allSelectionTime:4.371526
+thisSelectionTime:0.1105399
+allSelectionTime:4.482066
+thisSelectionTime:0.3054385
+allSelectionTime:5.315941
+thisSelectionTime:1.166811
+allSelectionTime:6.482753
+thisSelectionTime:0.834733
+allSelectionTime:7.317486
+onPalmPoseExit:  7.751295
+
+onSecondSelectionBGDisappear:  8.235161
+
+onPalmPoseStart:10.72168
+
+thisSelectionTime:4.3896
+allSelectionTime:11.70709
+thisSelectionTime:0.6679192
+allSelectionTime:12.375
+thisSelectionTime:0.5557432
+allSelectionTime:12.93075
+thisSelectionTime:0.8326635
+allSelectionTime:13.76341
+thisSelectionTime:0.5556488
+allSelectionTime:14.31906
+thisSelectionTime:0
+allSelectionTime:14.31906
+onPalmPoseExit:  14.7497
+
+onSecondSelectionBGDisappear:  15.23609
+
+onPalmPoseStart:16.56944
+
+thisSelectionTime:3.222766
+allSelectionTime:17.54183
+thisSelectionTime:0.8881741
+allSelectionTime:18.43
+thisSelectionTime:0.389164
+allSelectionTime:18.81916
+thisSelectionTime:0.5557232
+allSelectionTime:19.37489
+thisSelectionTime:0.6105042
+allSelectionTime:19.98539
+onPalmPoseExit:  20.3194
+
+onSecondSelectionBGDisappear:  20.8195
+
+onPalmPoseStart:22.02677
+
+thisSelectionTime:2.611811
+allSelectionTime:22.5972
+thisSelectionTime:0.6103516
+allSelectionTime:23.20755
+thisSelectionTime:1.000284
+allSelectionTime:24.20784
+thisSelectionTime:0
+allSelectionTime:24.20784
+thisSelectionTime:0.222887
+allSelectionTime:24.43073
+thisSelectionTime:0.7221203
+allSelectionTime:25.15285
+thisSelectionTime:0.9447861
+allSelectionTime:26.09763
+thisSelectionTime:0.3877831
+allSelectionTime:26.48541
+onPalmPoseExit:  26.91651
+
+onSecondSelectionBGDisappear:  27.41689
+
+onPalmPoseStart:28.49969
+
+thisSelectionTime:2.556196
+allSelectionTime:29.04161
+thisSelectionTime:0.6656055
+allSelectionTime:29.70722
+thisSelectionTime:0.8900566
+allSelectionTime:30.59727
+finish all
+precision:1
+Moved Distance head:4.578053
+Moved Distance right:5.785548
+Moved Distance left:4.090207
+Rotated Angle head:723.0725
+Rotated Angle right:1877.264
+Rotated Angle left:624.3761
+all selection time:30.59727

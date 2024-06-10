@@ -1,0 +1,84 @@
+thisCoarseManipulateTime: 24.82182
+allCoarseManipulateTime: 3735.458
+thisFineManipulateTime: 1.014807
+allFineManipulateTime: 1.014807
+thisManipulateTime: 25.83663
+allManipulateTime: 25.83663
+
+thisCoarseManipulateTime: 48.3099
+allCoarseManipulateTime: 11184.93
+thisFineManipulateTime: 0.8209
+allFineManipulateTime: 1.835707
+thisManipulateTime: 49.1308
+allManipulateTime: 74.96743
+
+thisCoarseManipulateTime: 61.75684
+allCoarseManipulateTime: 23419.69
+thisFineManipulateTime: 0.8193321
+allFineManipulateTime: 2.655039
+thisManipulateTime: 62.57617
+allManipulateTime: 137.5436
+
+thisCoarseManipulateTime: 70.9818
+allCoarseManipulateTime: 28459.84
+thisFineManipulateTime: 0.9406509
+allFineManipulateTime: 3.59569
+thisManipulateTime: 71.92245
+allManipulateTime: 209.4661
+
+thisCoarseManipulateTime: 87.65741
+allCoarseManipulateTime: 42774.29
+thisFineManipulateTime: 0.8898087
+allFineManipulateTime: 4.485498
+thisManipulateTime: 88.54722
+allManipulateTime: 298.0133
+
+thisCoarseManipulateTime: 100.6454
+allCoarseManipulateTime: 52585.24
+thisFineManipulateTime: 0.8621292
+allFineManipulateTime: 5.347628
+thisManipulateTime: 101.5075
+allManipulateTime: 399.5208
+
+thisCoarseManipulateTime: 144.0914
+allCoarseManipulateTime: 88719.51
+thisFineManipulateTime: 1.290176
+allFineManipulateTime: 6.637804
+thisManipulateTime: 145.3816
+allManipulateTime: 544.9023
+
+thisCoarseManipulateTime: 185.3586
+allCoarseManipulateTime: 144521.3
+thisFineManipulateTime: 0.9316406
+allFineManipulateTime: 7.569445
+thisManipulateTime: 186.2902
+allManipulateTime: 731.1925
+
+thisCoarseManipulateTime: 196.54
+allCoarseManipulateTime: 163057.7
+thisFineManipulateTime: 0.8193817
+allFineManipulateTime: 8.388826
+thisManipulateTime: 197.3594
+allManipulateTime: 928.5519
+
+thisCoarseManipulateTime: 206.954
+allCoarseManipulateTime: 189552.2
+thisFineManipulateTime: 0.766098
+allFineManipulateTime: 9.154924
+thisManipulateTime: 207.7201
+allManipulateTime: 1136.272
+
+thisCoarseManipulateTime: 214.3858
+allCoarseManipulateTime: 208347.9
+thisFineManipulateTime: 0.9760284
+allFineManipulateTime: 10.13095
+thisManipulateTime: 215.3618
+allManipulateTime: 1351.634
+
+thisCoarseManipulateTime: 222.3158
+allCoarseManipulateTime: 228064.4
+thisFineManipulateTime: 0.8227539
+allFineManipulateTime: 10.95371
+thisManipulateTime: 223.1385
+allManipulateTime: 1574.772
+

@@ -42,9 +42,9 @@ public class Bubble : MonoBehaviour
     [SerializeField] private List<MeshRenderer> _meshRenderers;
 
     private void Awake(){
-      //  transform.position = temp.transform.position;
+   
         round = 0;
-        layerMask = 1 << 7;   
+        layerMask = 1 << 7;   //只有有目标物体的物体才能被选中
         objects = new List<GameObject>();
         //在仅操纵和移动的场景下
         if(recorder.GetComponent<singleSelect>().sampleType !=0 )
@@ -55,8 +55,7 @@ public class Bubble : MonoBehaviour
         {
         FindChilds(Objects);//在仅选择下
         }
-      
-        //
+ 
         finishNumber = 0;
         selectingObject = false;
         needNumber = autoGenerate.GetComponent<autoGenerate>().targetNumber;
@@ -151,7 +150,6 @@ public class Bubble : MonoBehaviour
                 m_logEntries += (string.Format("{0}\n{1}", condition, stackTrace));
             }
         };
-
 
 
         if (recorder.GetComponent<singleSelect>().sampleType == 1)
