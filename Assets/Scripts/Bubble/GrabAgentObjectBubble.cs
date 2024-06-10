@@ -8,7 +8,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
 {
     public GameObject recorder;
     public List<GameObject> manipulateObjects;//放所有需要操纵的待选物体，为了仅移动的方法
-    public GameObject targets;//��������壬��������Ҫ�����д���Ŀ��λ�õ�����
+    public GameObject manipulates;//��������壬��������Ҫ�����д���Ŀ��λ�õ�����
     public GameObject rightThumb;
     public GameObject rightIndex;
     public GameObject leftThumb;
@@ -38,7 +38,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
         
         originalPosition = transform.localPosition;
         TargetObjects = new Dictionary<GameObject, GameObject>();
-        FindChild(targets);
+        FindChild(manipulates);
         allNumber = TargetObjects.Count;
         if(recorder.GetComponent<singleSelect>().sampleType == 0)//仅选择
         {
@@ -243,16 +243,12 @@ public class GrabAgentObjectBubble : MonoBehaviour
     void FindChild(GameObject child)
     {
         
-        //����forѭ�� ��ȡ�����µ�ȫ��������
         for (int c = 0; c < child.transform.childCount; c++)
         {
-         
-            if (child.transform.GetChild(c).transform.childCount == 0)
-            {
+        
                 TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");
-                Debug.Log(TargetObjects[child.transform.GetChild(c).gameObject].name);
-               // manipulateObjects.Add(child.transform.GetChild(c).gameObject);
-            }
+               // Debug.Log(TargetObjects[child.transform.GetChild(c).gameObject].name);
+            
              
         }
     }

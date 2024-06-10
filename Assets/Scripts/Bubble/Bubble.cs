@@ -50,7 +50,7 @@ public class Bubble : MonoBehaviour
         if(recorder.GetComponent<singleSelect>().sampleType !=0 )
         {
         FindChilds(GameObject.Find("manipulate"));
-        FindChilds(GameObject.Find("others"));
+       // FindChilds(GameObject.Find("others"));
         }else
         {
         FindChilds(Objects);//在仅选择下
@@ -68,8 +68,6 @@ public class Bubble : MonoBehaviour
         {
   
                 objects.Add(OBJ.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
-           // else
-               // FindChilds(Objects.transform.GetChild(c).gameObject);
         }
     }
     private string m_logEntries = "";
@@ -83,14 +81,11 @@ public class Bubble : MonoBehaviour
         }
        // t.text = "111";
         for (int i = 0; i < objects.Count; i++)
-            if(objects[i].GetComponent<MeshFilter>()!=null)
-        {
-       //     t.text = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices.Length.ToString();
+            if(objects[i].GetComponent<MeshFilter>()!=null){
+                Debug.Log(objects[i].name);
             var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices;//Vector3[]
-               // Debug.Log(vertices.Length);       //     t.text = "131";
             foreach (var v in vertices)
             {
-            //    t.text = "141";
                 var worldPos = objects[i].transform.TransformPoint(v);
                 var dis = (worldPos - transform.position).magnitude;
 
