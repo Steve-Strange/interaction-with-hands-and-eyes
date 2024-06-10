@@ -26,10 +26,10 @@ MonoBehaviour:
         curlConfigs:
           min: 90
           max: 180
-          width: 40
+          width: 25
         abductionConfigs:
           mid: 13
-          width: 30
+          width: 24
     index:
       handFinger: 1
       flexion: 0
@@ -43,10 +43,10 @@ MonoBehaviour:
         curlConfigs:
           min: 107
           max: 180
-          width: 30
+          width: 25
         abductionConfigs:
           mid: 10
-          width: 24
+          width: 18
     middle:
       handFinger: 2
       flexion: 0
@@ -60,10 +60,10 @@ MonoBehaviour:
         curlConfigs:
           min: 107
           max: 180
-          width: 30
+          width: 25
         abductionConfigs:
           mid: 10
-          width: 24
+          width: 18
     ring:
       handFinger: 3
       flexion: 0
@@ -77,10 +77,10 @@ MonoBehaviour:
         curlConfigs:
           min: 107
           max: 180
-          width: 40
+          width: 30
         abductionConfigs:
           mid: 10
-          width: 24
+          width: 18
     pinky:
       handFinger: 4
       flexion: 0
