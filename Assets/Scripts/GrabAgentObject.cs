@@ -70,8 +70,7 @@ public class GrabAgentObject : MonoBehaviour
                 movingStatus = false;
                 transform.parent = null;
                 transform.localPosition = originalPosition;
-                if (MovingObject.Count > 0) transform.rotation = MovingObject[0].transform.rotation;
-                else transform.rotation = Quaternion.identity;
+                transform.rotation = Quaternion.identity;
 
             }
 
@@ -82,40 +81,41 @@ public class GrabAgentObject : MonoBehaviour
                 {
                     transform.position = rightIndex.transform.position;
                     transform.parent = rightIndex.transform;
-
-                    // Calculate finger movement vector
+                    // 计算手指移动向量
                     Vector3 deltaPosition = rightIndex.transform.position - lastPosition;
-
-                    // Use relative coordinates to synchronize position
+                    // 使用相对坐标来同步位置
                     MovingObject[0].transform.position += deltaPosition * movingScale;
-
                 }
                 else
                 {
                     float deltaRotation = Vector3.Angle(lastPosition - transform.position, rightIndex.transform.position - transform.position);
                     Vector3 crossProduct = Vector3.Cross(lastPosition - transform.position, rightIndex.transform.position - transform.position);
+                    Vector3 rotationAxis = Vector3.zero;
 
                     if (grabStatus == 2)
                     {
-                        float dotProduct = Vector3.Dot(crossProduct, Vector3.right);
-                        if (dotProduct < 0) deltaRotation = -deltaRotation;
-                        transform.RotateAround(transform.position, Vector3.right, deltaRotation);
+                        rotationAxis = Vector3.right;
                     }
                     else if (grabStatus == 3)
                     {
-                        float dotProduct = Vector3.Dot(crossProduct, Vector3.up);
-                        if (dotProduct < 0) deltaRotation = -deltaRotation;
-                        transform.RotateAround(transform.position, Vector3.up, deltaRotation);
+                        rotationAxis = Vector3.up;
                     }
                     else if (grabStatus == 4)
                     {
-                        float dotProduct = Vector3.Dot(crossProduct, Vector3.forward);
-                        if (dotProduct < 0) deltaRotation = -deltaRotation;
-                        transform.RotateAround(transform.position, Vector3.forward, deltaRotation);
+                        rotationAxis = Vector3.forward;
                     }
 
-                    MovingObject[0].transform.rotation = transform.rotation;
+                    float dotProduct = Vector3.Dot(crossProduct, rotationAxis);
+                    if (dotProduct < 0) deltaRotation = -deltaRotation;
 
+                    // 旋转代理物体
+                    transform.RotateAround(transform.position, rotationAxis, deltaRotation);
+
+                    // 记录这次旋转的角度
+                    Quaternion deltaRotationQuat = Quaternion.AngleAxis(deltaRotation, rotationAxis);
+
+                    // 操纵的物体旋转
+                    MovingObject[0].transform.rotation = deltaRotationQuat * MovingObject[0].transform.rotation;
                 }
 
                 lastPosition = rightIndex.transform.position;
