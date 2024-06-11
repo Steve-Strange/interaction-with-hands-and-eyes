@@ -152,11 +152,16 @@ public class GrabAgentObject : MonoBehaviour
                         PointStructure.GetComponent<PointStructure>().FitLines(MovingObject[0]);
                         PointStructure.GetComponent<PointStructure>().FitCircles(MovingObject[0]);
                         TimeRecorder.GetComponent<TimeRecorder>().CompleteObjects.Add(MovingObject[0]);
-                    // ManipulateData += "FinishedObjectCount " + FinishedObjects.Count + " " +  + "\n";
+                        // ManipulateData += "FinishedObjectCount " + FinishedObjects.Count + " " +  + "\n";
           
                         MovingObject.RemoveAt(0);
                         AutoAdjustStatus = true;
+                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "AccurateMovingTime: " + Time.time + "\n";
                 }
+                else if(Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
+                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f){
+                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "CourseMovingTime: " + Time.time + "\n";
+                    }
             }
 
         }

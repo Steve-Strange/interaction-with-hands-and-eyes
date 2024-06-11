@@ -40,6 +40,7 @@ public class EyeTrackingManager : MonoBehaviour
     public GameObject FinalObjects;
     // public TMP_InputField log;
     public GameObject GrabAgentObject;
+    public GameObject TimeRecorder;
 
 
     public void AddOutline(GameObject target, Color color)
@@ -56,6 +57,7 @@ public class EyeTrackingManager : MonoBehaviour
         combineEyeGazeVector = Vector3.zero;
         combineEyeGazeOrigin = Vector3.zero;
         originPoseMatrix = Origin.localToWorldMatrix;
+        TimeRecorder = GameObject.Find("TimeRecorder");
         HandPoseManager = GameObject.Find("HandPoseManager");
         SightCone = GameObject.Find("SightCone");
         clickSelect = GameObject.Find("clickSelect");
@@ -148,7 +150,11 @@ public class EyeTrackingManager : MonoBehaviour
         if(HandPoseManager.GetComponent<HandPoseManager>().phase == 0){
             blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
             if(!clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
+            {
                 clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
+                TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "allSelectionTime: " + Time.time + "\n";
+            
+            }
             if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){
                 SightCone.GetComponent<SightCone>().selectedObjects.Remove(blinkSelectedObject);
             }

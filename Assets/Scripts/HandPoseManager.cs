@@ -63,9 +63,9 @@ public class HandPoseManager : MonoBehaviour
 
     void Start()
     {
+        TimeRecorder = GameObject.Find("TimeRecorder");
         SightCone = GameObject.Find("SightCone");
         EyeTrackingManager = GameObject.Find("EyeTrackingManager");
-
         Objects = GameObject.Find("Objects").transform;
     }
 
@@ -73,8 +73,8 @@ public class HandPoseManager : MonoBehaviour
     void Update()
     {
         //log.text = "phase: " + phase.ToString() + "\n";
-      //  log.text += "timer:" + delayTimer.ToString() + "\n";
-      //  log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
+        //  log.text += "timer:" + delayTimer.ToString() + "\n";
+        //  log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
     
         if(phase == 0){
             selectionTime += Time.deltaTime;
@@ -120,6 +120,7 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseStart()
     {
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onPalmPoseStart: " + Time.time + "\n";
         delayTimer = 0.0f;
         PalmPoseState = true;
 
@@ -233,11 +234,13 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseExit()
     {
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onPalmPoseExit: " + Time.time + "\n";
         PalmPoseState = false;
     }
 
     public void onPalmPoseExitDelay()
     {
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onSecondSelectionBGDisappear: " + Time.time + "\n";
         foreach (var obj in sorted15ObjectWeights)
         {
             if (originalTransform.TryGetValue(obj.Key, out TransformData transformData) && 
@@ -290,14 +293,14 @@ public class HandPoseManager : MonoBehaviour
     }
 
     public void ChangePhase(int currentPhase){
-
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "ChangePhase " + currentPhase + ": " + Time.time + "\n";
         switch (currentPhase)
         {
             case 1:
+                TimeRecorder.SetActive(true);
                 StartSelectPose.SetActive(false);
                 clickSelect.SetActive(false);
                 AgentObject.SetActive(true);
-                TimeRecorder.SetActive(true);
                 SightCone.SetActive(false);
                 break;
             case 2:
