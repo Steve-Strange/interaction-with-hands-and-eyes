@@ -44,13 +44,13 @@ public class Bubble : MonoBehaviour
     private void Awake(){
       //  transform.position = temp.transform.position;
         round = 0;
-        layerMask = 1 << 7;   
+        layerMask = 1 << 7;   //层，注意和tag分开来
         objects = new List<GameObject>();
         //在仅操纵和移动的场景下
         if(recorder.GetComponent<singleSelect>().sampleType !=0 )
         {
         FindChilds(GameObject.Find("manipulate"));
-       // FindChilds(GameObject.Find("others"));
+        FindChilds(GameObject.Find("others"));
         }else
         {
         FindChilds(ObjectsSelectOnly);//在仅选择下
@@ -368,13 +368,17 @@ public class Bubble : MonoBehaviour
             if(mark[select] == true){
                 select -= 1;
                 if(recorder.GetComponent<singleSelect>().sampleType == 2){//select + manipulate
-                    selectingObject = true;
-                    time = 0;
-                    AddOutline(target[select],Color.blue);
-                    grabAgentObject.SetActive(true);
-                    grabAgentObject.GetComponent<GrabAgentObjectBubble>().MovingObject.Add(target[select]);
-                    recorder.GetComponent<singleSelect>().selectOneObject();
-                    killTheBubble();  
+                    if (target[select].gameObject.tag == "Target")
+                    {
+                        selectingObject = true;
+                        time = 0;
+                        AddOutline(target[select],Color.blue);
+                        grabAgentObject.SetActive(true);
+                        grabAgentObject.GetComponent<GrabAgentObjectBubble>().MovingObject.Add(target[select]);
+                        recorder.GetComponent<singleSelect>().selectOneObject();
+                        killTheBubble();  
+                    }
+            
                 }else  if(recorder.GetComponent<singleSelect>().sampleType == 0)//select
                 {
                     if (autoGenerate.GetComponent<autoGenerate>().targets.Contains((target[select])))//选中的是需要的物体
