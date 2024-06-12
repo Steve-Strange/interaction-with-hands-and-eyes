@@ -73,3 +73,4 @@ crashlytics-build.properties
 Assets/Scenes/Museum0/LightingData.asset
 Assets/Scenes/Museum0/LightingData.asset.meta
 ProjectSettings/ProjectSettings.asset
+ProjectSettings/EditorBuildSettings.asset

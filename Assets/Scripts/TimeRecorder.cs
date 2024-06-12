@@ -25,7 +25,7 @@ public class TimeRecorder : MonoBehaviour
     private bool finishStatus = false;
     public string userName;
     private GameObject MovingRecorder;
-
+    public string writeFileContext;
 
     void Start()
     {
@@ -55,14 +55,14 @@ public class TimeRecorder : MonoBehaviour
             // log.text += "Finished!!!!!!!!!!!!";
             if(!finishStatus)
             {
-                File.WriteAllText(filePath, "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
+                File.WriteAllText(filePath, writeFileContext + "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
                                     "Coarse Moving Time: " + coarseMovingTime + "\n" + 
                                     "Moving Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n" + 
                                     MovingRecorder.GetComponent<MovingRecorder>().MovingData
                                 );
 
                 finishStatus = true;
-            } 
+            }
         }
         
         if (agentObject.GetComponent<GrabAgentObject>().MovingObject.Count > 0)

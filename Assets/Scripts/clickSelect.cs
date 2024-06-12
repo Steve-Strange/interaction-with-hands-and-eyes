@@ -22,8 +22,13 @@ public class clickSelect : MonoBehaviour
     public GameObject FinalObjects;
     float timer = 0;
     public float clickPause = 0.1f;
+    public int correctObj = 0;
+    public int wrongObj = 0;
+    public GameObject TimeRecorder;
+    
     void Start()
     {
+        TimeRecorder = GameObject.Find("TimeRecorder");
         StartCoroutine(GetFingerAngle());
     }
     public IEnumerator GetFingerAngle()
@@ -58,7 +63,6 @@ public class clickSelect : MonoBehaviour
     }
     void Update()
     {
-        
         timer += Time.deltaTime;
         // log.text = mark[0] + " " + mark[1] + " " + mark[2];
         selectedRow = HandPoseManager.GetComponent<HandPoseManager>().selectedRow;
@@ -73,6 +77,15 @@ public class clickSelect : MonoBehaviour
                         FinalObjects.GetComponent<FinalObjects>().AddFinalObj(selectedRow[i]);
                         SightCone.GetComponent<SightCone>().objectWeights.Remove(selectedRow[i]);
                         timer = 0;
+
+                        if(HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Contains(selectedRow[i]))
+                        {
+                            correctObj++;
+                            TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "allSelectionTime: " + Time.time + "\n";
+                        }
+                        else{
+                            wrongObj++;
+                        }
                     }
                 }
             }

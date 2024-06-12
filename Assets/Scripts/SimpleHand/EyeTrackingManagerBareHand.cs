@@ -73,7 +73,6 @@ public class EyeTrackingManagerBareHand : MonoBehaviour
     }
 
     void BlinkSelect(){
-
         if(rayVisualizer.GetComponent<RayVisualizer>().target!=null & mark == 0)
         {
             rayVisualizer.GetComponent<RayVisualizer>().setLine(0f);
