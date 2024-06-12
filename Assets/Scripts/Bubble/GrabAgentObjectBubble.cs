@@ -73,7 +73,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                 var targetPosition = TargetObjects[obj].transform.position;
 
                 if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-                    RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){
+                    RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){//此时判定为完成精选操作
 
                     MovingStatus = 2;
                   
@@ -82,11 +82,11 @@ public class GrabAgentObjectBubble : MonoBehaviour
 
                         if (stayInTimer > 0.3) { 
 
+                          
                             AddOutline(MovingObject[0], Color.red);
                             obj.GetComponent<Outline>().OutlineWidth = 6f;
                             finishNumber += 1;
                             recorder.GetComponent<singleSelect>().finishOneObject();
-                    
                             MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                             MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
                             bubble.SetActive(true);

@@ -79,8 +79,7 @@ public class singleSelect : MonoBehaviour
         {
             beginManipulateTime = timer;
         }
-
-        logs += "thisSelectionTime:" + gap + "\n";
+       // logs += "thisSelectionTime:" + gap + "\n";
         logs += "allSelectionTime:" + timer + "\n";
     }
     public void finishOneObject()//��ÿ�β���ʱ�����
@@ -101,16 +100,17 @@ public class singleSelect : MonoBehaviour
         var temp3 = temp - temp2;
         coarseManipulateTime = coarseManipulateTime + temp3;
 
-        logs += "thisCoarseManipulateTime:" + temp3 + "\n";
-        logs += "allCoarseManipulateTime:" + coarseManipulateTime + "\n";
-        logs += "thisFineManipulateTime:" + temp2 + "\n";
-        logs += "allFineManipulateTime:" + fineManipulateTime + "\n";
-        logs += "thisManipulateTime:" + temp + "\n";
+       // logs += "thisCoarseManipulateTime:" + temp3 + "\n";
+       //logs += "allCoarseManipulateTime:" + coarseManipulateTime + "\n";
+       // logs += "thisFineManipulateTime:" + temp2 + "\n";
+       // logs += "allFineManipulateTime:" + fineManipulateTime + "\n";
+       // logs += "thisManipulateTime:" + temp + "\n";
         logs += "allManipulateTime:" + manipulateTime + "\n";
         MovingRecorder.GetComponent<MovingRecorder>().restart();
     }
     public void finishCoarseOneObject()//��ÿ�δֲ���ʱ�����
     {
+        logs += "FineManipulateTimeStart:" + manipulateTime + "\n";
         coarseManipulateTime += (timer - beginManipulateTime);
         beginFineManipulateTime = timer;
     }
