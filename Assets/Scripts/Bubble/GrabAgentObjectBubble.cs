@@ -43,14 +43,18 @@ public class GrabAgentObjectBubble : MonoBehaviour
         if(recorder.GetComponent<singleSelect>().sampleType == 0)//仅选择
         {
             gameObject.SetActive(false);
-        }else if(recorder.GetComponent<singleSelect>().sampleType == 1)
+        }else if(recorder.GetComponent<singleSelect>().sampleType == 1)//仅操纵
         {
 
             MovingObject.Add(manipulateObjects[0]);
+            Debug.Log(MovingObject[0].gameObject.name);
             manipulateObjects.RemoveAt(0);
             allNumber = manipulateObjects.Count;
+            MovingObject[0].transform.position = new Vector3(0f, 0f, 8f);
+            Debug.Log("hahahhah");
 
-        }else if(recorder.GetComponent<singleSelect>().sampleType == 2)
+        }
+        else if(recorder.GetComponent<singleSelect>().sampleType == 2)
         {
             gameObject.SetActive(false);
         }
@@ -65,8 +69,6 @@ public class GrabAgentObjectBubble : MonoBehaviour
         }
         if(MovingObject.Count>0)
             if (TargetObjects.ContainsKey(MovingObject[0])) {
-
-                
                 var obj = MovingObject[0];
                 AddOutline(obj, Color.white);
                 obj.GetComponent<Outline>().OutlineWidth = 4f;
@@ -110,6 +112,8 @@ public class GrabAgentObjectBubble : MonoBehaviour
                             MovingObject.RemoveAt(0);
                             if(manipulateObjects.Count > 0) { 
                                 MovingObject.Add(manipulateObjects[0]);
+                                MovingObject[0].transform.position = new Vector3(0f, 0f, 8f);
+                                Debug.Log("hahahhah");
                                 AddOutline(MovingObject[0], Color.green);//当前操纵的这个物体泛绿光
                                 MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
 
