@@ -34,6 +34,10 @@ public class GrabAgentObject : MonoBehaviour
     public GameObject TimeRecorder;
     public string ManipulateData;
 
+    private float CourseMovingTime;
+    private float AccurateMovingTime;
+    public float sumTime;
+
     void Start()
     {
         // originalParent = transform.parent.gameObject;
@@ -123,15 +127,18 @@ public class GrabAgentObject : MonoBehaviour
                 if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                     (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
+                        AccurateMovingTime += Time.deltaTime;
                         MovingObject[0].GetComponent<Outline>().OutlineColor = Color.red;
                         MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
                 }
                 else if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
                     (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f){
+                        AccurateMovingTime += Time.deltaTime;
                         MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
                         MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
                 }
                 else {
+                    CourseMovingTime += Time.deltaTime;
                     MovingObject[0].GetComponent<Outline>().OutlineColor = Color.white;
                 }
             }
@@ -156,14 +163,28 @@ public class GrabAgentObject : MonoBehaviour
           
                         MovingObject.RemoveAt(0);
                         AutoAdjustStatus = true;
-                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "AccurateMovingTime: " + Time.time + "\n";
+                        
+                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "CourseMovingTime: " + (sumTime + CourseMovingTime).ToString() + "\n";
+                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "AccurateMovingTime: " + (sumTime + CourseMovingTime + AccurateMovingTime).ToString() + "\n";
+                        sumTime += CourseMovingTime + AccurateMovingTime;
+                        CourseMovingTime = 0;
+                        AccurateMovingTime = 0;
+
                 }
                 else if(Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
-                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f){
-                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "CourseMovingTime: " + Time.time + "\n";
+                    (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + 
+                    MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f){
+                        AccurateMovingTime += Time.deltaTime;
                     }
+                else {
+                    CourseMovingTime += Time.deltaTime;
+                }
             }
 
+        }
+        else
+        {
+            CourseMovingTime += Time.deltaTime;
         }
     }
 
@@ -173,6 +194,5 @@ public class GrabAgentObject : MonoBehaviour
                 Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y), 360 - Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y)) +
                 Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z), 360 - Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z));
     }
-
 
 }

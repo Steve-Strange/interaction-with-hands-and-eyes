@@ -78,7 +78,6 @@ public class GrabAgentObjectBubble : MonoBehaviour
                     RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){//此时判定为完成精选操作
 
                     MovingStatus = 2;
-                  
 
                     if(recorder.GetComponent<singleSelect>().sampleType == 2) { //select+manipulate
 

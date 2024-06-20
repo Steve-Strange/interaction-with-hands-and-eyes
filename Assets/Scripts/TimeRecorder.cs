@@ -43,7 +43,8 @@ public class TimeRecorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // log.text = "SelectionTime: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n";
+
+        // log.text = writeFileContext;
         // log.text += "placingTime" + HandPoseManager.GetComponent<HandPoseManager>().placingTime + "\n" + 
         //     "coarseMovingTime: " + coarseMovingTime + "\n" + 
         //     "MovingTime: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n";
@@ -56,7 +57,6 @@ public class TimeRecorder : MonoBehaviour
             if(!finishStatus)
             {
                 File.WriteAllText(filePath, writeFileContext + "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
-                                    "Coarse Moving Time: " + coarseMovingTime + "\n" + 
                                     "Moving Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n" + 
                                     MovingRecorder.GetComponent<MovingRecorder>().MovingData
                                 );
