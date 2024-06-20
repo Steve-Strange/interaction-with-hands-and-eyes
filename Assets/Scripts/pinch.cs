@@ -7,7 +7,7 @@ public class pinch : MonoBehaviour
 {
     public GameObject thumb;
     public GameObject index;
-    public bool ispinch = false;
+    public bool isPinch = false;
     public int agentMovingStatus;
     private bool touchStatus;
     private bool exitStatus;
@@ -17,11 +17,11 @@ public class pinch : MonoBehaviour
     {
         float f = (thumb.transform.position - index.transform.position).magnitude;
         if (f < 0.015f)
-            ispinch = true;
+            isPinch = true;
         else
-            ispinch = false;
+            isPinch = false;
 
-        if(!ispinch && exitStatus)
+        if(!isPinch && exitStatus)
         {
             agentMovingStatus = 0;
             touchStatus = false;

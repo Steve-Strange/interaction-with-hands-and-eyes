@@ -32,15 +32,17 @@ public class EyeTrackingManager : MonoBehaviour
     private int maxBufferSize = 10; // 队列的最大大小
 
     public GameObject blinkSelectedObject;
-    private float closeEyesTimer = 0f;
-    private float closeEyesTime = 0.35f;
+    public float closeEyesTimer = 0f;
+    private float closeEyesTime = 0.2f;
     public bool isEyesOpen = true;
+    public bool isPinch = false;
     private GameObject clickSelect;
 
     public GameObject FinalObjects;
     // public TMP_InputField log;
     public GameObject GrabAgentObject;
     public GameObject TimeRecorder;
+    public GameObject pinch;
 
 
     public void AddOutline(GameObject target, Color color)
@@ -83,7 +85,8 @@ public class EyeTrackingManager : MonoBehaviour
             PXR_EyeTracking.GetRightEyeGazeOpenness(out rightEyeOpenness))
         {
             isEyesOpen = leftEyeOpenness > 0.99f && rightEyeOpenness > 0.99f;
-            if (isEyesOpen)
+            isPinch = pinch.GetComponent<pinch>().isPinch;
+            if (!isPinch)
             {
                 if (closeEyesTimer > closeEyesTime) BlinkSelect();
                 GazeTargetControl(combineEyeGazeOriginInWorldSpace, combineEyeGazeVectorInWorldSpace);
@@ -96,10 +99,14 @@ public class EyeTrackingManager : MonoBehaviour
                 }
                 // log.text = "eyeSelectedObjectBuffer: " + eyeTrackingPositionBuffer.ToArray()[0] + "\n";
                 closeEyesTimer = 0;
+                centerSphere.GetComponent<Outline>().OutlineColor = Color.yellow;
             }
             else
             {
-                closeEyesTimer += Time.deltaTime;
+                if(GrabAgentObject.GetComponent<GrabAgentObject>().MovingObject.Count == 0) closeEyesTimer += Time.deltaTime;
+                if(closeEyesTimer > closeEyesTime){
+                    centerSphere.GetComponent<Outline>().OutlineColor = Color.red;
+                }
             }
         }
     }
@@ -146,7 +153,6 @@ public class EyeTrackingManager : MonoBehaviour
     }
 
     void BlinkSelect(){
-
         if(HandPoseManager.GetComponent<HandPoseManager>().phase == 0){
             blinkSelectedObject = FindMostFrequentElement(eyeSelectedObjectBuffer);
             if(!clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))

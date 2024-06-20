@@ -19,7 +19,7 @@ public class RubbishBin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Pinch.GetComponent<pinch>().ispinch == false){
+        if(Pinch.GetComponent<pinch>().isPinch == false){
             releaseFlag = false;
         }
 
@@ -30,7 +30,7 @@ public class RubbishBin : MonoBehaviour
     }
 
     public void OnCollisionStay(Collision collision){
-        if(collision.gameObject.name == "pinch" && Pinch.GetComponent<pinch>().ispinch == true && releaseFlag == false){
+        if(collision.gameObject.name == "pinch" && Pinch.GetComponent<pinch>().isPinch == true && releaseFlag == false){
             releaseFlag = true;
         
             RemoveFinalObject();

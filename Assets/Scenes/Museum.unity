@@ -1002,7 +1002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69162243}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.115, y: 1.244, z: -0.34699965}
+  m_LocalPosition: {x: -2.115, y: 1.185, z: -0.34699965}
   m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10863,10 +10863,13 @@ MonoBehaviour:
   combineEyeGazeOriginInWorldSpace: {x: 0, y: 0, z: 0}
   eyeSelectedObject: {fileID: 0}
   blinkSelectedObject: {fileID: 0}
+  closeEyesTimer: 0
   isEyesOpen: 1
+  isPinch: 0
   FinalObjects: {fileID: 1448706620}
   GrabAgentObject: {fileID: 69162243}
-  TimeRecorder: {fileID: 0}
+  TimeRecorder: {fileID: 833660462}
+  pinch: {fileID: 1319298475}
 --- !u!4 &397773549
 Transform:
   m_ObjectHideFlags: 0
@@ -29058,7 +29061,6 @@ MonoBehaviour:
   coarseMovingTime: 0
   userName: wzt
   writeFileContext: 
-  GrabAgentObject: {fileID: 69162243}
 --- !u!4 &833660464
 Transform:
   m_ObjectHideFlags: 0
@@ -37578,6 +37580,7 @@ GameObject:
   - component: {fileID: 1099249374}
   - component: {fileID: 1099249373}
   - component: {fileID: 1099249372}
+  - component: {fileID: 1099249376}
   m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
@@ -37663,6 +37666,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1099249376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099249371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.91901326, b: 0, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1101991398
 GameObject:
   m_ObjectHideFlags: 0
@@ -46024,7 +46045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thumb: {fileID: 1396222575}
   index: {fileID: 1396222573}
-  ispinch: 0
+  isPinch: 0
   agentMovingStatus: 0
 --- !u!114 &1319298479
 MonoBehaviour:
