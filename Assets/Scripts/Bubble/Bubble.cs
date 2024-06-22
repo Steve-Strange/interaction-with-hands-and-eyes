@@ -371,10 +371,12 @@ public class Bubble : MonoBehaviour
                     if (target[select].gameObject.tag == "Target")
                     {
                         selectingObject = true;
+                       
                         time = 0;
                         AddOutline(target[select],Color.blue);
                         grabAgentObject.SetActive(true);
                         grabAgentObject.GetComponent<GrabAgentObjectBubble>().MovingObject.Add(target[select]);
+                        grabAgentObject.GetComponent<GrabAgentObjectBubble>().coarse = false;
                         recorder.GetComponent<singleSelect>().selectOneObject();
                         killTheBubble();  
                     }

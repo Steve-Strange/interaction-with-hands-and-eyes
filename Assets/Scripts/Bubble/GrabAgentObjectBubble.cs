@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
     public GameObject pinchObject;
     public GameObject bubble;
     public bool pinchStatus;
-
+    public bool coarse = true;
     private int grabStatus;
     private bool movingStatus;
     private Vector3 originalPosition;
@@ -24,7 +25,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
     private float movingScale;
     private int  allNumber = 0;
     private int  finishNumber = 0;
-
+    private bool First;
     public List<GameObject> MovingObject = new List<GameObject>();
     // private GameObject originalParent;
 
@@ -34,6 +35,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
     void Start()
     {   
         originalPosition = transform.localPosition;
+        First = true;
         TargetObjects = new Dictionary<GameObject, GameObject>();
         FindChild(manipulates);
         allNumber = TargetObjects.Count;
@@ -63,8 +65,9 @@ public class GrabAgentObjectBubble : MonoBehaviour
     float stayInTimer = 0;
     void Update()
     {
-        if(finishNumber == allNumber && finishNumber != 0){
-            recorder.GetComponent<singleSelect>().finishAll(); 
+        if(finishNumber == allNumber && finishNumber != 0 && First == true){
+            recorder.GetComponent<singleSelect>().finishAll();
+            First = false;
         }
 
         grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
@@ -89,7 +92,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
 
         if (movingStatus)
         {
-            // log.text += "\n" + "Moving...";
+          
             if (grabStatus == 1)
             {
                 transform.position = rightIndex.transform.position;
@@ -141,11 +144,10 @@ public class GrabAgentObjectBubble : MonoBehaviour
                 MovingObject[0].GetComponent<Outline>().OutlineColor = Color.white;
             }
         }
-        else
+        else//停止的时候才判断
         {
             if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                     RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){//此时判定为完成精选操作
-
                 MovingStatus = 2;
                 if(recorder.GetComponent<singleSelect>().sampleType == 2) { //select+manipulate
                     AddOutline(MovingObject[0], Color.red);
@@ -172,6 +174,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                         MovingObject.Add(manipulateObjects[0]);
                         MovingObject[0].transform.position = new Vector3(0f, -1f, 0f);
                         AddOutline(MovingObject[0], Color.green);//当前操纵的这个物体泛绿光
+                        MovingObject[0].transform.position = new Vector3(0, 0, 8);
                         MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
                         manipulateObjects.RemoveAt(0);
                     }
@@ -180,7 +183,12 @@ public class GrabAgentObjectBubble : MonoBehaviour
             }else if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f)
             {
                 MovingStatus = 1;
-                recorder.GetComponent<singleSelect>().finishCoarseOneObject();
+                if(coarse == false)
+                {
+                    recorder.GetComponent<singleSelect>().finishCoarseOneObject();
+                    coarse = true;
+                }
+                
                 AddOutline(MovingObject[0], Color.yellow);
                 MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
             }else{
@@ -210,8 +218,6 @@ public class GrabAgentObjectBubble : MonoBehaviour
         for (int c = 0; c < child.transform.childCount; c++)
         {
             TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");
-            // Debug.Log(TargetObjects[child.transform.GetChild(c).gameObject].name);
-
         }
     }
 }

@@ -49,7 +49,7 @@ public class singleSelect : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 5 && begin == true )//��ʼ����֮��ʼ��ʱ
+        if(timer > 5 && begin == true )
         {
             beginSelectTime = timer;
             begin = false;
@@ -75,11 +75,9 @@ public class singleSelect : MonoBehaviour
             beginSelectTime = timer;
             MovingRecorder.GetComponent<MovingRecorder>().restart();
         }
-        else
-        {
+        else{
             beginManipulateTime = timer;
         }
-       // logs += "thisSelectionTime:" + gap + "\n";
         logs += "allSelectionTime:" + timer + "\n";
     }
     public void finishOneObject()//��ÿ�β���ʱ�����
@@ -98,20 +96,13 @@ public class singleSelect : MonoBehaviour
         }
 
         var temp3 = temp - temp2;
-        coarseManipulateTime = coarseManipulateTime + temp3;
-
-       // logs += "thisCoarseManipulateTime:" + temp3 + "\n";
-       //logs += "allCoarseManipulateTime:" + coarseManipulateTime + "\n";
-       // logs += "thisFineManipulateTime:" + temp2 + "\n";
-       // logs += "allFineManipulateTime:" + fineManipulateTime + "\n";
-       // logs += "thisManipulateTime:" + temp + "\n";
-        logs += "allManipulateTime:" + manipulateTime + "\n";
+        logs += "allManipulateTime:" + timer + "\n";//完成这个操纵操作时所花费的时间
         MovingRecorder.GetComponent<MovingRecorder>().restart();
     }
     public void finishCoarseOneObject()//��ÿ�δֲ���ʱ�����
     {
-        logs += "FineManipulateTimeStart:" + manipulateTime + "\n";
-        coarseManipulateTime += (timer - beginManipulateTime);
-        beginFineManipulateTime = timer;
+        logs += "FineManipulateTimeStart:" + timer + "\n";//完成粗操作，开始精细操作的时间
+        //coarseManipulateTime += (timer - beginManipulateTime);
+       // beginFineManipulateTime = timer;
     }
 }

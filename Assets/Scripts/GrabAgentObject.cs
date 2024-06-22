@@ -47,8 +47,6 @@ public class GrabAgentObject : MonoBehaviour
 
     void Update()
     {
-        // log.text = "TargetObjects: " + TargetObjects.Count + "\n" + "MovingObjects: " + MovingObject.Count + "\n" + "FinishedObjects: " + FinishedObjects.Count + "\n";
-        // log.text += "Distance: " + Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) + "\n";
         if (!initFlag)
         {
             FinishedObjects.Clear();
@@ -80,7 +78,7 @@ public class GrabAgentObject : MonoBehaviour
 
             if (movingStatus)
             {
-                // log.text += "\n" + "Moving...";
+    
                 if (grabStatus == 1)
                 {
                     transform.position = rightIndex.transform.position;

@@ -11497,6 +11497,7 @@ MonoBehaviour:
   pinchObject: {fileID: 1088719412}
   bubble: {fileID: 1520180118}
   pinchStatus: 0
+  coarse: 0
   MovingObject: []
 --- !u!1001 &1401647448
 PrefabInstance:
