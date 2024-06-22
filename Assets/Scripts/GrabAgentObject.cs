@@ -60,7 +60,7 @@ public class GrabAgentObject : MonoBehaviour
                 MovingObject[0].GetComponent<Outline>().outlineColor = Color.green;
             grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
 
-            movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
+            movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.6f) * 1200;
             pinchStatus = Vector3.Distance(rightIndex.transform.position, rightThumb.transform.position) < 0.014f;
 
             if (pinchStatus && grabStatus != 0 && !movingStatus)

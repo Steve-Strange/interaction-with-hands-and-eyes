@@ -66,76 +66,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
         if(finishNumber == allNumber && finishNumber != 0){
             recorder.GetComponent<singleSelect>().finishAll(); 
         }
-        if(MovingObject.Count>0)
-            if (TargetObjects.ContainsKey(MovingObject[0])) {
-                var obj = MovingObject[0];
-                AddOutline(obj, Color.white);
-                obj.GetComponent<Outline>().OutlineWidth = 4f;
-                var targetPosition = TargetObjects[obj].transform.position;
 
-                if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-                    RotationGap(obj, TargetObjects[MovingObject[0]]) < 30f){//此时判定为完成精选操作
-
-                    MovingStatus = 2;
-
-                    if(recorder.GetComponent<singleSelect>().sampleType == 2) { //select+manipulate
-
-                        if (stayInTimer > 0.3) { 
-                            AddOutline(MovingObject[0], Color.red);
-                            obj.GetComponent<Outline>().OutlineWidth = 6f;
-                            finishNumber += 1;
-                            recorder.GetComponent<singleSelect>().finishOneObject();
-                            MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-                            MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
-                            bubble.SetActive(true);
-                            bubble.GetComponent<Bubble>().awakeTheBubble();
-                            bubble.GetComponent<Bubble>().selectingObject = false;
-
-                            MovingObject.RemoveAt(0);
-                        }
-
-                    }else if (recorder.GetComponent<singleSelect>().sampleType == 1)//manipulateOnly
-                    {
-                        if(stayInTimer > 0.3)
-                        {
-                            AddOutline(MovingObject[0], Color.red);
-                            obj.GetComponent<Outline>().OutlineWidth = 5f;
-                            finishNumber += 1;
-                            recorder.GetComponent<singleSelect>().finishOneObject();
-                            MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
-                            MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
-                        
-                            MovingObject.RemoveAt(0);
-                            if(manipulateObjects.Count > 0) { 
-                                MovingObject.Add(manipulateObjects[0]);
-                                MovingObject[0].transform.position = new Vector3(0f, -1f, 0f);
-                                Debug.Log("hahahhah");
-                                AddOutline(MovingObject[0], Color.green);//当前操纵的这个物体泛绿光
-                                MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
-
-                                manipulateObjects.RemoveAt(0);
-                            }
-                        }
-                        
-                    }
-                }else if (Vector3.Distance(obj.transform.position, targetPosition) < (obj.transform.GetComponent<Renderer>().bounds.size.x + obj.transform.GetComponent<Renderer>().bounds.size.y + obj.transform.GetComponent<Renderer>().bounds.size.z) / 3f)
-                {
-                    MovingStatus = 1;
-                    recorder.GetComponent<singleSelect>().finishCoarseOneObject();
-                    AddOutline(MovingObject[0], Color.yellow);
-                    obj.GetComponent<Outline>().OutlineWidth = 4f;
-                }else{
-                    MovingStatus = 0;
-                    AddOutline(obj, Color.white);
-                    obj.GetComponent<Outline>().OutlineWidth = 4f;
-                }
-                if(MovingStatus == 2){
-                    stayInTimer += Time.deltaTime;
-                }
-                else{
-                    stayInTimer = 0;
-                }
-        }
         grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
 
         movingScale = Mathf.Pow(Vector3.Distance(leftIndex.transform.position, leftThumb.transform.position), 1.5f) * 1000;
@@ -212,14 +143,50 @@ public class GrabAgentObjectBubble : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < 
-                (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
-                RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
-                    transform.rotation = Quaternion.identity;
+            if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
+                    RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){//此时判定为完成精选操作
+
+                MovingStatus = 2;
+                if(recorder.GetComponent<singleSelect>().sampleType == 2) { //select+manipulate
+                    AddOutline(MovingObject[0], Color.red);
+                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
+                    finishNumber += 1;
+                    recorder.GetComponent<singleSelect>().finishOneObject();
                     MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                     MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
-        
+                    bubble.SetActive(true);
+                    bubble.GetComponent<Bubble>().awakeTheBubble();
+                    bubble.GetComponent<Bubble>().selectingObject = false;
                     MovingObject.RemoveAt(0);
+                }else if (recorder.GetComponent<singleSelect>().sampleType == 1)//manipulateOnly
+                {
+                    AddOutline(MovingObject[0], Color.red);
+                    MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
+                    finishNumber += 1;
+                    recorder.GetComponent<singleSelect>().finishOneObject();
+                    MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
+                    MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
+                
+                    MovingObject.RemoveAt(0);
+                    if(manipulateObjects.Count > 0) { 
+                        MovingObject.Add(manipulateObjects[0]);
+                        MovingObject[0].transform.position = new Vector3(0f, -1f, 0f);
+                        AddOutline(MovingObject[0], Color.green);//当前操纵的这个物体泛绿光
+                        MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
+                        manipulateObjects.RemoveAt(0);
+                    }
+                    
+                }
+            }else if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f)
+            {
+                MovingStatus = 1;
+                recorder.GetComponent<singleSelect>().finishCoarseOneObject();
+                AddOutline(MovingObject[0], Color.yellow);
+                MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
+            }else{
+                MovingStatus = 0;
+                AddOutline(MovingObject[0], Color.white);
+                MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
             }
         }
             
