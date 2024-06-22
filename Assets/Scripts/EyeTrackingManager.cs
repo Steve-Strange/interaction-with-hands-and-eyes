@@ -42,7 +42,7 @@ public class EyeTrackingManager : MonoBehaviour
     // public TMP_InputField log;
     public GameObject GrabAgentObject;
     public GameObject TimeRecorder;
-    public GameObject pinch;
+    private GameObject pinch;
 
 
     public void AddOutline(GameObject target, Color color)
@@ -50,6 +50,9 @@ public class EyeTrackingManager : MonoBehaviour
         if (target.GetComponent<Outline>() == null)
         {
             target.AddComponent<Outline>();
+            target.GetComponent<Outline>().OutlineColor = color;
+        }
+        else {
             target.GetComponent<Outline>().OutlineColor = color;
         }
     }
@@ -63,6 +66,7 @@ public class EyeTrackingManager : MonoBehaviour
         HandPoseManager = GameObject.Find("HandPoseManager");
         SightCone = GameObject.Find("SightCone");
         clickSelect = GameObject.Find("clickSelect");
+        pinch = GameObject.Find("pinch");
     }
 
     void Update()
@@ -99,13 +103,14 @@ public class EyeTrackingManager : MonoBehaviour
                 }
                 // log.text = "eyeSelectedObjectBuffer: " + eyeTrackingPositionBuffer.ToArray()[0] + "\n";
                 closeEyesTimer = 0;
-                centerSphere.GetComponent<Outline>().OutlineColor = Color.yellow;
+                AddOutline(centerSphere, Color.yellow);
+                centerSphere.GetComponent<Outline>().OutlineWidth = 3;
             }
             else
             {
                 if(GrabAgentObject.GetComponent<GrabAgentObject>().MovingObject.Count == 0) closeEyesTimer += Time.deltaTime;
                 if(closeEyesTimer > closeEyesTime){
-                    centerSphere.GetComponent<Outline>().OutlineColor = Color.red;
+                    AddOutline(centerSphere, Color.red);
                 }
             }
         }

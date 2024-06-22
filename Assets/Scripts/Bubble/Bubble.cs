@@ -49,11 +49,11 @@ public class Bubble : MonoBehaviour
         //在仅操纵和移动的场景下
         if(recorder.GetComponent<singleSelect>().sampleType !=0 )
         {
-        FindChilds(GameObject.Find("manipulate"));
-        FindChilds(GameObject.Find("others"));
+            FindChilds(GameObject.Find("manipulate"));
+            FindChilds(GameObject.Find("others"));
         }else
         {
-        FindChilds(ObjectsSelectOnly);//在仅选择下
+            FindChilds(ObjectsSelectOnly);//在仅选择下
         }
       
         //
@@ -67,7 +67,7 @@ public class Bubble : MonoBehaviour
         for (int c = 0; c < OBJ.transform.childCount; c++)
         {
   
-                objects.Add(OBJ.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
+            objects.Add(OBJ.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
         }
     }
     private string m_logEntries = "";

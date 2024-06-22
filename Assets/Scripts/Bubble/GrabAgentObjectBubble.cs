@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GrabAgentObjectBubble : MonoBehaviour
 {
     public GameObject recorder;
-    public List<GameObject> manipulateObjects;//放所有需要操纵的待选物体，为了仅移动的方法
+    private List<GameObject> manipulateObjects = new List<GameObject>();//放所有需要操纵的待选物体，为了仅移动的方法
     public GameObject manipulates;//��������壬��������Ҫ�����д���Ŀ��λ�õ�����
     public GameObject rightThumb;
     public GameObject rightIndex;
@@ -16,7 +16,6 @@ public class GrabAgentObjectBubble : MonoBehaviour
     public GameObject pinchObject;
     public GameObject bubble;
     public bool pinchStatus;
-
 
     private int grabStatus;
     private bool movingStatus;
@@ -34,8 +33,6 @@ public class GrabAgentObjectBubble : MonoBehaviour
 
     void Start()
     {   
-        
-        
         originalPosition = transform.localPosition;
         TargetObjects = new Dictionary<GameObject, GameObject>();
         FindChild(manipulates);
@@ -46,13 +43,15 @@ public class GrabAgentObjectBubble : MonoBehaviour
         }else if(recorder.GetComponent<singleSelect>().sampleType == 1)//仅操纵
         {
 
+            for (int c = 0; c < manipulates.transform.childCount; c++)
+            {
+                manipulateObjects.Add(manipulates.transform.GetChild(c).gameObject);
+            }
             MovingObject.Add(manipulateObjects[0]);
             Debug.Log(MovingObject[0].gameObject.name);
             manipulateObjects.RemoveAt(0);
             allNumber = manipulateObjects.Count;
-            MovingObject[0].transform.position = new Vector3(0f, 0f, 8f);
-            Debug.Log("hahahhah");
-
+            MovingObject[0].transform.position = new Vector3(0f, -1f, 0f);
         }
         else if(recorder.GetComponent<singleSelect>().sampleType == 2)
         {
@@ -82,8 +81,6 @@ public class GrabAgentObjectBubble : MonoBehaviour
                     if(recorder.GetComponent<singleSelect>().sampleType == 2) { //select+manipulate
 
                         if (stayInTimer > 0.3) { 
-
-                          
                             AddOutline(MovingObject[0], Color.red);
                             obj.GetComponent<Outline>().OutlineWidth = 6f;
                             finishNumber += 1;
@@ -102,7 +99,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                         if(stayInTimer > 0.3)
                         {
                             AddOutline(MovingObject[0], Color.red);
-                            obj.GetComponent<Outline>().OutlineWidth = 6f;
+                            obj.GetComponent<Outline>().OutlineWidth = 5f;
                             finishNumber += 1;
                             recorder.GetComponent<singleSelect>().finishOneObject();
                             MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
@@ -111,10 +108,10 @@ public class GrabAgentObjectBubble : MonoBehaviour
                             MovingObject.RemoveAt(0);
                             if(manipulateObjects.Count > 0) { 
                                 MovingObject.Add(manipulateObjects[0]);
-                                MovingObject[0].transform.position = new Vector3(0f, 0f, 8f);
+                                MovingObject[0].transform.position = new Vector3(0f, -1f, 0f);
                                 Debug.Log("hahahhah");
                                 AddOutline(MovingObject[0], Color.green);//当前操纵的这个物体泛绿光
-                                MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
+                                MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
 
                                 manipulateObjects.RemoveAt(0);
                             }
@@ -219,8 +216,6 @@ public class GrabAgentObjectBubble : MonoBehaviour
                 (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 9f &&
                 RotationGap(MovingObject[0], TargetObjects[MovingObject[0]]) < 30f){
                     transform.rotation = Quaternion.identity;
-                    
-                    
                     MovingObject[0].transform.position = TargetObjects[MovingObject[0]].transform.position;
                     MovingObject[0].transform.rotation = TargetObjects[MovingObject[0]].transform.rotation;
         
@@ -245,14 +240,11 @@ public class GrabAgentObjectBubble : MonoBehaviour
     }
     void FindChild(GameObject child)
     {
-        
         for (int c = 0; c < child.transform.childCount; c++)
         {
-        
-                TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");
-               // Debug.Log(TargetObjects[child.transform.GetChild(c).gameObject].name);
-            
-             
+            TargetObjects[child.transform.GetChild(c).gameObject] = GameObject.Find(child.transform.GetChild(c).gameObject.name + " (1)");
+            // Debug.Log(TargetObjects[child.transform.GetChild(c).gameObject].name);
+
         }
     }
 }
