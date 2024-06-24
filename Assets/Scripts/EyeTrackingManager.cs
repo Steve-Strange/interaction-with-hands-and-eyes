@@ -43,6 +43,7 @@ public class EyeTrackingManager : MonoBehaviour
     public GameObject GrabAgentObject;
     public GameObject TimeRecorder;
     private GameObject pinch;
+    private float timer_for_log = 0;
 
 
     public void AddOutline(GameObject target, Color color)
@@ -71,6 +72,7 @@ public class EyeTrackingManager : MonoBehaviour
 
     void Update()
     {
+        timer_for_log += Time.deltaTime;
         PXR_EyeTracking.GetHeadPosMatrix(out headPoseMatrix);
         PXR_EyeTracking.GetCombineEyeGazeVector(out combineEyeGazeVector);
         PXR_EyeTracking.GetCombineEyeGazePoint(out combineEyeGazeOrigin);
@@ -163,7 +165,7 @@ public class EyeTrackingManager : MonoBehaviour
             if(!clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().finalObj.Contains(blinkSelectedObject))
             {
                 clickSelect.GetComponent<clickSelect>().FinalObjects.GetComponent<FinalObjects>().AddFinalObj(blinkSelectedObject);
-                TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "allSelectionTime: " + Time.time + "\n";
+                TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "allSelectionTime: " + timer_for_log + "\n";
             
             }
             if(SightCone.GetComponent<SightCone>().selectedObjects.Contains(blinkSelectedObject)){

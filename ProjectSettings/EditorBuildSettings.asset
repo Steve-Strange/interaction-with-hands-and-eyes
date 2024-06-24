@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SelectOnly/SelectCompare-bubble.unity
     guid: c12a5edad6b33ef40b556a89e820b7bf
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Museum.unity
     guid: 004a2af36b69afb4d8efb029a80f61d3
   - enabled: 0
@@ -23,18 +23,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/EyeTracking.unity
     guid: 9ac16f17ce0e9914d9d7a39980cf4a16
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/manipulateOnly/ManipulateOnly-Ours.unity
     guid: f5854a50db2e0124c96da20952dac105
   - enabled: 0
     path: Assets/Scenes/SelectOnly/SelectCompare-ours.unity
     guid: 462adb5a4dd81de48b0a56803fef29fc
   - enabled: 0
-    path: Assets/Scenes/Garden.unity
-    guid: dcab795ee2291244d9fe99f17876a717
-  - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Garden.unity
+    guid: dcab795ee2291244d9fe99f17876a717
   - enabled: 0
     path: Assets/Scenes/select+manipulate/Normal-bubble-agent-also-can-manipulateOnly.unity
     guid: 8fdf56756af864b4da6d4f44af4e4c91

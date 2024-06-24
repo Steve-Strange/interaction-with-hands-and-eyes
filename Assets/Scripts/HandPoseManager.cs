@@ -60,6 +60,7 @@ public class HandPoseManager : MonoBehaviour
     // public TMP_InputField log;
     public List<GameObject> objectsWithTargets = new List<GameObject>();
     public GameObject StartSelectPose;
+    private float timer_for_log = 0;
 
     void Start()
     {
@@ -72,6 +73,7 @@ public class HandPoseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer_for_log += Time.deltaTime;
         //log.text = "phase: " + phase.ToString() + "\n";
         //  log.text += "timer:" + delayTimer.ToString() + "\n";
         //  log.text += "SecondSelectionState: " + SecondSelectionState.ToString() + "\n";
@@ -120,7 +122,7 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseStart()
     {
-        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onPalmPoseStart: " + Time.time + "\n";
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onPalmPoseStart: " + timer_for_log + "\n";
         delayTimer = 0.0f;
         PalmPoseState = true;
 
@@ -234,13 +236,13 @@ public class HandPoseManager : MonoBehaviour
 
     public void onPalmPoseExit()
     {
-        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onPalmPoseExit: " + Time.time + "\n";
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onPalmPoseExit: " + timer_for_log + "\n";
         PalmPoseState = false;
     }
 
     public void onPalmPoseExitDelay()
     {
-        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onSecondSelectionBGDisappear: " + Time.time + "\n";
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "onSecondSelectionBGDisappear: " + timer_for_log + "\n";
         foreach (var obj in sorted15ObjectWeights)
         {
             if (originalTransform.TryGetValue(obj.Key, out TransformData transformData) && 
@@ -293,11 +295,11 @@ public class HandPoseManager : MonoBehaviour
     }
 
     public void ChangePhase(int currentPhase){
-        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "ChangePhase " + currentPhase + ": " + Time.time + "\n";
+        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "ChangePhase " + currentPhase + ": " + timer_for_log + "\n";
+        
         switch (currentPhase)
         {
             case 1:
-                TimeRecorder.SetActive(true);
                 StartSelectPose.SetActive(false);
                 clickSelect.SetActive(false);
                 AgentObject.SetActive(true);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,18 +32,21 @@ public class GrabAgentObject : MonoBehaviour
     public Dictionary<GameObject, GameObject> TargetObjects = new Dictionary<GameObject, GameObject>();
     public bool initFlag = false;
     public GameObject PointStructure;
-    public GameObject TimeRecorder;
+    private GameObject TimeRecorder;
     public string ManipulateData;
 
     private float CourseMovingTime;
     private float AccurateMovingTime;
     public float sumTime;
+    private GameObject HandPoseManager;
 
     void Start()
     {
         // originalParent = transform.parent.gameObject;
         originalPosition = transform.localPosition;
         PointStructure = GameObject.Find("PointStructure");
+        HandPoseManager = GameObject.Find("HandPoseManager");
+        TimeRecorder = GameObject.Find("TimeRecorder");
     }
 
     void Update()
@@ -162,8 +166,8 @@ public class GrabAgentObject : MonoBehaviour
                         MovingObject.RemoveAt(0);
                         AutoAdjustStatus = true;
                         
-                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "CourseMovingTime: " + (sumTime + CourseMovingTime).ToString() + "\n";
-                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "AccurateMovingTime: " + (sumTime + CourseMovingTime + AccurateMovingTime).ToString() + "\n";
+                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "allbeginFineManipulateTime: " + (HandPoseManager.GetComponent<HandPoseManager>().selectionTime + sumTime + CourseMovingTime).ToString() + "\n";
+                        TimeRecorder.GetComponent<TimeRecorder>().writeFileContext += "allManipulateTime: " + (HandPoseManager.GetComponent<HandPoseManager>().selectionTime + sumTime + CourseMovingTime + AccurateMovingTime).ToString() + "\n";
                         sumTime += CourseMovingTime + AccurateMovingTime;
                         CourseMovingTime = 0;
                         AccurateMovingTime = 0;

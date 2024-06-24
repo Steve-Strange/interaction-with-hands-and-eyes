@@ -3763,6 +3763,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
       propertyPath: m_TagString
       value: Target
       objectReference: {fileID: 0}
@@ -3880,6 +3884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pentagon (3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
 --- !u!4 &3876734085720207244 stripped
@@ -3958,6 +3966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Triangle (3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
 --- !u!4 &3876734085232861734 stripped
@@ -4035,6 +4047,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
       propertyPath: m_Name
       value: Triangle (1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
@@ -4117,6 +4133,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
       propertyPath: m_TagString
@@ -4236,6 +4256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Triangle (2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
 --- !u!4 &3876734084642600795 stripped
@@ -4313,6 +4337,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
       propertyPath: m_Name
       value: Pentagon (2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
@@ -4395,6 +4423,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
       propertyPath: m_TagString
@@ -4519,6 +4551,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7bae111eacb9e8344a63ab4930b36a1f, type: 3}
       propertyPath: m_TagString
       value: Target
       objectReference: {fileID: 0}
@@ -4641,6 +4677,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
       propertyPath: m_TagString
       value: Target
       objectReference: {fileID: 0}
@@ -4758,6 +4798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pentagon (1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
 --- !u!4 &3876734084027252255 stripped
@@ -4839,6 +4883,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 19e2a0e45ab2d744bb8be382c3a840c9, type: 3}
       propertyPath: m_TagString

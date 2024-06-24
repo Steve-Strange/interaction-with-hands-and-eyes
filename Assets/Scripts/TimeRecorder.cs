@@ -9,14 +9,9 @@ public class TimeRecorder : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject agentObject;
-
     public List<GameObject> CompleteObjects = new List<GameObject>();
-    public Dictionary<GameObject, int> MovingObjectStatus = new Dictionary<GameObject, int>();
-
     // public TMP_InputField log;
-    public GameObject pinchObject;
-    public float coarseMovingTime;
+
     private GameObject HandPoseManager;
 
     private string folderPath;
@@ -43,43 +38,30 @@ public class TimeRecorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // log.text = writeFileContext;
+        // log.text = "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
+        //                             "Manipulation Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime;
+        // log.text += "phase: " + HandPoseManager.GetComponent<HandPoseManager>().phase + "\n";
+
         // log.text += "placingTime" + HandPoseManager.GetComponent<HandPoseManager>().placingTime + "\n" + 
         //     "coarseMovingTime: " + coarseMovingTime + "\n" + 
         //     "MovingTime: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n";
 
         // log.text += "CompleteObjects: " + CompleteObjects.Count + "\n";
-        // log.text += "objectsWithTargets: " + HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count + "\n";
-        if(CompleteObjects.Count == HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count){
-
-            // log.text += "Finished!!!!!!!!!!!!";
+        // log.text = "objectsWithTargets: " + HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count + "\n";
+        if(CompleteObjects.Count == HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count && HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count != 0){
             if(!finishStatus)
             {
+                MovingRecorder.GetComponent<MovingRecorder>().finishAll();
+
                 File.WriteAllText(filePath, writeFileContext + "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
-                                    "Moving Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n" + 
+                                    "Manipulation Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n" + 
                                     MovingRecorder.GetComponent<MovingRecorder>().MovingData
                                 );
 
                 finishStatus = true;
             }
         }
-        
-        if (agentObject.GetComponent<GrabAgentObject>().MovingObject.Count > 0)
-        {
-            if(MovingObjectStatus[agentObject.GetComponent<GrabAgentObject>().MovingObject[0]]==0) {
-                coarseMovingTime += Time.deltaTime;
-            }
-        }
-
-    }
-
-
-    float RotationGap(GameObject obj1, GameObject obj2)
-    {
-        return Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.x - obj2.transform.eulerAngles.x), 360 - Mathf.Abs(obj1.transform.eulerAngles.x - obj2.transform.eulerAngles.x)) + 
-                Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y), 360 - Mathf.Abs(obj1.transform.eulerAngles.y - obj2.transform.eulerAngles.y)) +
-                Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z), 360 - Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z));
     }
 
 }

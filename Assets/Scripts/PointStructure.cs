@@ -390,8 +390,8 @@ public class PointStructure : MonoBehaviour
 
         // 设置线条顶点
         lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, minPoint + 5*(minPoint - maxPoint));
-        lineRenderer.SetPosition(1, maxPoint + 5*(maxPoint - minPoint));
+        lineRenderer.SetPosition(0, minPoint + 15*(minPoint - maxPoint));
+        lineRenderer.SetPosition(1, maxPoint + 15*(maxPoint - minPoint));
 
         // 添加胶囊体碰撞体
         lineObj.AddComponent<CapsuleCollider>();
