@@ -1,0 +1,44 @@
+ChangePhase 1: 3.818261
+CourseMovingTime: 02.733416
+AccurateMovingTime: 00.7225605
+CourseMovingTime: 3.4559763.668245
+AccurateMovingTime: 3.4559760.8202441
+CourseMovingTime: 7.9444665.638894
+AccurateMovingTime: 7.9444663.167027
+CourseMovingTime: 16.750396.169927
+AccurateMovingTime: 16.750391.389866
+CourseMovingTime: 24.310180
+AccurateMovingTime: 24.310180
+CourseMovingTime: 24.310180
+AccurateMovingTime: 24.310180
+CourseMovingTime: 24.3101812.36545
+AccurateMovingTime: 24.310183.443779
+CourseMovingTime: 40.119412.805674
+AccurateMovingTime: 40.119410.6803625
+CourseMovingTime: 43.605451.862394
+AccurateMovingTime: 43.605452.972155
+CourseMovingTime: 48.439990
+AccurateMovingTime: 48.439991.972288
+CourseMovingTime: 50.412280
+AccurateMovingTime: 50.412280
+CourseMovingTime: 50.412280
+AccurateMovingTime: 50.412282.097665
+CourseMovingTime: 52.509943.530319
+AccurateMovingTime: 52.509942.262187
+CourseMovingTime: 58.302453.638833
+AccurateMovingTime: 58.302453.557422
+CourseMovingTime: 65.49873.222845
+AccurateMovingTime: 65.49871.362602
+CourseMovingTime: 70.084152.708189
+AccurateMovingTime: 70.084151.056385
+CourseMovingTime: 73.848720
+AccurateMovingTime: 73.848720
+CourseMovingTime: 73.848720
+AccurateMovingTime: 73.848720
+CourseMovingTime: 73.848726.653852
+AccurateMovingTime: 73.848720.902797
+CourseMovingTime: 81.405373.889968
+AccurateMovingTime: 81.405371.763932
+Selection Time: 0.01367714
+Coarse Moving Time: 0
+Moving Time: 133.8822

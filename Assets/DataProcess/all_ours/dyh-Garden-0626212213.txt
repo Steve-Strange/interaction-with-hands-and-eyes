@@ -1,0 +1,67 @@
+onPalmPoseStart: 2.507448
+onPalmPoseExit: 3.252995
+onPalmPoseStart: 3.270419
+allSelectionTime: 4.180102
+allSelectionTime: 4.571668
+allSelectionTime: 5.212623
+allSelectionTime: 6.513304
+allSelectionTime: 8.115601
+allSelectionTime: 8.407837
+onPalmPoseExit: 9.025061
+onSecondSelectionBGDisappear: 9.438774
+onPalmPoseStart: 12.04699
+onPalmPoseExit: 12.27133
+onSecondSelectionBGDisappear: 12.68627
+onPalmPoseStart: 12.97926
+allSelectionTime: 14.742
+onPalmPoseExit: 15.42669
+onPalmPoseStart: 15.81333
+allSelectionTime: 16.2341
+onPalmPoseExit: 16.74267
+onSecondSelectionBGDisappear: 17.15071
+onPalmPoseStart: 18.40257
+allSelectionTime: 19.78316
+allSelectionTime: 20.27223
+allSelectionTime: 21.43614
+allSelectionTime: 22.25681
+allSelectionTime: 22.6338
+allSelectionTime: 23.3503
+onPalmPoseExit: 23.90684
+onSecondSelectionBGDisappear: 24.3131
+ChangePhase 1: 27.96425
+allbeginFineManipulateTime: 32.00472
+allManipulateTime: 42.27523
+allbeginFineManipulateTime: 49.70053
+allManipulateTime: 74.87101
+allbeginFineManipulateTime: 84.70052
+allManipulateTime: 88.84256
+allbeginFineManipulateTime: 109.1748
+allManipulateTime: 111.1955
+allbeginFineManipulateTime: 119.1603
+allManipulateTime: 124.2236
+allbeginFineManipulateTime: 137.459
+allManipulateTime: 148.508
+allbeginFineManipulateTime: 176.3506
+allManipulateTime: 184.1731
+allbeginFineManipulateTime: 187.0821
+allManipulateTime: 190.3586
+allbeginFineManipulateTime: 200.7177
+allManipulateTime: 202.2197
+allbeginFineManipulateTime: 209.9116
+allManipulateTime: 210.885
+allbeginFineManipulateTime: 219.7592
+allManipulateTime: 220.5672
+allbeginFineManipulateTime: 227.6509
+allManipulateTime: 229.7634
+allbeginFineManipulateTime: 234.7108
+allManipulateTime: 236.315
+allbeginFineManipulateTime: 243.9259
+allManipulateTime: 250.6064
+Selection Time: 27.96425
+Manipulation Time: 225.4695
+Moved Distance head:8.500396
+Moved Distance right:33.77837
+Moved Distance left:11.14747
+Rotated Angle head:2240.265
+Rotated Angle right:6263.949
+Rotated Angle left:3428.115

@@ -1,0 +1,75 @@
+onPalmPoseStart: 3.844768
+onPalmPoseExit: 4.813095
+onSecondSelectionBGDisappear: 5.230028
+onPalmPoseStart: 11.23447
+onPalmPoseExit: 12.27112
+onSecondSelectionBGDisappear: 12.71587
+onPalmPoseStart: 14.96907
+allSelectionTime: 15.64553
+allSelectionTime: 16.53416
+allSelectionTime: 17.03401
+allSelectionTime: 17.3687
+allSelectionTime: 18.20838
+allSelectionTime: 19.21508
+allSelectionTime: 19.93774
+onPalmPoseExit: 20.27105
+onSecondSelectionBGDisappear: 20.70145
+onPalmPoseStart: 22.45517
+allSelectionTime: 24.04862
+allSelectionTime: 24.6598
+allSelectionTime: 25.43761
+onPalmPoseExit: 25.99256
+onSecondSelectionBGDisappear: 26.41057
+onPalmPoseStart: 28.74211
+allSelectionTime: 30.25679
+allSelectionTime: 30.97967
+allSelectionTime: 31.81256
+onPalmPoseExit: 32.25687
+onSecondSelectionBGDisappear: 32.65991
+onPalmPoseStart: 34.78521
+allSelectionTime: 36.14644
+allSelectionTime: 36.14644
+allSelectionTime: 36.87181
+onPalmPoseExit: 37.29625
+onSecondSelectionBGDisappear: 37.73001
+ChangePhase 1: 38.79889
+allbeginFineManipulateTime: 47.46646
+allManipulateTime: 50.89703
+allbeginFineManipulateTime: 53.34163
+allManipulateTime: 55.70579
+allbeginFineManipulateTime: 59.01832
+allManipulateTime: 61.52501
+allbeginFineManipulateTime: 64.35818
+allManipulateTime: 64.35818
+allbeginFineManipulateTime: 67.6227
+allManipulateTime: 72.42857
+allbeginFineManipulateTime: 76.26974
+allManipulateTime: 79.24798
+allbeginFineManipulateTime: 81.89141
+allManipulateTime: 86.25336
+allbeginFineManipulateTime: 90.03938
+allManipulateTime: 94.37341
+allbeginFineManipulateTime: 98.56994
+allManipulateTime: 98.56994
+allbeginFineManipulateTime: 104.0406
+allManipulateTime: 105.8738
+allbeginFineManipulateTime: 108.9439
+allManipulateTime: 110.4436
+allbeginFineManipulateTime: 112.9843
+allManipulateTime: 115.9153
+allbeginFineManipulateTime: 119.3597
+allManipulateTime: 122.4159
+allbeginFineManipulateTime: 125.7739
+allManipulateTime: 129.0953
+allbeginFineManipulateTime: 132.1296
+allManipulateTime: 134.3853
+allbeginFineManipulateTime: 138.4464
+allManipulateTime: 142.8609
+Selection Time: 38.79889
+Manipulation Time: 104.6139
+Moved Distance head:5.67625
+Moved Distance right:12.79679
+Moved Distance left:4.531637
+Rotated Angle head:1214.166
+Rotated Angle right:4014.938
+Rotated Angle left:1052.879
