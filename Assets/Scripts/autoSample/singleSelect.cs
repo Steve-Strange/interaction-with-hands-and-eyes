@@ -11,6 +11,7 @@ public class singleSelect : MonoBehaviour
     string userName;
     [SerializeField]
     public int sampleType;
+    public GameObject scene;
     public GameObject[] targetGameobject;//�����е���Ҫ��������Ŀ������
     public GameObject MovingRecorder;
     // Start is called before the first frame update
@@ -61,6 +62,7 @@ public class singleSelect : MonoBehaviour
     }
     public void finishAll()
     {
+        scene.SetActive(false);
         MovingRecorder.GetComponent<MovingRecorder>().finishAll();//记录动作的结束
         writeFile(MovingRecorder.GetComponent<MovingRecorder>().MovingData);//将动作的总移动写入当前的记录中
         writeFile("all selection time:" + timer);

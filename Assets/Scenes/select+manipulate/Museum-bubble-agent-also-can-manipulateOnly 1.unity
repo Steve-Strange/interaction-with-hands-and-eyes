@@ -37972,6 +37972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userName: 
   sampleType: 2
+  scene: {fileID: 85508424}
   targetGameobject: []
   MovingRecorder: {fileID: 1035733919}
   timer: 0
@@ -38012,9 +38013,6 @@ MonoBehaviour:
   head: {fileID: 409862014}
   leftHand: {fileID: 2049772281}
   rightHand: {fileID: 1215878220}
-  emptyHead: {fileID: 892010856}
-  emptyRight: {fileID: 1111602894}
-  emptyLeft: {fileID: 1702978302}
   MovingData: 
 --- !u!1 &1042567821
 GameObject:
@@ -39056,7 +39054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thumb: {fileID: 1215878225}
   index: {fileID: 1215878224}
-  ispinch: 0
+  isPinch: 0
   agentMovingStatus: 0
 --- !u!114 &1088719417
 MonoBehaviour:
@@ -56667,24 +56665,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recorder: {fileID: 1035733919}
-  manipulateObjects:
-  - {fileID: 2124432415}
-  - {fileID: 312993295}
-  - {fileID: 806077949}
-  - {fileID: 602996322}
-  - {fileID: 1344759053}
-  - {fileID: 641309051}
-  - {fileID: 1464999142}
-  - {fileID: 918690771}
-  - {fileID: 523057319}
-  - {fileID: 2100401524}
-  - {fileID: 1840351247}
-  - {fileID: 1670053377}
-  - {fileID: 689273566}
-  - {fileID: 815004445}
-  - {fileID: 1534579269}
-  - {fileID: 829388616}
-  - {fileID: 1990062159}
   manipulates: {fileID: 237056527}
   rightThumb: {fileID: 1215878225}
   rightIndex: {fileID: 1215878224}
@@ -56693,6 +56673,7 @@ MonoBehaviour:
   pinchObject: {fileID: 1088719412}
   bubble: {fileID: 1520180118}
   pinchStatus: 0
+  coarse: 1
   MovingObject: []
 --- !u!1 &1401348407
 GameObject:

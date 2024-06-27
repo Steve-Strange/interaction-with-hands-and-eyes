@@ -58,6 +58,10 @@ public class GrabAgentObject : MonoBehaviour
         
         if (MovingObject.Count > 0)
         {
+            if(TargetObjects[MovingObject[0]])
+            {
+                AddOutline(TargetObjects[MovingObject[0]],Color.green);
+            }
             if (MovingObject.Count > 0)
                 MovingObject[0].GetComponent<Outline>().outlineColor = Color.green;
             grabStatus = pinchObject.GetComponent<pinch>().agentMovingStatus;
@@ -197,4 +201,16 @@ public class GrabAgentObject : MonoBehaviour
                 Mathf.Min(Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z), 360 - Mathf.Abs(obj1.transform.eulerAngles.z - obj2.transform.eulerAngles.z));
     }
 
+    public void AddOutline(GameObject target, Color color)
+    {
+        if (target.GetComponent<Outline>() == null)
+        {
+            target.AddComponent<Outline>();
+            target.GetComponent<Outline>().OutlineColor = color;
+        }
+        else
+        {
+            target.GetComponent<Outline>().OutlineColor = color;
+        }
+    }
 }
