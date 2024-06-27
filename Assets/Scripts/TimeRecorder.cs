@@ -11,7 +11,7 @@ public class TimeRecorder : MonoBehaviour
 
     public List<GameObject> CompleteObjects = new List<GameObject>();
     // public TMP_InputField log;
-
+    public GameObject scene;
     private GameObject HandPoseManager;
 
     private string folderPath;
@@ -52,9 +52,10 @@ public class TimeRecorder : MonoBehaviour
         if(CompleteObjects.Count == HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count && HandPoseManager.GetComponent<HandPoseManager>().objectsWithTargets.Count != 0){
             if(!finishStatus)
             {
+                scene.SetActive(false);
                 MovingRecorder.GetComponent<MovingRecorder>().finishAll();
 
-                File.WriteAllText(filePath, writeFileContext + "Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
+                File.WriteAllText(filePath, writeFileContext + "finish all\n"+"Selection Time: " + HandPoseManager.GetComponent<HandPoseManager>().selectionTime + "\n" + 
                                     "Manipulation Time: " + HandPoseManager.GetComponent<HandPoseManager>().movingTime + "\n" + 
                                     MovingRecorder.GetComponent<MovingRecorder>().MovingData
                                 );

@@ -80,7 +80,7 @@ public class Bubble : MonoBehaviour
         }
         for (int i = 0; i < objects.Count; i++)
             if(objects[i].GetComponent<MeshFilter>()!=null){
-                Debug.Log(objects[i].name);
+              //  Debug.Log(objects[i].name);
             var vertices = objects[i].GetComponent<MeshFilter>().sharedMesh.vertices;//Vector3[]
             foreach (var v in vertices)
             {
