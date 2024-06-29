@@ -70,7 +70,6 @@ public class Bubble : MonoBehaviour
             objects.Add(OBJ.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
         }
     }
-    private string m_logEntries = "";
     public void changeRadius()
     {
         for (int i = 0; i < 1000; i++)
@@ -138,14 +137,7 @@ public class Bubble : MonoBehaviour
     void Start()
     {
 
-        Application.logMessageReceived += (string condition, string stackTrace, LogType type) =>
-        {
-            if (type == LogType.Exception || type == LogType.Error)
-            {
-         
-                m_logEntries += (string.Format("{0}\n{1}", condition, stackTrace));
-            }
-        };
+  
 
 
 

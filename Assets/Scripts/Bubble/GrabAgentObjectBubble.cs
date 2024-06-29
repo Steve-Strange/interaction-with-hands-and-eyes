@@ -160,6 +160,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                     { //select+manipulate
                         AddOutline(MovingObject[0], Color.red);
                         MovingObject[0].GetComponent<Outline>().OutlineWidth = 6f;
+                        MovingObject[0].tag = "Finish";
                         finishNumber += 1;
                         recorder.GetComponent<singleSelect>().finishOneObject();
 
