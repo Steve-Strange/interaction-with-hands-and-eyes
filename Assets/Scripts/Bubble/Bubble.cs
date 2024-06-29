@@ -199,7 +199,7 @@ public class Bubble : MonoBehaviour
     {
      
         l.SetPosition(0, palm.transform.position);
-        l.SetPosition(1, -palm.transform.up* 100);
+        l.SetPosition(1, palm.transform.forward* 100);
         if(!selectingObject)
         {         decideCenter();
                   follow();
@@ -216,7 +216,7 @@ public class Bubble : MonoBehaviour
     }
     public void decideCenter()
     {
-        Ray ray = new Ray(palm.transform.position, -palm.transform.up);//手掌心向前发出射线
+        Ray ray = new Ray(palm.transform.position, palm.transform.forward);//手掌心向前发出射线
          // Ray ray1 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
         //Ray ray2 = new Ray(palm.transform.position - 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
         //Ray ray3 = new Ray(palm.transform.position + 0.05f * Vector3.up, -palm.transform.up);//手掌心向前发出射线
@@ -280,7 +280,7 @@ public class Bubble : MonoBehaviour
           
         }*/
     }
-        public void follow()
+    public void follow()
     {
         transform.position = 8 * (palm.transform.position - palmOrigin) + bubbleOrigin;
     }

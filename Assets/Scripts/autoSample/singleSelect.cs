@@ -75,7 +75,6 @@ public class singleSelect : MonoBehaviour
         if (sampleType == 0)
         {//仅选择
             beginSelectTime = timer;
-            MovingRecorder.GetComponent<MovingRecorder>().restart();
         }
         else{
             beginManipulateTime = timer;
@@ -99,7 +98,6 @@ public class singleSelect : MonoBehaviour
 
         var temp3 = temp - temp2;
         logs += "allManipulateTime:" + timer + "\n";//完成这个操纵操作时所花费的时间
-        MovingRecorder.GetComponent<MovingRecorder>().restart();
     }
     public void finishCoarseOneObject()//��ÿ�δֲ���ʱ�����
     {
