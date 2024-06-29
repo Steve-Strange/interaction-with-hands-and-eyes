@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+
 
 public class Bubble : MonoBehaviour
 {
@@ -305,8 +305,8 @@ public class Bubble : MonoBehaviour
         }
         int targetNum = 0;//最多三个目标
         foreach (var item in colliders)
+            if(item.tag != "Finish")
         {
-           // t.text = "4";
             if (targetNum < 3) {
                     targetNum++;
                     AddOutline(item.gameObject, Color.yellow);
@@ -369,6 +369,10 @@ public class Bubble : MonoBehaviour
                         grabAgentObject.GetComponent<GrabAgentObjectBubble>().MovingObject.Add(target[select]);
                         grabAgentObject.GetComponent<GrabAgentObjectBubble>().coarse = false;
                         recorder.GetComponent<singleSelect>().selectOneObject();
+                        //清空目标物体
+                        for (int i = 0; i <= 2; i++){
+                            target[i] = null;
+                        }
                         killTheBubble();  
                     }
             
