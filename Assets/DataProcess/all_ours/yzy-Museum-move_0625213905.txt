@@ -1,9 +1,0 @@
-all distance and rotate angle
-Moved Distance: 
-head: 25.47891
-right:70.1658
-left:26.56779
-Rotated Angle: 
-head: 7170.81
-right:15161.81
-left:6629.007

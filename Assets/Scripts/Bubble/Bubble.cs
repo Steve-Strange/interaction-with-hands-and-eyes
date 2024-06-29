@@ -66,7 +66,6 @@ public class Bubble : MonoBehaviour
     {
         for (int c = 0; c < OBJ.transform.childCount; c++)
         {
-  
             objects.Add(OBJ.transform.GetChild(c).gameObject);//不要把目标位置物体也算进去
         }
     }
