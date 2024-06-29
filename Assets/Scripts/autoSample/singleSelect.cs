@@ -27,11 +27,12 @@ public class singleSelect : MonoBehaviour
     private string filePath;
     private string fileName;
     private string logs;
-
+    private float allM;
     void Start()
     {
         logs = "";
         timer = 0;
+        allM = 0f;
         // ��ȡ�ⲿ�洢����·��
         folderPath = Application.persistentDataPath;
         if(sampleType == 2){
@@ -63,6 +64,9 @@ public class singleSelect : MonoBehaviour
     public void finishAll()
     {
         scene.SetActive(false);
+        writeFile("finish all");
+        writeFile("Selection Time:"+(timer-allM));
+        writeFile("Manipulate Time:" + allM);
         MovingRecorder.GetComponent<MovingRecorder>().finishAll();//记录动作的结束
         writeFile(MovingRecorder.GetComponent<MovingRecorder>().MovingData);//将动作的总移动写入当前的记录中
         writeFile("all selection time:" + timer);
@@ -95,7 +99,7 @@ public class singleSelect : MonoBehaviour
         {
             beginManipulateTime = timer;
         }
-
+        allM += timer - beginManipulateTime;
         var temp3 = temp - temp2;
         logs += "allManipulateTime:" + timer + "\n";//完成这个操纵操作时所花费的时间
     }
