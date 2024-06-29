@@ -29613,8 +29613,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CompleteObjects: []
+<<<<<<< Updated upstream
   scene: {fileID: 0}
   userName: ljh
+=======
+  pinchObject: {fileID: 1319298475}
+  coarseMovingTime: 0
+  userName: lyh
+>>>>>>> Stashed changes
   writeFileContext: 
 --- !u!4 &833660464
 Transform:
