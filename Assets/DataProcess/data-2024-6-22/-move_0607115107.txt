@@ -1,0 +1,249 @@
+Moved Distance: 
+head: 1.95927
+right:2.029149
+left:1.307493
+Rotated Angle: 
+head: 133.2733
+right:464.9101
+left:71.74998
+Moved Distance: 
+head: 2.948384
+right:12.55518
+left:2.534001
+Rotated Angle: 
+head: 887.6888
+right:2957.986
+left:968.9741
+Moved Distance: 
+head: 0.01070052
+right:0.02769734
+left:0.01175901
+Rotated Angle: 
+head: 1.772959
+right:12.66344
+left:1.671397
+Moved Distance: 
+head: 0.02289172
+right:0.177747
+left:0.03479233
+Rotated Angle: 
+head: 7.398355
+right:30.53521
+left:6.371371
+Moved Distance: 
+head: 0.2089884
+right:1.669161
+left:0.191158
+Rotated Angle: 
+head: 81.63181
+right:430.8647
+left:68.12817
+Moved Distance: 
+head: 0.210747
+right:0.926605
+left:0.1400097
+Rotated Angle: 
+head: 50.09191
+right:244.3021
+left:39.2128
+Moved Distance: 
+head: 0.03636988
+right:0.1183612
+left:0.07533003
+Rotated Angle: 
+head: 8.963934
+right:24.40918
+left:10.65508
+Moved Distance: 
+head: 0.6103749
+right:3.683735
+left:0.7408217
+Rotated Angle: 
+head: 201.7079
+right:1290.293
+left:266.4598
+Moved Distance: 
+head: 0.1368597
+right:0.8636283
+left:0.1318421
+Rotated Angle: 
+head: 19.64418
+right:243.6889
+left:20.55843
+Moved Distance: 
+head: 0.8887839
+right:3.587374
+left:1.125493
+Rotated Angle: 
+head: 164.1799
+right:724.9131
+left:328.9753
+Moved Distance: 
+head: 0.6914043
+right:3.891352
+left:0.7899005
+Rotated Angle: 
+head: 146.5626
+right:1011.956
+left:447.1936
+Moved Distance: 
+head: 0.956583
+right:3.540815
+left:1.318089
+Rotated Angle: 
+head: 255.551
+right:999.4734
+left:377.8889
+Moved Distance: 
+head: 0.7941516
+right:4.616237
+left:2.349127
+Rotated Angle: 
+head: 425.3867
+right:1685.542
+left:755.7057
+Moved Distance: 
+head: 0.2623461
+right:1.07468
+left:0.5982646
+Rotated Angle: 
+head: 52.1813
+right:274.8582
+left:167.6564
+Moved Distance: 
+head: 0.01798719
+right:0.08908248
+left:0.005905608
+Rotated Angle: 
+head: 1.038169
+right:13.85197
+left:0.3537666
+Moved Distance: 
+head: 0.0003990111
+right:0.0006434363
+left:0.0001851084
+Rotated Angle: 
+head: 0
+right:0.950379
+left:0
+Moved Distance: 
+head: 0.3927054
+right:1.533421
+left:1.13944
+Rotated Angle: 
+head: 139.0218
+right:378.5605
+left:312.4987
+Moved Distance: 
+head: 1.091131
+right:3.197196
+left:2.908551
+Rotated Angle: 
+head: 286.1148
+right:761.2198
+left:920.7725
+Moved Distance: 
+head: 0.1342504
+right:0.3514865
+left:0.1142452
+Rotated Angle: 
+head: 15.45435
+right:42.42705
+left:42.06665
+Moved Distance: 
+head: 0.5913249
+right:1.67214
+left:1.23776
+Rotated Angle: 
+head: 81.90927
+right:380.862
+left:481.6798
+Moved Distance: 
+head: 1.771222
+right:6.50145
+left:4.170044
+Rotated Angle: 
+head: 362.6483
+right:1813.187
+left:1685.95
+Moved Distance: 
+head: 1.734458
+right:6.217858
+left:3.495761
+Rotated Angle: 
+head: 404.0545
+right:2174.111
+left:1217.775
+Moved Distance: 
+head: 0.03154791
+right:0.03507999
+left:0.01577131
+Rotated Angle: 
+head: 6.247906
+right:5.57836
+left:2.688445
+Moved Distance: 
+head: 1.053818
+right:3.579694
+left:1.425826
+Rotated Angle: 
+head: 271.2213
+right:875.142
+left:383.2188
+Moved Distance: 
+head: 0.1286239
+right:0.5499601
+left:0.2283885
+Rotated Angle: 
+head: 32.74437
+right:144.4793
+left:49.47347
+Moved Distance: 
+head: 0.1403635
+right:0.3503077
+left:0.09714775
+Rotated Angle: 
+head: 33.02457
+right:95.20708
+left:23.33626
+Moved Distance: 
+head: 0.08603602
+right:0.3834185
+left:0.04868974
+Rotated Angle: 
+head: 23.98307
+right:89.89028
+left:16.47257
+Moved Distance: 
+head: 0.009226923
+right:0.05498625
+left:0.005054832
+Rotated Angle: 
+head: 0.537329
+right:18.15451
+left:1.039029
+Moved Distance: 
+head: 1.922575
+right:7.424862
+left:3.107253
+Rotated Angle: 
+head: 627.963
+right:2206.859
+left:852.1509
+Moved Distance: 
+head: 0.3970651
+right:1.248623
+left:1.012482
+Rotated Angle: 
+head: 91.61622
+right:298.2026
+left:275.2864
+all distance and rotate angle
+Moved Distance: 
+head: 19.24059
+right:71.95193
+left:30.36058
+Rotated Angle: 
+head: 4813.614
+right:19695.08
+left:9795.962

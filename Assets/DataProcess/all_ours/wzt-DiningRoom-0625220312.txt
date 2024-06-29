@@ -1,0 +1,68 @@
+onPalmPoseStart: 2.981558
+allSelectionTime: 3.688348
+allSelectionTime: 4.440097
+allSelectionTime: 5.216834
+allSelectionTime: 6.10734
+allSelectionTime: 6.440025
+allSelectionTime: 7.162698
+onPalmPoseExit: 9.314128
+onSecondSelectionBGDisappear: 9.760431
+onPalmPoseStart: 11.92538
+allSelectionTime: 13.28888
+allSelectionTime: 14.26273
+allSelectionTime: 14.26273
+allSelectionTime: 15.14755
+onPalmPoseExit: 15.25924
+onPalmPoseStart: 15.28554
+allSelectionTime: 15.64698
+allSelectionTime: 16.70286
+onPalmPoseExit: 17.17474
+onSecondSelectionBGDisappear: 17.61478
+onPalmPoseStart: 20.10759
+allSelectionTime: 20.92512
+allSelectionTime: 21.86967
+allSelectionTime: 24.52522
+onPalmPoseExit: 24.92521
+onSecondSelectionBGDisappear: 25.33142
+allSelectionTime: 28.66905
+ChangePhase 1: 29.80003
+allbeginFineManipulateTime: 31.85839
+allManipulateTime: 31.85839
+allbeginFineManipulateTime: 34.78499
+allManipulateTime: 34.78499
+allbeginFineManipulateTime: 38.52982
+allManipulateTime: 42.5017
+allbeginFineManipulateTime: 50.32177
+allManipulateTime: 52.84902
+allbeginFineManipulateTime: 55.29414
+allManipulateTime: 59.18292
+allbeginFineManipulateTime: 66.69629
+allManipulateTime: 75.0582
+allbeginFineManipulateTime: 78.11452
+allManipulateTime: 80.03107
+allbeginFineManipulateTime: 83.48964
+allManipulateTime: 83.48964
+allbeginFineManipulateTime: 86.30859
+allManipulateTime: 88.53185
+allbeginFineManipulateTime: 92.90585
+allManipulateTime: 98.84164
+allbeginFineManipulateTime: 101.3122
+allManipulateTime: 101.3122
+allbeginFineManipulateTime: 105.3212
+allManipulateTime: 105.3212
+allbeginFineManipulateTime: 108.4779
+allManipulateTime: 110.6569
+allbeginFineManipulateTime: 113.2669
+allManipulateTime: 113.2669
+allbeginFineManipulateTime: 117.0457
+allManipulateTime: 119.4622
+allbeginFineManipulateTime: 121.3238
+allManipulateTime: 123.3235
+Selection Time: 29.80003
+Manipulation Time: 94.09425
+Moved Distance head:4.618504
+Moved Distance right:10.98245
+Moved Distance left:5.801413
+Rotated Angle head:1057.672
+Rotated Angle right:3031.702
+Rotated Angle left:1751.277

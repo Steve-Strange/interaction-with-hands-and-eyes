@@ -1,0 +1,97 @@
+onPalmPoseStart: 0.9917539
+onPalmPoseExit: 2.303632
+onSecondSelectionBGDisappear: 2.743659
+onPalmPoseStart: 3.016617
+allSelectionTime: 4.913457
+onPalmPoseExit: 4.913457
+onSecondSelectionBGDisappear: 5.318605
+onPalmPoseStart: 6.762637
+allSelectionTime: 10.60865
+onPalmPoseExit: 11.09571
+onSecondSelectionBGDisappear: 11.51562
+onPalmPoseStart: 12.55225
+allSelectionTime: 14.70268
+allSelectionTime: 15.32894
+onPalmPoseExit: 16.01916
+onSecondSelectionBGDisappear: 16.45538
+onPalmPoseStart: 17.03129
+onPalmPoseExit: 19.73099
+onSecondSelectionBGDisappear: 20.14703
+onPalmPoseStart: 20.55003
+onPalmPoseExit: 22.62107
+onPalmPoseStart: 22.81982
+onPalmPoseExit: 23.6615
+onPalmPoseStart: 23.73588
+allSelectionTime: 24.77608
+onPalmPoseExit: 24.77608
+onSecondSelectionBGDisappear: 25.21702
+onPalmPoseStart: 25.92598
+onPalmPoseExit: 27.55182
+onSecondSelectionBGDisappear: 28.01512
+onPalmPoseStart: 28.60823
+allSelectionTime: 30.39273
+onPalmPoseExit: 31.67261
+onPalmPoseStart: 31.72932
+onPalmPoseExit: 32.34169
+onSecondSelectionBGDisappear: 32.78632
+onPalmPoseStart: 34.35509
+onPalmPoseExit: 34.55756
+onSecondSelectionBGDisappear: 34.99651
+onPalmPoseStart: 35.99498
+allSelectionTime: 38.63964
+allSelectionTime: 40.16892
+onPalmPoseExit: 40.25176
+onPalmPoseStart: 40.29364
+onPalmPoseExit: 40.96029
+onSecondSelectionBGDisappear: 41.40391
+onPalmPoseStart: 41.99512
+allSelectionTime: 53.7226
+onPalmPoseExit: 55.97764
+onPalmPoseStart: 56.30797
+allSelectionTime: 57.93611
+onPalmPoseExit: 58.72766
+onSecondSelectionBGDisappear: 59.14523
+onPalmPoseStart: 61.10631
+onPalmPoseExit: 61.26369
+onSecondSelectionBGDisappear: 61.6755
+onPalmPoseStart: 62.37128
+onPalmPoseExit: 63.51234
+onSecondSelectionBGDisappear: 63.91436
+onPalmPoseStart: 65.87095
+onPalmPoseExit: 67.4656
+onPalmPoseStart: 67.51965
+allSelectionTime: 69.81195
+onPalmPoseExit: 70.60362
+onSecondSelectionBGDisappear: 71.02554
+ChangePhase 1: 77.74997
+allbeginFineManipulateTime: 101.3422
+allManipulateTime: 133.2853
+allbeginFineManipulateTime: 146.3965
+allManipulateTime: 157.0719
+allbeginFineManipulateTime: 165.2886
+allManipulateTime: 169.6661
+allbeginFineManipulateTime: 178.3694
+allManipulateTime: 183.0311
+allbeginFineManipulateTime: 203.8022
+allManipulateTime: 211.6216
+allbeginFineManipulateTime: 377.3657
+allManipulateTime: 414.1367
+allbeginFineManipulateTime: 419.4977
+allManipulateTime: 421.964
+allbeginFineManipulateTime: 426.5315
+allManipulateTime: 430.8723
+allbeginFineManipulateTime: 454.7483
+allManipulateTime: 461.72
+allbeginFineManipulateTime: 469.0699
+allManipulateTime: 495.4243
+allbeginFineManipulateTime: 512.9009
+allManipulateTime: 514.8726
+finish all
+Selection Time: 77.74997
+Manipulation Time: 669.2363
+Moved Distance head:27.63371
+Moved Distance right:73.0375
+Moved Distance left:35.43551
+Rotated Angle head:6783.25
+Rotated Angle right:18124.58
+Rotated Angle left:11244.53

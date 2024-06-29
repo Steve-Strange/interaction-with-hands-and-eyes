@@ -1,0 +1,73 @@
+onPalmPoseStart: 5.456586
+allSelectionTime: 6.873639
+onPalmPoseExit: 6.95653
+onPalmPoseStart: 6.984749
+allSelectionTime: 8.485728
+allSelectionTime: 9.375263
+allSelectionTime: 11.09772
+allSelectionTime: 12.59764
+onPalmPoseExit: 12.68085
+onPalmPoseStart: 12.70904
+allSelectionTime: 13.26431
+onPalmPoseExit: 14.34798
+onSecondSelectionBGDisappear: 14.76442
+allSelectionTime: 16.11648
+allSelectionTime: 17.3078
+allSelectionTime: 18.69571
+allSelectionTime: 19.92204
+onPalmPoseStart: 22.10859
+allSelectionTime: 23.08147
+allSelectionTime: 23.19275
+onPalmPoseExit: 23.24843
+onPalmPoseStart: 23.47077
+allSelectionTime: 24.58275
+onPalmPoseExit: 24.63813
+onPalmPoseStart: 24.83283
+onPalmPoseExit: 24.86036
+onPalmPoseStart: 24.88834
+allSelectionTime: 25.30544
+allSelectionTime: 26.36145
+allSelectionTime: 27.36141
+onPalmPoseExit: 27.72219
+onSecondSelectionBGDisappear: 28.12687
+ChangePhase 1: 30.6076
+allbeginFineManipulateTime: 36.79992
+allManipulateTime: 39.47023
+allbeginFineManipulateTime: 42.62433
+allManipulateTime: 45.57796
+allbeginFineManipulateTime: 48.88176
+allManipulateTime: 55.38137
+allbeginFineManipulateTime: 57.63618
+allManipulateTime: 62.00941
+allbeginFineManipulateTime: 64.84167
+allManipulateTime: 64.84167
+allbeginFineManipulateTime: 68.87052
+allManipulateTime: 70.80207
+allbeginFineManipulateTime: 73.8728
+allManipulateTime: 75.35908
+allbeginFineManipulateTime: 79.20224
+allManipulateTime: 81.45776
+allbeginFineManipulateTime: 85.10985
+allManipulateTime: 86.63798
+allbeginFineManipulateTime: 94.99741
+allManipulateTime: 96.16446
+allbeginFineManipulateTime: 99.76418
+allManipulateTime: 102.6648
+allbeginFineManipulateTime: 110.3033
+allManipulateTime: 114.0129
+allbeginFineManipulateTime: 116.302
+allManipulateTime: 122.9275
+allbeginFineManipulateTime: 130.4367
+allManipulateTime: 134.8645
+allbeginFineManipulateTime: 137.0805
+allManipulateTime: 139.2221
+allbeginFineManipulateTime: 148.334
+allManipulateTime: 153.6431
+Selection Time: 30.6076
+Manipulation Time: 123.665
+Moved Distance head:7.138397
+Moved Distance right:22.27851
+Moved Distance left:14.87417
+Rotated Angle head:1772.762
+Rotated Angle right:4766.021
+Rotated Angle left:4394.94

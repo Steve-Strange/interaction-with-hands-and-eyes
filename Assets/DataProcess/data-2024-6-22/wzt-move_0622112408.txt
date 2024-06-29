@@ -1,0 +1,4577 @@
+Moved Distance: 
+head: 2.687691
+right:2.524977
+left:2.377008
+Rotated Angle: 
+head: 150.2375
+right:260.7091
+left:193.7396
+Moved Distance: 
+head: 0.3564743
+right:0.6850392
+left:0.3073484
+Rotated Angle: 
+head: 66.83973
+right:99.26608
+left:80.04658
+Moved Distance: 
+head: 0.3372656
+right:1.911797
+left:0.8990891
+Rotated Angle: 
+head: 104.2436
+right:610.8978
+left:297.3898
+Moved Distance: 
+head: 0.1907941
+right:0.6100602
+left:0.1671193
+Rotated Angle: 
+head: 33.40926
+right:110.6415
+left:43.16204
+Moved Distance: 
+head: 0.09177732
+right:0.3982333
+left:0.08183978
+Rotated Angle: 
+head: 23.63568
+right:56.99353
+left:39.59546
+Moved Distance: 
+head: 0.1030857
+right:0.6020058
+left:0.08669916
+Rotated Angle: 
+head: 24.65068
+right:119.0878
+left:25.37698
+Moved Distance: 
+head: 0.09441959
+right:0.4766002
+left:0.08587848
+Rotated Angle: 
+head: 23.15741
+right:82.36596
+left:50.46315
+Moved Distance: 
+head: 0.1792865
+right:0.660579
+left:0.1468143
+Rotated Angle: 
+head: 38.12409
+right:103.8187
+left:41.76747
+Moved Distance: 
+head: 0.3108648
+right:1.186702
+left:0.1820434
+Rotated Angle: 
+head: 97.80977
+right:177.1507
+left:51.94849
+Moved Distance: 
+head: 0.1091026
+right:0.7774786
+left:0.08699957
+Rotated Angle: 
+head: 18.65979
+right:136.9249
+left:18.87434
+Moved Distance: 
+head: 0.2178544
+right:0.7329606
+left:0.3520534
+Rotated Angle: 
+head: 48.51387
+right:121.1007
+left:36.21298
+Moved Distance: 
+head: 0.3866369
+right:0.6797772
+left:0.427157
+Rotated Angle: 
+head: 77.89946
+right:92.87515
+left:70.48827
+Moved Distance: 
+head: 0.130182
+right:0.5623009
+left:0.09171057
+Rotated Angle: 
+head: 46.59936
+right:78.59169
+left:13.50866
+Moved Distance: 
+head: 0.2560878
+right:1.046067
+left:0.2910496
+Rotated Angle: 
+head: 105.2066
+right:178.5219
+left:35.88464
+Moved Distance: 
+head: 0.09870626
+right:0.4433934
+left:0.1035944
+Rotated Angle: 
+head: 26.40393
+right:41.14835
+left:6.961584
+Moved Distance: 
+head: 0.1949462
+right:1.864323
+left:0.2653759
+Rotated Angle: 
+head: 35.27357
+right:253.4211
+left:22.60804
+Moved Distance: 
+head: 0.2490836
+right:1.528839
+left:0.7313458
+Rotated Angle: 
+head: 44.33427
+right:294.8295
+left:191.4615
+Moved Distance: 
+head: 0.116467
+right:1.09691
+left:0.127596
+Rotated Angle: 
+head: 9.974444
+right:131.9363
+left:20.61586
+Moved Distance: 
+head: 0.1217827
+right:1.23488
+left:0.1609253
+Rotated Angle: 
+head: 13.1984
+right:191.0853
+left:20.1155
+Moved Distance: 
+head: 0.1010102
+right:1.104017
+left:0.1152771
+Rotated Angle: 
+head: 11.24051
+right:143.3644
+left:38.51114
+Moved Distance: 
+head: 0.1401378
+right:1.398423
+left:0.1477131
+Rotated Angle: 
+head: 32.25506
+right:199.8012
+left:61.80193
+Moved Distance: 
+head: 0.1307357
+right:1.53872
+left:0.1290622
+Rotated Angle: 
+head: 22.30023
+right:290.9084
+left:42.83444
+all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368all distance and rotate angle
+Moved Distance: 
+head: 6.604393
+right:23.06409
+left:7.3637
+Rotated Angle: 
+head: 1053.967
+right:3775.441
+left:1403.368

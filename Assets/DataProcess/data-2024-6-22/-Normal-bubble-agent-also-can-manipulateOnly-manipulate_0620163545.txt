@@ -1,0 +1,4504 @@
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+FineManipulateTimeStart:0
+allManipulateTime:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+FineManipulateTimeStart:9.654151
+allManipulateTime:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+FineManipulateTimeStart:14.07243
+allManipulateTime:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+FineManipulateTimeStart:21.57305
+allManipulateTime:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+FineManipulateTimeStart:25.47605
+allManipulateTime:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+FineManipulateTimeStart:29.04554
+allManipulateTime:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+FineManipulateTimeStart:36.49028
+allManipulateTime:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+FineManipulateTimeStart:44.36524
+allManipulateTime:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+FineManipulateTimeStart:48.3233
+allManipulateTime:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+FineManipulateTimeStart:59.74081
+allManipulateTime:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+FineManipulateTimeStart:67.94894
+allManipulateTime:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+FineManipulateTimeStart:71.28219
+allManipulateTime:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+FineManipulateTimeStart:79.53173
+allManipulateTime:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+FineManipulateTimeStart:85.71352
+allManipulateTime:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+FineManipulateTimeStart:91.50539
+allManipulateTime:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+FineManipulateTimeStart:96.47807
+allManipulateTime:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+FineManipulateTimeStart:101.5332
+allManipulateTime:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+FineManipulateTimeStart:106.6286
+allManipulateTime:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+FineManipulateTimeStart:115.9905
+allManipulateTime:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.1589
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.1891
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.2025
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.2123
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.2241
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.237
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.2488
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.2638
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.2804
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.2932
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.3076
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.3213
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.3357
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.351
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.3659
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.3779
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.3902
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.4035
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.4173
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.4323
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.4487
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.4617
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.4746
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.4881
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.5004
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.5175
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.5333
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.5454
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.5573
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.5717
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.5848
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.6001
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.6169
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.6297
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.641
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.6548
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.6679
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.682
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.6996
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.7121
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.7234
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.7381
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.7506
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.765
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.7828
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.7962
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.8081
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.821
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.8356
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.8504
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.8661
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.8784
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.8906
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.9048
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.9183
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.9335
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.9501
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.9622
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.975
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:120.9885
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.0008
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.0174
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.0338
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.0457
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.0572
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.072
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.0843
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1001
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1169
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1292
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1412
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1555
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1678
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1828
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.1998
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.2116
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.2247
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.2391
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.2518
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.2663
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.2833
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.2958
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.309
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.3215
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.3354
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.3509
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.3664
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.3785
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.3916
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.4052
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.419
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.4353
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.4508
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.4627
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.4754
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.4883
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.501
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.5177
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.5333
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.546
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.5576
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.5717
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.5852
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.6003
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.6176
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.6301
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.6414
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.655
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.6678
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.6819
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.6996
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.7122
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.7238
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.7378
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.7508
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.7655
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.783
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.7957
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.8078
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.821
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.8414
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.8523
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.864
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.8767
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.8886
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.9068
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.9179
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.9318
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.9451
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.9641
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.9748
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:121.9891
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.0044
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.0177
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.0291
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.0415
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.0622
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.0711
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.0844
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.1012
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.1132
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.1248
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.1395
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.1599
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.1688
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.182
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.1997
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.2093
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.223
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.2413
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.2509
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.2648
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.2826
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.2927
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.3069
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.324
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.3351
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.3491
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.3655
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.3761
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.3897
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.4067
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.4182
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.4321
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.4492
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.4602
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.4739
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.491
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5021
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5194
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5291
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5459
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5586
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5706
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5879
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.5989
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.6163
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.6285
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.6403
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.6571
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.6703
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.6813
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.6982
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.711
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.7232
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.7403
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.7528
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.765
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.7822
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.7954
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.8075
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.8234
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.8403
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.8495
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.8656
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.8778
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.8896
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.9061
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.9194
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.9316
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.9477
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.9614
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.9751
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:122.9907
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.0032
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.016
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.0321
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.0446
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.0577
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.0749
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.0877
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.0991
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.1181
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.1307
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.1415
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.1574
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.1692
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.1826
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.199
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.2121
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.2242
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.2411
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.2539
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.2668
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.2824
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.2967
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.3094
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.324
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.3369
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.3498
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.3653
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.3785
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.3914
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.4074
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.4209
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.4335
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.45
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.4624
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.4764
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.4912
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5043
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5171
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5332
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5461
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5587
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5752
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5889
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.5996
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.6173
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.6302
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.6413
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.6583
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.6708
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.6827
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.699
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.7115
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.7242
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.7414
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.7536
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.7661
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.7837
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.7962
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.8118
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.8225
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.8422
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.8492
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.8668
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.8772
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.8936
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.9054
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.9218
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.9341
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.9514
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.9629
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.9804
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:123.9908
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.0076
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.0197
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.0462
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.0572
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.0742
+FineManipulateTimeStart:120.1434
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.0845
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.0989
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.1118
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.1242
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.1414
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.1549
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.1697
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.1828
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.1957
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.2116
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.2245
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.2383
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.2545
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.2681
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.2797
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.2968
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.3102
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.321
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.338
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.351
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.3627
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.379
+Moved Distance head:3.79874
+Moved Distance right:17.83805
+Moved Distance left:4.126873
+Rotated Angle head:323.7871
+Rotated Angle right:3420.742
+Rotated Angle left:867.9965
+all selection time:124.3918
