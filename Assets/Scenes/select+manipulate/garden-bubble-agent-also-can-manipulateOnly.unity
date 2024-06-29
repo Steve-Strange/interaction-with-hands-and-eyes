@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 19786615}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (29)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -742,7 +742,7 @@ Transform:
   m_GameObject: {fileID: 19786613}
   m_LocalRotation: {x: -0, y: -0.571442, z: -0, w: 0.82064253}
   m_LocalPosition: {x: 0.41899967, y: -1.562, z: 2.06}
-  m_LocalScale: {x: 0.32261336, y: 0.04889943, z: 0.7034599}
+  m_LocalScale: {x: 0.32261342, y: 0.04889943, z: 0.70346004}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 25185502}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (32)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1564,7 +1564,7 @@ Transform:
   m_GameObject: {fileID: 28344578}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 9.057899, y: -2.0931, z: 4.6721}
-  m_LocalScale: {x: 1.4385685, y: 1.4385684, z: 1.4385684}
+  m_LocalScale: {x: 1.4385685, y: 1.4385681, z: 1.4385681}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -2259,7 +2259,7 @@ GameObject:
   - component: {fileID: 46702882}
   m_Layer: 7
   m_Name: Claypot 1 (3)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4755,7 +4755,7 @@ GameObject:
   - component: {fileID: 97545073}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (36)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5637,7 +5637,7 @@ GameObject:
   - component: {fileID: 126731347}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (33)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10174,7 +10174,7 @@ GameObject:
   - component: {fileID: 356618443}
   m_Layer: 7
   m_Name: Plant_FlowersRedBush6 (2)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10188,7 +10188,7 @@ Transform:
   m_GameObject: {fileID: 356618441}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 11.83, y: -2.0317, z: 0.6343}
-  m_LocalScale: {x: 0.3646771, y: 0.36467707, z: 0.36467707}
+  m_LocalScale: {x: 0.3646771, y: 0.364677, z: 0.364677}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -11533,7 +11533,7 @@ GameObject:
   - component: {fileID: 400194846}
   m_Layer: 7
   m_Name: Claypot (12)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14355,7 +14355,7 @@ GameObject:
   - component: {fileID: 514879721}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (34)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16532,7 +16532,7 @@ GameObject:
   - component: {fileID: 582809889}
   m_Layer: 7
   m_Name: Claypot (15)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18366,7 +18366,7 @@ GameObject:
   - component: {fileID: 650079997}
   m_Layer: 7
   m_Name: Claypot (11)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21220,7 +21220,7 @@ Transform:
   m_GameObject: {fileID: 745772865}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -3.5728006, y: -2.1178, z: 2.6096}
-  m_LocalScale: {x: 1.4385685, y: 1.4385684, z: 1.4385684}
+  m_LocalScale: {x: 1.4385685, y: 1.4385681, z: 1.4385681}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -22360,7 +22360,7 @@ GameObject:
   - component: {fileID: 788713050}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (40)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24366,7 +24366,7 @@ GameObject:
   - component: {fileID: 847510962}
   m_Layer: 7
   m_Name: Plant_Lily
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24380,7 +24380,7 @@ Transform:
   m_GameObject: {fileID: 847510960}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 11.510799, y: -1.9038999, z: 1.1119001}
-  m_LocalScale: {x: 0.71928424, y: 0.7192842, z: 1.1508548}
+  m_LocalScale: {x: 0.71928424, y: 0.71928406, z: 1.1508548}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -26178,7 +26178,7 @@ GameObject:
   - component: {fileID: 948478416}
   m_Layer: 7
   m_Name: Claypot (14)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27019,7 +27019,7 @@ GameObject:
   - component: {fileID: 977475872}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (38)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28276,7 +28276,7 @@ GameObject:
   - component: {fileID: 1016665477}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (35)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28859,7 +28859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c3692051ab4204b913633b7989476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userName: dyh
+  userName: zjkbuble
   sampleType: 2
   scene: {fileID: 1390440837}
   targetGameobject: []
@@ -30762,7 +30762,7 @@ GameObject:
   - component: {fileID: 1126770310}
   m_Layer: 7
   m_Name: Plant_Fern (2)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30776,7 +30776,7 @@ Transform:
   m_GameObject: {fileID: 1126770308}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 11.305599, y: -1.9391999, z: 0.5178001}
-  m_LocalScale: {x: 0.71928424, y: 0.7192842, z: 1.4385684}
+  m_LocalScale: {x: 0.71928424, y: 0.71928406, z: 1.4385681}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -32324,7 +32324,7 @@ GameObject:
   - component: {fileID: 1174117349}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (37)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33002,7 +33002,7 @@ Transform:
   m_GameObject: {fileID: 1213525036}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 16.7165, y: -2.0931, z: 0.93200004}
-  m_LocalScale: {x: 1.4385685, y: 1.4385684, z: 1.4385684}
+  m_LocalScale: {x: 1.4385685, y: 1.4385681, z: 1.4385681}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -35055,7 +35055,7 @@ GameObject:
   - component: {fileID: 1285866943}
   m_Layer: 7
   m_Name: Claypot (16)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37588,7 +37588,7 @@ GameObject:
   - component: {fileID: 1362572656}
   m_Layer: 7
   m_Name: Plant_Bush (12)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38284,7 +38284,7 @@ GameObject:
   - component: {fileID: 1382744657}
   m_Layer: 7
   m_Name: Claypot (13)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39523,9 +39523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recorder: {fileID: 1035733919}
-  test: {fileID: 557083286}
-  test1: {fileID: 1647483541}
-  t: {fileID: 74577242}
   manipulates: {fileID: 280401044}
   rightThumb: {fileID: 1215878225}
   rightIndex: {fileID: 1215878224}
@@ -39979,7 +39976,7 @@ GameObject:
   - component: {fileID: 1425179442}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (41)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42988,7 +42985,7 @@ GameObject:
   - component: {fileID: 1526149837}
   m_Layer: 7
   m_Name: Plant_Fern (3)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43002,7 +42999,7 @@ Transform:
   m_GameObject: {fileID: 1526149835}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 11.119999, y: -1.9705, z: 1.3982}
-  m_LocalScale: {x: 0.71928424, y: 0.7192842, z: 1.4385684}
+  m_LocalScale: {x: 0.71928424, y: 0.71928406, z: 1.4385681}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 880142856}
@@ -43424,7 +43421,7 @@ GameObject:
   - component: {fileID: 1531198773}
   m_Layer: 7
   m_Name: Claypot (10)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48380,7 +48377,7 @@ GameObject:
   - component: {fileID: 1698340299}
   m_Layer: 7
   m_Name: Claypot 1 (2)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49831,7 +49828,7 @@ GameObject:
   - component: {fileID: 1751848295}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (30)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54322,7 +54319,7 @@ GameObject:
   - component: {fileID: 1967223908}
   m_Layer: 7
   m_Name: Porch_Floor_3x2 (31)
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57385,7 +57382,7 @@ GameObject:
   - component: {fileID: 2094278529}
   m_Layer: 7
   m_Name: Claypot 1
-  m_TagString: Target
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

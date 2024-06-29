@@ -50,7 +50,7 @@ public class Bubble : MonoBehaviour
         if(recorder.GetComponent<singleSelect>().sampleType !=0 )
         {
             FindChilds(GameObject.Find("manipulate"));
-            FindChilds(GameObject.Find("others"));
+           // FindChilds(GameObject.Find("others"));
         }else
         {
             FindChilds(ObjectsSelectOnly);//在仅选择下
