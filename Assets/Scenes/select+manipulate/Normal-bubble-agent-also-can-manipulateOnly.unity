@@ -2995,8 +2995,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4824254133024328334, guid: 508151d47318fad4a80650416f581238, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 508151d47318fad4a80650416f581238, type: 3}
+--- !u!1 &391507352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4824254132935756448, guid: 508151d47318fad4a80650416f581238, type: 3}
+  m_PrefabInstance: {fileID: 391507351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &398450175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7710,6 +7719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userName: wzt
   sampleType: 1
+  scene: {fileID: 391507352}
   targetGameobject: []
   MovingRecorder: {fileID: 1035733919}
   timer: 0
@@ -7750,9 +7760,6 @@ MonoBehaviour:
   head: {fileID: 409862014}
   leftHand: {fileID: 2049772281}
   rightHand: {fileID: 1215878220}
-  emptyHead: {fileID: 892010856}
-  emptyRight: {fileID: 1111602894}
-  emptyLeft: {fileID: 1702978302}
   MovingData: 
 --- !u!1 &1044741116
 GameObject:
@@ -8566,7 +8573,6 @@ GameObject:
   - component: {fileID: 1101435281}
   - component: {fileID: 1101435280}
   - component: {fileID: 1101435279}
-  - component: {fileID: 1101435278}
   - component: {fileID: 1101435277}
   m_Layer: 7
   m_Name: Sphere (7
@@ -8608,19 +8614,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &1101435278
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101435275}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &1101435279
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11378,7 +11371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398386137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.821, z: -7.211}
+  m_LocalPosition: {x: 0, y: -1.64, z: -7.211}
   m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_ConstrainProportionsScale: 0
   m_Children:

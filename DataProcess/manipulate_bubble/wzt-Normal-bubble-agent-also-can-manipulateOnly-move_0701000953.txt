@@ -1,0 +1,6 @@
+Moved Distance head:5.471523
+Moved Distance right:19.45341
+Moved Distance left:4.775543
+Rotated Angle head:644.8814
+Rotated Angle right:2861.177
+Rotated Angle left:863.3063

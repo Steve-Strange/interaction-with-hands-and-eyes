@@ -135,11 +135,6 @@ public class Bubble : MonoBehaviour
 
     void Start()
     {
-
-  
-
-
-
         if (recorder.GetComponent<singleSelect>().sampleType == 1)
         {//仅操纵，根本就不出现这个脚本
             gameObject.SetActive(false);

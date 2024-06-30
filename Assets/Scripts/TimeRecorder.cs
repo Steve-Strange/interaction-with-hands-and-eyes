@@ -11,7 +11,7 @@ public class TimeRecorder : MonoBehaviour
 
     public List<GameObject> CompleteObjects = new List<GameObject>();
     // public TMP_InputField log;
-    public GameObject scene;
+    private GameObject scene;
     private GameObject HandPoseManager;
 
     private string folderPath;
@@ -24,6 +24,7 @@ public class TimeRecorder : MonoBehaviour
 
     void Start()
     {
+        scene = GameObject.Find("Scene");
         HandPoseManager = GameObject.Find("HandPoseManager");
         MovingRecorder = GameObject.Find("MovingRecorder");
 

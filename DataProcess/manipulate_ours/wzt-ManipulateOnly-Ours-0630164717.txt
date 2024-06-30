@@ -1,0 +1,54 @@
+ChangePhase 1: 0.01384542
+allbeginFineManipulateTime: 7.656761
+allManipulateTime: 8.58925
+allbeginFineManipulateTime: 10.50563
+allManipulateTime: 12.97923
+allbeginFineManipulateTime: 14.62026
+allManipulateTime: 14.62026
+allbeginFineManipulateTime: 18.85574
+allManipulateTime: 20.71765
+allbeginFineManipulateTime: 22.60464
+allManipulateTime: 22.60464
+allbeginFineManipulateTime: 26.62029
+allManipulateTime: 29.68917
+allbeginFineManipulateTime: 35.21679
+allManipulateTime: 41.91189
+allbeginFineManipulateTime: 46.46715
+allManipulateTime: 53.98054
+allbeginFineManipulateTime: 56.61981
+allManipulateTime: 58.03768
+allbeginFineManipulateTime: 61.67475
+allManipulateTime: 63.20372
+allbeginFineManipulateTime: 66.8437
+allManipulateTime: 69.12185
+allbeginFineManipulateTime: 72.49681
+allManipulateTime: 73.6356
+allbeginFineManipulateTime: 82.85889
+allManipulateTime: 84.38782
+allbeginFineManipulateTime: 86.27718
+allManipulateTime: 88.72078
+allbeginFineManipulateTime: 95.33171
+allManipulateTime: 96.47029
+allbeginFineManipulateTime: 98.95499
+allManipulateTime: 100.3039
+allbeginFineManipulateTime: 103.3571
+allManipulateTime: 107.3999
+allbeginFineManipulateTime: 111.4569
+allManipulateTime: 111.4569
+allbeginFineManipulateTime: 115.48
+allManipulateTime: 116.578
+allbeginFineManipulateTime: 119.4691
+allManipulateTime: 120.4282
+allbeginFineManipulateTime: 123.3427
+allManipulateTime: 125.2051
+allbeginFineManipulateTime: 127.6773
+allManipulateTime: 128.428
+finish all
+Selection Time: 0.01384542
+Manipulation Time: 128.428
+Moved Distance head:6.206753
+Moved Distance right:13.17753
+Moved Distance left:5.762132
+Rotated Angle head:1454.212
+Rotated Angle right:2621.803
+Rotated Angle left:1312.479

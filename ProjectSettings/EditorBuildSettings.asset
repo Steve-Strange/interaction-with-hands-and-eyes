@@ -36,14 +36,14 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Garden.unity
     guid: dcab795ee2291244d9fe99f17876a717
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/select+manipulate/Normal-bubble-agent-also-can-manipulateOnly.unity
     guid: 8fdf56756af864b4da6d4f44af4e4c91
   - enabled: 0
     path: Assets/Scenes/select+manipulate/City-bubble-agent-also-can-manipulateOnly
       1.unity
     guid: ec747e2f334bbcf44a9ffc01453d8ce9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/select+manipulate/DiningRoom-bubble-agent-also-can-manipulateOnly
       2.unity
     guid: 881f58c55c56961469d07bd2a83151f7
