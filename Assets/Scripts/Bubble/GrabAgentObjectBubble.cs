@@ -180,6 +180,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                     else if (recorder.GetComponent<singleSelect>().sampleType == 1)//manipulateOnly
                     {
                         AddOutline(MovingObject[0], Color.red);
+                        coarse = false;
                         MovingObject[0].GetComponent<Outline>().OutlineWidth = 5f;
                         finishNumber += 1;
                         recorder.GetComponent<singleSelect>().finishOneObject();
