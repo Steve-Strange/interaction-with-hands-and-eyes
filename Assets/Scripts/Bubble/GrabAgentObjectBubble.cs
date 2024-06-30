@@ -67,8 +67,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
             recorder.GetComponent<singleSelect>().finishAll();
             First = false;
         }
-        if (MovingObject.Count > 0)
-        {
+        if (MovingObject.Count > 0){
             if (TargetObjects[MovingObject[0]])
             {
                 AddOutline(TargetObjects[MovingObject[0]], Color.green);
@@ -144,6 +143,14 @@ public class GrabAgentObjectBubble : MonoBehaviour
                 {
                     MovingObject[0].GetComponent<Outline>().OutlineColor = Color.yellow;
                     MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
+                    if (coarse == false)
+                    {
+                        recorder.GetComponent<singleSelect>().finishCoarseOneObject();
+                        coarse = true;
+                    }
+
+                   // AddOutline(MovingObject[0], Color.yellow);
+                   // MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
                 }
                 else
                 {
@@ -197,7 +204,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
                 }
                 else if (Vector3.Distance(MovingObject[0].transform.position, TargetObjects[MovingObject[0]].transform.position) < (MovingObject[0].transform.GetComponent<Renderer>().bounds.size.x + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.y + MovingObject[0].transform.GetComponent<Renderer>().bounds.size.z) / 3f)
                 {
-                    if (coarse == false)
+                   /* if (coarse == false)
                     {
                         recorder.GetComponent<singleSelect>().finishCoarseOneObject();
                         coarse = true;
@@ -205,6 +212,7 @@ public class GrabAgentObjectBubble : MonoBehaviour
 
                     AddOutline(MovingObject[0], Color.yellow);
                     MovingObject[0].GetComponent<Outline>().OutlineWidth = 4f;
+                   */
                 }
                 else
                 {
