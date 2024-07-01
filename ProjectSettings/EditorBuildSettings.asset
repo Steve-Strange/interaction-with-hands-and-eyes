@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DiningRoom.unity
     guid: 9345c6aee7ca4294abf0c02897ae4beb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SelectOnly/SelectCompare-bubble.unity
     guid: c12a5edad6b33ef40b556a89e820b7bf
   - enabled: 0
@@ -39,7 +39,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/select+manipulate/Normal-bubble-agent-also-can-manipulateOnly.unity
     guid: 8fdf56756af864b4da6d4f44af4e4c91
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/select+manipulate/City-bubble-agent-also-can-manipulateOnly
       1.unity
     guid: ec747e2f334bbcf44a9ffc01453d8ce9
