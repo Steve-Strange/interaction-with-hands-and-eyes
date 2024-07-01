@@ -1,0 +1,67 @@
+onPalmPoseStart: 2.43629
+allSelectionTime: 3.173067
+allSelectionTime: 3.892691
+allSelectionTime: 4.37566
+allSelectionTime: 5.20351
+allSelectionTime: 5.20351
+allSelectionTime: 6.216119
+allSelectionTime: 6.827747
+allSelectionTime: 6.827747
+onPalmPoseExit: 7.354921
+onSecondSelectionBGDisappear: 7.77208
+onPalmPoseStart: 9.527764
+allSelectionTime: 10.36023
+allSelectionTime: 11.21552
+allSelectionTime: 11.21552
+allSelectionTime: 11.21552
+allSelectionTime: 11.9935
+allSelectionTime: 11.9935
+onPalmPoseExit: 12.8923
+onSecondSelectionBGDisappear: 13.32023
+onPalmPoseStart: 16.25914
+allSelectionTime: 18.00716
+onPalmPoseExit: 18.41368
+onSecondSelectionBGDisappear: 18.81681
+allSelectionTime: 20.56358
+ChangePhase 1: 21.73842
+allbeginFineManipulateTime: 24.03265
+allManipulateTime: 24.03265
+allbeginFineManipulateTime: 27.77695
+allManipulateTime: 30.7515
+allbeginFineManipulateTime: 32.71194
+allManipulateTime: 34.14395
+allbeginFineManipulateTime: 36.116
+allManipulateTime: 38.12029
+allbeginFineManipulateTime: 39.99771
+allManipulateTime: 48.67246
+allbeginFineManipulateTime: 50.07654
+allManipulateTime: 50.07654
+allbeginFineManipulateTime: 53.80989
+allManipulateTime: 55.10087
+allbeginFineManipulateTime: 58.36092
+allManipulateTime: 60.85974
+allbeginFineManipulateTime: 62.5875
+allManipulateTime: 67.32983
+allbeginFineManipulateTime: 69.84478
+allManipulateTime: 73.07766
+allbeginFineManipulateTime: 76.09193
+allManipulateTime: 78.55742
+allbeginFineManipulateTime: 80.52055
+allManipulateTime: 82.68108
+allbeginFineManipulateTime: 87.02108
+allManipulateTime: 92.03442
+allbeginFineManipulateTime: 97.81512
+allManipulateTime: 100.478
+allbeginFineManipulateTime: 102.8223
+allManipulateTime: 102.8223
+allbeginFineManipulateTime: 105.8957
+allManipulateTime: 107.0783
+finish all
+Selection Time: 21.73842
+Manipulation Time: 87.96751
+Moved Distance head:5.510826
+Moved Distance right:9.168242
+Moved Distance left:4.192643
+Rotated Angle head:1175.348
+Rotated Angle right:2646.85
+Rotated Angle left:1117.609

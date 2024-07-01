@@ -1,0 +1,71 @@
+onPalmPoseStart: 2.887434
+allSelectionTime: 3.651649
+allSelectionTime: 4.111954
+allSelectionTime: 5.529225
+allSelectionTime: 5.865288
+allSelectionTime: 6.558465
+allSelectionTime: 6.558465
+allSelectionTime: 6.659824
+onPalmPoseExit: 6.703534
+onPalmPoseStart: 6.841547
+allSelectionTime: 7.087291
+allSelectionTime: 7.898251
+allSelectionTime: 7.898251
+onPalmPoseExit: 7.969463
+onPalmPoseStart: 8.098892
+onPalmPoseExit: 8.341734
+onSecondSelectionBGDisappear: 8.752028
+allSelectionTime: 9.878533
+onPalmPoseStart: 11.25977
+allSelectionTime: 12.36987
+allSelectionTime: 12.36987
+allSelectionTime: 13.11898
+allSelectionTime: 13.11898
+allSelectionTime: 13.11898
+allSelectionTime: 13.21964
+onPalmPoseExit: 13.98373
+onSecondSelectionBGDisappear: 14.39355
+ChangePhase 1: 15.07893
+allbeginFineManipulateTime: 20.55625
+allManipulateTime: 21.53882
+allbeginFineManipulateTime: 24.4388
+allManipulateTime: 29.04706
+allbeginFineManipulateTime: 32.51002
+allManipulateTime: 36.63041
+allbeginFineManipulateTime: 39.20544
+allManipulateTime: 41.54225
+allbeginFineManipulateTime: 44.62368
+allManipulateTime: 45.98905
+allbeginFineManipulateTime: 48.39928
+allManipulateTime: 49.23293
+allbeginFineManipulateTime: 51.45335
+allManipulateTime: 52.48881
+allbeginFineManipulateTime: 57.81107
+allManipulateTime: 59.0447
+allbeginFineManipulateTime: 61.05811
+allManipulateTime: 62.14347
+allbeginFineManipulateTime: 66.52763
+allManipulateTime: 70.78243
+allbeginFineManipulateTime: 73.69104
+allManipulateTime: 80.10288
+allbeginFineManipulateTime: 83.42258
+allManipulateTime: 86.10205
+allbeginFineManipulateTime: 88.32639
+allManipulateTime: 91.88636
+allbeginFineManipulateTime: 96.413
+allManipulateTime: 97.66922
+allbeginFineManipulateTime: 99.90459
+allManipulateTime: 105.2611
+allbeginFineManipulateTime: 107.2334
+allManipulateTime: 110.5976
+allbeginFineManipulateTime: 113.1172
+allManipulateTime: 117.7099
+finish all
+Selection Time: 15.07893
+Manipulation Time: 102.8983
+Moved Distance head:7.304702
+Moved Distance right:19.30578
+Moved Distance left:11.45265
+Rotated Angle head:1970.208
+Rotated Angle right:4437.782
+Rotated Angle left:3010.311
