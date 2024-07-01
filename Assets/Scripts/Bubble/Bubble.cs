@@ -387,11 +387,11 @@ public class Bubble : MonoBehaviour
                             round += 1;
                             if (round == 2){
                                 recorder.GetComponent<singleSelect>().writeFile("finish all");
-                                recorder.GetComponent<singleSelect>().writeFile("precision:"  + 30 * 1.0 / (wrongTime * 1.0 + 30) * 1.0);
+                                recorder.GetComponent<singleSelect>().writeFile("precision:"  + 30f / (wrongTime + 30f));
                                 recorder.GetComponent<singleSelect>().finishAll();//这个时候将总体的位移和角度变化也都写入
-                                autoGenerate.SetActive(false); 
+                                autoGenerate.SetActive(false);
                             }
-                              
+
                         }
                     }
                     else{
